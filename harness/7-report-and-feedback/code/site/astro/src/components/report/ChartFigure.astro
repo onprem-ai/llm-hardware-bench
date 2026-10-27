@@ -1,0 +1,76 @@
+---
+// A chart plus the numbers behind it.
+//
+// The <details> table is the point of this component: it puts every plotted
+// value into the DOM as text, so the measurements are indexable and quotable
+// rather than living only inside SVG geometry. It stays collapsed so the page
+// still reads as a report.
+import { renderChart, type ChartSeries, type ChartOptions } from '../../lib/chart';
+import { f } from '../../lib/report';
+
+interface Props {
+  heading?: string;
+  note?: string;
+  series: ChartSeries[];
+  axis: { ticks: number[]; max: number };
+  options?: ChartOptions;
+  /** Unit shown in the table header, e.g. "output tokens/s". */
+  unit?: string;
+  digits?: number;
+}
+
+const { heading, note, series, axis, options = {}, unit, digits = 2 } = Astro.props;
+const svg = renderChart(series, axis, options);
+
+// Union of concurrency values across series, so a metric missing at one point
+// still lines up in the table.
+const columns = [...new Set(series.flatMap((s) => s.data.map((d) => d.c)))].sort((a, b) => a - b);
+const populated = series.filter((s) => s.data.length > 0);
+const caption = heading ?? options.y ?? 'Measurements';
+---
+
+<figure class="chart-figure">
+  {heading && <figcaption class="chart-heading">{heading}</figcaption>}
+  <Fragment set:html={svg} />
+  {note && <p class="chart-note">{note}</p>}
+  {populated.length > 0 && (
+    <details class="chart-data">
+      <summary>Show data{unit ? ` (${unit})` : ''}</summary>
+      <div class="tablebox">
+        <table>
+          <caption class="sr-only">{caption} by global concurrency</caption>
+          <thead>
+            <tr>
+              <th scope="col">Concurrency</th>
+              {populated.map((s) => (
+                <Fragment>
+                  <th scope="col">{s.name}</th>
+                  <th scope="col">{s.name} range</th>
+                </Fragment>
+              ))}
+              <th scope="col">n</th>
+            </tr>
+          </thead>
+          <tbody>
+            {columns.map((c) => {
+              const cells = populated.map((s) => s.data.find((d) => d.c === c) ?? null);
+              const n = cells.find((d) => d !== null)?.n;
+              return (
+                <tr>
+                  <th scope="row">C{c}</th>
+                  {cells.map((d) => (
+                    <Fragment>
+                      <td>{d ? f(d.v, digits) : '—'}</td>
+                      <td>{d && d.min !== null && d.max !== null ? `${f(d.min, digits)}–${f(d.max, digits)}` : '—'}</td>
+                    </Fragment>
+                  ))}
+                  <td>{n ?? '—'}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    </details>
+  )}
+</figure>

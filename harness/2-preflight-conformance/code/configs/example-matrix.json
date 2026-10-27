@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "runtime_image": "REPLACE_WITH_IMMUTABLE_IMAGE_DIGEST",
+  "tools_root": "/opt/llm-bench-tools",
+  "nccl_tests_root": "/opt/llm-bench-tools/nccl-tests",
+  "p2p_binary": "/opt/llm-bench-tools/bin/p2p_matrix",
+  "message_range": {"begin": "8", "end": "1G", "factor": "2", "iterations": 20, "warmups": 5},
+  "groups": [
+    {"name": "tp4-numa0", "gpus": [0, 1, 2, 3], "expected_numa": 0},
+    {"name": "tp4-numa1", "gpus": [4, 5, 6, 7], "expected_numa": 1},
+    {"name": "tp4-cross-numa", "gpus": [0, 1, 4, 5], "expected_numa": null},
+    {"name": "all-eight", "gpus": [0, 1, 2, 3, 4, 5, 6, 7], "expected_numa": null}
+  ],
+  "cpu_policies": [
+    {"name": "unpinned", "cpus": null, "mems": null},
+    {"name": "numa0", "cpu_node": 0},
+    {"name": "numa1", "cpu_node": 1}
+  ],
+  "collectives": ["all_reduce_perf", "all_gather_perf", "reduce_scatter_perf"],
+  "environment": {
+    "NCCL_DEBUG": "INFO",
+    "NCCL_DEBUG_SUBSYS": "INIT,GRAPH,TUNING",
+    "NCCL_IB_DISABLE": "1"
+  }
+}

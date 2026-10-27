@@ -1,0 +1,46 @@
+{
+ "schema_version": 1,
+ "site": {
+  "title": "Frontier LLMs on Bare Metal",
+  "description": "Independent hardware-focused LLM inference capacity measurements across GPU servers and production-scale AI models, including Prefill, Decode, latency, power, efficiency, scheduler, PCIe, NCCL, and NUMA data.",
+  "canonical_url": null,
+  "language": "en",
+  "publisher": null
+ },
+ "devices": [
+  {
+   "label": "comino-8x",
+   "model": "Comino Grando 8x RTX 6000 Pro Blackwell",
+   "manufacturer": "Comino",
+   "summary": "Comino Grando with eight NVIDIA RTX PRO 6000 Blackwell Server Edition GPUs: benchmark results across frontier large language models.",
+   "image": "assets/comino-grando.jpg",
+   "specs": [
+    {
+     "label": "Accelerators",
+     "value": "8\u00d7 NVIDIA RTX PRO 6000 Blackwell Server Edition"
+    },
+    {
+     "label": "Aggregate VRAM",
+     "value": "768 GB"
+    },
+    {
+     "label": "CPU",
+     "value": "1\u00d7 AMD EPYC 9575F (64 cores, 128 threads)"
+    },
+    {
+     "label": "System RAM",
+     "value": "768 GB DDR5-5600 (8 of 12 channels)"
+    },
+    {
+     "label": "Interconnect",
+     "value": "PCIe Gen5 x16 per GPU, no NVLink"
+    }
+   ],
+   "benchmarks": [
+    "glm5.3/cold-20260924/publication.json",
+    "qwen3.8-flash-next/cold-20260924/publication.json"
+   ],
+   "order": 1
+  }
+ ]
+}

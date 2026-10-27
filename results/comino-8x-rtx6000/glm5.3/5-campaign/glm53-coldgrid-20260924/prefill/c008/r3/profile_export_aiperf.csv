@@ -1,0 +1,72 @@
+Metric,avg,min,max,sum,p1,p5,p10,p25,p50,p75,p90,p95,p99,std
+Active Decode Throughput (tokens/sec),18.72,0.00,129.57,,,,,,13.39,,36.51,50.06,77.09,15.20
+Active Decode Throughput Per User (tokens/sec/user),5.69,0.00,23.02,,,,,,4.45,,10.69,13.25,15.35,3.03
+Active Prefill Throughput (tokens/sec),5313.70,851.11,10713.45,,,,,,5291.52,,8314.28,9389.43,10279.31,2012.17
+Active Prefill Throughput Per User (tokens/sec/user),1059.98,669.78,1828.97,,,,,,1055.43,,1307.00,1341.66,1465.82,166.57
+Active Total Throughput (tokens/sec),5331.41,12.14,10713.45,,,,,,5305.69,,8314.28,9402.56,10279.31,2004.24
+Credit-to-Start Latency (ms),0.38,0.29,0.92,61.36,0.30,0.31,0.31,0.33,0.37,0.39,0.43,0.50,0.86,0.11
+Decode Duration (ms),1162.10,0.00,2100.96,185935.41,0.00,447.30,481.94,889.19,1161.29,1424.67,1886.23,1987.52,2039.15,494.82
+E2E Output Token Throughput (tokens/sec/user),2.63,1.96,3.87,420.22,2.05,2.27,2.36,2.39,2.56,2.75,2.93,3.32,3.86,0.32
+Effective Concurrency,7.96,0.00,8.00,,,,,,8.00,,8.00,8.00,8.00,0.24
+Effective Decode Concurrency,3.00,0.00,7.00,,,,,,3.00,,5.00,6.00,7.00,1.56
+Effective Decode Throughput (tokens/sec),17.72,0.00,129.57,,,,,,12.86,,35.57,50.06,77.09,15.37
+Effective Decode Throughput Per User (tokens/sec/user),5.38,0.00,23.02,,,,,,4.40,,10.10,13.25,15.35,3.22
+Effective Latency (CO-aware) (ms),3087.92,2066.15,4082.92,494067.01,2075.15,2411.77,2728.30,2908.39,3130.18,3348.58,3394.84,3532.55,3908.67,344.99
+Effective Prefill Concurrency,4.97,0.00,8.00,,,,,,5.00,,7.00,8.00,8.00,1.57
+Effective Prefill Throughput (tokens/sec),5313.52,0.00,10713.45,,,,,,5291.52,,8314.28,9389.43,10279.31,2012.37
+Effective Prefill Throughput Per User (tokens/sec/user),1059.95,0.00,1828.97,,,,,,1055.43,,1307.00,1341.66,1465.82,166.67
+Effective Total Throughput (tokens/sec),5331.24,0.00,10713.45,,,,,,5305.69,,8314.28,9402.56,10279.31,2004.44
+HTTP Blocked (ms),0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
+HTTP Chunks Received,2.96,1.00,4.00,474.00,1.00,2.00,2.00,3.00,3.00,3.00,4.00,4.00,4.00,0.71
+HTTP Chunks Sent,1.00,1.00,1.00,160.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00,0.00
+HTTP Connecting (ms),0.07,0.00,1.73,11.96,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.06,1.68,0.33
+HTTP Connection Overhead (ms),0.07,0.00,1.73,11.96,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.06,1.68,0.33
+HTTP Connection Reused (ratio),0.95,0.00,1.00,152.00,0.00,0.95,1.00,1.00,1.00,1.00,1.00,1.00,1.00,0.22
+HTTP Data Received (KB),2.08,1.78,2.42,333.35,1.78,1.78,2.09,2.10,2.10,2.10,2.10,2.10,2.42,0.10
+HTTP Data Sent (KB),8.93,7.93,9.71,1428.38,8.09,8.39,8.59,8.74,8.92,9.11,9.30,9.44,9.58,0.30
+HTTP DNS Lookup (ms),0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
+HTTP Duration (excl. conn) (ms),3087.47,2065.74,4082.55,493996.00,2074.70,2411.41,2727.94,2907.97,3129.72,3348.15,3394.45,3531.57,3908.29,344.97
+HTTP Receiving (ms),1162.10,0.00,2100.98,185935.89,0.00,447.30,481.94,889.22,1161.30,1424.67,1886.23,1987.52,2039.15,494.82
+HTTP Sending (ms),0.20,0.10,2.12,32.52,0.10,0.11,0.11,0.11,0.12,0.12,0.14,0.23,2.04,0.38
+HTTP Total Time (ms),3087.55,2065.74,4082.55,494007.96,2074.70,2411.41,2727.94,2907.97,3129.72,3348.15,3394.45,3533.20,3908.29,345.01
+HTTP Waiting (TTFB) (ms),1925.17,770.11,3073.48,308027.59,917.39,960.93,1372.86,1577.57,1996.56,2260.06,2486.53,2494.40,3073.35,472.32
+Input Sequence Length (tokens),2060.00,2060.00,2060.00,329600.00,2060.00,2060.00,2060.00,2060.00,2060.00,2060.00,2060.00,2060.00,2060.00,0.00
+Inter Chunk Latency (ms),393.93,0.00,1311.95,185935.41,0.00,0.00,0.00,0.00,450.05,602.02,797.36,967.98,1029.55,325.93
+Inter Token Latency (ms),166.01,0.00,300.14,26562.20,0.00,63.90,68.85,127.03,165.90,203.52,269.46,283.93,291.31,70.69
+OSL Mismatch Diff % (%),0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
+Output Sequence Length (tokens),8.00,8.00,8.00,1280.00,8.00,8.00,8.00,8.00,8.00,8.00,8.00,8.00,8.00,0.00
+Output Token Count (tokens),8.00,8.00,8.00,1280.00,8.00,8.00,8.00,8.00,8.00,8.00,8.00,8.00,8.00,0.00
+Output Token Throughput Per User (tokens/sec/user),7.30,3.33,17.01,1146.28,3.43,3.52,3.71,4.83,6.02,7.52,13.92,15.35,15.76,3.81
+Prefill Throughput Per User (tokens/sec/user),1154.32,669.76,2669.34,184692.00,669.78,825.80,828.39,911.45,1031.68,1305.67,1500.33,2143.39,2250.05,369.48
+Request Latency (ms),3087.54,2065.79,4082.60,494005.65,2074.76,2411.46,2727.99,2908.02,3129.78,3348.19,3394.50,3531.78,3908.36,344.98
+Time to First Token (ms),1925.44,771.73,3075.71,308070.24,917.60,961.10,1373.03,1577.74,1996.74,2260.22,2486.75,2494.56,3075.63,472.44
+Time to Second Token (ms),463.65,0.00,1272.01,74183.93,0.00,0.00,0.00,0.00,544.01,663.99,960.01,967.99,1271.99,349.20
+Tokens In Flight (tokens),16414.79,0.00,16505.67,,,,,,16488.67,,16499.00,16500.33,16501.33,505.32
+Usage Completion Tokens (tokens),8.00,8.00,8.00,1280.00,8.00,8.00,8.00,8.00,8.00,8.00,8.00,8.00,8.00,0.00
+Usage Prompt Cache Read Tokens (tokens),0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
+Usage Prompt Tokens (tokens),2060.00,2060.00,2060.00,329600.00,2060.00,2060.00,2060.00,2060.00,2060.00,2060.00,2060.00,2060.00,2060.00,0.00
+Usage Total Tokens (tokens),2068.00,2068.00,2068.00,330880.00,2068.00,2068.00,2068.00,2068.00,2068.00,2068.00,2068.00,2068.00,2068.00,0.00
+
+Metric,Value
+Benchmark Duration (sec),62.03
+Completed Requests (Success + Error),160.00
+E2E Normalized Interactivity p75 (tokens/sec/user),2.39
+E2E Normalized Interactivity p90 (tokens/sec/user),2.36
+Input Token Throughput (tokens/sec),5313.52
+OSL Mismatch Count,0.00
+Output Token Throughput (tokens/sec),20.64
+Overall Usage Prompt Cache Read % (%),0.00
+Request Count,160.00
+Request Error Rate (%),0.00
+Request Throughput (requests/sec),2.58
+Total Input Sequence Length (tokens),329600.00
+Total Output Sequence Length (tokens),1280.00
+Total Output Tokens (tokens),1280.00
+Total Token Throughput (tokens/sec),5334.16
+Total Usage Completion Tokens (tokens),1280.00
+Total Usage Prompt Cache Read Tokens (tokens),0.00
+Total Usage Prompt Tokens (tokens),329600.00
+Total Usage Total Tokens (tokens),330880.00
+
+
+Endpoint,GPU_Index,GPU_Name,GPU_UUID,Platform,Metric,avg,min,max,sum,p1,p5,p10,p25,p50,p75,p90,p95,p99,std

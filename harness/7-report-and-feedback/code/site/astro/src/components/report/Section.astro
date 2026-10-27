@@ -1,0 +1,69 @@
+---
+// One report section: eyebrow, heading, and its chart grid.
+//
+// Charts marked `tabbed` are emitted twice, once per kind, wrapped in
+// .panel-decode / .panel-prefill. A pair of radio inputs at the report root
+// shows one panel at a time via sibling selectors, so the decode/prefill tab
+// works without JavaScript and both variants stay in the DOM for indexing.
+import ChartFigure from './ChartFigure.astro';
+import KindTabs from './KindTabs.astro';
+import { resolveSeries, type NormalizedData } from '../../lib/report';
+import type { SectionSpec } from '../../lib/catalogue';
+
+interface Props {
+  section: SectionSpec;
+  data: NormalizedData;
+  axis: { ticks: number[]; max: number };
+}
+
+const { section, data, axis } = Astro.props;
+const hasTabs = section.charts.some((chart) => chart.tabbed);
+---
+
+<section id={section.id} class="report-section">
+  <div class="eyebrow">{section.eyebrow}</div>
+  <h2>{section.heading}</h2>
+  {section.intro && <p class="sub">{section.intro}</p>}
+  {hasTabs && <KindTabs />}
+
+  <div class="chart-grid">
+    {section.charts.map((chart) =>
+      chart.tabbed ? (
+        <Fragment>
+          <div class="panel panel-decode">
+            <ChartFigure
+              heading={chart.heading}
+              note={chart.note}
+              series={resolveSeries(data, chart.series, 'decode')}
+              axis={axis}
+              options={chart.options}
+              unit={chart.unit}
+              digits={chart.digits}
+            />
+          </div>
+          <div class="panel panel-prefill">
+            <ChartFigure
+              heading={chart.heading}
+              note={chart.note}
+              series={resolveSeries(data, chart.series, 'prefill')}
+              axis={axis}
+              options={chart.options}
+              unit={chart.unit}
+              digits={chart.digits}
+            />
+          </div>
+        </Fragment>
+      ) : (
+        <ChartFigure
+          heading={chart.heading}
+          note={chart.note}
+          series={resolveSeries(data, chart.series)}
+          axis={axis}
+          options={chart.options}
+          unit={chart.unit}
+          digits={chart.digits}
+        />
+      ),
+    )}
+  </div>
+</section>

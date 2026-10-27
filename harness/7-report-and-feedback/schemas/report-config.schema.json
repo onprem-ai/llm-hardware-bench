@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/llm-inference-hardware-bench/report-config.schema.json",
+  "title": "Comparable inference HTML report configuration",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "report", "source", "model", "hardware", "deployment", "axis", "metrics"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "report": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title", "output_filename", "comparable"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$"},
+        "title": {"type": "string", "minLength": 1},
+        "output_filename": {"type": "string", "pattern": "^[A-Za-z0-9._-]+\\.html$"},
+        "comparable": {"const": true},
+        "campaign_date": {"type": ["string", "null"]},
+        "subtitle": {"type": ["string", "null"]}
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["campaign_id", "campaign_path", "normalized_data"],
+      "properties": {
+        "campaign_id": {"type": "string", "minLength": 1},
+        "campaign_path": {"type": "string", "minLength": 1},
+        "normalized_data": {"type": "string", "minLength": 1}
+      }
+    },
+    "model": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["display_name", "repository", "revision", "served_name"],
+      "properties": {
+        "display_name": {"type": "string", "minLength": 1},
+        "repository": {"type": "string", "minLength": 1},
+        "revision": {"type": "string", "minLength": 7},
+        "served_name": {"type": "string", "minLength": 1},
+        "quantization": {"type": ["string", "null"]}
+      }
+    },
+    "hardware": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["host", "gpu_count", "gpu_model", "logical_cpu_count"],
+      "properties": {
+        "host": {"type": "string", "minLength": 1},
+        "gpu_count": {"type": "integer", "minimum": 1},
+        "gpu_model": {"type": "string", "minLength": 1},
+        "logical_cpu_count": {"type": "integer", "minimum": 1}
+      }
+    },
+    "deployment": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["topology_display", "replicas", "tensor_parallel_per_replica"],
+      "properties": {
+        "topology_display": {"type": "string", "minLength": 1},
+        "replicas": {"type": "integer", "minimum": 1},
+        "tensor_parallel_per_replica": {"type": "integer", "minimum": 1},
+        "max_model_len": {"type": ["integer", "null"], "minimum": 1},
+        "max_num_seqs_per_replica": {"type": ["integer", "null"], "minimum": 1},
+        "active_sequence_ceiling": {"type": ["integer", "null"], "minimum": 1},
+        "max_num_batched_tokens_per_replica": {"type": ["integer", "null"], "minimum": 1},
+        "kv_cache_dtype": {"type": ["string", "null"]},
+        "speculative_decoding": {"type": ["string", "null"]},
+        "cpu_numa_affinity": {"type": ["string", "null"]}
+      }
+    },
+    "axis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["measured_concurrency", "maximum", "major_ticks"],
+      "properties": {
+        "measured_concurrency": {
+          "type": "array", "minItems": 1, "uniqueItems": true,
+          "items": {"type": "integer", "minimum": 1}
+        },
+        "maximum": {"type": "integer", "minimum": 1},
+        "major_ticks": {
+          "type": "array", "minItems": 2, "uniqueItems": true,
+          "items": {"type": "integer", "minimum": 1}
+        }
+      }
+    },
+    "metrics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["energy_method", "loaded_idle_baseline", "temperature", "load_balancer", "pcie"],
+      "properties": {
+        "energy_method": {
+          "enum": ["dcgm_cumulative_energy_delta", "integrated_gpu_board_power", "unavailable"]
+        },
+        "loaded_idle_baseline": {"type": "boolean"},
+        "temperature": {"type": "boolean"},
+        "load_balancer": {"type": "boolean"},
+        "pcie": {"type": "boolean"}
+      }
+    },
+    "fabric_qualification_path": {"type": ["string", "null"]}, "provenance_notes": {"type": "array", "items": {"type": "string"}}
+  }
+}

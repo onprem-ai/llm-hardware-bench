@@ -1,0 +1,863 @@
+{
+  "campaign_id": "20260907-glm53-radixark-formal",
+  "campaign_path": "results/xe7740-8x-rtx6000/glm5.3/5-campaign/formal-20260907-freeze-contract.md",
+  "counts": {
+    "container_launches": 2,
+    "grid_points": 24,
+    "profiles": 3,
+    "runs": 84
+  },
+  "created_at": "2026-09-07T00:48:15Z",
+  "deployment": {
+    "request_path": "AIPerf -> model server (no HAProxy; approved contract deviation)",
+    "summary": "TP8 single replica, no load balancer, MAX_NUM_SEQS=128, cudagraph 512, MTP 3, GPU_MEMORY_UTILIZATION=0.95, 96 GiB host cap"
+  },
+  "host": "xe7740-04",
+  "model": "RadixArk/GLM-5.3-NVFP4",
+  "runs": [
+    {
+      "concurrency": 1,
+      "launch": "launch-2",
+      "manifest": "runs/balanced/c001/run-r1/manifest.json",
+      "profile": "balanced",
+      "repetition": 1,
+      "run_id": "balanced-c1-r1",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 1,
+      "launch": "launch-2",
+      "manifest": "runs/balanced/c001/run-r2/manifest.json",
+      "profile": "balanced",
+      "repetition": 2,
+      "run_id": "balanced-c1-r2",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 1,
+      "launch": "launch-2",
+      "manifest": "runs/balanced/c001/run-r3/manifest.json",
+      "profile": "balanced",
+      "repetition": 3,
+      "run_id": "balanced-c1-r3",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 8,
+      "launch": "launch-2",
+      "manifest": "runs/balanced/c008/run-r1/manifest.json",
+      "profile": "balanced",
+      "repetition": 1,
+      "run_id": "balanced-c8-r1",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 8,
+      "launch": "launch-2",
+      "manifest": "runs/balanced/c008/run-r2/manifest.json",
+      "profile": "balanced",
+      "repetition": 2,
+      "run_id": "balanced-c8-r2",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 8,
+      "launch": "launch-2",
+      "manifest": "runs/balanced/c008/run-r3/manifest.json",
+      "profile": "balanced",
+      "repetition": 3,
+      "run_id": "balanced-c8-r3",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 32,
+      "launch": "launch-2",
+      "manifest": "runs/balanced/c032/run-r1/manifest.json",
+      "profile": "balanced",
+      "repetition": 1,
+      "run_id": "balanced-c32-r1",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 32,
+      "launch": "launch-2",
+      "manifest": "runs/balanced/c032/run-r2/manifest.json",
+      "profile": "balanced",
+      "repetition": 2,
+      "run_id": "balanced-c32-r2",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 32,
+      "launch": "launch-2",
+      "manifest": "runs/balanced/c032/run-r3/manifest.json",
+      "profile": "balanced",
+      "repetition": 3,
+      "run_id": "balanced-c32-r3",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 64,
+      "launch": "launch-2",
+      "manifest": "runs/balanced/c064/run-r1/manifest.json",
+      "profile": "balanced",
+      "repetition": 1,
+      "run_id": "balanced-c64-r1",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 64,
+      "launch": "launch-2",
+      "manifest": "runs/balanced/c064/run-r2/manifest.json",
+      "profile": "balanced",
+      "repetition": 2,
+      "run_id": "balanced-c64-r2",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 64,
+      "launch": "launch-2",
+      "manifest": "runs/balanced/c064/run-r3/manifest.json",
+      "profile": "balanced",
+      "repetition": 3,
+      "run_id": "balanced-c64-r3",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 96,
+      "launch": "launch-2",
+      "manifest": "runs/balanced/c096/run-r1/manifest.json",
+      "profile": "balanced",
+      "repetition": 1,
+      "run_id": "balanced-c96-r1",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 96,
+      "launch": "launch-2",
+      "manifest": "runs/balanced/c096/run-r2/manifest.json",
+      "profile": "balanced",
+      "repetition": 2,
+      "run_id": "balanced-c96-r2",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 96,
+      "launch": "launch-2",
+      "manifest": "runs/balanced/c096/run-r3/manifest.json",
+      "profile": "balanced",
+      "repetition": 3,
+      "run_id": "balanced-c96-r3",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 96,
+      "launch": "launch-2",
+      "manifest": "runs/balanced/c096/run-r4/manifest.json",
+      "profile": "balanced",
+      "repetition": 4,
+      "run_id": "balanced-c96-r4",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 96,
+      "launch": "launch-2",
+      "manifest": "runs/balanced/c096/run-r5/manifest.json",
+      "profile": "balanced",
+      "repetition": 5,
+      "run_id": "balanced-c96-r5",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 128,
+      "launch": "launch-2",
+      "manifest": "runs/balanced/c128/run-r1/manifest.json",
+      "profile": "balanced",
+      "repetition": 1,
+      "run_id": "balanced-c128-r1",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 128,
+      "launch": "launch-2",
+      "manifest": "runs/balanced/c128/run-r2/manifest.json",
+      "profile": "balanced",
+      "repetition": 2,
+      "run_id": "balanced-c128-r2",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 128,
+      "launch": "launch-2",
+      "manifest": "runs/balanced/c128/run-r3/manifest.json",
+      "profile": "balanced",
+      "repetition": 3,
+      "run_id": "balanced-c128-r3",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 128,
+      "launch": "launch-2",
+      "manifest": "runs/balanced/c128/run-r4/manifest.json",
+      "profile": "balanced",
+      "repetition": 4,
+      "run_id": "balanced-c128-r4",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 128,
+      "launch": "launch-2",
+      "manifest": "runs/balanced/c128/run-r5/manifest.json",
+      "profile": "balanced",
+      "repetition": 5,
+      "run_id": "balanced-c128-r5",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 160,
+      "launch": "launch-2",
+      "manifest": "runs/balanced/c160/run-r1/manifest.json",
+      "profile": "balanced",
+      "repetition": 1,
+      "run_id": "balanced-c160-r1",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 160,
+      "launch": "launch-2",
+      "manifest": "runs/balanced/c160/run-r2/manifest.json",
+      "profile": "balanced",
+      "repetition": 2,
+      "run_id": "balanced-c160-r2",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 160,
+      "launch": "launch-2",
+      "manifest": "runs/balanced/c160/run-r3/manifest.json",
+      "profile": "balanced",
+      "repetition": 3,
+      "run_id": "balanced-c160-r3",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 192,
+      "launch": "launch-2",
+      "manifest": "runs/balanced/c192/run-r1/manifest.json",
+      "profile": "balanced",
+      "repetition": 1,
+      "run_id": "balanced-c192-r1",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 192,
+      "launch": "launch-2",
+      "manifest": "runs/balanced/c192/run-r2/manifest.json",
+      "profile": "balanced",
+      "repetition": 2,
+      "run_id": "balanced-c192-r2",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 192,
+      "launch": "launch-2",
+      "manifest": "runs/balanced/c192/run-r3/manifest.json",
+      "profile": "balanced",
+      "repetition": 3,
+      "run_id": "balanced-c192-r3",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 1,
+      "launch": "launch-1",
+      "manifest": "runs/decode/c001/run-r1/manifest.json",
+      "profile": "decode",
+      "repetition": 1,
+      "run_id": "decode-c1-r1",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 1,
+      "launch": "launch-1",
+      "manifest": "runs/decode/c001/run-r2/manifest.json",
+      "profile": "decode",
+      "repetition": 2,
+      "run_id": "decode-c1-r2",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 1,
+      "launch": "launch-1",
+      "manifest": "runs/decode/c001/run-r3/manifest.json",
+      "profile": "decode",
+      "repetition": 3,
+      "run_id": "decode-c1-r3",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 8,
+      "launch": "launch-1",
+      "manifest": "runs/decode/c008/run-r1/manifest.json",
+      "profile": "decode",
+      "repetition": 1,
+      "run_id": "decode-c8-r1",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 8,
+      "launch": "launch-1",
+      "manifest": "runs/decode/c008/run-r2/manifest.json",
+      "profile": "decode",
+      "repetition": 2,
+      "run_id": "decode-c8-r2",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 8,
+      "launch": "launch-1",
+      "manifest": "runs/decode/c008/run-r3/manifest.json",
+      "profile": "decode",
+      "repetition": 3,
+      "run_id": "decode-c8-r3",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 32,
+      "launch": "launch-1",
+      "manifest": "runs/decode/c032/run-r1/manifest.json",
+      "profile": "decode",
+      "repetition": 1,
+      "run_id": "decode-c32-r1",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 32,
+      "launch": "launch-1",
+      "manifest": "runs/decode/c032/run-r2/manifest.json",
+      "profile": "decode",
+      "repetition": 2,
+      "run_id": "decode-c32-r2",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 32,
+      "launch": "launch-1",
+      "manifest": "runs/decode/c032/run-r3/manifest.json",
+      "profile": "decode",
+      "repetition": 3,
+      "run_id": "decode-c32-r3",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 64,
+      "launch": "launch-1",
+      "manifest": "runs/decode/c064/run-r1/manifest.json",
+      "profile": "decode",
+      "repetition": 1,
+      "run_id": "decode-c64-r1",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 64,
+      "launch": "launch-1",
+      "manifest": "runs/decode/c064/run-r2/manifest.json",
+      "profile": "decode",
+      "repetition": 2,
+      "run_id": "decode-c64-r2",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 64,
+      "launch": "launch-1",
+      "manifest": "runs/decode/c064/run-r3/manifest.json",
+      "profile": "decode",
+      "repetition": 3,
+      "run_id": "decode-c64-r3",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 96,
+      "launch": "launch-1",
+      "manifest": "runs/decode/c096/run-r1/manifest.json",
+      "profile": "decode",
+      "repetition": 1,
+      "run_id": "decode-c96-r1",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 96,
+      "launch": "launch-1",
+      "manifest": "runs/decode/c096/run-r2/manifest.json",
+      "profile": "decode",
+      "repetition": 2,
+      "run_id": "decode-c96-r2",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 96,
+      "launch": "launch-1",
+      "manifest": "runs/decode/c096/run-r3/manifest.json",
+      "profile": "decode",
+      "repetition": 3,
+      "run_id": "decode-c96-r3",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 96,
+      "launch": "launch-1",
+      "manifest": "runs/decode/c096/run-r4/manifest.json",
+      "profile": "decode",
+      "repetition": 4,
+      "run_id": "decode-c96-r4",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 96,
+      "launch": "launch-1",
+      "manifest": "runs/decode/c096/run-r5/manifest.json",
+      "profile": "decode",
+      "repetition": 5,
+      "run_id": "decode-c96-r5",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 128,
+      "launch": "launch-1",
+      "manifest": "runs/decode/c128/run-r1/manifest.json",
+      "profile": "decode",
+      "repetition": 1,
+      "run_id": "decode-c128-r1",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 128,
+      "launch": "launch-1",
+      "manifest": "runs/decode/c128/run-r2/manifest.json",
+      "profile": "decode",
+      "repetition": 2,
+      "run_id": "decode-c128-r2",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 128,
+      "launch": "launch-1",
+      "manifest": "runs/decode/c128/run-r3/manifest.json",
+      "profile": "decode",
+      "repetition": 3,
+      "run_id": "decode-c128-r3",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 128,
+      "launch": "launch-1",
+      "manifest": "runs/decode/c128/run-r4/manifest.json",
+      "profile": "decode",
+      "repetition": 4,
+      "run_id": "decode-c128-r4",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 128,
+      "launch": "launch-1",
+      "manifest": "runs/decode/c128/run-r5/manifest.json",
+      "profile": "decode",
+      "repetition": 5,
+      "run_id": "decode-c128-r5",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 160,
+      "launch": "launch-1",
+      "manifest": "runs/decode/c160/run-r1/manifest.json",
+      "profile": "decode",
+      "repetition": 1,
+      "run_id": "decode-c160-r1",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 160,
+      "launch": "launch-1",
+      "manifest": "runs/decode/c160/run-r2/manifest.json",
+      "profile": "decode",
+      "repetition": 2,
+      "run_id": "decode-c160-r2",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 160,
+      "launch": "launch-1",
+      "manifest": "runs/decode/c160/run-r3/manifest.json",
+      "profile": "decode",
+      "repetition": 3,
+      "run_id": "decode-c160-r3",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 192,
+      "launch": "launch-1",
+      "manifest": "runs/decode/c192/run-r1/manifest.json",
+      "profile": "decode",
+      "repetition": 1,
+      "run_id": "decode-c192-r1",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 192,
+      "launch": "launch-1",
+      "manifest": "runs/decode/c192/run-r2/manifest.json",
+      "profile": "decode",
+      "repetition": 2,
+      "run_id": "decode-c192-r2",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 192,
+      "launch": "launch-1",
+      "manifest": "runs/decode/c192/run-r3/manifest.json",
+      "profile": "decode",
+      "repetition": 3,
+      "run_id": "decode-c192-r3",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 1,
+      "launch": "launch-2",
+      "manifest": "runs/prefill/c001/run-r1/manifest.json",
+      "profile": "prefill",
+      "repetition": 1,
+      "run_id": "prefill-c1-r1",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 1,
+      "launch": "launch-2",
+      "manifest": "runs/prefill/c001/run-r2/manifest.json",
+      "profile": "prefill",
+      "repetition": 2,
+      "run_id": "prefill-c1-r2",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 1,
+      "launch": "launch-2",
+      "manifest": "runs/prefill/c001/run-r3/manifest.json",
+      "profile": "prefill",
+      "repetition": 3,
+      "run_id": "prefill-c1-r3",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 8,
+      "launch": "launch-2",
+      "manifest": "runs/prefill/c008/run-r1/manifest.json",
+      "profile": "prefill",
+      "repetition": 1,
+      "run_id": "prefill-c8-r1",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 8,
+      "launch": "launch-2",
+      "manifest": "runs/prefill/c008/run-r2/manifest.json",
+      "profile": "prefill",
+      "repetition": 2,
+      "run_id": "prefill-c8-r2",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 8,
+      "launch": "launch-2",
+      "manifest": "runs/prefill/c008/run-r3/manifest.json",
+      "profile": "prefill",
+      "repetition": 3,
+      "run_id": "prefill-c8-r3",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 32,
+      "launch": "launch-2",
+      "manifest": "runs/prefill/c032/run-r1/manifest.json",
+      "profile": "prefill",
+      "repetition": 1,
+      "run_id": "prefill-c32-r1",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 32,
+      "launch": "launch-2",
+      "manifest": "runs/prefill/c032/run-r2/manifest.json",
+      "profile": "prefill",
+      "repetition": 2,
+      "run_id": "prefill-c32-r2",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 32,
+      "launch": "launch-2",
+      "manifest": "runs/prefill/c032/run-r3/manifest.json",
+      "profile": "prefill",
+      "repetition": 3,
+      "run_id": "prefill-c32-r3",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 64,
+      "launch": "launch-2",
+      "manifest": "runs/prefill/c064/run-r1/manifest.json",
+      "profile": "prefill",
+      "repetition": 1,
+      "run_id": "prefill-c64-r1",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 64,
+      "launch": "launch-2",
+      "manifest": "runs/prefill/c064/run-r2/manifest.json",
+      "profile": "prefill",
+      "repetition": 2,
+      "run_id": "prefill-c64-r2",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 64,
+      "launch": "launch-2",
+      "manifest": "runs/prefill/c064/run-r3/manifest.json",
+      "profile": "prefill",
+      "repetition": 3,
+      "run_id": "prefill-c64-r3",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 96,
+      "launch": "launch-2",
+      "manifest": "runs/prefill/c096/run-r1/manifest.json",
+      "profile": "prefill",
+      "repetition": 1,
+      "run_id": "prefill-c96-r1",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 96,
+      "launch": "launch-2",
+      "manifest": "runs/prefill/c096/run-r2/manifest.json",
+      "profile": "prefill",
+      "repetition": 2,
+      "run_id": "prefill-c96-r2",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 96,
+      "launch": "launch-2",
+      "manifest": "runs/prefill/c096/run-r3/manifest.json",
+      "profile": "prefill",
+      "repetition": 3,
+      "run_id": "prefill-c96-r3",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 96,
+      "launch": "launch-2",
+      "manifest": "runs/prefill/c096/run-r4/manifest.json",
+      "profile": "prefill",
+      "repetition": 4,
+      "run_id": "prefill-c96-r4",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 96,
+      "launch": "launch-2",
+      "manifest": "runs/prefill/c096/run-r5/manifest.json",
+      "profile": "prefill",
+      "repetition": 5,
+      "run_id": "prefill-c96-r5",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 128,
+      "launch": "launch-2",
+      "manifest": "runs/prefill/c128/run-r1/manifest.json",
+      "profile": "prefill",
+      "repetition": 1,
+      "run_id": "prefill-c128-r1",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 128,
+      "launch": "launch-2",
+      "manifest": "runs/prefill/c128/run-r2/manifest.json",
+      "profile": "prefill",
+      "repetition": 2,
+      "run_id": "prefill-c128-r2",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 128,
+      "launch": "launch-2",
+      "manifest": "runs/prefill/c128/run-r3/manifest.json",
+      "profile": "prefill",
+      "repetition": 3,
+      "run_id": "prefill-c128-r3",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 128,
+      "launch": "launch-2",
+      "manifest": "runs/prefill/c128/run-r4/manifest.json",
+      "profile": "prefill",
+      "repetition": 4,
+      "run_id": "prefill-c128-r4",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 128,
+      "launch": "launch-2",
+      "manifest": "runs/prefill/c128/run-r5/manifest.json",
+      "profile": "prefill",
+      "repetition": 5,
+      "run_id": "prefill-c128-r5",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 160,
+      "launch": "launch-2",
+      "manifest": "runs/prefill/c160/run-r1/manifest.json",
+      "profile": "prefill",
+      "repetition": 1,
+      "run_id": "prefill-c160-r1",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 160,
+      "launch": "launch-2",
+      "manifest": "runs/prefill/c160/run-r2/manifest.json",
+      "profile": "prefill",
+      "repetition": 2,
+      "run_id": "prefill-c160-r2",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 160,
+      "launch": "launch-2",
+      "manifest": "runs/prefill/c160/run-r3/manifest.json",
+      "profile": "prefill",
+      "repetition": 3,
+      "run_id": "prefill-c160-r3",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 192,
+      "launch": "launch-2",
+      "manifest": "runs/prefill/c192/run-r1/manifest.json",
+      "profile": "prefill",
+      "repetition": 1,
+      "run_id": "prefill-c192-r1",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 192,
+      "launch": "launch-2",
+      "manifest": "runs/prefill/c192/run-r2/manifest.json",
+      "profile": "prefill",
+      "repetition": 2,
+      "run_id": "prefill-c192-r2",
+      "schema_version": 1,
+      "status": "complete"
+    },
+    {
+      "concurrency": 192,
+      "launch": "launch-2",
+      "manifest": "runs/prefill/c192/run-r3/manifest.json",
+      "profile": "prefill",
+      "repetition": 3,
+      "run_id": "prefill-c192-r3",
+      "schema_version": 1,
+      "status": "complete"
+    }
+  ],
+  "schema_version": 1,
+  "spec_path": "results/xe7740-8x-rtx6000/concurrency-grids.yaml",
+  "status": "complete",
+  "updated_at": "2026-09-07T10:00:33.376827+00:00"
+}

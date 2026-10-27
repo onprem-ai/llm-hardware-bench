@@ -1,0 +1,80 @@
+---
+// Reproducibility section: the exact, pinned parameters for re-running the
+// benchmark — container identity, model pin, verbatim launch commands,
+// measurement client, and corpus. Rendered from publication.reproducibility,
+// whose launch commands are embedded verbatim from the tracked deployment
+// scripts (never paraphrased).
+interface Props {
+  publication: any;
+}
+
+const { publication } = Astro.props;
+const r = publication.reproducibility ?? null;
+
+const rows: { dt: string; dd: string; code?: boolean }[] = r
+  ? [
+      { dt: 'Container image', dd: r.container.image, code: true },
+      { dt: 'Base image', dd: r.container.base_image ?? 'n/a (registry image)', code: true },
+      { dt: 'Inference engine', dd: r.container.engine },
+      { dt: 'Build', dd: r.container.build ?? 'n/a (registry image)', code: true },
+      { dt: 'Model repository', dd: r.model.repository, code: true },
+      { dt: 'Model revision', dd: r.model.revision ?? 'unpinned', code: true },
+      { dt: 'Quantization / identity', dd: r.model.revision_note ?? 'n/a' },
+      { dt: 'Topology', dd: r.topology },
+      { dt: 'Measurement client', dd: `${r.client.tool} — version: ${r.client.version ?? 'unrecorded'}` },
+      { dt: 'Workloads', dd: r.client.workloads },
+      { dt: 'Prompt corpus', dd: `${r.corpus.source} — version: ${r.corpus.version ?? 'unrecorded'}${r.corpus.sha256 ? `, sha256 ${r.corpus.sha256.slice(0, 16)}…` : ''}` },
+      { dt: 'Deployment record', dd: r.source_record, code: true },
+    ]
+  : [];
+---
+
+{r && (
+  <section id="reproduce" class="report-section">
+    <div class="eyebrow">12 · Reproduce this benchmark</div>
+    <h2>Pinned deployment and measurement parameters</h2>
+    <p class="sub">
+      Everything needed to re-run this benchmark, to the extent it is knowable. Where a parameter could
+      not be pinned, the gap is named rather than smoothed over. The authority for the launch commands
+      below is the tracked deployment record, <code>{r.source_record}</code>.
+    </p>
+    <dl class="specs">
+      {rows.map((row) => (
+        <div>
+          <dt>{row.dt}</dt>
+          <dd>{row.code ? <code>{row.dd}</code> : row.dd}</dd>
+        </div>
+      ))}
+    </dl>
+
+    {r.launch.map((item: any) => (
+      <div class="note launch-note">
+        <b>Launch — {item.profile}</b>
+        {item.script && <p class="foot">Verbatim from <code>{item.script}</code></p>}
+        <pre><code>{item.command}</code></pre>
+      </div>
+    ))}
+
+    {r.container.caveats && (
+      <div class="callout">
+        <b>Reproduction caveats.</b> {r.container.caveats}
+      </div>
+    )}
+  </section>
+)}
+
+<style>
+  .launch-note pre {
+    overflow-x: auto;
+    background: rgba(127, 127, 127, 0.08);
+    border: 1px solid rgba(127, 127, 127, 0.25);
+    border-radius: 6px;
+    padding: 12px;
+    font-size: 12px;
+    line-height: 1.5;
+    margin: 8px 0 0;
+    white-space: pre;
+    tab-size: 2;
+  }
+  .launch-note code { font-size: 12px; }
+</style>

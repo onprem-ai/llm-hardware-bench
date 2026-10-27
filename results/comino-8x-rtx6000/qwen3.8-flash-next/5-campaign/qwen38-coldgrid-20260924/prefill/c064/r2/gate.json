@@ -1,0 +1,6 @@
+{
+  "kind": "prefill",
+  "client_cache_read_tokens": 0,
+  "pass": true,
+  "reason": "prefill profile requires zero client-side cache reads (radix disabled by launch)"
+}

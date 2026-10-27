@@ -1,0 +1,16 @@
+schema_version: 1
+campaign_id: 20260831-full-glm53-radixark-seq64-graph256-formal-direct
+study_id: xe7740
+status: active
+host: xe7740-04
+model: RadixArk/GLM-5.3-NVFP4
+revision: 363e8f086905afd83db356a620f9aa401c23800a
+external_path: /home/demouser/llm-benchmark-results/xe7740-04/glm-5.3-nvfp4/363e8f086905/r1-tp8-dcp1-mtp3-seq64-b8192-graph256-r18-direct-exception/20260831-full-glm53-radixark-seq64-graph256-formal-direct
+canonical_layout: true
+completion_marker: null
+expected_base_runs: 9
+notes:
+  - Human-approved exception to the new mandatory HAProxy rule for this immediate repeated follow-up only.
+  - Direct AIPerf to the existing healthy TP8 backend; no HAProxy application-traffic telemetry is available.
+  - Future campaigns remain required to use HAProxy even for one backend.
+  - Decode C32, C48, and C64 with three new repetitions per point.

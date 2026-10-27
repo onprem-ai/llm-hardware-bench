@@ -1,0 +1,39 @@
+schema_version: 1
+campaign: qwen38-coldgrid-20260924
+model: RadixArk/Qwen3.8-Flash-Next-NVFP4
+host: comino-8xrtx6000
+headline:
+  metric: input tokens/s
+  value: 64738.62598002034
+  configuration: "4x TP2 SGLang replicas behind haproxy leastconn, prefill-optimized-uncached profile (radix disabled, no spec, mamba 120, cuda graph 24, ISL 4096 / OSL 8)"
+  concurrency: 64
+  window_seconds: 60
+  repetitions: 3
+  repetition_values: [64738.62598002034, 64753.76295667489, 64629.73102787664]
+  errors: 0
+  provisional: false
+claims:
+  - id: qwen38-coldgrid.prefill.peak-above-published-headline
+    kind: delta
+    subject_value: 64738.62598002034
+    comparator: qwen3.8-flash-next.prefill.published-headline
+    direction: higher_is_better
+    stated_pct: 4.29
+    tolerance_pct: 0.05
+    note: >-
+      Cross-configuration, disclosed: comino-8x prefill peaks at C64 while the
+      comparator is the xe7740-04 headline at C224. Both series are uncached
+      (comino client-side cache reads 0 on every rep). The finding is plateau
+      parity: comino holds 61.6-62.0k input tok/s flat from C96 to C224, so the
+      ~62k ceiling is scheduler/software-bound rather than host-bound.
+  - id: qwen38-coldgrid.prefill.c32-improvement
+    kind: delta
+    subject_value: 62549.07466090404
+    comparator: qwen3.8-flash-next.prefill.xe7740-c32
+    direction: higher_is_better
+    stated_pct: 8.44
+    tolerance_pct: 0.05
+    note: >-
+      Point comparison at C32 (not the headline point); median of 3 reps,
+      same request shape (4096-in/8-out) and deployment on both hosts.
+prohibited_claims: []

@@ -1,0 +1,48 @@
+schema_version: 1
+campaign: glm53-coldgrid-20260924
+model: RadixArk/GLM-5.3-NVFP4
+host: comino-8xrtx6000
+headline:
+  metric: output tokens/s
+  value: 982.4879529487795
+  configuration: "seq64/graph256 MTP3 TP8 behind haproxy (decode spliced: C1-C24 on seq32/graph128, C32-C64 on seq64/graph256)"
+  concurrency: 48
+  window_seconds: 60
+  repetitions: 3
+  repetition_values: [959.2116350325999, 987.6616633289403, 982.4879529487795]
+  errors: 0
+  provisional: false
+claims:
+  - id: glm53-coldgrid.decode.improvement-over-published
+    kind: delta
+    subject_value: 982.4879529487795
+    comparator: glm5.3.decode.published-headline
+    direction: higher_is_better
+    stated_pct: 5.94
+    tolerance_pct: 0.05
+    note: >-
+      Point comparison at C48 on the same profile family (seq64/graph256 decode,
+      MTP-3, TP8) and the same request shape (8-in/768-out). Both campaigns are
+      corrected-cold: comino's fail-closed engine-side prefix-cache gate (<=1%)
+      passed at 0.0% served on all 42 reps; the xe7740-04 published series is the
+      spliced decode curve this campaign mirrors.
+  - id: glm53-coldgrid.decode.peak-below-xe7740-cold-peak
+    kind: delta
+    subject_value: 982.4879529487795
+    comparator: glm5.3-cold-20260909.decode.published-headline
+    direction: lower
+    stated_pct: -20.37
+    tolerance_pct: 0.05
+    note: >-
+      Cross-axis deficit, disclosed: comino-8x measured the published 7-point
+      axis (maximum C64; peak at C48), while the xe7740-04 cold campaign ran to
+      C192 and peaked at C128. Not a like-for-like peak comparison - the comino
+      axis is shorter by contract.
+prohibited_claims:
+  - id: glm53-coldgrid.prefill.improvement-over-published-prefill
+    reason: >-
+      The xe7740-04 published prefill headline (glm5.3.prefill.published-headline)
+      is a cache-served series (65-89% prefix-cache reads) and is not comparable
+      to any cold-uncached prefill measurement. Forbidden as a comparator here;
+      prefill deltas are stated against glm5.3-cold-20260909.prefill.published-headline
+      in claims-coldgrid-20260924-prefill.yaml instead.

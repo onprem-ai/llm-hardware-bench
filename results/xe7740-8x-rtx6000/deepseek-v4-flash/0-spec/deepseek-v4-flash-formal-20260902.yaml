@@ -1,0 +1,16 @@
+schema_version: 1
+campaign_id: 20260902-full-deepseek-v4-flash-formal
+study_id: xe7740
+status: runs_complete
+host: xe7740-04
+model: deepseek-ai/DeepSeek-V4-Flash-0731
+revision: null
+external_path: /home/demouser/llm-benchmark-results/xe7740-04/deepseek-v4-flash-0731/local-unveri/r4-tp2-dspark5-seq32-b8192-graph192-ctx32768/20260902-full-deepseek-v4-flash-formal
+canonical_layout: true
+completion_marker: RUNS_COMPLETE
+expected_base_runs: 72
+notes:
+  - All 72 planned runs completed: three profiles, eight concurrency points, and three repetitions.
+  - The campaign manifest records zero failed attempts.
+  - The local checkpoint has no verified immutable upstream download receipt; local-unveri is the runner-truncated local-unverified label, not a commit SHA.
+  - CAMPAIGN_COMPLETE remains pending post-idle capture and finalization.

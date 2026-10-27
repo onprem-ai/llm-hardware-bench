@@ -1,0 +1,33 @@
+schema_version: 1
+campaign: glm53-coldgrid-20260924
+model: RadixArk/GLM-5.3-NVFP4
+host: comino-8xrtx6000
+headline:
+  metric: input tokens/s
+  value: 6260.402521927886
+  configuration: "seq32/graph128 MTP3 TP8 behind haproxy, cold-uncached prefill (fail-closed gate <=1%)"
+  concurrency: 64
+  window_seconds: 60
+  repetitions: 3
+  repetition_values: [6261.132335166055, 6260.046825518089, 6260.402521927886]
+  errors: 0
+  provisional: false
+claims:
+  - id: glm53-coldgrid.prefill.cold-plateau-parity
+    kind: delta
+    subject_value: 6260.402521927886
+    comparator: glm5.3-cold-20260909.prefill.published-headline
+    direction: higher_is_better
+    stated_pct: 0.36
+    tolerance_pct: 0.05
+    note: >-
+      Cross-configuration, disclosed: the comino-8x axis ends at C64 (published
+      7-point axis contract), while the comparator is the xe7740-04 corrected-cold
+      prefill peak at C160. Both series are cold-uncached with fail-closed gates.
+      The claim is parity of the prefill ceiling, not a point comparison.
+prohibited_claims:
+  - id: glm53-coldgrid.prefill.improvement-over-published-prefill
+    reason: >-
+      The xe7740-04 published prefill headline (glm5.3.prefill.published-headline)
+      is a cache-served series (65-89% prefix-cache reads) and is not comparable
+      to any cold-uncached prefill measurement. Forbidden as a comparator.

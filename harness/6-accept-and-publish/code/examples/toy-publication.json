@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "note": "Clearly-toy publication stand-in for the instrument's comparator self-test. Not a real measurement; values are chosen so the toy registry resolves.",
+  "id": "toy-model",
+  "hardware": {"model": "Toy Server 1U", "host": "toyhost-1x-gpu9000", "gpu_count": 1, "gpu_model": "Toy GPU 9000", "aggregate_vram_gib": 9},
+  "model": {"name": "toy-model-1b", "repository": "toyorg/toy-model-1b", "revision": "0000000", "quantization": "TOY8"},
+  "headlines": {
+    "decode": {"value": 100.0, "unit": "output tokens/s", "concurrency": 8, "statistic": "median"},
+    "prefill": {"value": 200.0, "unit": "input tokens/s", "concurrency": 8, "statistic": "median"}
+  },
+  "normalized_data": {
+    "schema_version": 1,
+    "series": {
+      "decode": {
+        "source_id": "decode",
+        "points": [
+          {"concurrency": 1, "throughput": {"median": 40.0, "minimum": 40.0, "maximum": 40.0, "n": 3}},
+          {"concurrency": 4, "throughput": {"median": 80.0, "minimum": 80.0, "maximum": 80.0, "n": 3}}
+        ]
+      },
+      "prefill": {
+        "source_id": "prefill",
+        "points": [
+          {"concurrency": 1, "throughput": {"median": 150.0, "minimum": 150.0, "maximum": 150.0, "n": 3}},
+          {"concurrency": 4, "throughput": {"median": 300.0, "minimum": 300.0, "maximum": 300.0, "n": 3}}
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/llm-inference-hardware-bench/campaign-manifest.schema.json",
+  "title": "Campaign execution manifest",
+  "type": "object",
+  "required": ["schema_version", "campaign_id", "status", "host", "runs"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "campaign_id": {"type": "string"},
+    "status": {"enum": ["planned", "running", "runs_complete", "complete", "complete_with_failures", "interrupted", "dry_run"]},
+    "host": {"type": "string"},
+    "created_at": {"type": "string"},
+    "updated_at": {"type": "string"},
+    "spec_path": {"type": "string"},
+    "campaign_path": {"type": "string"},
+    "model": {"type": "object"},
+    "deployment": {"type": "object"},
+    "runs": {"type": "array", "items": {"type": "object"}},
+    "counts": {"type": "object"}
+  }
+}

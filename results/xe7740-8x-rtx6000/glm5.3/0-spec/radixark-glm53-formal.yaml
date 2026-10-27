@@ -1,0 +1,202 @@
+schema_version: 1
+campaign:
+  id: 20260830-full-glm53-radixark-formal
+  purpose: formal-capacity
+  repetitions: 3
+  order_seed: 530053
+  settle_seconds: 15
+  telemetry_delay_seconds: 60
+  imported_runs:
+  - profile: decode
+    concurrency: 128
+    repetition: 1
+    manifest: /home/demouser/llm-benchmark-results/xe7740-04/glm-5.3-nvfp4/363e8f086905/r1-tp8-dcp1-mtp3-seq32-b8192-r18/20260829-full-glm53-radixark-qualification/runs/decode/c0128/run-r01-20260829T172447Z-db512bfecd3f/manifest.json
+  - profile: decode
+    concurrency: 64
+    repetition: 1
+    manifest: /home/demouser/llm-benchmark-results/xe7740-04/glm-5.3-nvfp4/363e8f086905/r1-tp8-dcp1-mtp3-seq32-b8192-r18/20260829-full-glm53-radixark-qualification/runs/decode/c0064/run-r01-20260829T181322Z-cf54b47ed89a/manifest.json
+  - profile: decode
+    concurrency: 1
+    repetition: 1
+    manifest: /home/demouser/llm-benchmark-results/xe7740-04/glm-5.3-nvfp4/363e8f086905/r1-tp8-dcp1-mtp3-seq32-b8192-r18/20260829-full-glm53-radixark-qualification/runs/decode/c0001/run-r01-20260829T183858Z-f0b8e75d02fc/manifest.json
+  - profile: prefill
+    concurrency: 64
+    repetition: 1
+    manifest: /home/demouser/llm-benchmark-results/xe7740-04/glm-5.3-nvfp4/363e8f086905/r1-tp8-dcp1-mtp3-seq32-b8192-r18/20260829-full-glm53-radixark-qualification/runs/prefill/c0064/run-r01-20260829T184217Z-86cf1ade4264/manifest.json
+  - profile: prefill
+    concurrency: 32
+    repetition: 1
+    manifest: /home/demouser/llm-benchmark-results/xe7740-04/glm-5.3-nvfp4/363e8f086905/r1-tp8-dcp1-mtp3-seq32-b8192-r18/20260829-full-glm53-radixark-qualification/runs/prefill/c0032/run-r01-20260829T184552Z-9587862d0249/manifest.json
+  - profile: decode
+    concurrency: 32
+    repetition: 1
+    manifest: /home/demouser/llm-benchmark-results/xe7740-04/glm-5.3-nvfp4/363e8f086905/r1-tp8-dcp1-mtp3-seq32-b8192-r18/20260829-full-glm53-radixark-qualification/runs/decode/c0032/run-r01-20260829T184858Z-169002938251/manifest.json
+  - profile: balanced
+    concurrency: 32
+    repetition: 1
+    manifest: /home/demouser/llm-benchmark-results/xe7740-04/glm-5.3-nvfp4/363e8f086905/r1-tp8-dcp1-mtp3-seq32-b8192-r18/20260829-full-glm53-radixark-qualification/runs/balanced/c0032/run-r01-20260829T190218Z-52756e5681ca/manifest.json
+  - profile: prefill
+    concurrency: 128
+    repetition: 1
+    manifest: /home/demouser/llm-benchmark-results/xe7740-04/glm-5.3-nvfp4/363e8f086905/r1-tp8-dcp1-mtp3-seq32-b8192-r18/20260829-full-glm53-radixark-qualification/runs/prefill/c0128/run-r01-20260829T191217Z-fdfd43a46a81/manifest.json
+  - profile: balanced
+    concurrency: 128
+    repetition: 1
+    manifest: /home/demouser/llm-benchmark-results/xe7740-04/glm-5.3-nvfp4/363e8f086905/r1-tp8-dcp1-mtp3-seq32-b8192-r18/20260829-full-glm53-radixark-qualification/runs/balanced/c0128/run-r01-20260829T191651Z-bd20699a57e4/manifest.json
+  - profile: balanced
+    concurrency: 64
+    repetition: 1
+    manifest: /home/demouser/llm-benchmark-results/xe7740-04/glm-5.3-nvfp4/363e8f086905/r1-tp8-dcp1-mtp3-seq32-b8192-r18/20260829-full-glm53-radixark-qualification/runs/balanced/c0064/run-r01-20260829T194937Z-4cdb13cd1970/manifest.json
+model:
+  repository: RadixArk/GLM-5.3-NVFP4
+  revision: 363e8f086905afd83db356a620f9aa401c23800a
+  served_name: glm-5.3-nvfp4-radixark
+  slug: glm-5.3-nvfp4
+  quantization: ModelOpt NVFP4 W4A4 routed experts in layers 3-77; BF16 MTP layer
+    78
+deployment:
+  id: r1-tp8-dcp1-mtp3-seq32-b8192-r18
+  endpoint: http://127.0.0.1:8080
+  health_endpoint: http://127.0.0.1:8080/health
+  topology: one TP8 replica
+  image: voipmonitor/vllm@sha256:414ec7d0d28358cfd8af0697f330f5c8acbb80e4dc4e5ba69c9fd5b5855ea804
+  max_model_len: 262144
+  max_num_seqs: 32
+  max_num_batched_tokens: 8192
+  gpu_memory_utilization: 0.95
+  kv_cache_dtype: fp8
+  speculative_tokens: 3
+benchmark:
+  command:
+  - /home/demouser/benchmarks/aiperf/.venv/bin/aiperf
+  - profile
+  - --model
+  - '{served_name}'
+  - --tokenizer
+  - /home/demouser/models/RadixArk--GLM-5.3-NVFP4--model
+  - --endpoint-type
+  - chat
+  - --endpoint
+  - /v1/chat/completions
+  - --streaming
+  - --url
+  - '{endpoint}'
+  - --concurrency
+  - '{concurrency}'
+  - --synthetic-input-tokens-mean
+  - '{input_tokens_mean}'
+  - --synthetic-input-tokens-stddev
+  - '{input_tokens_stddev}'
+  - --output-tokens-mean
+  - '{output_tokens_mean}'
+  - --output-tokens-stddev
+  - '{output_tokens_stddev}'
+  - --benchmark-duration
+  - '{benchmark_duration}'
+  - --benchmark-grace-period
+  - inf
+  - --random-seed
+  - '{random_seed}'
+  - --extra-inputs
+  - '{"temperature":0,"ignore_eos":true}'
+  - --request-timeout-seconds
+  - '1800'
+  - --output-artifact-dir
+  - '{artifact_dir}'
+  warmup_command:
+  - /home/demouser/benchmarks/aiperf/.venv/bin/aiperf
+  - profile
+  - --model
+  - '{served_name}'
+  - --tokenizer
+  - /home/demouser/models/RadixArk--GLM-5.3-NVFP4--model
+  - --endpoint-type
+  - chat
+  - --endpoint
+  - /v1/chat/completions
+  - --streaming
+  - --url
+  - '{endpoint}'
+  - --concurrency
+  - '{concurrency}'
+  - --synthetic-input-tokens-mean
+  - '{input_tokens_mean}'
+  - --synthetic-input-tokens-stddev
+  - '{input_tokens_stddev}'
+  - --output-tokens-mean
+  - '{output_tokens_mean}'
+  - --output-tokens-stddev
+  - '{output_tokens_stddev}'
+  - --request-count
+  - '{warmup_requests}'
+  - --random-seed
+  - '{random_seed}'
+  - --extra-inputs
+  - '{"temperature":0,"ignore_eos":true}'
+  - --request-timeout-seconds
+  - '1800'
+  - --output-artifact-dir
+  - '{artifact_dir}'
+  result_file: profile_export_aiperf.json
+  environment: {}
+telemetry:
+  victoriametrics_url: http://127.0.0.1:8428
+  query_file: harness/2-preflight-conformance/code/configs/fabric-promql.txt
+  step: 1s
+  collectors:
+  - name: gpu
+    command:
+    - harness/2-preflight-conformance/code/gpu/sample-nvidia-smi.sh
+    - '{telemetry_dir}/gpu.csv'
+    - '{collector_interval}'
+  - name: host
+    command:
+    - harness/2-preflight-conformance/code/host/sample-host.sh
+    - '{telemetry_dir}/host.csv'
+    - '{collector_interval}'
+profiles:
+- name: decode
+  concurrency:
+  - 1
+  - 8
+  - 16
+  - 32
+  - 64
+  - 128
+  input_tokens_mean: 8
+  input_tokens_stddev: 0
+  output_tokens_mean: 768
+  output_tokens_stddev: 0
+  benchmark_duration: 60
+  warmup_requests_multiplier: 2
+  extra_args: []
+- name: prefill
+  concurrency:
+  - 1
+  - 8
+  - 16
+  - 32
+  - 64
+  - 128
+  input_tokens_mean: 2048
+  input_tokens_stddev: 0
+  output_tokens_mean: 8
+  output_tokens_stddev: 0
+  benchmark_duration: 60
+  warmup_requests_multiplier: 2
+  extra_args: []
+- name: balanced
+  concurrency:
+  - 1
+  - 8
+  - 16
+  - 32
+  - 64
+  - 128
+  input_tokens_mean: 1024
+  input_tokens_stddev: 256
+  output_tokens_mean: 512
+  output_tokens_stddev: 128
+  benchmark_duration: 60
+  warmup_requests_multiplier: 2
+  extra_args: []

@@ -1,0 +1,32 @@
+schema_version: 1
+policy:
+  immutable_versions_per_campaign: true
+  mutable_oci_tags_forbidden: true
+  record_host_and_runtime_identity: true
+required_identity:
+  host:
+    - os_release
+    - kernel
+    - architecture
+    - gpu_model
+    - gpu_count
+    - nvidia_driver
+    - container_runtime
+  benchmark:
+    - python_version
+    - benchmark_client_version
+    - dependency_lock_sha256
+  inference:
+    - model_revision
+    - image_digest
+    - serving_engine_version_or_commit
+    - cuda_version
+    - nccl_version
+  telemetry:
+    - exporter_image_digests
+    - collector_sha256
+    - scrape_interval
+  fabric:
+    - nccl_tests_revision
+    - build_command
+    - p2p_binary_sha256

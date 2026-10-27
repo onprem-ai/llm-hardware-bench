@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "_comment": "Authoritative comparator registry (R-PIPE-2). Values are RESOLVED FROM THE ARTIFACT at check time; this file stores addresses, never numbers, so it cannot drift from the artifact. Any stated delta must reference an id here.",
+  "comparators": [
+    {
+      "id": "glm5.3.decode.published-headline",
+      "artifact": "results/xe7740-8x-rtx6000/glm5.3/publication.json",
+      "field": "headlines.decode.value",
+      "unit": "output tokens/s",
+      "concurrency": 48,
+      "statistic": "median",
+      "note": "Maximum of the published GLM-5.3 decode curve (seq64/graph256, spliced C1-C24 from seq32/graph128). Last modified 2026-09-02."
+    },
+    {
+      "id": "glm5.3.prefill.published-headline",
+      "artifact": "results/xe7740-8x-rtx6000/glm5.3/publication.json",
+      "field": "headlines.prefill.value",
+      "unit": "input tokens/s",
+      "concurrency": 48,
+      "statistic": "median",
+      "note": "Source series is seq32-graph128-prefill-formal. NOT comparable to seq64+ deployments, and not to prefix-cached synthetic-prompt runs. Do not use for prefill deltas on other profiles."
+    },
+    {
+      "id": "deepseek-v4-flash.decode.published-headline",
+      "artifact": "results/xe7740-8x-rtx6000/deepseek-v4-flash/publication.json",
+      "field": "headlines.decode.value",
+      "unit": "output tokens/s",
+      "concurrency": 128,
+      "statistic": "median",
+      "note": "Four TP2 replicas behind HAProxy leastconn."
+    },
+    {
+      "id": "deepseek-v4-flash.prefill.published-headline",
+      "artifact": "results/xe7740-8x-rtx6000/deepseek-v4-flash/publication.json",
+      "field": "headlines.prefill.value",
+      "unit": "input tokens/s",
+      "concurrency": 256,
+      "statistic": "median",
+      "note": "32K-context prefill profile."
+    },
+    {
+      "id": "glm5.3-formal-20260907.decode.published-headline",
+      "artifact": "results/xe7740-8x-rtx6000/glm5.3/formal-20260907/publication.json",
+      "field": "headlines.decode.value",
+      "unit": "output tokens/s",
+      "concurrency": 128,
+      "statistic": "median",
+      "note": "Formal campaign 20260907: seq128 / cudagraph 512 / MTP-3 / GMU 0.95, one TP8 replica, no load balancer. Median of 5 repetitions. Realized measurement window 87.8 s (declared 60 s); prompt-cache reads measured 0.0% for Decode; KV occupancy peaked at 17.1% with 0 preemptions and 0 waiting requests at this point."
+    },
+    {
+      "id": "glm5.3-formal-20260907.prefill.floor-not-peak",
+      "artifact": "results/xe7740-8x-rtx6000/glm5.3/formal-20260907/publication.json",
+      "field": "headlines.prefill.value",
+      "unit": "input tokens/s",
+      "concurrency": 192,
+      "statistic": "median",
+      "note": "FLOOR, NOT PEAK. The maximum lands on C192, the top of the frozen grid, with no measured point beyond it, so R-06-1 (Peaks) forbids treating it as a peak and acceptance.json records claim_allowed=false. 81.4% of prompt tokens at this point were prefix-cache reads, and the engine averaged 96.8 waiting requests, so this figure is cache-served throughput at a saturated queue. Never use it as a cold-prefill comparator."
+    },
+    {
+      "id": "qwen3.8-flash-next.decode.published-headline",
+      "artifact": "results/xe7740-8x-rtx6000/qwen3.8-flash-next/publication.json",
+      "field": "headlines.decode.value",
+      "unit": "output tokens/s",
+      "concurrency": 224,
+      "statistic": "median",
+      "note": "Maximum of the published xe7740 decode curve: 4x TP2 replicas behind HAProxy leastconn, 8-in/512-out request shape. Repeated qualification evidence (48 runs, 3 repetitions)."
+    },
+    {
+      "id": "qwen3.8-flash-next.decode.xe7740-c32",
+      "artifact": "results/xe7740-8x-rtx6000/qwen3.8-flash-next/publication.json",
+      "field": "normalized_data.series.decode.points.1.throughput.median",
+      "unit": "output tokens/s",
+      "concurrency": 32,
+      "statistic": "median",
+      "note": "xe7740 decode series point at C32 (decode-optimized series). Request shape 8-in/512-out; a same-concurrency comparison against a campaign with a different request shape must disclose the shape difference."
+    },
+    {
+      "id": "qwen3.8-flash-next.prefill.published-headline",
+      "artifact": "results/xe7740-8x-rtx6000/qwen3.8-flash-next/publication.json",
+      "field": "headlines.prefill.value",
+      "unit": "input tokens/s",
+      "concurrency": 224,
+      "statistic": "median",
+      "note": "Maximum of the published xe7740 uncached-prefill curve (prefill-optimized-uncached series, 4096-in/8-out request shape). Repeated qualification evidence. NOT comparable to prefix-cached or different-shape prefill runs without disclosure."
+    },
+    {
+      "id": "qwen3.8-flash-next.prefill.xe7740-c32",
+      "artifact": "results/xe7740-8x-rtx6000/qwen3.8-flash-next/publication.json",
+      "field": "normalized_data.series.prefill.points.1.throughput.median",
+      "unit": "input tokens/s",
+      "concurrency": 32,
+      "statistic": "median",
+      "note": "xe7740 prefill series point at C32 (prefill-optimized-uncached series). Request shape 4096-in/8-out; use only with shape disclosure against other campaigns' prefill points."
+    }
+  ]
+}

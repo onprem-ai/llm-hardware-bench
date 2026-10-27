@@ -1,0 +1,39 @@
+schema_version: 1
+campaign: qwen38-coldgrid-20260924
+model: RadixArk/Qwen3.8-Flash-Next-NVFP4
+host: comino-8xrtx6000
+headline:
+  metric: output tokens/s
+  value: 7679.493742344199
+  configuration: "4x TP2 SGLang replicas behind haproxy leastconn, decode-optimized profile (radix on, NEXTN 3/1/4, mamba 240, cuda graph 48, ISL 8 / OSL 512)"
+  concurrency: 224
+  window_seconds: 60
+  repetitions: 3
+  repetition_values: [7679.493742344199, 7597.125848259379, 7686.866667370131]
+  errors: 0
+  provisional: false
+claims:
+  - id: qwen38-coldgrid.decode.improvement-over-published
+    kind: delta
+    subject_value: 7679.493742344199
+    comparator: qwen3.8-flash-next.decode.published-headline
+    direction: higher_is_better
+    stated_pct: 25.6
+    tolerance_pct: 0.05
+    note: >-
+      Point comparison at C224 with the identical deployment recipe (4x TP2
+      replicas, decode-optimized profile, xe7740-04 launch flags verbatim) on
+      the same GPU model. The comino-8x engine image was rebuilt locally from
+      the pinned base with the SM120 guard patch re-derived by inspection
+      (one documented source edit).
+  - id: qwen38-coldgrid.decode.c32-improvement
+    kind: delta
+    subject_value: 3117.9694973422784
+    comparator: qwen3.8-flash-next.decode.xe7740-c32
+    direction: higher_is_better
+    stated_pct: 20.15
+    tolerance_pct: 0.05
+    note: >-
+      Point comparison at C32 (not the headline point); median of 3 reps,
+      same request shape (8-in/512-out) and deployment on both hosts.
+prohibited_claims: []

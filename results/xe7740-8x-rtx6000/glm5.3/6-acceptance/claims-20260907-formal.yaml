@@ -1,0 +1,121 @@
+schema_version: 1
+campaign: 20260907-glm53-radixark-formal
+model: RadixArk/GLM-5.3-NVFP4
+host: xe7740-04
+
+headline:
+  metric: output tokens/s
+  value: 1230.022552
+  configuration: "seq128 / cudagraph 512 / MTP-3 / TP8, GMU 0.95, one replica, no load balancer"
+  concurrency: 128
+  window_seconds: 87.8
+  repetitions: 5
+  repetition_values: [1233.903681, 1223.723911, 1234.530041, 1230.022552, 1225.619948]
+  errors: 0
+  provisional: true
+  provisional_reason: >-
+    Three disclosures, none of which is a doubt about the measurement itself.
+    (1) Prompt shape: isl=8 / osl=768 synthetic prompts, the recorded protocol profile, identical
+    to the campaign that produced the comparator below, so the delta is apples-to-apples on shape
+    but the absolute Decode rate describes short-prompt Decode, not real traffic. Prefix caching
+    was enabled and the measured prompt-cache read fraction for Decode was 0.0%, so Decode is not
+    cache-inflated; Prefill and Balanced are (see prohibited_claims).
+    (2) Window: --benchmark-duration 60 with --benchmark-grace-period inf realizes an 87.8 s
+    median window at C128 (+46% declared-vs-realized), and the excess grows to +136% at C192.
+    window_seconds above is the REALIZED window. The comparator's realized window could not be
+    verified locally: its raw artifact is not in the evidence cache, only its published value, and
+    the host holding it is unreachable as of this writing. The delta is therefore cross-deployment
+    and possibly cross-window.
+    (3) Launch continuity: this campaign spans two container launches - Decode in launch-1,
+    Prefill and Balanced in launch-2 - because the controller died at 03:08 and the resumed driver
+    re-entered launch(). Recorded in formal-20260907-harness-defects-and-outage.md.
+
+claims:
+  - id: glm53-formal-20260907.decode.vs-published-headline
+    kind: delta
+    subject_value: 1230.022552
+    comparator: glm5.3.decode.published-headline
+    direction: higher_is_better
+    stated_pct: 32.6
+    tolerance_pct: 0.2
+    note: >-
+      CROSS-DEPLOYMENT, not the same system getting faster. The comparator is C48 on
+      r1-tp8-dcp1-mtp3-seq32-b8192-r18 (max_num_seqs=32, cudagraph 128, spliced C1-C24/C32-C64);
+      the subject is C128 on seq128/cudagraph-512, and the comparator's grid never reached C96,
+      so it cannot contain a peak either. Same model artifact, same image family, same token
+      shapes, same load generator, same host. Both sides use 8-token synthetic prompts; Decode
+      prompt-cache reads measured at 0.0% on this campaign, and the comparator's cache fraction
+      is unknown because its raw artifact is not in the local evidence cache. Stated to one
+      decimal because the recomputation lands at +32.64%.
+
+prohibited_claims:
+  - id: glm53-formal-20260907.prefill.peak
+    reason: >-
+      Rejected by machine check, not by judgement: acceptance.json records
+      peaks.prefill.claim_allowed=false because the measured maximum (19297.777183 input tok/s)
+      sits at C192, the top of the frozen grid, with no measured point beyond it. R-06-1 (Peaks)
+      requires a lower point beyond the peak. Prefill may only be reported as a floor: at least
+      19297.78 input tok/s at C192, still rising at the grid ceiling.
+  - id: glm53-formal-20260907.prefill.improvement
+    reason: >-
+      Carried forward from 2026-09-06 and reaffirmed. The registered prefill comparator is
+      seq32/graph128 - a different deployment whose own note says it is not comparable to seq64+
+      deployments - and this campaign's Prefill profile served 3.9% to 88.2% of prompt tokens from
+      the prefix cache (81.4% at the C192 maximum). Input throughput there is largely a cache-read
+      measurement, not cold-prefill capacity, and no prefill delta may be stated in either
+      direction. Prefill C32 additionally shows 40.7% spread between repetitions, an R-06-2 rerun
+      trigger that the frozen contract forbids acting on mid-campaign.
+  - id: glm53-formal-20260907.decode.window-class-interchange
+    reason: >-
+      The 60 s and 90 s classes are not interchangeable at the 3.1% tolerance this project
+      previously assumed. Measured in one launch at C128, back to back: 1221.82 output tok/s
+      (declared 60 s, realized 87.6 s) versus 1147.76 (declared 90 s, realized 144.5 s), a -6.1%
+      window-class effect, while the same declared class measured 8 hours apart differed by only
+      -0.7%. Any cross-window comparison needs a 6% margin, and none is published here.
+  - id: glm53-raster.decode.vs-1111
+    reason: >-
+      Carried forward from 2026-09-06 so this campaign cannot re-derive it: the comparator
+      "1111 output tok/s at C48" exists in no artifact. The real published decode headline is the
+      registry entry used above. Raster session peaks from the 8-token synthetic corpus are
+      qualification evidence and are not comparators.
+
+measurements_published_without_comparator:
+  note: >-
+    Not deltas. These are stated as this campaign's own observations; each becomes a comparator
+    for future work by registration in results/xe7740-8x-rtx6000/comparators.json (R-06-9),
+    which requires the publication.json that carries it.
+  decode_operating_point_set:
+    - {concurrency: 1, median_output_tps: 78.73, repetitions: 3, ttft_p50_ms: 624.4}
+    - {concurrency: 8, median_output_tps: 353.03, repetitions: 3, ttft_p50_ms: 543.0}
+    - {concurrency: 32, median_output_tps: 718.06, repetitions: 3, ttft_p50_ms: 1194.7}
+    - {concurrency: 64, median_output_tps: 987.48, repetitions: 3, ttft_p50_ms: 1860.9}
+    - {concurrency: 96, median_output_tps: 1158.91, repetitions: 5, ttft_p50_ms: 2753.1}
+    - {concurrency: 128, median_output_tps: 1230.022552, repetitions: 5, ttft_p50_ms: 4251.2}
+    - {concurrency: 160, median_output_tps: 1148.32, repetitions: 3, ttft_p50_ms: 16804.6}
+    - {concurrency: 192, median_output_tps: 1096.57, repetitions: 3, ttft_p50_ms: 27525.2}
+  balanced_peak:
+    value: 918.242657
+    unit: output tokens/s
+    concurrency: 128
+    repetitions: 5
+    repetition_values: [914.310329, 916.13911, 925.147169, 924.325186, 918.242657]
+    ttft_p50_ms: 12017.9
+    prompt_cache_read_pct: 23.5
+    turnover: "C160 876.61 and C192 886.70 are both lower than C128; peak is interior"
+  prefill_floor:
+    value: 19297.777183
+    unit: input tokens/s
+    concurrency: 192
+    repetitions: 3
+    qualifier: "floor, not peak: grid ceiling, still rising; 81.4% of prompt tokens cache-served"
+  turnover_evidence:
+    decode: "C128 1230.02 -> C160 1148.32 (-6.6%) -> C192 1096.57 (-10.9%); within-point spread 0.9%"
+    latency_corroboration: "TTFT p50 4.251 s -> 16.805 s -> 27.525 s across the same three points"
+  host_ram:
+    container_peak_gib: 59.03
+    cgroup_limit_gib: 96.0
+    oom_kill_events: 0
+    note: >-
+      Measured from cgroup memory.peak, sampled continuously for 9 h. 96 GiB is sufficient for
+      this deployment with 37 GiB headroom; the floor is a property of the serving parameters, not
+      the model: the seq64/graph256 deployment measured 50.33 GiB under the same limit.

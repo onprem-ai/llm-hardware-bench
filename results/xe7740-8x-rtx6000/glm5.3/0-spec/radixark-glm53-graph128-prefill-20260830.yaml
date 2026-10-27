@@ -1,0 +1,14 @@
+schema_version: 1
+campaign_id: 20260830-full-glm53-radixark-graph128-prefill
+study_id: xe7740
+status: active
+host: xe7740-04
+model: RadixArk/GLM-5.3-NVFP4
+revision: 363e8f086905afd83db356a620f9aa401c23800a
+external_path: /home/demouser/llm-benchmark-results/xe7740-04/glm-5.3-nvfp4/363e8f086905/r1-tp8-dcp1-mtp3-seq32-b8192-graph128-r18/20260830-full-glm53-radixark-graph128-prefill
+canonical_layout: true
+completion_marker: null
+expected_base_runs: 7
+notes:
+  - One-repetition graph-128 prefill qualification on grid 1,8,16,24,32,48,64.
+  - Completes the Prefill source series needed for the corrected hardware-capacity report.

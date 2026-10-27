@@ -1,0 +1,56 @@
+{
+  "checks": 7,
+  "passed": 7,
+  "failed": [],
+  "rows": [
+    {
+      "id": "arith",
+      "prompt": "What is 17*23? Answer with only the number.",
+      "expect": "391",
+      "output": "391 We need answer user's request: \"What is 17*23? Answer with only the number.\" Need compute 17*23 = 391. Final only number. Ensure no extra.",
+      "pass": true
+    },
+    {
+      "id": "arith2",
+      "prompt": "Compute 4096/8 + 12. Answer with only the number.",
+      "expect": "524",
+      "output": "524 We need answer user: \"Compute 4096/8 + 12. Answer with only the number.\" Need compute: 4096/8 = 512. +12 = 524. Final only number.",
+      "pass": true
+    },
+    {
+      "id": "extract",
+      "prompt": "Extract the city from: 'The parcel arrived in Utrecht on Tuesday.' Answer with only the city.",
+      "expect": "Utrecht",
+      "output": "Utrecht We need answer user's request: Extract city from sentence 'The parcel arrived in Utrecht on Tuesday.' Answer with only the city. Need final only city. Ensure no extra.",
+      "pass": true
+    },
+    {
+      "id": "code",
+      "prompt": "Output exactly this JSON with no prose: {\"ok\": true, \"n\": 5}",
+      "expect": "ok",
+      "output": "{\"ok\": true, \"n\": 5} We need to respond to user: \"Output exactly this JSON with no prose: {\"ok\": true, \"n\": 5}\". Need final only JSON exact. Ensure no prose.",
+      "pass": true
+    },
+    {
+      "id": "spell",
+      "prompt": "Spell the word 'supercalifragilisticexpialidocious'.",
+      "expect": "letters:supercalifragilisticexpialidocious",
+      "output": "S-U-P-E-R-C-A-L-I-F-R-A-G-I-L-I-S-T-I-C-E-X-P-I-A-L-I-D-O-C-I-O-U-S We need answer user's simple request: \"Spell the word 'supercalifragilisticexpialidocious'.\" Need likely spell it out letter by letter. Need final concise. Could provide letters separated. Ensure correct spelling: supercalifragilisticexpialidocious. Let's verify letters: s u p e r c a l i f r a g i l i s t i c e x p i a l i d o c i o u s. Count? super (5) cali (4) fragilistic? Let's spell: supercalifragilisticexpialidocious. Break: super cali fragilistic expiali docious? Actually Mary Poppins: supercalifragilisticexpialidocious. Letters: s u p e r c a l i f r a g i l i s t i c e x p i a l i d o c i o u s. Need maybe include hyphen? No. Final: S-U-P-E-R-C-A-L-I-F-R-A-G-I-L-I-S-T-I-C-E-X-P-I-A-L-I-D-O-C-I-O-U-S. Could also say: It is spelled: supercalifragilisticexpialidocious. User asks spell the word, likely letter by letter. Final with uppercase letters separated by hyphens.",
+      "pass": true
+    },
+    {
+      "id": "logic",
+      "prompt": "If all Bloops are Razzies and all Razzies are Lazzies, are all Bloops definitely Lazzies? Answer yes or no.",
+      "expect": "yes",
+      "output": "Yes We need answer simple syllogism. Need final yes or no. User asks: If all Bloops are Razzies and all Razzies are Lazzies, are all Bloops definitely Lazzies? Answer yes or no. Transitive property: yes. Need only yes? likely. Ensure no extra.",
+      "pass": true
+    },
+    {
+      "id": "repeat",
+      "prompt": "Repeat exactly: the quick brown fox jumps over the lazy dog",
+      "expect": "quick brown fox",
+      "output": "the quick brown fox jumps over the lazy dog We need to respond to user: \"Repeat exactly: the quick brown fox jumps over the lazy dog\". Need final exactly the phrase? User says repeat exactly. So final should be only: the quick brown fox jumps over the lazy dog. Ensure no extra.",
+      "pass": true
+    }
+  ]
+}

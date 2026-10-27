@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/llm-inference-hardware-bench/normalized-report-data.schema.json",
+  "title": "Normalized input for a comparable inference report",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["schema_version", "source_campaign", "source_counts", "selection", "series"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "source_campaign": {"type": "string", "minLength": 1},
+    "generated_at": {"type": ["string", "null"]},
+    "source_counts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["runs", "requests", "errors"],
+      "properties": {
+        "runs": {"type": "integer", "minimum": 1},
+        "requests": {"type": "number", "minimum": 0},
+        "errors": {"type": "integer", "minimum": 0},
+        "excluded_runs": {"type": "integer", "minimum": 0}
+      }
+    },
+    "selection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["policy", "decode_source_id", "prefill_source_id"],
+      "properties": {
+        "policy": {"const": "maximum-median-useful-tps"},
+        "decode_source_id": {"type": "string", "minLength": 1},
+        "prefill_source_id": {"type": "string", "minLength": 1}
+      }
+    },
+    "idle_baseline": {
+      "type": ["object", "null"],
+      "additionalProperties": true,
+      "properties": {
+        "aggregate_gpu_board_power_w": {"type": ["number", "null"], "minimum": 0},
+        "source": {"type": ["string", "null"]}
+      }
+    },
+    "series": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["decode", "prefill"],
+      "properties": {
+        "decode": {"$ref": "#/$defs/series"},
+        "prefill": {"$ref": "#/$defs/series"}
+      }
+    },
+    "host_fabric": {"type": ["object", "null"], "additionalProperties": true},
+    "metric_availability": {
+      "type": "object",
+      "additionalProperties": {"enum": ["available", "unavailable", "partial"]}
+    },
+    "exclusions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["run_id", "reason"],
+        "properties": {
+          "run_id": {"type": "string"},
+          "reason": {"type": "string"}
+        }
+      }
+    }
+  },
+  "$defs": {
+    "statistic": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["median", "minimum", "maximum", "n"],
+      "properties": {
+        "median": {"type": ["number", "null"]},
+        "minimum": {"type": ["number", "null"]},
+        "maximum": {"type": ["number", "null"]},
+        "mean": {"type": ["number", "null"]},
+        "standard_deviation": {"type": ["number", "null"], "minimum": 0},
+        "n": {"type": "integer", "minimum": 1},
+        "unit": {"type": ["string", "null"]}
+      }
+    },
+    "point": {
+      "type": "object",
+      "additionalProperties": {"$ref": "#/$defs/statistic"},
+      "required": ["concurrency", "throughput", "ttft_p50", "ttft_p95", "itl_average", "itl_p95"],
+      "properties": {
+        "concurrency": {"type": "integer", "minimum": 1},
+        "throughput": {"$ref": "#/$defs/statistic"},
+        "per_user_throughput": {"$ref": "#/$defs/statistic"},
+        "ttft_p50": {"$ref": "#/$defs/statistic"},
+        "ttft_p95": {"$ref": "#/$defs/statistic"},
+        "itl_average": {"$ref": "#/$defs/statistic"},
+        "itl_p95": {"$ref": "#/$defs/statistic"},
+        "gpu_board_power": {"$ref": "#/$defs/statistic"},
+        "joules_per_token": {"$ref": "#/$defs/statistic"},
+        "host_cpu_busy": {"$ref": "#/$defs/statistic"},
+        "host_ram_used": {"$ref": "#/$defs/statistic"},
+        "process_rss": {"$ref": "#/$defs/statistic"},
+        "process_pss": {"$ref": "#/$defs/statistic"},
+        "process_private": {"$ref": "#/$defs/statistic"},
+        "process_shared": {"$ref": "#/$defs/statistic"},
+        "process_swap": {"$ref": "#/$defs/statistic"},
+        "gpu_utilization": {"$ref": "#/$defs/statistic"},
+        "gpu_temperature": {"$ref": "#/$defs/statistic"},
+        "gpu_vram_used": {"$ref": "#/$defs/statistic"},
+        "running_requests": {"$ref": "#/$defs/statistic"},
+        "waiting_requests": {"$ref": "#/$defs/statistic"},
+        "kv_cache_usage": {"$ref": "#/$defs/statistic"},
+        "mamba_usage": {"$ref": "#/$defs/statistic"},
+        "speculative_acceptance": {"$ref": "#/$defs/statistic"},
+        "haproxy_frontend_ingress": {"$ref": "#/$defs/statistic"},
+        "haproxy_frontend_egress": {"$ref": "#/$defs/statistic"},
+        "haproxy_backend_ingress": {"$ref": "#/$defs/statistic"},
+        "haproxy_backend_egress": {"$ref": "#/$defs/statistic"},
+        "haproxy_frontend_ingress_total": {"$ref": "#/$defs/statistic"},
+        "haproxy_frontend_egress_total": {"$ref": "#/$defs/statistic"},
+        "haproxy_backend_ingress_total": {"$ref": "#/$defs/statistic"},
+        "haproxy_backend_egress_total": {"$ref": "#/$defs/statistic"},
+        "haproxy_ingress_per_request": {"$ref": "#/$defs/statistic"},
+        "haproxy_egress_per_request": {"$ref": "#/$defs/statistic"},
+        "haproxy_queue": {"$ref": "#/$defs/statistic"},
+        "haproxy_retries": {"$ref": "#/$defs/statistic"},
+        "haproxy_errors": {"$ref": "#/$defs/statistic"},
+        "haproxy_backend_imbalance": {"$ref": "#/$defs/statistic"},
+        "pcie_rx": {"$ref": "#/$defs/statistic"},
+        "pcie_tx": {"$ref": "#/$defs/statistic"},
+        "pcie_replay_delta": {"$ref": "#/$defs/statistic"}
+      }
+    },
+    "series": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_id", "points"],
+      "properties": {
+        "source_id": {"type": "string", "minLength": 1},
+        "points": {
+          "type": "array", "minItems": 1,
+          "items": {"$ref": "#/$defs/point"}
+        }
+      }
+    }
+  }
+}

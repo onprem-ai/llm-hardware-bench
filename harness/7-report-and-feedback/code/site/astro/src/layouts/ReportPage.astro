@@ -1,0 +1,158 @@
+---
+import { url } from '../lib/url';
+// Chrome for a benchmark report page: sticky hardware header, model switcher,
+// and Dataset structured data. The report body itself is composed by the page.
+//
+// This used to be a standalone HTML document that injected a generated
+// report's <body> and <style>. It now builds on Base.astro like every other
+// page, so there is one stylesheet and no cross-contamination between the
+// site chrome and the report.
+import Base from './Base.astro';
+import site from '../generated/site.json';
+
+interface Props {
+  benchmark: any;
+  benchmarks: any[];
+  hardwareLabel: string;
+  device: any;
+  receipts?: { label: string; href: string; note?: string }[];
+}
+
+const { benchmark, benchmarks, hardwareLabel, device, receipts = [] } = Astro.props;
+const title = `${benchmark.model.name} on ${benchmark.hardware.model} - Performance Benchmark`;
+const canonical = site.site.canonical_url
+  ? new URL(Astro.url.pathname, site.site.canonical_url).toString()
+  : undefined;
+
+const jsonld = {
+  '@context': 'https://schema.org',
+  '@type': 'Dataset',
+  name: title,
+  description: benchmark.description,
+  datePublished: benchmark.report?.date,
+  measurementTechnique: 'AIPerf through HAProxy with GPU and host telemetry',
+  variableMeasured: [
+    { '@type': 'PropertyValue', name: 'Decode throughput', unitText: 'output tokens/s', value: benchmark.headlines.decode.value },
+    { '@type': 'PropertyValue', name: 'Prefill throughput', unitText: 'input tokens/s', value: benchmark.headlines.prefill.value },
+  ],
+  about: [
+    { '@type': 'Product', name: benchmark.hardware.model },
+    { '@type': 'SoftwareApplication', name: benchmark.model.name },
+  ],
+  ...(canonical ? { url: canonical } : {}),
+  ...(receipts.length
+    ? {
+        distribution: receipts.map((receipt) => ({
+          '@type': 'DataDownload',
+          name: receipt.label,
+          encodingFormat: receipt.href.endsWith('.csv') ? 'text/csv' : 'application/json',
+          contentUrl: canonical ? new URL(url(receipt.href), canonical).toString() : url(receipt.href),
+        })),
+      }
+    : {}),
+};
+---
+
+<Base title={title} description={benchmark.description} image={url(`/assets/${hardwareLabel}.png`)} type="article">
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(jsonld)} />
+
+  <header class="hardware-shell">
+    <div class="inner">
+      <div class="device">
+        <div class="device-thumb">
+          <img src={url(`/assets/${hardwareLabel}${device.imageExtension || '.png'}`)} alt="" />
+        </div>
+        <div class="device-text">
+          <span class="device-name">{benchmark.hardware.model}</span>
+          <nav class="models" aria-label={`${benchmark.hardware.model} model benchmarks`}>
+            {benchmarks.map((item) => (
+              <a
+                class={item.id === benchmark.id ? 'active' : ''}
+                aria-current={item.id === benchmark.id ? 'page' : undefined}
+                href={url(`/benchmarks/${hardwareLabel}/${item.id}/`)}
+              >
+                {item.model.name}
+              </a>
+            ))}
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <slot />
+
+  <script is:inline>
+    // Carry the section you are reading across a model switch, so comparing
+    // the same section between models does not send you back to the top.
+    // Progressive enhancement: without this the model links still work.
+    (() => {
+      const models = document.querySelector('.hardware-shell nav.models');
+      const nav = document.querySelector('.report-nav');
+      if (!models || !nav) return;
+      const ids = [...nav.querySelectorAll('a[href^="#"]')]
+        .map((a) => a.getAttribute('href').slice(1))
+        .filter((id) => document.getElementById(id));
+      if (!ids.length) return;
+      const pills = [...models.querySelectorAll('a')].map((a) => ({ a, base: a.getAttribute('href').split('#')[0] }));
+      const limit = () =>
+        (parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--shell-h')) || 92) + 56;
+      let queued = false;
+      const sync = () => {
+        queued = false;
+        const edge = limit();
+        let current = '';
+        for (const id of ids) {
+          const el = document.getElementById(id);
+          if (el && el.getBoundingClientRect().top <= edge) current = id;
+        }
+        for (const { a, base } of pills) a.setAttribute('href', current ? `${base}#${current}` : base);
+      };
+      addEventListener('scroll', () => { if (!queued) { queued = true; requestAnimationFrame(sync); } }, { passive: true });
+      addEventListener('resize', sync, { passive: true });
+      sync();
+    })();
+  </script>
+</Base>
+
+<style is:global>
+  /* Height of the sticky header. The report's own section nav sticks directly
+     beneath it, so both read this one value. */
+  html { --shell-h: 92px; }
+
+  .hardware-shell {
+    background: #07141d;
+    color: #dcecf3;
+    border-bottom: 1px solid #294052;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    -webkit-font-smoothing: antialiased;
+  }
+  .hardware-shell .inner {
+    max-width: 1240px;
+    margin: auto;
+    padding: 14px 28px;
+    height: var(--shell-h);
+  }
+  .hardware-shell a { color: #dcecf3; text-decoration: none; }
+  .hardware-shell .device { display: flex; align-items: center; gap: 26px; }
+  .hardware-shell .device-thumb { width: 128px; flex: none; }
+  .hardware-shell .device-thumb img { width: 100%; height: auto; display: block; }
+  .hardware-shell .device-text { display: flex; flex-direction: column; gap: 9px; min-width: 0; }
+  .hardware-shell .device-name { font-weight: 700; letter-spacing: -0.012em; }
+  .hardware-shell nav.models { display: flex; gap: 8px; overflow: auto; }
+  .hardware-shell nav.models a {
+    border: 1px solid #38515f;
+    padding: 6px 13px;
+    white-space: nowrap;
+    font-size: 13px;
+    line-height: 1.45;
+  }
+  .hardware-shell nav.models a.active {
+    background: #62d7e7;
+    color: #06151d;
+    border-color: #62d7e7;
+    font-weight: 800;
+  }
+</style>

@@ -1,0 +1,12 @@
+# One PromQL expression per line. Export raw samples over the exact measured window.
+DCGM_FI_PROF_PCIE_RX_BYTES{job="gpu"}
+DCGM_FI_PROF_PCIE_TX_BYTES{job="gpu"}
+DCGM_FI_DEV_PCIE_REPLAY_COUNTER{job="gpu"}
+DCGM_FI_PROF_SM_ACTIVE{job="gpu"}
+DCGM_FI_PROF_SM_OCCUPANCY{job="gpu"}
+DCGM_FI_PROF_PIPE_TENSOR_ACTIVE{job="gpu"}
+DCGM_FI_PROF_DRAM_ACTIVE{job="gpu"}
+DCGM_FI_DEV_GPU_UTIL{job="gpu"}
+DCGM_FI_DEV_MEM_COPY_UTIL{job="gpu"}
+DCGM_FI_DEV_POWER_USAGE{job="gpu"}
+DCGM_FI_DEV_TOTAL_ENERGY_CONSUMPTION{job="gpu"}

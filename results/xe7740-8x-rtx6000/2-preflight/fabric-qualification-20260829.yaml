@@ -1,0 +1,18 @@
+schema_version: 1
+campaign_id: xe7740-04-fabric-20260829T153500Z
+study_id: xe7740
+status: complete
+host: xe7740-04
+model: null
+revision: null
+external_path: /home/demouser/llm-benchmark-results/xe7740-04/fabric/host-baseline/20260829T153500Z-fabric
+canonical_layout: false
+completion_marker: FABRIC_QUALIFICATION_COMPLETE
+expected_base_runs: 36
+notes:
+  - All 36 NCCL topology/affinity/collective cases passed with zero wrong values.
+  - CUDA P2P matrix and per-GPU DCGM PCIe RX/TX controlled-load validation passed.
+  - Intel IMC bandwidth is available via perf.
+  - "UPI traffic is unavailable: PMUs lack named events and pinned PCM could not safely acquire occupied/restricted PMUs; destructive reset was not used."
+  - All eight GPUs negotiated PCIe Gen5 x16 under sustained eight-GPU traffic; idle Gen1 is link power management.
+  - Matching DCGM 4.6.0 utility discovery found the same 93 supported profiling fields on every GPU; the original exporter was restored and verified.

@@ -1,0 +1,4416 @@
+{
+  "schema_version": "1.1",
+  "aiperf_version": "0.13.0.dev20260918",
+  "benchmark_id": "7bf9e5467266",
+  "summary": {
+    "endpoints_configured": [
+      "http://127.0.0.1:8000/metrics"
+    ],
+    "endpoints_successful": [
+      "http://127.0.0.1:8000/metrics"
+    ],
+    "start_time": "2026-09-25T06:01:25.108101",
+    "end_time": "2026-09-25T06:02:33.303402",
+    "endpoint_info": {
+      "http://127.0.0.1:8000/metrics": {
+        "total_fetches": 215,
+        "first_fetch_ns": 1790316083281001511,
+        "last_fetch_ns": 1790316155313493575,
+        "avg_fetch_latency_ms": 8.563420148837208,
+        "unique_updates": 215,
+        "first_update_ns": 1790316083281001511,
+        "last_update_ns": 1790316155313493575,
+        "duration_seconds": 72.032492064,
+        "avg_update_interval_ms": 336.60043020560744,
+        "median_update_interval_ms": 333.3212125
+      }
+    },
+    "phase_time_ranges": {
+      "profiling": {
+        "start_ns": 1790316085108101455,
+        "end_ns": 1790316153303402538
+      }
+    }
+  },
+  "metrics_phase": "profiling",
+  "metrics": {
+    "sglang:cache_hit_rate": {
+      "type": "gauge",
+      "description": "The prefix cache hit rate.",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        }
+      ]
+    },
+    "sglang:cached_tokens": {
+      "type": "counter",
+      "description": "Number of cached prompt tokens by source (device/host/storage).",
+      "unit": "tokens",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "cache_source": "device",
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4"
+          },
+          "stats": {
+            "total": 0.0,
+            "rate": 0.0
+          }
+        }
+      ]
+    },
+    "sglang:context_len": {
+      "type": "gauge",
+      "description": "Maximum context length.",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 262144.0,
+            "min": 262144.0,
+            "max": 262144.0,
+            "std": 0.0,
+            "p1": 262144.0,
+            "p5": 262144.0,
+            "p10": 262144.0,
+            "p25": 262144.0,
+            "p50": 262144.0,
+            "p75": 262144.0,
+            "p90": 262144.0,
+            "p95": 262144.0,
+            "p99": 262144.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "1"
+          },
+          "stats": {
+            "avg": 262144.0,
+            "min": 262144.0,
+            "max": 262144.0,
+            "std": 0.0,
+            "p1": 262144.0,
+            "p5": 262144.0,
+            "p10": 262144.0,
+            "p25": 262144.0,
+            "p50": 262144.0,
+            "p75": 262144.0,
+            "p90": 262144.0,
+            "p95": 262144.0,
+            "p99": 262144.0
+          }
+        }
+      ]
+    },
+    "sglang:cuda_graph_passes": {
+      "type": "counter",
+      "description": "Total number of forward passes categorized by CUDA graph.",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "mode": "decode_cuda_graph",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "total": 1465.0,
+            "rate": 20.33804409679961
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "mode": "decode_cuda_graph",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "1"
+          },
+          "stats": {
+            "total": 1465.0,
+            "rate": 20.33804409679961
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "mode": "prefill_none",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "total": 146.0,
+            "rate": 2.0268630977015314
+          }
+        }
+      ]
+    },
+    "sglang:decode_sum_seq_lens": {
+      "type": "gauge",
+      "description": "The sum of all sequence lengths in decode.",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 9279.378504672897,
+            "min": 508.0,
+            "max": 16120.0,
+            "std": 3946.4408772773527,
+            "p1": 534.0,
+            "p5": 546.15,
+            "p10": 2722.8,
+            "p25": 7112.0,
+            "p50": 9418.5,
+            "p75": 12444.75,
+            "p90": 13438.2,
+            "p95": 15020.4,
+            "p99": 15871.0
+          }
+        }
+      ]
+    },
+    "sglang:e2e_request_latency_seconds": {
+      "type": "histogram",
+      "description": "Histogram of End-to-end request latency in seconds",
+      "unit": "seconds",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "is_streaming": "false",
+            "model_name": "qwen38-flash-next-nvfp4"
+          },
+          "stats": {
+            "count": 0
+          },
+          "buckets": {
+            "0.1": 0,
+            "0.2": 0,
+            "0.4": 0,
+            "0.6": 0,
+            "0.8": 0,
+            "1.0": 0,
+            "2.0": 0,
+            "4.0": 0,
+            "6.0": 0,
+            "8.0": 0,
+            "10.0": 0,
+            "20.0": 0,
+            "40.0": 0,
+            "60.0": 0,
+            "80.0": 0,
+            "100.0": 0,
+            "200.0": 0,
+            "400.0": 0,
+            "600.0": 0,
+            "1200.0": 0,
+            "1800.0": 0,
+            "2400.0": 0,
+            "+Inf": 0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "is_streaming": "true",
+            "model_name": "qwen38-flash-next-nvfp4"
+          },
+          "stats": {
+            "count": 203,
+            "sum": 2029.323097618937,
+            "avg": 9.996665505512006,
+            "count_rate": 2.81817266324254,
+            "sum_rate": 28.1723294512136,
+            "p1_estimate": 6.229680026806249,
+            "p5_estimate": 7.576346693472916,
+            "p10_estimate": 8.012574587396903,
+            "p25_estimate": 8.923900297525433,
+            "p50_estimate": 10.0,
+            "p75_estimate": 10.523907935841553,
+            "p90_estimate": 12.899959952998486,
+            "p95_estimate": 13.691977292050794,
+            "p99_estimate": 14.325591163292644
+          },
+          "buckets": {
+            "0.1": 0,
+            "0.2": 0,
+            "0.4": 0,
+            "0.6": 0,
+            "0.8": 0,
+            "1.0": 0,
+            "2.0": 0,
+            "4.0": 0,
+            "6.0": 0,
+            "8.0": 12,
+            "10.0": 100,
+            "20.0": 203,
+            "40.0": 203,
+            "60.0": 203,
+            "80.0": 203,
+            "100.0": 203,
+            "200.0": 203,
+            "400.0": 203,
+            "600.0": 203,
+            "1200.0": 203,
+            "1800.0": 203,
+            "2400.0": 203,
+            "+Inf": 203
+          }
+        }
+      ]
+    },
+    "sglang:evicted_tokens": {
+      "type": "counter",
+      "description": "The number of device KV token slots freed by eviction, regardless of whether the data was backed up to host (see sglang:hicache_backup_tokens_total) or destroyed (see sglang:hicache_dropped_tokens_total).",
+      "unit": "tokens",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "cache_type": "UnifiedRadixCache"
+          },
+          "stats": {
+            "total": 205824.0,
+            "rate": 2857.377193296712
+          }
+        }
+      ]
+    },
+    "sglang:eviction_duration_seconds": {
+      "type": "histogram",
+      "description": "End-to-end time of a device eviction pass in seconds; under --hicache-write-policy write_back this includes the blocking D->H backup (see sglang:hicache_backup_duration_seconds for the copy alone).",
+      "unit": "seconds",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "cache_type": "UnifiedRadixCache"
+          },
+          "stats": {
+            "count": 228,
+            "sum": 6.866945410059998,
+            "avg": 0.030118181623070166,
+            "count_rate": 3.165238262164035,
+            "sum_rate": 0.09533122086014739,
+            "p1_estimate": 0.00011994619713104538,
+            "p5_estimate": 0.00014584899796696077,
+            "p10_estimate": 0.0002860047902988633,
+            "p25_estimate": 0.03363559223074713,
+            "p50_estimate": 0.036897086483620695,
+            "p75_estimate": 0.04,
+            "p90_estimate": 0.04,
+            "p95_estimate": 0.04,
+            "p99_estimate": 0.047074999999999985
+          },
+          "buckets": {
+            "0.001": 48,
+            "0.002": 48,
+            "0.003": 50,
+            "0.004": 50,
+            "0.005": 50,
+            "0.006": 50,
+            "0.007": 50,
+            "0.008": 50,
+            "0.009": 50,
+            "0.01": 50,
+            "0.02": 50,
+            "0.03": 50,
+            "0.04": 224,
+            "0.05": 228,
+            "0.1": 228,
+            "0.2": 228,
+            "0.5": 228,
+            "1.0": 228,
+            "2.0": 228,
+            "5.0": 228,
+            "10.0": 228,
+            "30.0": 228,
+            "60.0": 228,
+            "+Inf": 228
+          }
+        }
+      ]
+    },
+    "sglang:full_token_usage": {
+      "type": "gauge",
+      "description": "The token usage for full attention layers.",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.010468785013584938,
+            "min": 0.0,
+            "max": 0.01825514752706432,
+            "std": 0.004266621171345581,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.004528408688884172,
+            "p25": 0.008632279063185453,
+            "p50": 0.011308632860540402,
+            "p75": 0.012920079073707992,
+            "p90": 0.01528337932498408,
+            "p95": 0.015874195146111936,
+            "p99": 0.01759994339489139
+          }
+        }
+      ]
+    },
+    "sglang:gen_throughput": {
+      "type": "gauge",
+      "description": "The generation throughput (token/s).",
+      "unit": "tokens/s",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 1514.999839514571,
+            "min": 0.0,
+            "max": 2205.6580225125213,
+            "std": 583.6402177070679,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 54.67404492712717,
+            "p25": 1414.2662112376702,
+            "p50": 1669.6292733784535,
+            "p75": 1880.0163199544813,
+            "p90": 2031.627214908062,
+            "p95": 2099.065078734686,
+            "p99": 2172.990832367079
+          }
+        }
+      ]
+    },
+    "sglang:generation_tokens": {
+      "type": "counter",
+      "description": "Number of generation tokens processed.",
+      "unit": "tokens",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "is_streaming": "false",
+            "model_name": "qwen38-flash-next-nvfp4"
+          },
+          "stats": {
+            "total": 0.0,
+            "rate": 0.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "is_streaming": "true",
+            "model_name": "qwen38-flash-next-nvfp4"
+          },
+          "stats": {
+            "total": 103936.0,
+            "rate": 1442.9044035801805
+          }
+        }
+      ]
+    },
+    "sglang:generation_tokens_histogram": {
+      "type": "histogram",
+      "description": "Histogram of generation token length.",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4"
+          },
+          "stats": {
+            "count": 203,
+            "sum": 103936.0,
+            "avg": 512.0,
+            "count_rate": 2.81817266324254,
+            "sum_rate": 1442.9044035801805,
+            "p1_estimate": 500.0,
+            "p5_estimate": 500.0,
+            "p10_estimate": 500.0,
+            "p25_estimate": 500.0,
+            "p50_estimate": 500.0,
+            "p75_estimate": 550.7150317062187,
+            "p90_estimate": 588.5056720643737,
+            "p95_estimate": 601.1025521837586,
+            "p99_estimate": 611.1800562792666
+          },
+          "buckets": {
+            "100.0": 0,
+            "300.0": 0,
+            "500.0": 0,
+            "700.0": 203,
+            "1000.0": 203,
+            "1500.0": 203,
+            "2000.0": 203,
+            "3000.0": 203,
+            "4000.0": 203,
+            "5000.0": 203,
+            "6000.0": 203,
+            "7000.0": 203,
+            "8000.0": 203,
+            "9000.0": 203,
+            "10000.0": 203,
+            "12500.0": 203,
+            "15000.0": 203,
+            "17500.0": 203,
+            "20000.0": 203,
+            "22500.0": 203,
+            "25000.0": 203,
+            "27500.0": 203,
+            "30000.0": 203,
+            "35000.0": 203,
+            "40000.0": 203,
+            "60000.0": 203,
+            "80000.0": 203,
+            "100000.0": 203,
+            "200000.0": 203,
+            "300000.0": 203,
+            "400000.0": 203,
+            "600000.0": 203,
+            "800000.0": 203,
+            "1e+06": 203,
+            "1.1e+06": 203,
+            "+Inf": 203
+          }
+        }
+      ]
+    },
+    "sglang:graph_memory_usage_gb": {
+      "type": "gauge",
+      "description": "Memory used by captured device graphs in GB.",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "phase": "decode",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "phase": "decode",
+            "pp_rank": "0",
+            "tp_rank": "1"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "phase": "draft_decode",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.708984375,
+            "min": 0.708984375,
+            "max": 0.708984375,
+            "std": 0.0,
+            "p1": 0.708984375,
+            "p5": 0.708984375,
+            "p10": 0.708984375,
+            "p25": 0.708984375,
+            "p50": 0.708984375,
+            "p75": 0.708984375,
+            "p90": 0.708984375,
+            "p95": 0.708984375,
+            "p99": 0.708984375
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "phase": "draft_decode",
+            "pp_rank": "0",
+            "tp_rank": "1"
+          },
+          "stats": {
+            "avg": 0.708984375,
+            "min": 0.708984375,
+            "max": 0.708984375,
+            "std": 0.0,
+            "p1": 0.708984375,
+            "p5": 0.708984375,
+            "p10": 0.708984375,
+            "p25": 0.708984375,
+            "p50": 0.708984375,
+            "p75": 0.708984375,
+            "p90": 0.708984375,
+            "p95": 0.708984375,
+            "p99": 0.708984375
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "phase": "draft_extend",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.8125,
+            "min": 0.8125,
+            "max": 0.8125,
+            "std": 0.0,
+            "p1": 0.8125,
+            "p5": 0.8125,
+            "p10": 0.8125,
+            "p25": 0.8125,
+            "p50": 0.8125,
+            "p75": 0.8125,
+            "p90": 0.8125,
+            "p95": 0.8125,
+            "p99": 0.8125
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "phase": "draft_extend",
+            "pp_rank": "0",
+            "tp_rank": "1"
+          },
+          "stats": {
+            "avg": 0.8125,
+            "min": 0.8125,
+            "max": 0.8125,
+            "std": 0.0,
+            "p1": 0.8125,
+            "p5": 0.8125,
+            "p10": 0.8125,
+            "p25": 0.8125,
+            "p50": 0.8125,
+            "p75": 0.8125,
+            "p90": 0.8125,
+            "p95": 0.8125,
+            "p99": 0.8125
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "phase": "draft_prefill",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "phase": "draft_prefill",
+            "pp_rank": "0",
+            "tp_rank": "1"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "phase": "prefill",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "phase": "prefill",
+            "pp_rank": "0",
+            "tp_rank": "1"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "phase": "target_verify",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.88671875,
+            "min": 0.88671875,
+            "max": 0.88671875,
+            "std": 0.0,
+            "p1": 0.88671875,
+            "p5": 0.88671875,
+            "p10": 0.88671875,
+            "p25": 0.88671875,
+            "p50": 0.88671875,
+            "p75": 0.88671875,
+            "p90": 0.88671875,
+            "p95": 0.88671875,
+            "p99": 0.88671875
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "phase": "target_verify",
+            "pp_rank": "0",
+            "tp_rank": "1"
+          },
+          "stats": {
+            "avg": 0.88671875,
+            "min": 0.88671875,
+            "max": 0.88671875,
+            "std": 0.0,
+            "p1": 0.88671875,
+            "p5": 0.88671875,
+            "p10": 0.88671875,
+            "p25": 0.88671875,
+            "p50": 0.88671875,
+            "p75": 0.88671875,
+            "p90": 0.88671875,
+            "p95": 0.88671875,
+            "p99": 0.88671875
+          }
+        }
+      ]
+    },
+    "sglang:http_requests": {
+      "type": "counter",
+      "description": "Total number of HTTP requests by endpoint and method",
+      "unit": "requests",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "endpoint": "/health",
+            "method": "GET"
+          },
+          "stats": {
+            "total": 0.0,
+            "rate": 0.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "endpoint": "/metrics",
+            "method": "GET"
+          },
+          "stats": {
+            "total": 57.0,
+            "rate": 0.7913095655410087
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "endpoint": "/metrics",
+            "method": "HEAD"
+          },
+          "stats": {
+            "total": 0.0,
+            "rate": 0.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "endpoint": "/model_info",
+            "method": "GET"
+          },
+          "stats": {
+            "total": 0.0,
+            "rate": 0.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "endpoint": "/v1/chat/completions",
+            "method": "POST"
+          },
+          "stats": {
+            "total": 203.0,
+            "rate": 2.81817266324254
+          }
+        }
+      ]
+    },
+    "sglang:http_requests_active": {
+      "type": "gauge",
+      "description": "Number of currently active HTTP requests",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "endpoint": "/health",
+            "method": "GET"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "endpoint": "/metrics",
+            "method": "GET"
+          },
+          "stats": {
+            "avg": 1.0,
+            "min": 1.0,
+            "max": 1.0,
+            "std": 0.0,
+            "p1": 1.0,
+            "p5": 1.0,
+            "p10": 1.0,
+            "p25": 1.0,
+            "p50": 1.0,
+            "p75": 1.0,
+            "p90": 1.0,
+            "p95": 1.0,
+            "p99": 1.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "endpoint": "/metrics",
+            "method": "HEAD"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "endpoint": "/model_info",
+            "method": "GET"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "endpoint": "/v1/chat/completions",
+            "method": "POST"
+          },
+          "stats": {
+            "avg": 34.38785046728972,
+            "min": 0.0,
+            "max": 55.0,
+            "std": 10.434865809668944,
+            "p1": 0.0,
+            "p5": 7.0,
+            "p10": 23.900000000000002,
+            "p25": 32.0,
+            "p50": 35.0,
+            "p75": 40.0,
+            "p90": 45.0,
+            "p95": 48.0,
+            "p99": 50.0
+          }
+        }
+      ]
+    },
+    "sglang:http_responses": {
+      "type": "counter",
+      "description": "Total number of HTTP responses by endpoint and status code",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "endpoint": "/health",
+            "method": "GET",
+            "status_code": "200"
+          },
+          "stats": {
+            "total": 0.0,
+            "rate": 0.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "endpoint": "/health",
+            "method": "GET",
+            "status_code": "503"
+          },
+          "stats": {
+            "total": 0.0,
+            "rate": 0.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "endpoint": "/metrics",
+            "method": "GET",
+            "status_code": "200"
+          },
+          "stats": {
+            "total": 57.0,
+            "rate": 0.7913095655410087
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "endpoint": "/metrics",
+            "method": "HEAD",
+            "status_code": "200"
+          },
+          "stats": {
+            "total": 0.0,
+            "rate": 0.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "endpoint": "/model_info",
+            "method": "GET",
+            "status_code": "200"
+          },
+          "stats": {
+            "total": 0.0,
+            "rate": 0.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "endpoint": "/v1/chat/completions",
+            "method": "POST",
+            "status_code": "200"
+          },
+          "stats": {
+            "total": 203.0,
+            "rate": 2.81817266324254
+          }
+        }
+      ]
+    },
+    "sglang:inter_token_latency_seconds": {
+      "type": "histogram",
+      "description": "Histogram of inter-token latency in seconds.",
+      "unit": "seconds",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4"
+          },
+          "stats": {
+            "count": 103733,
+            "sum": 1993.1122937337495,
+            "avg": 0.019213869200097843,
+            "count_rate": 1440.086230916938,
+            "sum_rate": 27.669628477699945,
+            "p1_estimate": 0.006561547868659622,
+            "p5_estimate": 0.01,
+            "p10_estimate": 0.01,
+            "p25_estimate": 0.010726554621229564,
+            "p50_estimate": 0.012779171506585843,
+            "p75_estimate": 0.021526836655775212,
+            "p90_estimate": 0.04,
+            "p95_estimate": 0.04897830623958038,
+            "p99_estimate": 0.10129345175210036
+          },
+          "buckets": {
+            "0.002": 0,
+            "0.004": 0,
+            "0.006": 251,
+            "0.008": 1647,
+            "0.01": 3948,
+            "0.015": 67115,
+            "0.02": 68879,
+            "0.025": 82184,
+            "0.03": 88920,
+            "0.035": 89415,
+            "0.04": 91239,
+            "0.06": 102449,
+            "0.08": 102449,
+            "0.1": 102533,
+            "0.2": 103733,
+            "0.4": 103733,
+            "0.6": 103733,
+            "0.8": 103733,
+            "1.0": 103733,
+            "2.0": 103733,
+            "4.0": 103733,
+            "6.0": 103733,
+            "8.0": 103733,
+            "+Inf": 103733
+          }
+        }
+      ]
+    },
+    "sglang:is_cuda_graph": {
+      "type": "gauge",
+      "description": "Whether the batch is using CUDA graph.",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        }
+      ]
+    },
+    "sglang:kv_available_tokens": {
+      "type": "gauge",
+      "description": "Number of free token slots in the KV cache pool.",
+      "unit": "tokens",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 819570.8411214954,
+            "min": 813696.0,
+            "max": 826560.0,
+            "std": 3158.2902849381794,
+            "p1": 813696.0,
+            "p5": 814121.6,
+            "p10": 814976.0,
+            "p25": 816848.0,
+            "p50": 819584.0,
+            "p75": 821728.0,
+            "p90": 823168.0,
+            "p95": 824832.0,
+            "p99": 826351.36
+          }
+        }
+      ]
+    },
+    "sglang:kv_cache_memory_usage_gb": {
+      "type": "gauge",
+      "description": "Memory used by the KV cache pools in GB.",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 11.006044686676185,
+            "min": 10.999619096517563,
+            "max": 11.023743242025375,
+            "std": 0.010689133593736196,
+            "p1": 10.999619096517563,
+            "p5": 10.999619096517563,
+            "p10": 10.999619096517563,
+            "p25": 10.999619096517563,
+            "p50": 10.999619096517563,
+            "p75": 11.023743242025375,
+            "p90": 11.023743242025375,
+            "p95": 11.023743242025375,
+            "p99": 11.023743242025375
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "1"
+          },
+          "stats": {
+            "avg": 11.006044686676185,
+            "min": 10.999619096517563,
+            "max": 11.023743242025375,
+            "std": 0.010689133593736196,
+            "p1": 10.999619096517563,
+            "p5": 10.999619096517563,
+            "p10": 10.999619096517563,
+            "p25": 10.999619096517563,
+            "p50": 10.999619096517563,
+            "p75": 11.023743242025375,
+            "p90": 11.023743242025375,
+            "p95": 11.023743242025375,
+            "p99": 11.023743242025375
+          }
+        }
+      ]
+    },
+    "sglang:kv_evictable_tokens": {
+      "type": "gauge",
+      "description": "Number of evictable (radix-cached) token slots in the KV cache pool.",
+      "unit": "tokens",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 75994.91588785047,
+            "min": 72512.0,
+            "max": 91520.0,
+            "std": 4870.9535658615405,
+            "p1": 73856.0,
+            "p5": 73856.0,
+            "p10": 73856.0,
+            "p25": 74048.0,
+            "p50": 74112.0,
+            "p75": 74240.0,
+            "p90": 83840.0,
+            "p95": 90432.0,
+            "p99": 91520.0
+          }
+        }
+      ]
+    },
+    "sglang:kv_used_tokens": {
+      "type": "gauge",
+      "description": "Number of actively used token slots in the KV cache pool.",
+      "unit": "tokens",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 9474.691588785046,
+            "min": 0.0,
+            "max": 16512.0,
+            "std": 3861.5448717391255,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 4096.0,
+            "p25": 7808.0,
+            "p50": 10240.0,
+            "p75": 11712.0,
+            "p90": 13824.0,
+            "p95": 14358.4,
+            "p99": 15919.36
+          }
+        }
+      ]
+    },
+    "sglang:mamba_available_tokens": {
+      "type": "gauge",
+      "description": "Number of free state slots in the mamba SSM pool (hybrid-SSM only).",
+      "unit": "tokens",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 6.957943925233645,
+            "min": 0.0,
+            "max": 64.0,
+            "std": 18.37540475684989,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 32.0,
+            "p95": 64.0,
+            "p99": 64.0
+          }
+        }
+      ]
+    },
+    "sglang:mamba_evictable_tokens": {
+      "type": "gauge",
+      "description": "Number of evictable (radix-cached) state slots in the mamba SSM pool.",
+      "unit": "tokens",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 147.75233644859813,
+            "min": 141.0,
+            "max": 178.0,
+            "std": 9.494716551993685,
+            "p1": 144.0,
+            "p5": 144.0,
+            "p10": 144.0,
+            "p25": 144.0,
+            "p50": 144.0,
+            "p75": 144.0,
+            "p90": 163.0,
+            "p95": 176.0,
+            "p99": 178.0
+          }
+        }
+      ]
+    },
+    "sglang:mamba_usage": {
+      "type": "gauge",
+      "description": "The token usage for Mamba layers.",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.35537383177570087,
+            "min": 0.0,
+            "max": 0.4125,
+            "std": 0.11600388720737076,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.1875,
+            "p25": 0.4,
+            "p50": 0.4,
+            "p75": 0.4,
+            "p90": 0.4,
+            "p95": 0.4,
+            "p99": 0.4
+          }
+        }
+      ]
+    },
+    "sglang:mamba_used_tokens": {
+      "type": "gauge",
+      "description": "Number of actively used state slots in the mamba SSM pool.",
+      "unit": "tokens",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 85.28971962616822,
+            "min": 0.0,
+            "max": 99.0,
+            "std": 27.840932929768982,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 45.0,
+            "p25": 96.0,
+            "p50": 96.0,
+            "p75": 96.0,
+            "p90": 96.0,
+            "p95": 96.0,
+            "p99": 96.0
+          }
+        }
+      ]
+    },
+    "sglang:max_total_num_tokens": {
+      "type": "gauge",
+      "description": "Maximum total number of tokens in the KV cache pool.",
+      "unit": "tokens",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 905040.4485981308,
+            "min": 904512.0,
+            "max": 906496.0,
+            "std": 879.0877605635703,
+            "p1": 904512.0,
+            "p5": 904512.0,
+            "p10": 904512.0,
+            "p25": 904512.0,
+            "p50": 904512.0,
+            "p75": 906496.0,
+            "p90": 906496.0,
+            "p95": 906496.0,
+            "p99": 906496.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "1"
+          },
+          "stats": {
+            "avg": 905040.4485981308,
+            "min": 904512.0,
+            "max": 906496.0,
+            "std": 879.0877605635703,
+            "p1": 904512.0,
+            "p5": 904512.0,
+            "p10": 904512.0,
+            "p25": 904512.0,
+            "p50": 904512.0,
+            "p75": 906496.0,
+            "p90": 906496.0,
+            "p95": 906496.0,
+            "p99": 906496.0
+          }
+        }
+      ]
+    },
+    "sglang:new_token_ratio": {
+      "type": "gauge",
+      "description": "The new token ratio.",
+      "unit": "ratio",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.22821766355139952,
+            "min": 0.098,
+            "max": 0.7,
+            "std": 0.19967847155031626,
+            "p1": 0.098,
+            "p5": 0.098,
+            "p10": 0.098,
+            "p25": 0.098,
+            "p50": 0.098,
+            "p75": 0.3124624999999912,
+            "p90": 0.5252193333333294,
+            "p95": 0.7,
+            "p99": 0.7
+          }
+        }
+      ]
+    },
+    "sglang:num_decode_prealloc_queue_reqs": {
+      "type": "gauge",
+      "description": "The number of requests in the decode prealloc queue.",
+      "unit": "requests",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        }
+      ]
+    },
+    "sglang:num_decode_transfer_queue_reqs": {
+      "type": "gauge",
+      "description": "The number of requests in the decode transfer queue.",
+      "unit": "requests",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        }
+      ]
+    },
+    "sglang:num_grammar_queue_reqs": {
+      "type": "gauge",
+      "description": "The number of requests in the grammar waiting queue.",
+      "unit": "requests",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        }
+      ]
+    },
+    "sglang:num_pages": {
+      "type": "gauge",
+      "description": "Number of KV cache pages.",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 14141.257009345794,
+            "min": 14133.0,
+            "max": 14164.0,
+            "std": 13.735746258805786,
+            "p1": 14133.0,
+            "p5": 14133.0,
+            "p10": 14133.0,
+            "p25": 14133.0,
+            "p50": 14133.0,
+            "p75": 14164.0,
+            "p90": 14164.0,
+            "p95": 14164.0,
+            "p99": 14164.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "1"
+          },
+          "stats": {
+            "avg": 14141.257009345794,
+            "min": 14133.0,
+            "max": 14164.0,
+            "std": 13.735746258805786,
+            "p1": 14133.0,
+            "p5": 14133.0,
+            "p10": 14133.0,
+            "p25": 14133.0,
+            "p50": 14133.0,
+            "p75": 14164.0,
+            "p90": 14164.0,
+            "p95": 14164.0,
+            "p99": 14164.0
+          }
+        }
+      ]
+    },
+    "sglang:num_paused_reqs": {
+      "type": "gauge",
+      "description": "The number of paused requests by async weight sync.",
+      "unit": "requests",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pid": "205",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        }
+      ]
+    },
+    "sglang:num_prefill_bootstrap_queue_reqs": {
+      "type": "gauge",
+      "description": "The number of requests in the prefill bootstrap queue.",
+      "unit": "requests",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        }
+      ]
+    },
+    "sglang:num_prefill_inflight_queue_reqs": {
+      "type": "gauge",
+      "description": "The number of requests in the prefill inflight queue.",
+      "unit": "requests",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        }
+      ]
+    },
+    "sglang:num_queue_reqs": {
+      "type": "gauge",
+      "description": "The number of requests in the waiting queue.",
+      "unit": "requests",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        }
+      ]
+    },
+    "sglang:num_requests": {
+      "type": "counter",
+      "description": "Number of requests processed.",
+      "unit": "requests",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "is_streaming": "false",
+            "model_name": "qwen38-flash-next-nvfp4"
+          },
+          "stats": {
+            "total": 0.0,
+            "rate": 0.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "is_streaming": "true",
+            "model_name": "qwen38-flash-next-nvfp4"
+          },
+          "stats": {
+            "total": 203.0,
+            "rate": 2.81817266324254
+          }
+        }
+      ]
+    },
+    "sglang:num_retracted_reqs": {
+      "type": "gauge",
+      "description": "The number of retracted requests.",
+      "unit": "requests",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pid": "205",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        }
+      ]
+    },
+    "sglang:num_running_reqs": {
+      "type": "gauge",
+      "description": "The number of running requests.",
+      "unit": "requests",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 27.934579439252335,
+            "min": 0.0,
+            "max": 33.0,
+            "std": 9.287551391791173,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 16.0,
+            "p25": 31.0,
+            "p50": 31.0,
+            "p75": 32.0,
+            "p90": 32.0,
+            "p95": 32.0,
+            "p99": 33.0
+          }
+        }
+      ]
+    },
+    "sglang:num_unique_running_routing_keys": {
+      "type": "gauge",
+      "description": "Number of unique routing keys in running batch.",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        }
+      ]
+    },
+    "sglang:num_used_tokens": {
+      "type": "gauge",
+      "description": "The number of used tokens.",
+      "unit": "tokens",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 9474.691588785046,
+            "min": 0.0,
+            "max": 16512.0,
+            "std": 3861.5448717391255,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 4096.0,
+            "p25": 7808.0,
+            "p50": 10240.0,
+            "p75": 11712.0,
+            "p90": 13824.0,
+            "p95": 14358.4,
+            "p99": 15919.36
+          }
+        }
+      ]
+    },
+    "sglang:page_size": {
+      "type": "gauge",
+      "description": "KV cache page size in tokens.",
+      "unit": "tokens",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 64.0,
+            "min": 64.0,
+            "max": 64.0,
+            "std": 0.0,
+            "p1": 64.0,
+            "p5": 64.0,
+            "p10": 64.0,
+            "p25": 64.0,
+            "p50": 64.0,
+            "p75": 64.0,
+            "p90": 64.0,
+            "p95": 64.0,
+            "p99": 64.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "1"
+          },
+          "stats": {
+            "avg": 64.0,
+            "min": 64.0,
+            "max": 64.0,
+            "std": 0.0,
+            "p1": 64.0,
+            "p5": 64.0,
+            "p10": 64.0,
+            "p25": 64.0,
+            "p50": 64.0,
+            "p75": 64.0,
+            "p90": 64.0,
+            "p95": 64.0,
+            "p99": 64.0
+          }
+        }
+      ]
+    },
+    "sglang:pending_prealloc_token_usage": {
+      "type": "gauge",
+      "description": "The token usage for pending preallocated tokens (not preallocated yet).",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        }
+      ]
+    },
+    "sglang:per_stage_req_latency_seconds": {
+      "type": "histogram",
+      "description": "The latency of each stage of requests.",
+      "unit": "seconds",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "stage": "prefill_forward",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "count": 203,
+            "sum": 24.902940885920543,
+            "avg": 0.12267458564492878,
+            "count_rate": 2.81817266324254,
+            "sum_rate": 0.34571816373914405,
+            "p1_estimate": 0.05098924797653245,
+            "p5_estimate": 0.05865511837700496,
+            "p10_estimate": 0.06823745637759561,
+            "p25_estimate": 0.10017266845071651,
+            "p50_estimate": 0.11497505051532371,
+            "p75_estimate": 0.1503714953105962,
+            "p90_estimate": 0.18331168643642382,
+            "p95_estimate": 0.194291750145033,
+            "p99_estimate": 0.20168108076720373
+          },
+          "buckets": {
+            "0.001": 0,
+            "0.0016200000000000001": 0,
+            "0.0026244000000000007": 0,
+            "0.004251528": 0,
+            "0.006887475360000002": 0,
+            "0.011157710083200004": 0,
+            "0.018075490334784006": 0,
+            "0.029282294342350097": 0,
+            "0.047437316834607154": 0,
+            "0.07684845327206359": 31,
+            "0.12449449430074302": 131,
+            "0.20168108076720373": 202,
+            "0.3267233508428701": 203,
+            "0.5292918283654495": 203,
+            "0.8574527619520282": 203,
+            "1.389073474362286": 203,
+            "2.2502990284669036": 203,
+            "3.6454844261163837": 203,
+            "5.905684770308542": 203,
+            "9.567209327899839": 203,
+            "15.49887911119774": 203,
+            "25.10818416014034": 203,
+            "40.67525833942735": 203,
+            "65.89391850987231": 203,
+            "106.74814798599316": 203,
+            "172.93199973730896": 203,
+            "280.1498395744405": 203,
+            "453.84274011059364": 203,
+            "735.2252389791618": 203,
+            "1191.064887146242": 203,
+            "+Inf": 203
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "stage": "prefill_forward",
+            "tp_rank": "1"
+          },
+          "stats": {
+            "count": 203,
+            "sum": 24.85992324433755,
+            "avg": 0.12246267608048055,
+            "count_rate": 2.81817266324254,
+            "sum_rate": 0.3451209659975364,
+            "p1_estimate": 0.05108327113310034,
+            "p5_estimate": 0.05874914153357286,
+            "p10_estimate": 0.0683314795341635,
+            "p25_estimate": 0.10008424710380986,
+            "p50_estimate": 0.11466320105237472,
+            "p75_estimate": 0.14984172466793988,
+            "p90_estimate": 0.18325248995270788,
+            "p95_estimate": 0.19438941171429716,
+            "p99_estimate": 0.20168108076720373
+          },
+          "buckets": {
+            "0.001": 0,
+            "0.0016200000000000001": 0,
+            "0.0026244000000000007": 0,
+            "0.004251528": 0,
+            "0.006887475360000002": 0,
+            "0.011157710083200004": 0,
+            "0.018075490334784006": 0,
+            "0.029282294342350097": 0,
+            "0.047437316834607154": 0,
+            "0.07684845327206359": 31,
+            "0.12449449430074302": 132,
+            "0.20168108076720373": 202,
+            "0.3267233508428701": 203,
+            "0.5292918283654495": 203,
+            "0.8574527619520282": 203,
+            "1.389073474362286": 203,
+            "2.2502990284669036": 203,
+            "3.6454844261163837": 203,
+            "5.905684770308542": 203,
+            "9.567209327899839": 203,
+            "15.49887911119774": 203,
+            "25.10818416014034": 203,
+            "40.67525833942735": 203,
+            "65.89391850987231": 203,
+            "106.74814798599316": 203,
+            "172.93199973730896": 203,
+            "280.1498395744405": 203,
+            "453.84274011059364": 203,
+            "735.2252389791618": 203,
+            "1191.064887146242": 203,
+            "+Inf": 203
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "stage": "request_process",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "count": 203,
+            "sum": 0.0033637401065789163,
+            "avg": 0.000016570148308270523,
+            "count_rate": 2.81817266324254,
+            "sum_rate": 0.00004669753898824261,
+            "p1_estimate": 0.0,
+            "p5_estimate": 0.0,
+            "p10_estimate": 0.0,
+            "p25_estimate": 0.0,
+            "p50_estimate": 0.0,
+            "p75_estimate": 0.0001713274990693027,
+            "p90_estimate": 0.0003517900401135061,
+            "p95_estimate": 0.0004119442204615737,
+            "p99_estimate": 0.000460067564740028
+          },
+          "buckets": {
+            "0.001": 203,
+            "0.0016200000000000001": 203,
+            "0.0026244000000000007": 203,
+            "0.004251528": 203,
+            "0.006887475360000002": 203,
+            "0.011157710083200004": 203,
+            "0.018075490334784006": 203,
+            "0.029282294342350097": 203,
+            "0.047437316834607154": 203,
+            "0.07684845327206359": 203,
+            "0.12449449430074302": 203,
+            "0.20168108076720373": 203,
+            "0.3267233508428701": 203,
+            "0.5292918283654495": 203,
+            "0.8574527619520282": 203,
+            "1.389073474362286": 203,
+            "2.2502990284669036": 203,
+            "3.6454844261163837": 203,
+            "5.905684770308542": 203,
+            "9.567209327899839": 203,
+            "15.49887911119774": 203,
+            "25.10818416014034": 203,
+            "40.67525833942735": 203,
+            "65.89391850987231": 203,
+            "106.74814798599316": 203,
+            "172.93199973730896": 203,
+            "280.1498395744405": 203,
+            "453.84274011059364": 203,
+            "735.2252389791618": 203,
+            "1191.064887146242": 203,
+            "+Inf": 203
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "stage": "request_process",
+            "tp_rank": "1"
+          },
+          "stats": {
+            "count": 203,
+            "sum": 0.0035467498819343746,
+            "avg": 0.000017471674295243223,
+            "count_rate": 2.81817266324254,
+            "sum_rate": 0.000049238194879931825,
+            "p1_estimate": 0.0,
+            "p5_estimate": 0.0,
+            "p10_estimate": 0.0,
+            "p25_estimate": 0.0,
+            "p50_estimate": 0.0,
+            "p75_estimate": 0.00011165815894622967,
+            "p90_estimate": 0.00022031805240510584,
+            "p95_estimate": 0.0002565380168913978,
+            "p99_estimate": 0.00028551398848043145
+          },
+          "buckets": {
+            "0.001": 203,
+            "0.0016200000000000001": 203,
+            "0.0026244000000000007": 203,
+            "0.004251528": 203,
+            "0.006887475360000002": 203,
+            "0.011157710083200004": 203,
+            "0.018075490334784006": 203,
+            "0.029282294342350097": 203,
+            "0.047437316834607154": 203,
+            "0.07684845327206359": 203,
+            "0.12449449430074302": 203,
+            "0.20168108076720373": 203,
+            "0.3267233508428701": 203,
+            "0.5292918283654495": 203,
+            "0.8574527619520282": 203,
+            "1.389073474362286": 203,
+            "2.2502990284669036": 203,
+            "3.6454844261163837": 203,
+            "5.905684770308542": 203,
+            "9.567209327899839": 203,
+            "15.49887911119774": 203,
+            "25.10818416014034": 203,
+            "40.67525833942735": 203,
+            "65.89391850987231": 203,
+            "106.74814798599316": 203,
+            "172.93199973730896": 203,
+            "280.1498395744405": 203,
+            "453.84274011059364": 203,
+            "735.2252389791618": 203,
+            "1191.064887146242": 203,
+            "+Inf": 203
+          }
+        }
+      ]
+    },
+    "sglang:prefill_effective_tokens": {
+      "type": "counter",
+      "description": "Effective prefill tokens with retracted-request re-counts excluded, updated on each log interval. mode: device_hit, host_hit, storage_hit, input. Windowed prefix cache hit rate = rate(sum of *_hit) / rate(sum of all modes); per-tier rate uses a single *_hit mode in the numerator.",
+      "unit": "tokens",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "mode": "device_hit",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "total": 0.0,
+            "rate": 0.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "mode": "device_hit",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "1"
+          },
+          "stats": {
+            "total": 0.0,
+            "rate": 0.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "mode": "host_hit",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "total": 0.0,
+            "rate": 0.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "mode": "host_hit",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "1"
+          },
+          "stats": {
+            "total": 0.0,
+            "rate": 0.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "mode": "input",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "total": 12992.0,
+            "rate": 180.36305044752257
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "mode": "input",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "1"
+          },
+          "stats": {
+            "total": 0.0,
+            "rate": 0.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "mode": "storage_hit",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "total": 0.0,
+            "rate": 0.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "mode": "storage_hit",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "1"
+          },
+          "stats": {
+            "total": 0.0,
+            "rate": 0.0
+          }
+        }
+      ]
+    },
+    "sglang:process_cpu_seconds": {
+      "type": "counter",
+      "description": "Total CPU time consumed by this process (user + system)",
+      "unit": "seconds",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "component": "detokenizer"
+          },
+          "stats": {
+            "total": 0.5600000000000005,
+            "rate": 0.007774269415841497
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "component": "tokenizer"
+          },
+          "stats": {
+            "total": 2.5199999999999925,
+            "rate": 0.0349842123712866
+          }
+        }
+      ]
+    },
+    "sglang:prompt_tokens": {
+      "type": "counter",
+      "description": "Number of prefill tokens processed.",
+      "unit": "tokens",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "is_streaming": "false",
+            "model_name": "qwen38-flash-next-nvfp4"
+          },
+          "stats": {
+            "total": 0.0,
+            "rate": 0.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "is_streaming": "true",
+            "model_name": "qwen38-flash-next-nvfp4"
+          },
+          "stats": {
+            "total": 12211.0,
+            "rate": 169.52072113721505
+          }
+        }
+      ]
+    },
+    "sglang:prompt_tokens_histogram": {
+      "type": "histogram",
+      "description": "Histogram of prompt token length.",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4"
+          },
+          "stats": {
+            "count": 203,
+            "sum": 12211.0,
+            "avg": 60.152709359605915,
+            "count_rate": 2.81817266324254,
+            "sum_rate": 169.52072113721505,
+            "p1_estimate": 38.26711998883557,
+            "p5_estimate": 40.053698712980086,
+            "p10_estimate": 42.28692211816073,
+            "p25_estimate": 48.986592333702674,
+            "p50_estimate": 60.152709359605915,
+            "p75_estimate": 71.31882638550915,
+            "p90_estimate": 78.0184966010511,
+            "p95_estimate": 80.25172000623174,
+            "p99_estimate": 82.03829873037625
+          },
+          "buckets": {
+            "100.0": 203,
+            "300.0": 203,
+            "500.0": 203,
+            "700.0": 203,
+            "1000.0": 203,
+            "1500.0": 203,
+            "2000.0": 203,
+            "3000.0": 203,
+            "4000.0": 203,
+            "5000.0": 203,
+            "6000.0": 203,
+            "7000.0": 203,
+            "8000.0": 203,
+            "9000.0": 203,
+            "10000.0": 203,
+            "12500.0": 203,
+            "15000.0": 203,
+            "17500.0": 203,
+            "20000.0": 203,
+            "22500.0": 203,
+            "25000.0": 203,
+            "27500.0": 203,
+            "30000.0": 203,
+            "35000.0": 203,
+            "40000.0": 203,
+            "60000.0": 203,
+            "80000.0": 203,
+            "100000.0": 203,
+            "200000.0": 203,
+            "300000.0": 203,
+            "400000.0": 203,
+            "600000.0": 203,
+            "800000.0": 203,
+            "1e+06": 203,
+            "1.1e+06": 203,
+            "+Inf": 203
+          }
+        }
+      ]
+    },
+    "sglang:queue_time_seconds": {
+      "type": "histogram",
+      "description": "Histogram of queueing time in seconds.",
+      "unit": "seconds",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "count": 203,
+            "sum": 0.06492900307057425,
+            "avg": 0.00031984730576637565,
+            "count_rate": 2.81817266324254,
+            "sum_rate": 0.0009013849335225779,
+            "p1_estimate": 0.0,
+            "p5_estimate": 0.0,
+            "p10_estimate": 0.0,
+            "p25_estimate": 0.0,
+            "p50_estimate": 9.730771685141518e-6,
+            "p75_estimate": 0.000538070940473014,
+            "p90_estimate": 0.0008550750417457375,
+            "p95_estimate": 0.0010055219913157447,
+            "p99_estimate": 0.003461520161290995
+          },
+          "buckets": {
+            "0.0": 0,
+            "0.001": 190,
+            "0.005": 203,
+            "0.01": 203,
+            "0.05": 203,
+            "0.1": 203,
+            "0.2": 203,
+            "0.5": 203,
+            "1.0": 203,
+            "2.0": 203,
+            "3.0": 203,
+            "4.0": 203,
+            "5.0": 203,
+            "10.0": 203,
+            "15.0": 203,
+            "20.0": 203,
+            "30.0": 203,
+            "40.0": 203,
+            "50.0": 203,
+            "60.0": 203,
+            "70.0": 203,
+            "80.0": 203,
+            "90.0": 203,
+            "100.0": 203,
+            "200.0": 203,
+            "300.0": 203,
+            "400.0": 203,
+            "500.0": 203,
+            "600.0": 203,
+            "700.0": 203,
+            "800.0": 203,
+            "900.0": 203,
+            "1000.0": 203,
+            "1200.0": 203,
+            "1400.0": 203,
+            "1600.0": 203,
+            "1800.0": 203,
+            "2000.0": 203,
+            "2500.0": 203,
+            "3000.0": 203,
+            "+Inf": 203
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "1"
+          },
+          "stats": {
+            "count": 203,
+            "sum": 0.0629788348742295,
+            "avg": 0.00031024056588290394,
+            "count_rate": 2.81817266324254,
+            "sum_rate": 0.0008743114818000961,
+            "p1_estimate": 0.0,
+            "p5_estimate": 0.0,
+            "p10_estimate": 0.0,
+            "p25_estimate": 0.0,
+            "p50_estimate": 0.00023740235621838351,
+            "p75_estimate": 0.0004963767151927425,
+            "p90_estimate": 0.000651761330577358,
+            "p95_estimate": 0.0007035562023722296,
+            "p99_estimate": 0.0028868165949460655
+          },
+          "buckets": {
+            "0.0": 0,
+            "0.001": 195,
+            "0.005": 203,
+            "0.01": 203,
+            "0.05": 203,
+            "0.1": 203,
+            "0.2": 203,
+            "0.5": 203,
+            "1.0": 203,
+            "2.0": 203,
+            "3.0": 203,
+            "4.0": 203,
+            "5.0": 203,
+            "10.0": 203,
+            "15.0": 203,
+            "20.0": 203,
+            "30.0": 203,
+            "40.0": 203,
+            "50.0": 203,
+            "60.0": 203,
+            "70.0": 203,
+            "80.0": 203,
+            "90.0": 203,
+            "100.0": 203,
+            "200.0": 203,
+            "300.0": 203,
+            "400.0": 203,
+            "500.0": 203,
+            "600.0": 203,
+            "700.0": 203,
+            "800.0": 203,
+            "900.0": 203,
+            "1000.0": 203,
+            "1200.0": 203,
+            "1400.0": 203,
+            "1600.0": 203,
+            "1800.0": 203,
+            "2000.0": 203,
+            "2500.0": 203,
+            "3000.0": 203,
+            "+Inf": 203
+          }
+        }
+      ]
+    },
+    "sglang:realtime_tokens": {
+      "type": "counter",
+      "description": "Total number of tokens processed (updated on each log interval). mode: prefill_compute, prefill_cache, decode.",
+      "unit": "tokens",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "mode": "decode",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "total": 104446.0,
+            "rate": 1449.984541798179
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "mode": "prefill_cache",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "total": 0.0,
+            "rate": 0.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "mode": "prefill_compute",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "total": 12992.0,
+            "rate": 180.36305044752257
+          }
+        }
+      ]
+    },
+    "sglang:routing_key_all_req_count": {
+      "type": "gauge",
+      "description": "Distribution of routing keys by running+waiting request count (gt < count <= le).",
+      "unit": "count",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "gt": "0",
+            "le": "1",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "gt": "1",
+            "le": "2",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "gt": "10",
+            "le": "20",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "gt": "100",
+            "le": "200",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "gt": "2",
+            "le": "3",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "gt": "20",
+            "le": "50",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "gt": "200",
+            "le": "+Inf",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "gt": "3",
+            "le": "5",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "gt": "5",
+            "le": "7",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "gt": "50",
+            "le": "100",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "gt": "7",
+            "le": "10",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        }
+      ]
+    },
+    "sglang:routing_key_running_req_count": {
+      "type": "gauge",
+      "description": "Distribution of routing keys by running request count (gt < count <= le).",
+      "unit": "count",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "gt": "0",
+            "le": "1",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "gt": "1",
+            "le": "2",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "gt": "10",
+            "le": "20",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "gt": "100",
+            "le": "200",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "gt": "2",
+            "le": "3",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "gt": "20",
+            "le": "50",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "gt": "200",
+            "le": "+Inf",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "gt": "3",
+            "le": "5",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "gt": "5",
+            "le": "7",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "gt": "50",
+            "le": "100",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "gt": "7",
+            "le": "10",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        }
+      ]
+    },
+    "sglang:routing_keys_active": {
+      "type": "gauge",
+      "description": "Number of unique routing keys with active requests",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        }
+      ]
+    },
+    "sglang:spec_accept_length": {
+      "type": "gauge",
+      "description": "Mean acceptance length of speculative decoding (accepted drafts + bonus token per forward).",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 2.5209852220547297,
+            "min": 1.025,
+            "max": 3.174358974358974,
+            "std": 0.2619534312528305,
+            "p1": 1.3439264705882352,
+            "p5": 2.0714285714285716,
+            "p10": 2.3710691823899372,
+            "p25": 2.508209538702111,
+            "p50": 2.560250391236307,
+            "p75": 2.6149829299773124,
+            "p90": 2.684749560203284,
+            "p95": 2.7396403440187647,
+            "p99": 3.1373416583416596
+          }
+        }
+      ]
+    },
+    "sglang:spec_accept_rate": {
+      "type": "gauge",
+      "description": "Speculative acceptance rate (`accepted drafts / proposed drafts` in batch).",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.5069950740182432,
+            "min": 0.008333333333333333,
+            "max": 0.7247863247863248,
+            "std": 0.08731781041761016,
+            "p1": 0.11464215686274509,
+            "p5": 0.35714285714285715,
+            "p10": 0.4570230607966457,
+            "p25": 0.5027365129007036,
+            "p50": 0.5200834637454356,
+            "p75": 0.5383276433257708,
+            "p90": 0.5615831867344279,
+            "p95": 0.5798801146729216,
+            "p99": 0.7124472194472199
+          }
+        }
+      ]
+    },
+    "sglang:spec_block_accept_length": {
+      "type": "gauge",
+      "description": "Mean uncapped full-block accept length per verify step (accept + cap-trimmed drafts; exact only in DSpark cap-accept mode).",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        }
+      ]
+    },
+    "sglang:spec_cap_length": {
+      "type": "gauge",
+      "description": "Mean DSpark confidence-scheduled verify window per verify step, incl the bonus slot (0 when no cap is scheduled).",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        }
+      ]
+    },
+    "sglang:spec_num_draft_tokens": {
+      "type": "gauge",
+      "description": "Currently active speculative_num_draft_tokens (decouples from steps under topk>1).",
+      "unit": "tokens",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 4.0,
+            "min": 4.0,
+            "max": 4.0,
+            "std": 0.0,
+            "p1": 4.0,
+            "p5": 4.0,
+            "p10": 4.0,
+            "p25": 4.0,
+            "p50": 4.0,
+            "p75": 4.0,
+            "p90": 4.0,
+            "p95": 4.0,
+            "p99": 4.0
+          }
+        }
+      ]
+    },
+    "sglang:spec_num_steps": {
+      "type": "gauge",
+      "description": "Currently active speculative_num_steps.",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 3.0,
+            "min": 3.0,
+            "max": 3.0,
+            "std": 0.0,
+            "p1": 3.0,
+            "p5": 3.0,
+            "p10": 3.0,
+            "p25": 3.0,
+            "p50": 3.0,
+            "p75": 3.0,
+            "p90": 3.0,
+            "p95": 3.0,
+            "p99": 3.0
+          }
+        }
+      ]
+    },
+    "sglang:spec_verify_calls": {
+      "type": "counter",
+      "description": "Number of speculative decoding verification calls.",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4"
+          },
+          "stats": {
+            "total": 40378.0,
+            "rate": 560.5525901300852
+          }
+        }
+      ]
+    },
+    "sglang:startup_available_gpu_memory_gb": {
+      "type": "gauge",
+      "description": "Available GPU memory in GB at startup.",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 2.4165478287456192,
+            "min": 2.39935302734375,
+            "max": 2.42279052734375,
+            "std": 0.010384888804540667,
+            "p1": 2.39935302734375,
+            "p5": 2.39935302734375,
+            "p10": 2.39935302734375,
+            "p25": 2.39935302734375,
+            "p50": 2.42279052734375,
+            "p75": 2.42279052734375,
+            "p90": 2.42279052734375,
+            "p95": 2.42279052734375,
+            "p99": 2.42279052734375
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "1"
+          },
+          "stats": {
+            "avg": 2.4165478287456192,
+            "min": 2.39935302734375,
+            "max": 2.42279052734375,
+            "std": 0.010384888804540667,
+            "p1": 2.39935302734375,
+            "p5": 2.39935302734375,
+            "p10": 2.39935302734375,
+            "p25": 2.39935302734375,
+            "p50": 2.42279052734375,
+            "p75": 2.42279052734375,
+            "p90": 2.42279052734375,
+            "p95": 2.42279052734375,
+            "p99": 2.42279052734375
+          }
+        }
+      ]
+    },
+    "sglang:startup_cuda_graph_time_seconds": {
+      "type": "gauge",
+      "description": "CUDA graph capture duration by phase in seconds.",
+      "unit": "seconds",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "phase": "decode"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "phase": "draft_decode"
+          },
+          "stats": {
+            "avg": 2.728827391326113,
+            "min": 2.703905083995778,
+            "max": 2.753729296993697,
+            "std": 0.02182031994662786,
+            "p1": 2.703905083995778,
+            "p5": 2.703905083995778,
+            "p10": 2.703905083995778,
+            "p25": 2.704318545991555,
+            "p50": 2.7414081339957193,
+            "p75": 2.753729296993697,
+            "p90": 2.753729296993697,
+            "p95": 2.753729296993697,
+            "p99": 2.753729296993697
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "phase": "draft_extend"
+          },
+          "stats": {
+            "avg": 1.4598195021500142,
+            "min": 1.4116438579803798,
+            "max": 1.4969124800118152,
+            "std": 0.029768335067088064,
+            "p1": 1.4116438579803798,
+            "p5": 1.4116438579803798,
+            "p10": 1.4116438579803798,
+            "p25": 1.4497694949968718,
+            "p50": 1.4670585770218167,
+            "p75": 1.4969124800118152,
+            "p90": 1.4969124800118152,
+            "p95": 1.4969124800118152,
+            "p99": 1.4969124800118152
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "phase": "draft_prefill"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "phase": "prefill"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "phase": "target_verify"
+          },
+          "stats": {
+            "avg": 8.883173569542532,
+            "min": 8.816275746008614,
+            "max": 8.926491142017767,
+            "std": 0.040251136481998545,
+            "p1": 8.816275746008614,
+            "p5": 8.816275746008614,
+            "p10": 8.816275746008614,
+            "p25": 8.871350964007434,
+            "p50": 8.901284034975106,
+            "p75": 8.926491142017767,
+            "p90": 8.926491142017767,
+            "p95": 8.926491142017767,
+            "p99": 8.926491142017767
+          }
+        }
+      ]
+    },
+    "sglang:startup_time_seconds": {
+      "type": "gauge",
+      "description": "Engine startup duration by phase in seconds.",
+      "unit": "seconds",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "phase": "kv_cache_allocation"
+          },
+          "stats": {
+            "avg": 1.1292331428193623,
+            "min": 1.105539990006946,
+            "max": 1.1542158939992078,
+            "std": 0.019275092464226058,
+            "p1": 1.105539990006946,
+            "p5": 1.105539990006946,
+            "p10": 1.105539990006946,
+            "p25": 1.1164718950167298,
+            "p50": 1.1164718950167298,
+            "p75": 1.1542158939992078,
+            "p90": 1.1542158939992078,
+            "p95": 1.1542158939992078,
+            "p99": 1.1542158939992078
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "phase": "load_weight"
+          },
+          "stats": {
+            "avg": 38.999613579373374,
+            "min": 38.74237741500838,
+            "max": 39.22630432402366,
+            "std": 0.18542809337540841,
+            "p1": 38.74237741500838,
+            "p5": 38.74237741500838,
+            "p10": 38.74237741500838,
+            "p25": 38.74237741500838,
+            "p50": 38.958563588006655,
+            "p75": 39.15227939301985,
+            "p90": 39.22630432402366,
+            "p95": 39.22630432402366,
+            "p99": 39.22630432402366
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "phase": "scheduler_e2e"
+          },
+          "stats": {
+            "avg": 89.99694985017767,
+            "min": 89.32685020100325,
+            "max": 91.34908800999983,
+            "std": 0.7354672377640031,
+            "p1": 89.32685020100325,
+            "p5": 89.32685020100325,
+            "p10": 89.32685020100325,
+            "p25": 89.32685020100325,
+            "p50": 89.6987094199867,
+            "p75": 90.03380521899089,
+            "p90": 91.34908800999983,
+            "p95": 91.34908800999983,
+            "p99": 91.34908800999983
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "phase": "tokenizer_e2e"
+          },
+          "stats": {
+            "avg": 98.81114959967552,
+            "min": 98.15115825101384,
+            "max": 99.57099348999327,
+            "std": 0.5332943056762395,
+            "p1": 98.15115825101384,
+            "p5": 98.15115825101384,
+            "p10": 98.15115825101384,
+            "p25": 98.15115825101384,
+            "p50": 98.7121824779897,
+            "p75": 99.11769260201254,
+            "p90": 99.57099348999327,
+            "p95": 99.57099348999327,
+            "p99": 99.57099348999327
+          }
+        }
+      ]
+    },
+    "sglang:swa_available_tokens": {
+      "type": "gauge",
+      "description": "Number of free token slots in the SWA pool (hybrid-SWA only).",
+      "unit": "tokens",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        }
+      ]
+    },
+    "sglang:swa_evictable_tokens": {
+      "type": "gauge",
+      "description": "Number of evictable (radix-cached) token slots in the SWA pool.",
+      "unit": "tokens",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        }
+      ]
+    },
+    "sglang:swa_token_usage": {
+      "type": "gauge",
+      "description": "The token usage for SWA layers.",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        }
+      ]
+    },
+    "sglang:swa_used_tokens": {
+      "type": "gauge",
+      "description": "Number of actively used token slots in the SWA pool.",
+      "unit": "tokens",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        }
+      ]
+    },
+    "sglang:time_to_first_token_seconds": {
+      "type": "histogram",
+      "description": "Histogram of time to first token in seconds.",
+      "unit": "seconds",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "is_streaming": "false",
+            "model_name": "qwen38-flash-next-nvfp4"
+          },
+          "stats": {
+            "count": 0
+          },
+          "buckets": {
+            "0.1": 0,
+            "0.2": 0,
+            "0.4": 0,
+            "0.6": 0,
+            "0.8": 0,
+            "1.0": 0,
+            "2.0": 0,
+            "4.0": 0,
+            "6.0": 0,
+            "8.0": 0,
+            "10.0": 0,
+            "20.0": 0,
+            "40.0": 0,
+            "60.0": 0,
+            "80.0": 0,
+            "100.0": 0,
+            "200.0": 0,
+            "400.0": 0,
+            "+Inf": 0
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "is_streaming": "true",
+            "model_name": "qwen38-flash-next-nvfp4"
+          },
+          "stats": {
+            "count": 203,
+            "sum": 36.08951900192187,
+            "avg": 0.17778088178286636,
+            "count_rate": 2.81817266324254,
+            "sum_rate": 0.5010172210876277,
+            "p1_estimate": 0.1,
+            "p5_estimate": 0.10090705617151736,
+            "p10_estimate": 0.10585060023540856,
+            "p25_estimate": 0.1206812324270821,
+            "p50_estimate": 0.14539895274653802,
+            "p75_estimate": 0.22733516335786413,
+            "p90_estimate": 0.31034886198800116,
+            "p95_estimate": 0.3380200948647134,
+            "p99_estimate": 0.3601570811660833
+          },
+          "buckets": {
+            "0.1": 0,
+            "0.2": 130,
+            "0.4": 203,
+            "0.6": 203,
+            "0.8": 203,
+            "1.0": 203,
+            "2.0": 203,
+            "4.0": 203,
+            "6.0": 203,
+            "8.0": 203,
+            "10.0": 203,
+            "20.0": 203,
+            "40.0": 203,
+            "60.0": 203,
+            "80.0": 203,
+            "100.0": 203,
+            "200.0": 203,
+            "400.0": 203,
+            "+Inf": 203
+          }
+        }
+      ]
+    },
+    "sglang:token_usage": {
+      "type": "gauge",
+      "description": "The token usage.",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.3555607476635514,
+            "min": 0.0,
+            "max": 0.41,
+            "std": 0.11611639599624458,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.19,
+            "p25": 0.4,
+            "p50": 0.4,
+            "p75": 0.4,
+            "p90": 0.4,
+            "p95": 0.4,
+            "p99": 0.4
+          }
+        }
+      ]
+    },
+    "sglang:uncached_prompt_tokens_histogram": {
+      "type": "histogram",
+      "description": "Histogram of uncached (compute) prompt token length.",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4"
+          },
+          "stats": {
+            "count": 203,
+            "sum": 12211.0,
+            "avg": 60.152709359605915,
+            "count_rate": 2.81817266324254,
+            "sum_rate": 169.52072113721505,
+            "p1_estimate": 6.681823082991697,
+            "p5_estimate": 11.454352852028748,
+            "p10_estimate": 17.42001506332506,
+            "p25_estimate": 35.317001697214,
+            "p50_estimate": 65.14531275369558,
+            "p75_estimate": 85.03736411409672,
+            "p90_estimate": 96.97259493033741,
+            "p95_estimate": 100.0,
+            "p99_estimate": 100.0
+          },
+          "buckets": {
+            "100.0": 203,
+            "300.0": 203,
+            "500.0": 203,
+            "700.0": 203,
+            "1000.0": 203,
+            "1500.0": 203,
+            "2000.0": 203,
+            "3000.0": 203,
+            "4000.0": 203,
+            "5000.0": 203,
+            "6000.0": 203,
+            "7000.0": 203,
+            "8000.0": 203,
+            "9000.0": 203,
+            "10000.0": 203,
+            "12500.0": 203,
+            "15000.0": 203,
+            "17500.0": 203,
+            "20000.0": 203,
+            "22500.0": 203,
+            "25000.0": 203,
+            "27500.0": 203,
+            "30000.0": 203,
+            "35000.0": 203,
+            "40000.0": 203,
+            "60000.0": 203,
+            "80000.0": 203,
+            "100000.0": 203,
+            "200000.0": 203,
+            "300000.0": 203,
+            "400000.0": 203,
+            "600000.0": 203,
+            "800000.0": 203,
+            "1e+06": 203,
+            "1.1e+06": 203,
+            "+Inf": 203
+          }
+        }
+      ]
+    },
+    "sglang:utilization": {
+      "type": "gauge",
+      "description": "The utilization.",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 0.0,
+            "min": 0.0,
+            "max": 0.0,
+            "std": 0.0,
+            "p1": 0.0,
+            "p5": 0.0,
+            "p10": 0.0,
+            "p25": 0.0,
+            "p50": 0.0,
+            "p75": 0.0,
+            "p90": 0.0,
+            "p95": 0.0,
+            "p99": 0.0
+          }
+        }
+      ]
+    },
+    "sglang:weight_memory_usage_gb": {
+      "type": "gauge",
+      "description": "Memory used by model weights in GB.",
+      "series": [
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "0"
+          },
+          "stats": {
+            "avg": 65.01953125,
+            "min": 65.01953125,
+            "max": 65.01953125,
+            "std": 0.0,
+            "p1": 65.01953125,
+            "p5": 65.01953125,
+            "p10": 65.01953125,
+            "p25": 65.01953125,
+            "p50": 65.01953125,
+            "p75": 65.01953125,
+            "p90": 65.01953125,
+            "p95": 65.01953125,
+            "p99": 65.01953125
+          }
+        },
+        {
+          "endpoint_url": "http://127.0.0.1:8000/metrics",
+          "labels": {
+            "engine_type": "unified",
+            "model_name": "qwen38-flash-next-nvfp4",
+            "moe_ep_rank": "0",
+            "pp_rank": "0",
+            "tp_rank": "1"
+          },
+          "stats": {
+            "avg": 65.01953125,
+            "min": 65.01953125,
+            "max": 65.01953125,
+            "std": 0.0,
+            "p1": 65.01953125,
+            "p5": 65.01953125,
+            "p10": 65.01953125,
+            "p25": 65.01953125,
+            "p50": 65.01953125,
+            "p75": 65.01953125,
+            "p90": 65.01953125,
+            "p95": 65.01953125,
+            "p99": 65.01953125
+          }
+        }
+      ]
+    }
+  },
+  "input_config": {
+    "models": {
+      "items": [
+        {
+          "name": "qwen38-flash-next-nvfp4"
+        }
+      ]
+    },
+    "endpoint": {
+      "urls": [
+        "http://127.0.0.1:8000"
+      ],
+      "type": "chat",
+      "path": "/v1/chat/completions",
+      "timeout": 1800.0,
+      "streaming": true,
+      "use_server_token_count": true,
+      "extra": {
+        "temperature": 0,
+        "ignore_eos": true
+      }
+    },
+    "datasets": [
+      {
+        "name": "main",
+        "type": "synthetic",
+        "entries": 4000,
+        "random_seed": 728002,
+        "sampling": "sequential",
+        "prompts": {
+          "isl": {
+            "mean": 8.0,
+            "stddev": 0.0
+          },
+          "osl": {
+            "mean": 512.0,
+            "stddev": 0.0
+          }
+        }
+      }
+    ],
+    "phases": [
+      {
+        "name": "profiling",
+        "kind": "profiling",
+        "type": "concurrency",
+        "duration": 60.0,
+        "concurrency": 128,
+        "grace_period": null
+      }
+    ],
+    "artifacts": {
+      "dir": "~/bench/llm-bench/campaigns/qwen38-coldgrid-20260924/decode/c128/r2",
+      "auto_plot": false,
+      "plot_required": false
+    },
+    "tokenizer": {
+      "name": "~/bench/models/RadixArk--Qwen3.8-Flash-Next-NVFP4--model"
+    },
+    "gpu_telemetry": {
+      "enabled": true
+    },
+    "server_metrics": {
+      "enabled": true,
+      "urls": [],
+      "formats": [
+        "json",
+        "csv"
+      ]
+    },
+    "network_latency": {
+      "enabled": false
+    },
+    "otel": {},
+    "mlflow": {},
+    "wandb": {},
+    "runtime": {
+      "ui": "none"
+    }
+  }
+}

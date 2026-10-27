@@ -1,0 +1,88 @@
+---
+// Procedure journal section: what was tried, what failed, what worked —
+// distilled from the study journals into structured entries so the page
+// shows the path to the published numbers, not just the numbers. The full
+// journals remain the authority and are linked via procedure_source.
+interface Props {
+  publication: any;
+}
+
+const { publication } = Astro.props;
+const entries: any[] = publication.procedure ?? [];
+const source: string | null = publication.procedure_source ?? null;
+
+const outcomeLabel: Record<string, string> = {
+  worked: 'worked',
+  'worked-with-caveats': 'worked, with caveats',
+  failed: 'failed',
+  abandoned: 'abandoned',
+  finding: 'finding',
+};
+---
+
+{entries.length > 0 && (
+  <section id="procedure" class="report-section">
+    <div class="eyebrow">13 · Procedure journal</div>
+    <h2>What was tried, what didn't work, what did</h2>
+    <p class="sub">
+      The measurement procedure behind the published numbers, in the order it happened — including the
+      attempts that failed and the gaps that were found. Distilled from the study journals; the journals
+      themselves are the authority.
+    </p>
+    <ol class="procedure">
+      {entries.map((e) => (
+        <li class={`proc outcome-${e.outcome}`}>
+          <div class="proc-head">
+            <b>{e.phase}</b>
+            <span class="proc-action">{e.action}</span>
+            <span class={`badge badge-${e.outcome}`}>{outcomeLabel[e.outcome] ?? e.outcome}</span>
+          </div>
+          {e.date && <div class="foot">{e.date}</div>}
+          <p>{e.detail}</p>
+        </li>
+      ))}
+    </ol>
+    {source && <p class="foot">Sources: <code>{source}</code></p>}
+  </section>
+)}
+
+<style>
+  .procedure {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 14px;
+  }
+  .proc {
+    border-left: 3px solid rgba(127, 127, 127, 0.4);
+    padding: 4px 0 4px 14px;
+  }
+  .proc.outcome-worked { border-left-color: #2e7d32; }
+  .proc.outcome-worked-with-caveats { border-left-color: #e6a700; }
+  .proc.outcome-failed { border-left-color: #c62828; }
+  .proc.outcome-abandoned { border-left-color: #8d6e63; }
+  .proc.outcome-finding { border-left-color: #1565c0; }
+  .proc-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .proc-action { flex: 1 1 auto; }
+  .badge {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    border-radius: 999px;
+    padding: 2px 9px;
+    border: 1px solid rgba(127, 127, 127, 0.4);
+    white-space: nowrap;
+  }
+  .badge-worked { border-color: #2e7d32; color: #2e7d32; }
+  .badge-worked-with-caveats { border-color: #e6a700; color: #8a6d00; }
+  .badge-failed { border-color: #c62828; color: #c62828; }
+  .badge-abandoned { border-color: #8d6e63; color: #8d6e63; }
+  .badge-finding { border-color: #1565c0; color: #1565c0; }
+  .proc p { margin: 6px 0 0; }
+</style>

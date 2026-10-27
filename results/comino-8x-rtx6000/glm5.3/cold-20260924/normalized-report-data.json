@@ -1,0 +1,4420 @@
+{
+  "schema_version": 1,
+  "source_campaign": "~/bench/llm-bench/campaigns/glm53-coldgrid-20260924",
+  "generated_at": "2026-09-25T09:44:42.749453+00:00",
+  "source_counts": {
+    "runs": 42,
+    "requests": 5209.0,
+    "errors": 0,
+    "excluded_runs": 0
+  },
+  "selection": {
+    "policy": "maximum-median-useful-tps",
+    "decode_source_id": "decode",
+    "prefill_source_id": "prefill"
+  },
+  "idle_baseline": {
+    "aggregate_gpu_board_power_w": null,
+    "source": "~/bench/llm-bench/campaigns/glm53-coldgrid-20260924/idle"
+  },
+  "series": {
+    "decode": {
+      "source_id": "decode",
+      "points": [
+        {
+          "concurrency": 1,
+          "throughput": {
+            "median": 103.95593516205372,
+            "minimum": 103.25254585870974,
+            "maximum": 107.48553577451223,
+            "mean": 104.89800559842523,
+            "standard_deviation": 2.2682974754505416,
+            "n": 3,
+            "unit": "output tokens/s"
+          },
+          "per_user_throughput": {
+            "median": 112.22674307016838,
+            "minimum": 111.50091979157,
+            "maximum": 116.59564502079648,
+            "mean": 113.44110262751163,
+            "standard_deviation": 2.7559133043715947,
+            "n": 3,
+            "unit": "output tokens/s/user"
+          },
+          "ttft_p50": {
+            "median": 531.3253639999999,
+            "minimum": 530.3756099999999,
+            "maximum": 534.023003,
+            "mean": 531.9079923333333,
+            "standard_deviation": 1.8922105472738782,
+            "n": 3,
+            "unit": "ms"
+          },
+          "ttft_p95": {
+            "median": 536.472226,
+            "minimum": 533.7082832,
+            "maximum": 539.998294,
+            "mean": 536.7262677333333,
+            "standard_deviation": 3.152691210336881,
+            "n": 3,
+            "unit": "ms"
+          },
+          "itl_average": {
+            "median": 8.935993724177893,
+            "minimum": 8.629657274228595,
+            "maximum": 9.006303558163115,
+            "mean": 8.8573181855232,
+            "standard_deviation": 0.20026978326091804,
+            "n": 3,
+            "unit": "ms"
+          },
+          "itl_p95": {
+            "median": 9.790415946284226,
+            "minimum": 9.466388026857889,
+            "maximum": 9.83711083207301,
+            "mean": 9.697971601738375,
+            "standard_deviation": 0.20191165693323965,
+            "n": 3,
+            "unit": "ms"
+          },
+          "gpu_board_power": {
+            "median": 1608.2443564356436,
+            "minimum": 1600.4859183673468,
+            "maximum": 1776.0589949748744,
+            "mean": 1661.596423259288,
+            "standard_deviation": 99.20336981738157,
+            "n": 3,
+            "unit": "W"
+          },
+          "joules_per_token": {
+            "median": 15.575195491373277,
+            "minimum": 14.889683038270565,
+            "maximum": 17.083998170654258,
+            "mean": 15.849625566766035,
+            "standard_deviation": 1.122603502917246,
+            "n": 3,
+            "unit": "J/output token"
+          },
+          "host_cpu_busy": {
+            "median": 7.054085940775553,
+            "minimum": 7.045462021004159,
+            "maximum": 7.921585863737752,
+            "mean": 7.340377941839154,
+            "standard_deviation": 0.5033592944968039,
+            "n": 3,
+            "unit": "%"
+          },
+          "cpu_user": {
+            "median": 5.56479684864322,
+            "minimum": 5.551018490238,
+            "maximum": 6.299102851273566,
+            "mean": 5.804972730051595,
+            "standard_deviation": 0.4279846881772934,
+            "n": 3,
+            "unit": "%"
+          },
+          "cpu_system": {
+            "median": 1.4934097690482344,
+            "minimum": 1.4883140436236704,
+            "maximum": 1.6214018272030912,
+            "mean": 1.5343752132916653,
+            "standard_deviation": 0.07541031263074652,
+            "n": 3,
+            "unit": "%"
+          },
+          "cpu_iowait": {
+            "median": 0.0010337617179240184,
+            "minimum": 0.000975048508663306,
+            "maximum": 0.0010811852610944886,
+            "mean": 0.0010299984958939377,
+            "standard_deviation": 5.3168354631258824e-05,
+            "n": 3,
+            "unit": "%"
+          },
+          "host_load1": {
+            "median": 9.094166666666666,
+            "minimum": 8.81962962962963,
+            "maximum": 10.22433933933934,
+            "mean": 9.379378545211878,
+            "standard_deviation": 0.7445211238679874,
+            "n": 3,
+            "unit": "load"
+          },
+          "host_ram_used": {
+            "median": 72.68063136509488,
+            "minimum": 72.66001102229859,
+            "maximum": 72.80858101079491,
+            "mean": 72.71640779939612,
+            "standard_deviation": 0.08048742329664076,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "host_ram_available": {
+            "median": 682.3561919076102,
+            "minimum": 682.2282422619102,
+            "maximum": 682.3768122504065,
+            "mean": 682.3204154733089,
+            "standard_deviation": 0.08048742329664076,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "swap_used": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "mean": 0.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "gpu_utilization": {
+            "median": 78.53341584158416,
+            "minimum": 77.50510204081633,
+            "maximum": 91.10458542713567,
+            "mean": 82.38103443651205,
+            "standard_deviation": 7.5722925017936396,
+            "n": 3,
+            "unit": "%"
+          },
+          "gpu_memory_copy": {
+            "median": 27.693069306930692,
+            "minimum": 27.26530612244898,
+            "maximum": 32.06658291457286,
+            "mean": 29.008319447984178,
+            "standard_deviation": 2.6571557930995993,
+            "n": 3,
+            "unit": "%"
+          },
+          "gpu_temperature": {
+            "median": 38.71811224489796,
+            "minimum": 38.42079207920792,
+            "maximum": 42.0945351758794,
+            "mean": 39.74447983332843,
+            "standard_deviation": 2.0406297814696246,
+            "n": 3,
+            "unit": "\u00b0C"
+          },
+          "gpu_sm_clock": {
+            "median": 2318.269132653061,
+            "minimum": 2316.5411432160804,
+            "maximum": 2318.490099009901,
+            "mean": 2317.7667916263476,
+            "standard_deviation": 1.0671771417653344,
+            "n": 3,
+            "unit": "MHz"
+          },
+          "gpu_memory_clock": {
+            "median": 12481.0,
+            "minimum": 12481.0,
+            "maximum": 12481.0,
+            "mean": 12481.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "MHz"
+          },
+          "gpu_vram_used": {
+            "median": 734.0390625,
+            "minimum": 734.0390625,
+            "maximum": 734.0390625,
+            "mean": 734.0390625,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "running_requests": {
+            "median": 0.9473684210526315,
+            "minimum": 0.9356435643564357,
+            "maximum": 0.9476190476190476,
+            "mean": 0.9435436776760383,
+            "standard_deviation": 0.006842846357026427,
+            "n": 3,
+            "unit": "requests"
+          },
+          "waiting_requests": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "mean": 0.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "requests"
+          },
+          "kv_cache_usage": {
+            "median": 0.06999623676146517,
+            "minimum": 0.06925130715318807,
+            "maximum": 0.07148207597645857,
+            "mean": 0.0702432066303706,
+            "standard_deviation": 0.0011357059358959474,
+            "n": 3,
+            "unit": "%"
+          },
+          "mamba_usage": null,
+          "speculative_acceptance": {
+            "median": 55.26484545337951,
+            "minimum": 54.67277820218997,
+            "maximum": 58.429499933678215,
+            "mean": 56.12237452974923,
+            "standard_deviation": 2.019840743616597,
+            "n": 3,
+            "unit": "%"
+          },
+          "preemptions": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "mean": 0.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "preemptions/s"
+          },
+          "server_prompt_rate": {
+            "median": 2.5450441200867826,
+            "minimum": 2.5287441367186094,
+            "maximum": 2.6263166083376235,
+            "mean": 2.5667016217143384,
+            "standard_deviation": 0.05226741180718169,
+            "n": 3,
+            "unit": "input tokens/s"
+          },
+          "server_decode_rate": {
+            "median": 97.72969421133244,
+            "minimum": 97.1037748499946,
+            "maximum": 100.85055776016475,
+            "mean": 98.56134227383059,
+            "standard_deviation": 2.007068613395785,
+            "n": 3,
+            "unit": "output tokens/s"
+          },
+          "container_cpu": null,
+          "container_memory": null,
+          "container_tx": null,
+          "disk_write": null,
+          "process_rss": null,
+          "process_pss": null,
+          "process_private": null,
+          "process_shared": null,
+          "process_swap": null,
+          "haproxy_frontend_ingress": null,
+          "haproxy_frontend_egress": null,
+          "haproxy_backend_ingress": null,
+          "haproxy_backend_egress": null,
+          "haproxy_frontend_ingress_total": null,
+          "haproxy_frontend_egress_total": null,
+          "haproxy_backend_ingress_total": null,
+          "haproxy_backend_egress_total": null,
+          "haproxy_ingress_per_request": null,
+          "haproxy_egress_per_request": null,
+          "haproxy_queue": null,
+          "haproxy_retries": null,
+          "haproxy_errors": null,
+          "haproxy_backend_imbalance": null,
+          "pcie_rx": null,
+          "pcie_tx": null,
+          "pcie_replay_delta": null,
+          "e2e_p50": {
+            "median": 7364.9193319999995,
+            "minimum": 7038.892597,
+            "maximum": 7509.486167,
+            "mean": 7304.4326986666665,
+            "standard_deviation": 241.05715430232937,
+            "n": 3,
+            "unit": "ms"
+          },
+          "e2e_p95": {
+            "median": 8034.238611,
+            "minimum": 7787.5875964,
+            "maximum": 8066.613168399999,
+            "mean": 7962.813125266667,
+            "standard_deviation": 152.61067284650738,
+            "n": 3,
+            "unit": "ms"
+          }
+        },
+        {
+          "concurrency": 8,
+          "throughput": {
+            "median": 368.62058187737154,
+            "minimum": 367.28991021331285,
+            "maximum": 384.84754262946655,
+            "mean": 373.5860115733837,
+            "standard_deviation": 9.77544030029962,
+            "n": 3,
+            "unit": "output tokens/s"
+          },
+          "per_user_throughput": {
+            "median": 51.67912090010192,
+            "minimum": 50.55361474595921,
+            "maximum": 52.02842348488849,
+            "mean": 51.42038637698321,
+            "standard_deviation": 0.7706963534334693,
+            "n": 3,
+            "unit": "output tokens/s/user"
+          },
+          "ttft_p50": {
+            "median": 211.05640699999998,
+            "minimum": 210.73612699999998,
+            "maximum": 211.40756499999998,
+            "mean": 211.06669966666664,
+            "standard_deviation": 0.33583731359295327,
+            "n": 3,
+            "unit": "ms"
+          },
+          "ttft_p95": {
+            "median": 892.1319897,
+            "minimum": 887.800305,
+            "maximum": 893.417792,
+            "mean": 891.1166955666666,
+            "standard_deviation": 2.94315420623487,
+            "n": 3,
+            "unit": "ms"
+          },
+          "itl_average": {
+            "median": 19.575348958555566,
+            "minimum": 19.47814437801746,
+            "maximum": 19.899203466753587,
+            "mean": 19.650898934442207,
+            "standard_deviation": 0.22046210149179366,
+            "n": 3,
+            "unit": "ms"
+          },
+          "itl_p95": {
+            "median": 22.133829918774442,
+            "minimum": 22.075852737940025,
+            "maximum": 22.291483954889177,
+            "mean": 22.167055537201218,
+            "standard_deviation": 0.11158925450339831,
+            "n": 3,
+            "unit": "ms"
+          },
+          "gpu_board_power": {
+            "median": 1992.6300970873785,
+            "minimum": 1989.9317346938776,
+            "maximum": 2005.6367741935485,
+            "mean": 1996.0662019916017,
+            "standard_deviation": 8.39745075044651,
+            "n": 3,
+            "unit": "W"
+          },
+          "joules_per_token": {
+            "median": 5.405438419306188,
+            "minimum": 5.170502184734012,
+            "maximum": 5.460435966217628,
+            "mean": 5.34545885675261,
+            "standard_deviation": 0.15399207886912983,
+            "n": 3,
+            "unit": "J/output token"
+          },
+          "host_cpu_busy": {
+            "median": 7.066317495214797,
+            "minimum": 6.995507145622018,
+            "maximum": 7.3068781825264395,
+            "mean": 7.122900941121085,
+            "standard_deviation": 0.16321533450845224,
+            "n": 3,
+            "unit": "%"
+          },
+          "cpu_user": {
+            "median": 5.553312571456885,
+            "minimum": 5.509475820817341,
+            "maximum": 5.742611588134136,
+            "mean": 5.601799993469455,
+            "standard_deviation": 0.12390054104267016,
+            "n": 3,
+            "unit": "%"
+          },
+          "cpu_system": {
+            "median": 1.5119038224731103,
+            "minimum": 1.4851647219456583,
+            "maximum": 1.5631164719042578,
+            "mean": 1.5200616721076754,
+            "standard_deviation": 0.03961100495313313,
+            "n": 3,
+            "unit": "%"
+          },
+          "cpu_iowait": {
+            "median": 0.0011011012848016824,
+            "minimum": 0.0008666028590191211,
+            "maximum": 0.0011501224880449768,
+            "mean": 0.00103927554395526,
+            "standard_deviation": 0.0001515343580979127,
+            "n": 3,
+            "unit": "%"
+          },
+          "host_load1": {
+            "median": 8.980639534883721,
+            "minimum": 8.64280487804878,
+            "maximum": 9.569681528662421,
+            "mean": 9.064375313864973,
+            "standard_deviation": 0.4690776501544157,
+            "n": 3,
+            "unit": "load"
+          },
+          "host_ram_used": {
+            "median": 73.2108149644805,
+            "minimum": 73.16537273917231,
+            "maximum": 73.29772986922148,
+            "mean": 73.2246391909581,
+            "standard_deviation": 0.06725276497655137,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "host_ram_available": {
+            "median": 681.8260083082246,
+            "minimum": 681.7390934034836,
+            "maximum": 681.8714505335328,
+            "mean": 681.812184081747,
+            "standard_deviation": 0.06725276497655137,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "swap_used": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "mean": 0.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "gpu_utilization": {
+            "median": 78.57888349514563,
+            "minimum": 76.64923469387755,
+            "maximum": 83.01881720430107,
+            "mean": 79.41564513110808,
+            "standard_deviation": 3.266193941859123,
+            "n": 3,
+            "unit": "%"
+          },
+          "gpu_memory_copy": {
+            "median": 36.887135922330096,
+            "minimum": 36.57142857142857,
+            "maximum": 39.69489247311828,
+            "mean": 37.71781898895898,
+            "standard_deviation": 1.719457023067938,
+            "n": 3,
+            "unit": "%"
+          },
+          "gpu_temperature": {
+            "median": 42.37985436893204,
+            "minimum": 41.963010204081634,
+            "maximum": 42.854166666666664,
+            "mean": 42.39901041322678,
+            "standard_deviation": 0.4458869539766024,
+            "n": 3,
+            "unit": "\u00b0C"
+          },
+          "gpu_sm_clock": {
+            "median": 2344.0145631067962,
+            "minimum": 2340.4323979591836,
+            "maximum": 2377.255376344086,
+            "mean": 2353.900779136689,
+            "standard_deviation": 20.30482417619082,
+            "n": 3,
+            "unit": "MHz"
+          },
+          "gpu_memory_clock": {
+            "median": 12481.0,
+            "minimum": 12481.0,
+            "maximum": 12481.0,
+            "mean": 12481.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "MHz"
+          },
+          "gpu_vram_used": {
+            "median": 734.0390625,
+            "minimum": 734.0390625,
+            "maximum": 734.0390625,
+            "mean": 734.0390625,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "running_requests": {
+            "median": 6.95852534562212,
+            "minimum": 6.930555555555555,
+            "maximum": 7.412935323383085,
+            "mean": 7.100672074853587,
+            "standard_deviation": 0.27078927152998183,
+            "n": 3,
+            "unit": "requests"
+          },
+          "waiting_requests": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "mean": 0.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "requests"
+          },
+          "kv_cache_usage": {
+            "median": 0.5343841032043278,
+            "minimum": 0.5343033190079216,
+            "maximum": 0.5735368103303704,
+            "mean": 0.5474080775142066,
+            "standard_deviation": 0.02262818243817769,
+            "n": 3,
+            "unit": "%"
+          },
+          "mamba_usage": null,
+          "speculative_acceptance": {
+            "median": 54.572113149519005,
+            "minimum": 53.11775139855369,
+            "maximum": 55.11357688684183,
+            "mean": 54.26781381163818,
+            "standard_deviation": 1.032123253396209,
+            "n": 3,
+            "unit": "%"
+          },
+          "preemptions": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "mean": 0.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "preemptions/s"
+          },
+          "server_prompt_rate": {
+            "median": 9.03309810339919,
+            "minimum": 9.007358322440867,
+            "maximum": 9.39131820176089,
+            "mean": 9.143924875866983,
+            "standard_deviation": 0.2146351027991057,
+            "n": 3,
+            "unit": "input tokens/s"
+          },
+          "server_decode_rate": {
+            "median": 346.8709671705289,
+            "minimum": 345.8825595817293,
+            "maximum": 360.62661894761817,
+            "mean": 351.1267152332921,
+            "standard_deviation": 8.241987947485635,
+            "n": 3,
+            "unit": "output tokens/s"
+          },
+          "container_cpu": null,
+          "container_memory": null,
+          "container_tx": null,
+          "disk_write": null,
+          "process_rss": null,
+          "process_pss": null,
+          "process_private": null,
+          "process_shared": null,
+          "process_swap": null,
+          "haproxy_frontend_ingress": null,
+          "haproxy_frontend_egress": null,
+          "haproxy_backend_ingress": null,
+          "haproxy_backend_egress": null,
+          "haproxy_frontend_ingress_total": null,
+          "haproxy_frontend_egress_total": null,
+          "haproxy_backend_ingress_total": null,
+          "haproxy_backend_egress_total": null,
+          "haproxy_ingress_per_request": null,
+          "haproxy_egress_per_request": null,
+          "haproxy_queue": null,
+          "haproxy_retries": null,
+          "haproxy_errors": null,
+          "haproxy_backend_imbalance": null,
+          "pcie_rx": null,
+          "pcie_tx": null,
+          "pcie_replay_delta": null,
+          "e2e_p50": {
+            "median": 15706.023207,
+            "minimum": 15495.980817,
+            "maximum": 15802.982463999999,
+            "mean": 15668.328829333332,
+            "standard_deviation": 156.9335923119586,
+            "n": 3,
+            "unit": "ms"
+          },
+          "e2e_p95": {
+            "median": 17320.482875799997,
+            "minimum": 17312.444374799998,
+            "maximum": 17650.29606045,
+            "mean": 17427.741103683333,
+            "standard_deviation": 192.78014929095298,
+            "n": 3,
+            "unit": "ms"
+          }
+        },
+        {
+          "concurrency": 16,
+          "throughput": {
+            "median": 539.5053323691608,
+            "minimum": 533.9827953115282,
+            "maximum": 545.4904345099828,
+            "mean": 539.6595207302239,
+            "standard_deviation": 5.755368842955929,
+            "n": 3,
+            "unit": "output tokens/s"
+          },
+          "per_user_throughput": {
+            "median": 38.932311021385715,
+            "minimum": 38.13788987997975,
+            "maximum": 39.23250793998362,
+            "mean": 38.76756961378303,
+            "standard_deviation": 0.5655987737396919,
+            "n": 3,
+            "unit": "output tokens/s/user"
+          },
+          "ttft_p50": {
+            "median": 619.619678,
+            "minimum": 250.028102,
+            "maximum": 681.325338,
+            "mean": 516.9910393333333,
+            "standard_deviation": 233.24623159065152,
+            "n": 3,
+            "unit": "ms"
+          },
+          "ttft_p95": {
+            "median": 979.029814,
+            "minimum": 966.96098,
+            "maximum": 1059.0400925,
+            "mean": 1001.6769621666666,
+            "standard_deviation": 50.04308873120369,
+            "n": 3,
+            "unit": "ms"
+          },
+          "itl_average": {
+            "median": 26.26811471778357,
+            "minimum": 25.989746875103105,
+            "maximum": 26.65235529542613,
+            "mean": 26.303405629437602,
+            "standard_deviation": 0.33271093460355816,
+            "n": 3,
+            "unit": "ms"
+          },
+          "itl_p95": {
+            "median": 30.679999801043017,
+            "minimum": 29.042134283833114,
+            "maximum": 30.74040833350717,
+            "mean": 30.154180806127766,
+            "standard_deviation": 0.9635340671244279,
+            "n": 3,
+            "unit": "ms"
+          },
+          "gpu_board_power": {
+            "median": 2027.5996116504855,
+            "minimum": 1970.3997142857143,
+            "maximum": 2027.9734939759035,
+            "mean": 2008.657606637368,
+            "standard_deviation": 33.13283405311632,
+            "n": 3,
+            "unit": "W"
+          },
+          "joules_per_token": {
+            "median": 3.7175681591915986,
+            "minimum": 3.68987131705477,
+            "maximum": 3.758112693701766,
+            "mean": 3.721850723316045,
+            "standard_deviation": 0.03432166427024311,
+            "n": 3,
+            "unit": "J/output token"
+          },
+          "host_cpu_busy": {
+            "median": 7.104953792900761,
+            "minimum": 7.0854182599675255,
+            "maximum": 7.194988420161863,
+            "mean": 7.12845349101005,
+            "standard_deviation": 0.058442979558489136,
+            "n": 3,
+            "unit": "%"
+          },
+          "cpu_user": {
+            "median": 5.587666496133988,
+            "minimum": 5.579160566173576,
+            "maximum": 5.650520089337448,
+            "mean": 5.605782383881671,
+            "standard_deviation": 0.03897671648829292,
+            "n": 3,
+            "unit": "%"
+          },
+          "cpu_system": {
+            "median": 1.5161080814347967,
+            "minimum": 1.5050921372451802,
+            "maximum": 1.5435073484064368,
+            "mean": 1.5215691890288046,
+            "standard_deviation": 0.019781301379231363,
+            "n": 3,
+            "unit": "%"
+          },
+          "cpu_iowait": {
+            "median": 0.0011655565487691275,
+            "minimum": 0.0009609824179787374,
+            "maximum": 0.0011792153319763285,
+            "mean": 0.0011019180995747312,
+            "standard_deviation": 0.0001222447968212587,
+            "n": 3,
+            "unit": "%"
+          },
+          "host_load1": {
+            "median": 8.928735632183907,
+            "minimum": 8.889431818181817,
+            "maximum": 9.767194244604317,
+            "mean": 9.195120564990013,
+            "standard_deviation": 0.49581994577604904,
+            "n": 3,
+            "unit": "load"
+          },
+          "host_ram_used": {
+            "median": 73.50282809031091,
+            "minimum": 73.5016833776715,
+            "maximum": 73.56864666938782,
+            "mean": 73.52438604579008,
+            "standard_deviation": 0.03833509740045547,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "host_ram_available": {
+            "median": 681.5339951823942,
+            "minimum": 681.4681766033173,
+            "maximum": 681.5351398950336,
+            "mean": 681.512437226915,
+            "standard_deviation": 0.03833509740045547,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "swap_used": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "mean": 0.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "gpu_utilization": {
+            "median": 79.32160194174757,
+            "minimum": 78.80833333333334,
+            "maximum": 81.13704819277109,
+            "mean": 79.75566115595068,
+            "standard_deviation": 1.2235333159409691,
+            "n": 3,
+            "unit": "%"
+          },
+          "gpu_memory_copy": {
+            "median": 38.23300970873787,
+            "minimum": 38.01904761904762,
+            "maximum": 39.984939759036145,
+            "mean": 38.74566569560721,
+            "standard_deviation": 1.0785615871019612,
+            "n": 3,
+            "unit": "%"
+          },
+          "gpu_temperature": {
+            "median": 43.392857142857146,
+            "minimum": 42.45388349514563,
+            "maximum": 43.71310240963855,
+            "mean": 43.18661434921378,
+            "standard_deviation": 0.6544540748605264,
+            "n": 3,
+            "unit": "\u00b0C"
+          },
+          "gpu_sm_clock": {
+            "median": 2392.3821428571428,
+            "minimum": 2382.3531553398057,
+            "maximum": 2399.490963855422,
+            "mean": 2391.408754017457,
+            "standard_deviation": 8.610269133679868,
+            "n": 3,
+            "unit": "MHz"
+          },
+          "gpu_memory_clock": {
+            "median": 12481.0,
+            "minimum": 12481.0,
+            "maximum": 12481.0,
+            "mean": 12481.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "MHz"
+          },
+          "gpu_vram_used": {
+            "median": 734.0390625,
+            "minimum": 734.0390625,
+            "maximum": 734.0390625,
+            "mean": 734.0390625,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "running_requests": {
+            "median": 13.832579185520363,
+            "minimum": 13.575342465753424,
+            "maximum": 13.868778280542987,
+            "mean": 13.758899977272257,
+            "standard_deviation": 0.15999254247106115,
+            "n": 3,
+            "unit": "requests"
+          },
+          "waiting_requests": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "mean": 0.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "requests"
+          },
+          "kv_cache_usage": {
+            "median": 1.0598403579236355,
+            "minimum": 1.035195731363193,
+            "maximum": 1.06843255884895,
+            "mean": 1.0544895493785928,
+            "standard_deviation": 0.017252392280312036,
+            "n": 3,
+            "unit": "%"
+          },
+          "mamba_usage": null,
+          "speculative_acceptance": {
+            "median": 53.61243963864051,
+            "minimum": 52.92188833490545,
+            "maximum": 55.19966135177084,
+            "mean": 53.9113297751056,
+            "standard_deviation": 1.1679314895776687,
+            "n": 3,
+            "unit": "%"
+          },
+          "preemptions": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "mean": 0.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "preemptions/s"
+          },
+          "server_prompt_rate": {
+            "median": 13.240557084906554,
+            "minimum": 13.110515082931663,
+            "maximum": 13.393174302731394,
+            "mean": 13.248082156856535,
+            "standard_deviation": 0.1414797818253106,
+            "n": 3,
+            "unit": "input tokens/s"
+          },
+          "server_decode_rate": {
+            "median": 508.43739206041164,
+            "minimum": 503.4437791845758,
+            "maximum": 514.2978932248855,
+            "mean": 508.72635482329093,
+            "standard_deviation": 5.4328236220919095,
+            "n": 3,
+            "unit": "output tokens/s"
+          },
+          "container_cpu": null,
+          "container_memory": null,
+          "container_tx": null,
+          "disk_write": null,
+          "process_rss": null,
+          "process_pss": null,
+          "process_private": null,
+          "process_shared": null,
+          "process_swap": null,
+          "haproxy_frontend_ingress": null,
+          "haproxy_frontend_egress": null,
+          "haproxy_backend_ingress": null,
+          "haproxy_backend_egress": null,
+          "haproxy_frontend_ingress_total": null,
+          "haproxy_frontend_egress_total": null,
+          "haproxy_backend_ingress_total": null,
+          "haproxy_backend_egress_total": null,
+          "haproxy_ingress_per_request": null,
+          "haproxy_egress_per_request": null,
+          "haproxy_queue": null,
+          "haproxy_retries": null,
+          "haproxy_errors": null,
+          "haproxy_backend_imbalance": null,
+          "pcie_rx": null,
+          "pcie_tx": null,
+          "pcie_replay_delta": null,
+          "e2e_p50": {
+            "median": 20976.864986,
+            "minimum": 20496.650353999998,
+            "maximum": 21410.629373,
+            "mean": 20961.381571,
+            "standard_deviation": 457.18619171853635,
+            "n": 3,
+            "unit": "ms"
+          },
+          "e2e_p95": {
+            "median": 24005.952265599997,
+            "minimum": 23065.66289,
+            "maximum": 24047.339695399998,
+            "mean": 23706.318283666664,
+            "standard_deviation": 555.2096269986724,
+            "n": 3,
+            "unit": "ms"
+          }
+        },
+        {
+          "concurrency": 24,
+          "throughput": {
+            "median": 700.5442413429981,
+            "minimum": 699.1886045900126,
+            "maximum": 709.8805827741705,
+            "mean": 703.2044762357272,
+            "standard_deviation": 5.821274485539819,
+            "n": 3,
+            "unit": "output tokens/s"
+          },
+          "per_user_throughput": {
+            "median": 31.2286092775226,
+            "minimum": 31.187030557907796,
+            "maximum": 31.916288130241426,
+            "mean": 31.443975988557273,
+            "standard_deviation": 0.40956228692093255,
+            "n": 3,
+            "unit": "output tokens/s/user"
+          },
+          "ttft_p50": {
+            "median": 655.9580185,
+            "minimum": 652.516271,
+            "maximum": 698.488131,
+            "mean": 668.9874735,
+            "standard_deviation": 25.606210206953083,
+            "n": 3,
+            "unit": "ms"
+          },
+          "ttft_p95": {
+            "median": 1047.89376,
+            "minimum": 1045.4361215499998,
+            "maximum": 1049.8293385,
+            "mean": 1047.7197400166667,
+            "standard_deviation": 2.201772242624474,
+            "n": 3,
+            "unit": "ms"
+          },
+          "itl_average": {
+            "median": 32.248868836882515,
+            "minimum": 31.667051797316386,
+            "maximum": 32.295229840304934,
+            "mean": 32.07038349150128,
+            "standard_deviation": 0.3500638189103881,
+            "n": 3,
+            "unit": "ms"
+          },
+          "itl_p95": {
+            "median": 36.65218748402868,
+            "minimum": 36.35809730260756,
+            "maximum": 37.35593577157757,
+            "mean": 36.78874018607127,
+            "standard_deviation": 0.5127429988458667,
+            "n": 3,
+            "unit": "ms"
+          },
+          "gpu_board_power": {
+            "median": 2038.2683333333334,
+            "minimum": 2001.506842105263,
+            "maximum": 2056.4841228070177,
+            "mean": 2032.086432748538,
+            "standard_deviation": 28.00512934214193,
+            "n": 3,
+            "unit": "W"
+          },
+          "joules_per_token": {
+            "median": 2.9150885572619067,
+            "minimum": 2.819401300790205,
+            "maximum": 2.9354567697153304,
+            "mean": 2.889982209255814,
+            "standard_deviation": 0.06196744709530948,
+            "n": 3,
+            "unit": "J/output token"
+          },
+          "host_cpu_busy": {
+            "median": 7.20462941214153,
+            "minimum": 7.201590246048247,
+            "maximum": 7.2082469132591696,
+            "mean": 7.204822190482982,
+            "standard_deviation": 0.0033325181478789313,
+            "n": 3,
+            "unit": "%"
+          },
+          "cpu_user": {
+            "median": 5.663716079661699,
+            "minimum": 5.656315763238255,
+            "maximum": 5.671456940915205,
+            "mean": 5.663829594605054,
+            "standard_deviation": 0.0075712270863459285,
+            "n": 3,
+            "unit": "%"
+          },
+          "cpu_system": {
+            "median": 1.5370441841066693,
+            "minimum": 1.5321048023744954,
+            "maximum": 1.550684967133281,
+            "mean": 1.5399446512048154,
+            "standard_deviation": 0.009623677189955736,
+            "n": 3,
+            "unit": "%"
+          },
+          "cpu_iowait": {
+            "median": 0.0010676688518289168,
+            "minimum": 0.0008299822798783246,
+            "maximum": 0.0012461828876333145,
+            "mean": 0.0010479446731135186,
+            "standard_deviation": 0.00020880018892089985,
+            "n": 3,
+            "unit": "%"
+          },
+          "host_load1": {
+            "median": 9.873229166666667,
+            "minimum": 8.992137931034483,
+            "maximum": 10.31263157894737,
+            "mean": 9.72599955888284,
+            "standard_deviation": 0.6724457499313274,
+            "n": 3,
+            "unit": "load"
+          },
+          "host_ram_used": {
+            "median": 74.0117587645849,
+            "minimum": 73.94545294662998,
+            "maximum": 74.06403123955977,
+            "mean": 74.00708098359155,
+            "standard_deviation": 0.059427385226018856,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "host_ram_available": {
+            "median": 681.0250645081202,
+            "minimum": 680.9727920331453,
+            "maximum": 681.0913703260751,
+            "mean": 681.0297422891135,
+            "standard_deviation": 0.059427385226018856,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "swap_used": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "mean": 0.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "gpu_utilization": {
+            "median": 80.74451754385964,
+            "minimum": 79.49890350877193,
+            "maximum": 80.87068965517241,
+            "mean": 80.37137023593466,
+            "standard_deviation": 0.7582074207779926,
+            "n": 3,
+            "unit": "%"
+          },
+          "gpu_memory_copy": {
+            "median": 38.10704022988506,
+            "minimum": 37.74890350877193,
+            "maximum": 38.1546052631579,
+            "mean": 38.0035163339383,
+            "standard_deviation": 0.22178001747668724,
+            "n": 3,
+            "unit": "%"
+          },
+          "gpu_temperature": {
+            "median": 43.26149425287356,
+            "minimum": 43.233552631578945,
+            "maximum": 44.12061403508772,
+            "mean": 43.53855363984675,
+            "standard_deviation": 0.5042726557440974,
+            "n": 3,
+            "unit": "\u00b0C"
+          },
+          "gpu_sm_clock": {
+            "median": 2397.7675438596493,
+            "minimum": 2394.8347701149423,
+            "maximum": 2400.344298245614,
+            "mean": 2397.6488707400686,
+            "standard_deviation": 2.7566805287608074,
+            "n": 3,
+            "unit": "MHz"
+          },
+          "gpu_memory_clock": {
+            "median": 12481.0,
+            "minimum": 12481.0,
+            "maximum": 12481.0,
+            "mean": 12481.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "MHz"
+          },
+          "gpu_vram_used": {
+            "median": 734.0390625,
+            "minimum": 734.0390625,
+            "maximum": 734.0390625,
+            "mean": 734.0390625,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "running_requests": {
+            "median": 22.004048582995953,
+            "minimum": 21.94238683127572,
+            "maximum": 22.121951219512194,
+            "mean": 22.02279554459462,
+            "standard_deviation": 0.09123830778555336,
+            "n": 3,
+            "unit": "requests"
+          },
+          "waiting_requests": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "mean": 0.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "requests"
+          },
+          "kv_cache_usage": {
+            "median": 1.6799799845335033,
+            "minimum": 1.67859619919545,
+            "maximum": 1.6952133004476109,
+            "mean": 1.6845964947255212,
+            "standard_deviation": 0.009220419636377595,
+            "n": 3,
+            "unit": "%"
+          },
+          "mamba_usage": null,
+          "speculative_acceptance": {
+            "median": 54.328150015058576,
+            "minimum": 53.83415279878972,
+            "maximum": 55.56894889103182,
+            "mean": 54.57708390162671,
+            "standard_deviation": 0.8937871280825522,
+            "n": 3,
+            "unit": "%"
+          },
+          "preemptions": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "mean": 0.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "preemptions/s"
+          },
+          "server_prompt_rate": {
+            "median": 17.309728799782196,
+            "minimum": 17.28748458318917,
+            "maximum": 17.522065833005843,
+            "mean": 17.373093071992404,
+            "standard_deviation": 0.12949271769460688,
+            "n": 3,
+            "unit": "input tokens/s"
+          },
+          "server_decode_rate": {
+            "median": 664.6935859116363,
+            "minimum": 663.8394079944642,
+            "maximum": 672.8473279874245,
+            "mean": 667.1267739645083,
+            "standard_deviation": 4.972520359472926,
+            "n": 3,
+            "unit": "output tokens/s"
+          },
+          "container_cpu": null,
+          "container_memory": null,
+          "container_tx": null,
+          "disk_write": null,
+          "process_rss": null,
+          "process_pss": null,
+          "process_private": null,
+          "process_shared": null,
+          "process_swap": null,
+          "haproxy_frontend_ingress": null,
+          "haproxy_frontend_egress": null,
+          "haproxy_backend_ingress": null,
+          "haproxy_backend_egress": null,
+          "haproxy_frontend_ingress_total": null,
+          "haproxy_frontend_egress_total": null,
+          "haproxy_backend_ingress_total": null,
+          "haproxy_backend_egress_total": null,
+          "haproxy_ingress_per_request": null,
+          "haproxy_egress_per_request": null,
+          "haproxy_queue": null,
+          "haproxy_retries": null,
+          "haproxy_errors": null,
+          "haproxy_backend_imbalance": null,
+          "pcie_rx": null,
+          "pcie_tx": null,
+          "pcie_replay_delta": null,
+          "e2e_p50": {
+            "median": 25264.506621,
+            "minimum": 25042.012651499997,
+            "maximum": 25367.103487,
+            "mean": 25224.540919833333,
+            "standard_deviation": 166.18951767133214,
+            "n": 3,
+            "unit": "ms"
+          },
+          "e2e_p95": {
+            "median": 29117.2828385,
+            "minimum": 28450.016703100002,
+            "maximum": 29580.421594049996,
+            "mean": 29049.240378550003,
+            "standard_deviation": 568.2659031104653,
+            "n": 3,
+            "unit": "ms"
+          }
+        },
+        {
+          "concurrency": 32,
+          "throughput": {
+            "median": 793.8293180741516,
+            "minimum": 780.036579504086,
+            "maximum": 803.1197952363076,
+            "mean": 792.3285642715151,
+            "standard_deviation": 11.614555894099707,
+            "n": 3,
+            "unit": "output tokens/s"
+          },
+          "per_user_throughput": {
+            "median": 28.89404794555913,
+            "minimum": 28.618749608689562,
+            "maximum": 29.08528909418093,
+            "mean": 28.86602888280987,
+            "standard_deviation": 0.23452840721040055,
+            "n": 3,
+            "unit": "output tokens/s/user"
+          },
+          "ttft_p50": {
+            "median": 528.4218035,
+            "minimum": 513.786191,
+            "maximum": 538.491165,
+            "mean": 526.8997198333333,
+            "standard_deviation": 12.422620057838804,
+            "n": 3,
+            "unit": "ms"
+          },
+          "ttft_p95": {
+            "median": 1290.167078,
+            "minimum": 1289.3669009999999,
+            "maximum": 1378.055602,
+            "mean": 1319.1965269999998,
+            "standard_deviation": 50.975024307983915,
+            "n": 3,
+            "unit": "ms"
+          },
+          "itl_average": {
+            "median": 35.20354566670333,
+            "minimum": 34.82882200571541,
+            "maximum": 35.30312006826117,
+            "mean": 35.1118292468933,
+            "standard_deviation": 0.25009715968147794,
+            "n": 3,
+            "unit": "ms"
+          },
+          "itl_p95": {
+            "median": 40.65521313050847,
+            "minimum": 39.83435434908735,
+            "maximum": 40.854902438461544,
+            "mean": 40.448156639352455,
+            "standard_deviation": 0.5408640250365254,
+            "n": 3,
+            "unit": "ms"
+          },
+          "gpu_board_power": {
+            "median": 2194.0060683760685,
+            "minimum": 2078.733583333333,
+            "maximum": 2216.998527607362,
+            "mean": 2163.2460597722547,
+            "standard_deviation": 74.08732888122712,
+            "n": 3,
+            "unit": "W"
+          },
+          "joules_per_token": {
+            "median": 2.7317686230851432,
+            "minimum": 2.6185281531416695,
+            "maximum": 2.8420709342803465,
+            "mean": 2.73078923683572,
+            "standard_deviation": 0.11177460869031383,
+            "n": 3,
+            "unit": "J/output token"
+          },
+          "host_cpu_busy": {
+            "median": 7.228565689652508,
+            "minimum": 7.104086545443362,
+            "maximum": 7.289182860914308,
+            "mean": 7.207278365336727,
+            "standard_deviation": 0.09436643541336055,
+            "n": 3,
+            "unit": "%"
+          },
+          "cpu_user": {
+            "median": 5.654578884751472,
+            "minimum": 5.517066995153004,
+            "maximum": 5.700237171520628,
+            "mean": 5.623961017141702,
+            "standard_deviation": 0.09534630952671269,
+            "n": 3,
+            "unit": "%"
+          },
+          "cpu_system": {
+            "median": 1.5857097053247475,
+            "minimum": 1.5726734753789342,
+            "maximum": 1.5876718577958095,
+            "mean": 1.5820183461664972,
+            "standard_deviation": 0.008152145000373116,
+            "n": 3,
+            "unit": "%"
+          },
+          "cpu_iowait": {
+            "median": 0.0013098449656108746,
+            "minimum": 0.001273831597870472,
+            "maximum": 0.0013133295221025632,
+            "mean": 0.00129900202852797,
+            "standard_deviation": 2.186774949780781e-05,
+            "n": 3,
+            "unit": "%"
+          },
+          "host_load1": {
+            "median": 9.275294117647059,
+            "minimum": 8.46586956521739,
+            "maximum": 9.337878787878788,
+            "mean": 9.026347490247746,
+            "standard_deviation": 0.4863957633159985,
+            "n": 3,
+            "unit": "load"
+          },
+          "host_ram_used": {
+            "median": 83.06591440451268,
+            "minimum": 83.00429456374229,
+            "maximum": 84.54076013703275,
+            "mean": 83.53698970176258,
+            "standard_deviation": 0.8698365169593643,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "host_ram_available": {
+            "median": 671.9709088681924,
+            "minimum": 670.4960631356723,
+            "maximum": 672.0325287089628,
+            "mean": 671.4998335709425,
+            "standard_deviation": 0.8698365169593643,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "swap_used": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "mean": 0.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "gpu_utilization": {
+            "median": 81.76145833333334,
+            "minimum": 80.82361963190183,
+            "maximum": 82.0267094017094,
+            "mean": 81.53726245564819,
+            "standard_deviation": 0.6321029126907765,
+            "n": 3,
+            "unit": "%"
+          },
+          "gpu_memory_copy": {
+            "median": 37.30662393162393,
+            "minimum": 36.589723926380366,
+            "maximum": 37.471875,
+            "mean": 37.122740952668096,
+            "standard_deviation": 0.468942791430171,
+            "n": 3,
+            "unit": "%"
+          },
+          "gpu_temperature": {
+            "median": 42.36004273504273,
+            "minimum": 40.31058282208589,
+            "maximum": 43.321875,
+            "mean": 41.99750018570954,
+            "standard_deviation": 1.5380338000997993,
+            "n": 3,
+            "unit": "\u00b0C"
+          },
+          "gpu_sm_clock": {
+            "median": 2354.505341880342,
+            "minimum": 2328.959355828221,
+            "maximum": 2391.9,
+            "mean": 2358.4548992361874,
+            "standard_deviation": 31.655653913163263,
+            "n": 3,
+            "unit": "MHz"
+          },
+          "gpu_memory_clock": {
+            "median": 12481.0,
+            "minimum": 12481.0,
+            "maximum": 12481.0,
+            "mean": 12481.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "MHz"
+          },
+          "gpu_vram_used": {
+            "median": 719.40625,
+            "minimum": 719.4061181940184,
+            "maximum": 719.411279296875,
+            "mean": 719.4078824969644,
+            "standard_deviation": 0.0029424531310482476,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "running_requests": {
+            "median": 27.41796875,
+            "minimum": 26.862745098039216,
+            "maximum": 27.47328244274809,
+            "mean": 27.251332096929104,
+            "standard_deviation": 0.33766076605232603,
+            "n": 3,
+            "unit": "requests"
+          },
+          "waiting_requests": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "mean": 0.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "requests"
+          },
+          "kv_cache_usage": {
+            "median": 2.1784855769230766,
+            "minimum": 2.131203325607917,
+            "maximum": 2.1830646778282228,
+            "mean": 2.164251193453072,
+            "standard_deviation": 0.028711726142954436,
+            "n": 3,
+            "unit": "%"
+          },
+          "mamba_usage": null,
+          "speculative_acceptance": {
+            "median": 54.48622589531681,
+            "minimum": 54.369250554440114,
+            "maximum": 55.85800893857766,
+            "mean": 54.90449512944486,
+            "standard_deviation": 0.8278358809259914,
+            "n": 3,
+            "unit": "%"
+          },
+          "preemptions": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "mean": 0.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "preemptions/s"
+          },
+          "server_prompt_rate": {
+            "median": 19.664018387374078,
+            "minimum": 19.307333227877997,
+            "maximum": 19.882967247497646,
+            "mean": 19.61810628758324,
+            "standard_deviation": 0.2905504634590547,
+            "n": 3,
+            "unit": "input tokens/s"
+          },
+          "server_decode_rate": {
+            "median": 755.0983060751646,
+            "minimum": 741.4015959505151,
+            "maximum": 763.5059423039096,
+            "mean": 753.3352814431964,
+            "standard_deviation": 11.157137796827678,
+            "n": 3,
+            "unit": "output tokens/s"
+          },
+          "container_cpu": null,
+          "container_memory": null,
+          "container_tx": null,
+          "disk_write": null,
+          "process_rss": null,
+          "process_pss": null,
+          "process_private": null,
+          "process_shared": null,
+          "process_swap": null,
+          "haproxy_frontend_ingress": null,
+          "haproxy_frontend_egress": null,
+          "haproxy_backend_ingress": null,
+          "haproxy_backend_egress": null,
+          "haproxy_frontend_ingress_total": null,
+          "haproxy_frontend_egress_total": null,
+          "haproxy_backend_ingress_total": null,
+          "haproxy_backend_egress_total": null,
+          "haproxy_ingress_per_request": null,
+          "haproxy_egress_per_request": null,
+          "haproxy_queue": null,
+          "haproxy_retries": null,
+          "haproxy_errors": null,
+          "haproxy_backend_imbalance": null,
+          "pcie_rx": null,
+          "pcie_tx": null,
+          "pcie_replay_delta": null,
+          "e2e_p50": {
+            "median": 28254.633474,
+            "minimum": 27838.162172999997,
+            "maximum": 28707.976480999998,
+            "mean": 28266.924042666666,
+            "standard_deviation": 435.0373847831846,
+            "n": 3,
+            "unit": "ms"
+          },
+          "e2e_p95": {
+            "median": 32133.422674399997,
+            "minimum": 31821.55087725,
+            "maximum": 32204.2022864,
+            "mean": 32053.058612683333,
+            "standard_deviation": 203.59104116542068,
+            "n": 3,
+            "unit": "ms"
+          }
+        },
+        {
+          "concurrency": 48,
+          "throughput": {
+            "median": 982.4879529487795,
+            "minimum": 959.2116350325999,
+            "maximum": 987.6616633289403,
+            "mean": 976.4537504367732,
+            "standard_deviation": 15.154528283076619,
+            "n": 3,
+            "unit": "output tokens/s"
+          },
+          "per_user_throughput": {
+            "median": 22.46017582897805,
+            "minimum": 22.357084766898357,
+            "maximum": 22.676610298355673,
+            "mean": 22.497956964744024,
+            "standard_deviation": 0.16307882136591337,
+            "n": 3,
+            "unit": "output tokens/s/user"
+          },
+          "ttft_p50": {
+            "median": 636.1326435,
+            "minimum": 603.009828,
+            "maximum": 849.7616835,
+            "mean": 696.3013850000001,
+            "standard_deviation": 133.9284422310795,
+            "n": 3,
+            "unit": "ms"
+          },
+          "ttft_p95": {
+            "median": 1561.6461935,
+            "minimum": 1552.591977,
+            "maximum": 1571.476095,
+            "mean": 1561.9047551666665,
+            "standard_deviation": 9.444713799850293,
+            "n": 3,
+            "unit": "ms"
+          },
+          "itl_average": {
+            "median": 44.7610757477048,
+            "minimum": 44.55459839636285,
+            "maximum": 44.98881806635701,
+            "mean": 44.76816407014155,
+            "standard_deviation": 0.21719660146670267,
+            "n": 3,
+            "unit": "ms"
+          },
+          "itl_p95": {
+            "median": 49.87868794426336,
+            "minimum": 48.76656508057366,
+            "maximum": 50.241526959582785,
+            "mean": 49.628926661473265,
+            "standard_deviation": 0.7685464591800837,
+            "n": 3,
+            "unit": "ms"
+          },
+          "gpu_board_power": {
+            "median": 2037.8346363636363,
+            "minimum": 2025.433090909091,
+            "maximum": 2043.8970642201834,
+            "mean": 2035.7215971643036,
+            "standard_deviation": 9.411603402269977,
+            "n": 3,
+            "unit": "W"
+          },
+          "joules_per_token": {
+            "median": 2.0802471064020476,
+            "minimum": 2.063209696649119,
+            "maximum": 2.111479370023149,
+            "mean": 2.084978724358105,
+            "standard_deviation": 0.024480226679311108,
+            "n": 3,
+            "unit": "J/output token"
+          },
+          "host_cpu_busy": {
+            "median": 7.170957568517643,
+            "minimum": 7.142002936289639,
+            "maximum": 7.235550250640106,
+            "mean": 7.1828369184824625,
+            "standard_deviation": 0.04789169262237709,
+            "n": 3,
+            "unit": "%"
+          },
+          "cpu_user": {
+            "median": 5.5830214267721425,
+            "minimum": 5.574766780100215,
+            "maximum": 5.660882136554697,
+            "mean": 5.606223447809018,
+            "standard_deviation": 0.04751540791645754,
+            "n": 3,
+            "unit": "%"
+          },
+          "cpu_system": {
+            "median": 1.573467648304685,
+            "minimum": 1.5578789166431306,
+            "maximum": 1.5947873710399771,
+            "mean": 1.5753779786625977,
+            "standard_deviation": 0.01852823583205635,
+            "n": 3,
+            "unit": "%"
+          },
+          "cpu_iowait": {
+            "median": 0.0012004657807229205,
+            "minimum": 0.001102592874366327,
+            "maximum": 0.0014034173774507878,
+            "mean": 0.0012354920108466783,
+            "standard_deviation": 0.00015344045428606828,
+            "n": 3,
+            "unit": "%"
+          },
+          "host_load1": {
+            "median": 9.186785714285715,
+            "minimum": 9.14268817204301,
+            "maximum": 9.384673913043478,
+            "mean": 9.238049266457402,
+            "standard_deviation": 0.12888071441387478,
+            "n": 3,
+            "unit": "load"
+          },
+          "host_ram_used": {
+            "median": 83.06752010058335,
+            "minimum": 82.99012872150968,
+            "maximum": 83.11529725530875,
+            "mean": 83.05764869246725,
+            "standard_deviation": 0.0631654493136718,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "host_ram_available": {
+            "median": 671.9693031721217,
+            "minimum": 671.9215260173963,
+            "maximum": 672.0466945511954,
+            "mean": 671.9791745802378,
+            "standard_deviation": 0.0631654493136718,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "swap_used": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "mean": 0.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "gpu_utilization": {
+            "median": 79.89908256880734,
+            "minimum": 78.86818181818182,
+            "maximum": 82.40681818181818,
+            "mean": 80.39136085626912,
+            "standard_deviation": 1.8199561156088644,
+            "n": 3,
+            "unit": "%"
+          },
+          "gpu_memory_copy": {
+            "median": 33.20298165137615,
+            "minimum": 32.58295454545455,
+            "maximum": 33.96666666666667,
+            "mean": 33.25086762116579,
+            "standard_deviation": 0.6930978344897328,
+            "n": 3,
+            "unit": "%"
+          },
+          "gpu_temperature": {
+            "median": 43.06651376146789,
+            "minimum": 42.71590909090909,
+            "maximum": 44.06287878787879,
+            "mean": 43.28176721341859,
+            "standard_deviation": 0.6988078259229622,
+            "n": 3,
+            "unit": "\u00b0C"
+          },
+          "gpu_sm_clock": {
+            "median": 2386.5149082568805,
+            "minimum": 2382.1670454545456,
+            "maximum": 2397.1848484848483,
+            "mean": 2388.622267398758,
+            "standard_deviation": 7.727504375856662,
+            "n": 3,
+            "unit": "MHz"
+          },
+          "gpu_memory_clock": {
+            "median": 12481.0,
+            "minimum": 12481.0,
+            "maximum": 12481.0,
+            "mean": 12481.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "MHz"
+          },
+          "gpu_vram_used": {
+            "median": 719.41796875,
+            "minimum": 719.4178267045454,
+            "maximum": 719.41796875,
+            "mean": 719.4179214015152,
+            "standard_deviation": 8.200998144762259e-05,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "running_requests": {
+            "median": 42.90212765957447,
+            "minimum": 41.900826446280995,
+            "maximum": 43.493562231759654,
+            "mean": 42.7655054458717,
+            "standard_deviation": 0.8051093357699083,
+            "n": 3,
+            "unit": "requests"
+          },
+          "waiting_requests": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "mean": 0.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "requests"
+          },
+          "kv_cache_usage": {
+            "median": 3.385792982316075,
+            "minimum": 3.308983145457647,
+            "maximum": 3.4428874538002563,
+            "mean": 3.3792211938579926,
+            "standard_deviation": 0.06719361763464962,
+            "n": 3,
+            "unit": "%"
+          },
+          "mamba_usage": null,
+          "speculative_acceptance": {
+            "median": 54.494342291372,
+            "minimum": 54.43532071879091,
+            "maximum": 54.57819114052345,
+            "mean": 54.50261805022879,
+            "standard_deviation": 0.07179384019538278,
+            "n": 3,
+            "unit": "%"
+          },
+          "preemptions": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "mean": 0.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "preemptions/s"
+          },
+          "server_prompt_rate": {
+            "median": 24.208859604012606,
+            "minimum": 23.702801560921586,
+            "maximum": 24.31908106728644,
+            "mean": 24.07691407740688,
+            "standard_deviation": 0.328644677402167,
+            "n": 3,
+            "unit": "input tokens/s"
+          },
+          "server_decode_rate": {
+            "median": 929.6202087940841,
+            "minimum": 910.1875799393889,
+            "maximum": 933.8527129837993,
+            "mean": 924.5535005724241,
+            "standard_deviation": 12.619955612243198,
+            "n": 3,
+            "unit": "output tokens/s"
+          },
+          "container_cpu": null,
+          "container_memory": null,
+          "container_tx": null,
+          "disk_write": null,
+          "process_rss": null,
+          "process_pss": null,
+          "process_private": null,
+          "process_shared": null,
+          "process_swap": null,
+          "haproxy_frontend_ingress": null,
+          "haproxy_frontend_egress": null,
+          "haproxy_backend_ingress": null,
+          "haproxy_backend_egress": null,
+          "haproxy_frontend_ingress_total": null,
+          "haproxy_frontend_egress_total": null,
+          "haproxy_backend_ingress_total": null,
+          "haproxy_backend_egress_total": null,
+          "haproxy_ingress_per_request": null,
+          "haproxy_egress_per_request": null,
+          "haproxy_queue": null,
+          "haproxy_retries": null,
+          "haproxy_errors": null,
+          "haproxy_backend_imbalance": null,
+          "pcie_rx": null,
+          "pcie_tx": null,
+          "pcie_replay_delta": null,
+          "e2e_p50": {
+            "median": 35492.686133999996,
+            "minimum": 35461.15537,
+            "maximum": 35544.7157975,
+            "mean": 35499.5191005,
+            "standard_deviation": 42.197195811905964,
+            "n": 3,
+            "unit": "ms"
+          },
+          "e2e_p95": {
+            "median": 39620.662258749995,
+            "minimum": 38932.767636,
+            "maximum": 39974.616074,
+            "mean": 39509.34865625,
+            "standard_deviation": 529.7688934968777,
+            "n": 3,
+            "unit": "ms"
+          }
+        },
+        {
+          "concurrency": 64,
+          "throughput": {
+            "median": 937.989950907492,
+            "minimum": 926.9032389783665,
+            "maximum": 939.3761502771616,
+            "mean": 934.7564467210068,
+            "standard_deviation": 6.836303172030636,
+            "n": 3,
+            "unit": "output tokens/s"
+          },
+          "per_user_throughput": {
+            "median": 16.37471398937823,
+            "minimum": 16.12222425511342,
+            "maximum": 16.834081603105407,
+            "mean": 16.44367328253235,
+            "standard_deviation": 0.36090408567482796,
+            "n": 3,
+            "unit": "output tokens/s/user"
+          },
+          "ttft_p50": {
+            "median": 1730.849833,
+            "minimum": 1488.9405545,
+            "maximum": 1733.3172889999998,
+            "mean": 1651.0358921666666,
+            "standard_deviation": 140.3841015027378,
+            "n": 3,
+            "unit": "ms"
+          },
+          "ttft_p95": {
+            "median": 1734.9770775,
+            "minimum": 1732.7457439999998,
+            "maximum": 1736.0050645,
+            "mean": 1734.575962,
+            "standard_deviation": 1.6662721157378169,
+            "n": 3,
+            "unit": "ms"
+          },
+          "itl_average": {
+            "median": 61.95510250178327,
+            "minimum": 60.654449569915265,
+            "maximum": 62.63107417653814,
+            "mean": 61.74687541607889,
+            "standard_deviation": 1.0046293337806067,
+            "n": 3,
+            "unit": "ms"
+          },
+          "itl_p95": {
+            "median": 76.2374030404172,
+            "minimum": 73.03542989178618,
+            "maximum": 76.49891639667534,
+            "mean": 75.25724977629291,
+            "standard_deviation": 1.928590160782604,
+            "n": 3,
+            "unit": "ms"
+          },
+          "gpu_board_power": {
+            "median": 1988.9611971830984,
+            "minimum": 1975.0212254901962,
+            "maximum": 2027.8813868613138,
+            "mean": 1997.2879365115361,
+            "standard_deviation": 27.396169548459888,
+            "n": 3,
+            "unit": "W"
+          },
+          "joules_per_token": {
+            "median": 2.130712981142551,
+            "minimum": 2.1203933263717882,
+            "maximum": 2.1586941793357464,
+            "mean": 2.136600162283362,
+            "standard_deviation": 0.01981749254522942,
+            "n": 3,
+            "unit": "J/output token"
+          },
+          "host_cpu_busy": {
+            "median": 7.2809875524640635,
+            "minimum": 7.266440199743105,
+            "maximum": 7.306434236695493,
+            "mean": 7.284620662967554,
+            "standard_deviation": 0.02024303255160083,
+            "n": 3,
+            "unit": "%"
+          },
+          "cpu_user": {
+            "median": 5.745909058218318,
+            "minimum": 5.678480711224004,
+            "maximum": 5.763135464013643,
+            "mean": 5.729175077818655,
+            "standard_deviation": 0.04473953919611785,
+            "n": 3,
+            "unit": "%"
+          },
+          "cpu_system": {
+            "median": 1.5423885404360922,
+            "minimum": 1.5339929138741242,
+            "maximum": 1.5868770656236921,
+            "mean": 1.554419506644636,
+            "standard_deviation": 0.028420793224348578,
+            "n": 3,
+            "unit": "%"
+          },
+          "cpu_iowait": {
+            "median": 0.0010824228954090837,
+            "minimum": 0.000910232245757505,
+            "maximum": 0.0010855803716213006,
+            "mean": 0.0010260785042626298,
+            "standard_deviation": 0.00010033822363005446,
+            "n": 3,
+            "unit": "%"
+          },
+          "host_load1": {
+            "median": 9.167438016528926,
+            "minimum": 9.165086206896552,
+            "maximum": 9.420459770114944,
+            "mean": 9.250994664513474,
+            "standard_deviation": 0.14676579732527825,
+            "n": 3,
+            "unit": "load"
+          },
+          "host_ram_used": {
+            "median": 83.03994448431604,
+            "minimum": 82.99098330530626,
+            "maximum": 83.03999691167155,
+            "mean": 83.02364156709795,
+            "standard_deviation": 0.02828289650297258,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "host_ram_available": {
+            "median": 671.996878788389,
+            "minimum": 671.9968263610335,
+            "maximum": 672.0458399673988,
+            "mean": 672.0131817056072,
+            "standard_deviation": 0.02828289650297258,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "swap_used": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "mean": 0.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "gpu_utilization": {
+            "median": 82.89172535211267,
+            "minimum": 82.55748175182482,
+            "maximum": 83.96139705882354,
+            "mean": 83.13686805425368,
+            "standard_deviation": 0.7333592268568435,
+            "n": 3,
+            "unit": "%"
+          },
+          "gpu_memory_copy": {
+            "median": 28.979014598540147,
+            "minimum": 28.401408450704224,
+            "maximum": 29.613357843137255,
+            "mean": 28.997926964127206,
+            "standard_deviation": 0.6061960001796218,
+            "n": 3,
+            "unit": "%"
+          },
+          "gpu_temperature": {
+            "median": 42.965669014084504,
+            "minimum": 42.47992700729927,
+            "maximum": 43.59436274509804,
+            "mean": 43.01331958882727,
+            "standard_deviation": 0.5587438468348086,
+            "n": 3,
+            "unit": "\u00b0C"
+          },
+          "gpu_sm_clock": {
+            "median": 2356.7051056338028,
+            "minimum": 2339.7554744525546,
+            "maximum": 2387.481617647059,
+            "mean": 2361.314065911139,
+            "standard_deviation": 24.194587663031804,
+            "n": 3,
+            "unit": "MHz"
+          },
+          "gpu_memory_clock": {
+            "median": 12481.0,
+            "minimum": 12481.0,
+            "maximum": 12481.0,
+            "mean": 12481.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "MHz"
+          },
+          "gpu_vram_used": {
+            "median": 719.41796875,
+            "minimum": 719.41796875,
+            "maximum": 719.41796875,
+            "mean": 719.41796875,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "running_requests": {
+            "median": 56.66451612903226,
+            "minimum": 56.1546052631579,
+            "maximum": 57.959247648902824,
+            "mean": 56.92612301369766,
+            "standard_deviation": 0.9303290582826262,
+            "n": 3,
+            "unit": "requests"
+          },
+          "waiting_requests": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "mean": 0.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "requests"
+          },
+          "kv_cache_usage": {
+            "median": 4.479702535859106,
+            "minimum": 4.447963982423225,
+            "maximum": 4.5669952419321636,
+            "mean": 4.498220586738165,
+            "standard_deviation": 0.0616384526196158,
+            "n": 3,
+            "unit": "%"
+          },
+          "mamba_usage": null,
+          "speculative_acceptance": {
+            "median": 54.09279338247152,
+            "minimum": 53.728002397609885,
+            "maximum": 54.99945241485051,
+            "mean": 54.273416064977305,
+            "standard_deviation": 0.6546867202425793,
+            "n": 3,
+            "unit": "%"
+          },
+          "preemptions": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "mean": 0.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "preemptions/s"
+          },
+          "server_prompt_rate": {
+            "median": 23.433979552613575,
+            "minimum": 23.169258533143278,
+            "maximum": 23.447022035183693,
+            "mean": 23.350086706980182,
+            "standard_deviation": 0.15673751282890172,
+            "n": 3,
+            "unit": "input tokens/s"
+          },
+          "server_decode_rate": {
+            "median": 899.8648148203613,
+            "minimum": 889.6995276727018,
+            "maximum": 900.3656461510539,
+            "mean": 896.6433295480389,
+            "standard_deviation": 6.018720492629866,
+            "n": 3,
+            "unit": "output tokens/s"
+          },
+          "container_cpu": null,
+          "container_memory": null,
+          "container_tx": null,
+          "disk_write": null,
+          "process_rss": null,
+          "process_pss": null,
+          "process_private": null,
+          "process_shared": null,
+          "process_swap": null,
+          "haproxy_frontend_ingress": null,
+          "haproxy_frontend_egress": null,
+          "haproxy_backend_ingress": null,
+          "haproxy_backend_egress": null,
+          "haproxy_frontend_ingress_total": null,
+          "haproxy_frontend_egress_total": null,
+          "haproxy_backend_ingress_total": null,
+          "haproxy_backend_egress_total": null,
+          "haproxy_ingress_per_request": null,
+          "haproxy_egress_per_request": null,
+          "haproxy_queue": null,
+          "haproxy_retries": null,
+          "haproxy_errors": null,
+          "haproxy_backend_imbalance": null,
+          "pcie_rx": null,
+          "pcie_tx": null,
+          "pcie_replay_delta": null,
+          "e2e_p50": {
+            "median": 47823.470498999995,
+            "minimum": 46766.6867265,
+            "maximum": 49094.2991895,
+            "mean": 47894.818804999995,
+            "standard_deviation": 1165.4453569580342,
+            "n": 3,
+            "unit": "ms"
+          },
+          "e2e_p95": {
+            "median": 60204.937965,
+            "minimum": 57753.40665375,
+            "maximum": 60408.24041375,
+            "mean": 59455.52834416666,
+            "standard_deviation": 1477.5813541585812,
+            "n": 3,
+            "unit": "ms"
+          }
+        }
+      ]
+    },
+    "prefill": {
+      "source_id": "prefill",
+      "points": [
+        {
+          "concurrency": 1,
+          "throughput": {
+            "median": 3194.920710645608,
+            "minimum": 3194.5910302815128,
+            "maximum": 3195.328876172648,
+            "mean": 3194.94687236659,
+            "standard_deviation": 0.3696180007789823,
+            "n": 3,
+            "unit": "input tokens/s"
+          },
+          "per_user_throughput": {
+            "median": 3200.285972216207,
+            "minimum": 3200.240851503449,
+            "maximum": 3200.3672068118512,
+            "mean": 3200.2980101771695,
+            "standard_deviation": 0.06403202611545428,
+            "n": 3,
+            "unit": "input tokens/s/user"
+          },
+          "ttft_p50": {
+            "median": 648.7403469999999,
+            "minimum": 648.5959415,
+            "maximum": 649.087489,
+            "mean": 648.8079258333333,
+            "standard_deviation": 0.25264581972614075,
+            "n": 3,
+            "unit": "ms"
+          },
+          "ttft_p95": {
+            "median": 659.4584791499999,
+            "minimum": 656.68480215,
+            "maximum": 662.76413765,
+            "mean": 659.6358063166666,
+            "standard_deviation": 3.0435445985591314,
+            "n": 3,
+            "unit": "ms"
+          },
+          "itl_average": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "mean": 0.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "ms"
+          },
+          "itl_p95": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "mean": 0.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "ms"
+          },
+          "gpu_board_power": {
+            "median": 1759.8009,
+            "minimum": 1740.3922794117648,
+            "maximum": 1764.444,
+            "mean": 1754.8790598039216,
+            "standard_deviation": 12.758906653802033,
+            "n": 3,
+            "unit": "W"
+          },
+          "joules_per_token": {
+            "median": 0.5507252923345101,
+            "minimum": 0.544720664619503,
+            "maximum": 0.5523055415437723,
+            "mean": 0.5492504994992617,
+            "standard_deviation": 0.004001730865419756,
+            "n": 3,
+            "unit": "J/input token"
+          },
+          "host_cpu_busy": {
+            "median": 6.57076420630294,
+            "minimum": 6.5703372655479235,
+            "maximum": 6.611850512119842,
+            "mean": 6.5843173279902345,
+            "standard_deviation": 0.023845392444625555,
+            "n": 3,
+            "unit": "%"
+          },
+          "cpu_user": {
+            "median": 5.693966880784153,
+            "minimum": 5.690500530861798,
+            "maximum": 5.7295074831001855,
+            "mean": 5.704658298248712,
+            "standard_deviation": 0.021589705562676666,
+            "n": 3,
+            "unit": "%"
+          },
+          "cpu_system": {
+            "median": 0.8790433034905454,
+            "minimum": 0.8752439446805275,
+            "maximum": 0.881009017915067,
+            "mean": 0.87843208869538,
+            "standard_deviation": 0.00293073454858555,
+            "n": 3,
+            "unit": "%"
+          },
+          "cpu_iowait": {
+            "median": 0.0012203719505955884,
+            "minimum": 0.0011264400832439222,
+            "maximum": 0.001334011104589279,
+            "mean": 0.00122694104614293,
+            "standard_deviation": 0.00010394131511493022,
+            "n": 3,
+            "unit": "%"
+          },
+          "host_load1": {
+            "median": 7.595000000000001,
+            "minimum": 5.020446428571428,
+            "maximum": 8.218214285714286,
+            "mean": 6.944553571428571,
+            "standard_deviation": 1.6952109704620844,
+            "n": 3,
+            "unit": "load"
+          },
+          "host_ram_used": {
+            "median": 72.75524427777248,
+            "minimum": 72.74073137555808,
+            "maximum": 72.79165852069855,
+            "mean": 72.76254472467637,
+            "standard_deviation": 0.02623672848864479,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "host_ram_available": {
+            "median": 682.2815789949326,
+            "minimum": 682.2451647520065,
+            "maximum": 682.296091897147,
+            "mean": 682.2742785480287,
+            "standard_deviation": 0.02623672848864479,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "swap_used": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "mean": 0.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "gpu_utilization": {
+            "median": 67.26011029411765,
+            "minimum": 66.835,
+            "maximum": 67.35875,
+            "mean": 67.15128676470589,
+            "standard_deviation": 0.2783171501007934,
+            "n": 3,
+            "unit": "%"
+          },
+          "gpu_memory_copy": {
+            "median": 16.575367647058822,
+            "minimum": 16.5175,
+            "maximum": 16.68375,
+            "mean": 16.59220588235294,
+            "standard_deviation": 0.0843943733365275,
+            "n": 3,
+            "unit": "%"
+          },
+          "gpu_temperature": {
+            "median": 38.565,
+            "minimum": 35.93658088235294,
+            "maximum": 38.57375,
+            "mean": 37.69177696078432,
+            "standard_deviation": 1.5200506886056944,
+            "n": 3,
+            "unit": "\u00b0C"
+          },
+          "gpu_sm_clock": {
+            "median": 2314.298713235294,
+            "minimum": 2314.25625,
+            "maximum": 2314.7075,
+            "mean": 2314.4208210784313,
+            "standard_deviation": 0.24917741599456966,
+            "n": 3,
+            "unit": "MHz"
+          },
+          "gpu_memory_clock": {
+            "median": 12481.0,
+            "minimum": 12481.0,
+            "maximum": 12481.0,
+            "mean": 12481.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "MHz"
+          },
+          "gpu_vram_used": {
+            "median": 720.10546875,
+            "minimum": 719.9818187040441,
+            "maximum": 720.10546875,
+            "mean": 720.0642520680148,
+            "standard_deviation": 0.07138938731792283,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "running_requests": {
+            "median": 0.5654450261780105,
+            "minimum": 0.5602094240837696,
+            "maximum": 0.5706806282722513,
+            "mean": 0.5654450261780105,
+            "standard_deviation": 0.005235602094240843,
+            "n": 3,
+            "unit": "requests"
+          },
+          "waiting_requests": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "mean": 0.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "requests"
+          },
+          "kv_cache_usage": {
+            "median": 0.20965939172892212,
+            "minimum": 0.20771810106476543,
+            "maximum": 0.21160068239307878,
+            "mean": 0.20965939172892212,
+            "standard_deviation": 0.0019412906641566724,
+            "n": 3,
+            "unit": "%"
+          },
+          "mamba_usage": null,
+          "speculative_acceptance": {
+            "median": 61.60188457008245,
+            "minimum": 60.8187134502924,
+            "maximum": 62.66195524146053,
+            "mean": 61.6941844206118,
+            "standard_deviation": 0.9250808191628347,
+            "n": 3,
+            "unit": "%"
+          },
+          "preemptions": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "mean": 0.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "preemptions/s"
+          },
+          "server_prompt_rate": {
+            "median": 2711.9348632498036,
+            "minimum": 2708.3720618661196,
+            "maximum": 2712.4478048919336,
+            "mean": 2710.9182433359524,
+            "standard_deviation": 2.2199228229934707,
+            "n": 3,
+            "unit": "input tokens/s"
+          },
+          "server_decode_rate": {
+            "median": 10.531785876698267,
+            "minimum": 10.517949754819881,
+            "maximum": 10.533777883075471,
+            "mean": 10.527837838197874,
+            "standard_deviation": 0.008621059506771616,
+            "n": 3,
+            "unit": "output tokens/s"
+          },
+          "container_cpu": null,
+          "container_memory": null,
+          "container_tx": null,
+          "disk_write": null,
+          "process_rss": null,
+          "process_pss": null,
+          "process_private": null,
+          "process_shared": null,
+          "process_swap": null,
+          "haproxy_frontend_ingress": null,
+          "haproxy_frontend_egress": null,
+          "haproxy_backend_ingress": null,
+          "haproxy_backend_egress": null,
+          "haproxy_frontend_ingress_total": null,
+          "haproxy_frontend_egress_total": null,
+          "haproxy_backend_ingress_total": null,
+          "haproxy_backend_egress_total": null,
+          "haproxy_ingress_per_request": null,
+          "haproxy_egress_per_request": null,
+          "haproxy_queue": null,
+          "haproxy_retries": null,
+          "haproxy_errors": null,
+          "haproxy_backend_imbalance": null,
+          "pcie_rx": null,
+          "pcie_tx": null,
+          "pcie_replay_delta": null,
+          "e2e_p50": {
+            "median": 648.7403469999999,
+            "minimum": 648.5959415,
+            "maximum": 649.087489,
+            "mean": 648.8079258333333,
+            "standard_deviation": 0.25264581972614075,
+            "n": 3,
+            "unit": "ms"
+          },
+          "e2e_p95": {
+            "median": 659.4584791499999,
+            "minimum": 656.68480215,
+            "maximum": 662.76413765,
+            "mean": 659.6358063166666,
+            "standard_deviation": 3.0435445985591314,
+            "n": 3,
+            "unit": "ms"
+          }
+        },
+        {
+          "concurrency": 8,
+          "throughput": {
+            "median": 5313.524021914232,
+            "minimum": 4785.694136714482,
+            "maximum": 5466.496701143416,
+            "mean": 5188.571619924044,
+            "standard_deviation": 357.1874297978468,
+            "n": 3,
+            "unit": "input tokens/s"
+          },
+          "per_user_throughput": {
+            "median": 1140.3145828040304,
+            "minimum": 1035.8452657953953,
+            "maximum": 1154.324997042239,
+            "mean": 1110.1616152138884,
+            "standard_deviation": 64.7399626965462,
+            "n": 3,
+            "unit": "input tokens/s/user"
+          },
+          "ttft_p50": {
+            "median": 1996.7443555,
+            "minimum": 1880.2269059999999,
+            "maximum": 2025.694757,
+            "mean": 1967.5553395,
+            "standard_deviation": 77.00144745344565,
+            "n": 3,
+            "unit": "ms"
+          },
+          "ttft_p95": {
+            "median": 2521.248395,
+            "minimum": 2494.5570219499996,
+            "maximum": 2769.4122629999997,
+            "mean": 2595.072559983333,
+            "standard_deviation": 151.57129142676789,
+            "n": 3,
+            "unit": "ms"
+          },
+          "itl_average": {
+            "median": 166.01375671071426,
+            "minimum": 152.21351498225374,
+            "maximum": 195.38988615284717,
+            "mean": 171.2057192819384,
+            "standard_deviation": 22.051465107129662,
+            "n": 3,
+            "unit": "ms"
+          },
+          "itl_p95": {
+            "median": 276.5818263714286,
+            "minimum": 255.54996242857143,
+            "maximum": 283.93106605,
+            "mean": 272.02095161666665,
+            "standard_deviation": 14.730001513544902,
+            "n": 3,
+            "unit": "ms"
+          },
+          "gpu_board_power": {
+            "median": 1969.993786407767,
+            "minimum": 1940.29216,
+            "maximum": 1996.4609,
+            "mean": 1968.9156154692555,
+            "standard_deviation": 28.099887503803103,
+            "n": 3,
+            "unit": "W"
+          },
+          "joules_per_token": {
+            "median": 0.3707390092785456,
+            "minimum": 0.3652067969095337,
+            "maximum": 0.4054232914762226,
+            "mean": 0.3804563658881006,
+            "standard_deviation": 0.021798208032223106,
+            "n": 3,
+            "unit": "J/input token"
+          },
+          "host_cpu_busy": {
+            "median": 6.529858361565778,
+            "minimum": 6.453471108735673,
+            "maximum": 6.575846874088853,
+            "mean": 6.519725448130102,
+            "standard_deviation": 0.061813946140537895,
+            "n": 3,
+            "unit": "%"
+          },
+          "cpu_user": {
+            "median": 5.491411523290376,
+            "minimum": 5.441979927549142,
+            "maximum": 5.582501572445258,
+            "mean": 5.505297674428259,
+            "standard_deviation": 0.07128255092338943,
+            "n": 3,
+            "unit": "%"
+          },
+          "cpu_system": {
+            "median": 1.0102292297642377,
+            "minimum": 0.9919699850915685,
+            "maximum": 1.0372408521312557,
+            "mean": 1.0131466889956873,
+            "standard_deviation": 0.02277600770342856,
+            "n": 3,
+            "unit": "%"
+          },
+          "cpu_iowait": {
+            "median": 0.0012619514222934854,
+            "minimum": 0.0012059861441468854,
+            "maximum": 0.0013753165520263913,
+            "mean": 0.0012810847061555874,
+            "standard_deviation": 8.627142442124614e-05,
+            "n": 3,
+            "unit": "%"
+          },
+          "host_load1": {
+            "median": 8.592235294117648,
+            "minimum": 8.40953488372093,
+            "maximum": 10.765377358490568,
+            "mean": 9.25571584544305,
+            "standard_deviation": 1.3105927181899326,
+            "n": 3,
+            "unit": "load"
+          },
+          "host_ram_used": {
+            "median": 73.26874257256009,
+            "minimum": 73.09870032377023,
+            "maximum": 73.3648572237986,
+            "mean": 73.24410004004297,
+            "standard_deviation": 0.1347787619204891,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "host_ram_available": {
+            "median": 681.768080700145,
+            "minimum": 681.6719660489065,
+            "maximum": 681.9381229489348,
+            "mean": 681.7927232326621,
+            "standard_deviation": 0.1347787619204891,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "swap_used": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "mean": 0.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "gpu_utilization": {
+            "median": 68.66019417475728,
+            "minimum": 67.599,
+            "maximum": 69.03,
+            "mean": 68.42973139158576,
+            "standard_deviation": 0.7428156371673726,
+            "n": 3,
+            "unit": "%"
+          },
+          "gpu_memory_copy": {
+            "median": 20.33009708737864,
+            "minimum": 18.698,
+            "maximum": 21.1725,
+            "mean": 20.06686569579288,
+            "standard_deviation": 1.2580761648791898,
+            "n": 3,
+            "unit": "%"
+          },
+          "gpu_temperature": {
+            "median": 43.2325,
+            "minimum": 40.833,
+            "maximum": 43.314320388349515,
+            "mean": 42.45994012944984,
+            "standard_deviation": 1.4095652814247777,
+            "n": 3,
+            "unit": "\u00b0C"
+          },
+          "gpu_sm_clock": {
+            "median": 2377.1868932038833,
+            "minimum": 2341.164,
+            "maximum": 2378.8525,
+            "mean": 2365.734464401294,
+            "standard_deviation": 21.29493724271733,
+            "n": 3,
+            "unit": "MHz"
+          },
+          "gpu_memory_clock": {
+            "median": 12481.0,
+            "minimum": 12481.0,
+            "maximum": 12481.0,
+            "mean": 12481.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "MHz"
+          },
+          "gpu_vram_used": {
+            "median": 734.0234375,
+            "minimum": 733.09521875,
+            "maximum": 734.0234375,
+            "mean": 733.71403125,
+            "standard_deviation": 0.5359073451793821,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "running_requests": {
+            "median": 5.354166666666667,
+            "minimum": 5.275510204081633,
+            "maximum": 5.371134020618556,
+            "mean": 5.333603630455619,
+            "standard_deviation": 0.0510206567571846,
+            "n": 3,
+            "unit": "requests"
+          },
+          "waiting_requests": {
+            "median": 0.061855670103092786,
+            "minimum": 0.061224489795918366,
+            "maximum": 0.08333333333333333,
+            "mean": 0.06880449774411483,
+            "standard_deviation": 0.01258629790005575,
+            "n": 3,
+            "unit": "requests"
+          },
+          "kv_cache_usage": {
+            "median": 1.9843164794007468,
+            "minimum": 1.9556294427883487,
+            "maximum": 1.990617398355147,
+            "mean": 1.9768544401814143,
+            "standard_deviation": 0.01864941770322082,
+            "n": 3,
+            "unit": "%"
+          },
+          "mamba_usage": null,
+          "speculative_acceptance": {
+            "median": 62.616822429906534,
+            "minimum": 60.972222222222214,
+            "maximum": 62.99435028248588,
+            "mean": 62.19446497820488,
+            "standard_deviation": 1.0751929295630458,
+            "n": 3,
+            "unit": "%"
+          },
+          "preemptions": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "mean": 0.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "preemptions/s"
+          },
+          "server_prompt_rate": {
+            "median": 4521.253837818001,
+            "minimum": 4067.503243774567,
+            "maximum": 4634.563928295481,
+            "mean": 4407.773669962683,
+            "standard_deviation": 300.07960003086697,
+            "n": 3,
+            "unit": "input tokens/s"
+          },
+          "server_decode_rate": {
+            "median": 17.55826733133204,
+            "minimum": 15.796129102037154,
+            "maximum": 17.998306517652352,
+            "mean": 17.117567650340515,
+            "standard_deviation": 1.165357670022784,
+            "n": 3,
+            "unit": "output tokens/s"
+          },
+          "container_cpu": null,
+          "container_memory": null,
+          "container_tx": null,
+          "disk_write": null,
+          "process_rss": null,
+          "process_pss": null,
+          "process_private": null,
+          "process_shared": null,
+          "process_swap": null,
+          "haproxy_frontend_ingress": null,
+          "haproxy_frontend_egress": null,
+          "haproxy_backend_ingress": null,
+          "haproxy_backend_egress": null,
+          "haproxy_frontend_ingress_total": null,
+          "haproxy_frontend_egress_total": null,
+          "haproxy_backend_ingress_total": null,
+          "haproxy_backend_egress_total": null,
+          "haproxy_ingress_per_request": null,
+          "haproxy_egress_per_request": null,
+          "haproxy_queue": null,
+          "haproxy_retries": null,
+          "haproxy_errors": null,
+          "haproxy_backend_imbalance": null,
+          "pcie_rx": null,
+          "pcie_tx": null,
+          "pcie_replay_delta": null,
+          "e2e_p50": {
+            "median": 3129.7848839999997,
+            "minimum": 2949.7682449999998,
+            "maximum": 3463.3792439999997,
+            "mean": 3180.9774576666664,
+            "standard_deviation": 260.60424837751077,
+            "n": 3,
+            "unit": "ms"
+          },
+          "e2e_p95": {
+            "median": 3738.970051,
+            "minimum": 3531.7800964999997,
+            "maximum": 3932.226995,
+            "mean": 3734.325714166667,
+            "standard_deviation": 200.26384353655425,
+            "n": 3,
+            "unit": "ms"
+          }
+        },
+        {
+          "concurrency": 16,
+          "throughput": {
+            "median": 6043.665612216475,
+            "minimum": 5934.5419718729845,
+            "maximum": 6127.906642056756,
+            "mean": 6035.371408715405,
+            "standard_deviation": 96.94879719525949,
+            "n": 3,
+            "unit": "input tokens/s"
+          },
+          "per_user_throughput": {
+            "median": 710.131312655543,
+            "minimum": 691.8405803767481,
+            "maximum": 721.0732199199467,
+            "mean": 707.6817043174127,
+            "standard_deviation": 14.769469842324172,
+            "n": 3,
+            "unit": "input tokens/s/user"
+          },
+          "ttft_p50": {
+            "median": 2845.452839,
+            "minimum": 2841.175823,
+            "maximum": 2865.7891259999997,
+            "mean": 2850.805929333333,
+            "standard_deviation": 13.150868915401249,
+            "n": 3,
+            "unit": "ms"
+          },
+          "ttft_p95": {
+            "median": 4717.98973365,
+            "minimum": 4673.411254,
+            "maximum": 4720.730254,
+            "mean": 4704.043747216667,
+            "standard_deviation": 26.563882311308483,
+            "n": 3,
+            "unit": "ms"
+          },
+          "itl_average": {
+            "median": 330.35150230888024,
+            "minimum": 325.2994770636646,
+            "maximum": 335.168165148382,
+            "mean": 330.2730481736423,
+            "standard_deviation": 4.934811791432655,
+            "n": 3,
+            "unit": "ms"
+          },
+          "itl_p95": {
+            "median": 470.07849259999995,
+            "minimum": 444.4121508571428,
+            "maximum": 482.3525762857143,
+            "mean": 465.61440658095233,
+            "standard_deviation": 19.36013993788114,
+            "n": 3,
+            "unit": "ms"
+          },
+          "gpu_board_power": {
+            "median": 2077.153137254902,
+            "minimum": 2061.07672,
+            "maximum": 2091.754368932039,
+            "mean": 2076.6614087289804,
+            "standard_deviation": 15.344734722593415,
+            "n": 3,
+            "unit": "W"
+          },
+          "joules_per_token": {
+            "median": 0.34609392244208564,
+            "minimum": 0.3363325593789714,
+            "maximum": 0.3500001193877671,
+            "mean": 0.34414220040294136,
+            "standard_deviation": 0.0070397061967861305,
+            "n": 3,
+            "unit": "J/input token"
+          },
+          "host_cpu_busy": {
+            "median": 6.5770262223676355,
+            "minimum": 6.4137083233389305,
+            "maximum": 6.595187383876376,
+            "mean": 6.528640643194314,
+            "standard_deviation": 0.09994766409147232,
+            "n": 3,
+            "unit": "%"
+          },
+          "cpu_user": {
+            "median": 5.426733165907025,
+            "minimum": 5.2610038378508035,
+            "maximum": 5.433724566094168,
+            "mean": 5.373820523283999,
+            "standard_deviation": 0.09776463216953037,
+            "n": 3,
+            "unit": "%"
+          },
+          "cpu_system": {
+            "median": 1.1515051571120172,
+            "minimum": 1.1491148489492655,
+            "maximum": 1.1601939547740971,
+            "mean": 1.1536046536117934,
+            "standard_deviation": 0.0058303139395647985,
+            "n": 3,
+            "unit": "%"
+          },
+          "cpu_iowait": {
+            "median": 0.0011993283761093788,
+            "minimum": 0.001178207511344779,
+            "maximum": 0.0012688630081116598,
+            "mean": 0.0012154662985219393,
+            "standard_deviation": 4.743341837099507e-05,
+            "n": 3,
+            "unit": "%"
+          },
+          "host_load1": {
+            "median": 7.846095238095239,
+            "minimum": 7.736896551724138,
+            "maximum": 7.881494252873564,
+            "mean": 7.821495347564313,
+            "standard_deviation": 0.07537234078244341,
+            "n": 3,
+            "unit": "load"
+          },
+          "host_ram_used": {
+            "median": 73.63968489635954,
+            "minimum": 73.61916580200193,
+            "maximum": 73.70383994880763,
+            "mean": 73.65423021572303,
+            "standard_deviation": 0.04417128615806462,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "host_ram_available": {
+            "median": 681.3971383763455,
+            "minimum": 681.3329833238975,
+            "maximum": 681.4176574707031,
+            "mean": 681.382593056982,
+            "standard_deviation": 0.04417128615806462,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "swap_used": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "mean": 0.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "gpu_utilization": {
+            "median": 70.60661764705883,
+            "minimum": 68.54,
+            "maximum": 71.13228155339806,
+            "mean": 70.09296640015229,
+            "standard_deviation": 1.3703499974854705,
+            "n": 3,
+            "unit": "%"
+          },
+          "gpu_memory_copy": {
+            "median": 22.268382352941178,
+            "minimum": 22.14,
+            "maximum": 22.700242718446603,
+            "mean": 22.369541690462594,
+            "standard_deviation": 0.2935010810353832,
+            "n": 3,
+            "unit": "%"
+          },
+          "gpu_temperature": {
+            "median": 43.622549019607845,
+            "minimum": 42.853,
+            "maximum": 45.172330097087375,
+            "mean": 43.882626372231734,
+            "standard_deviation": 1.1813353447792552,
+            "n": 3,
+            "unit": "\u00b0C"
+          },
+          "gpu_sm_clock": {
+            "median": 2379.9914215686276,
+            "minimum": 2378.093,
+            "maximum": 2385.0606796116504,
+            "mean": 2381.048367060093,
+            "standard_deviation": 3.602081359658422,
+            "n": 3,
+            "unit": "MHz"
+          },
+          "gpu_memory_clock": {
+            "median": 12481.0,
+            "minimum": 12481.0,
+            "maximum": 12481.0,
+            "mean": 12481.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "MHz"
+          },
+          "gpu_vram_used": {
+            "median": 734.0390625,
+            "minimum": 734.031671875,
+            "maximum": 734.0390625,
+            "mean": 734.0365989583333,
+            "standard_deviation": 0.004266979333212775,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "running_requests": {
+            "median": 10.050251256281408,
+            "minimum": 10.04040404040404,
+            "maximum": 10.112820512820512,
+            "mean": 10.06782526983532,
+            "standard_deviation": 0.03927684857019782,
+            "n": 3,
+            "unit": "requests"
+          },
+          "waiting_requests": {
+            "median": 0.5128205128205128,
+            "minimum": 0.47738693467336685,
+            "maximum": 0.5454545454545454,
+            "mean": 0.5118873309828084,
+            "standard_deviation": 0.03404339922248027,
+            "n": 3,
+            "unit": "requests"
+          },
+          "kv_cache_usage": {
+            "median": 3.7207949861667866,
+            "minimum": 3.715242310747926,
+            "maximum": 3.7422068568135956,
+            "mean": 3.7260813845761027,
+            "standard_deviation": 0.014238370420747552,
+            "n": 3,
+            "unit": "%"
+          },
+          "mamba_usage": null,
+          "speculative_acceptance": {
+            "median": 62.70983213429257,
+            "minimum": 60.950661853188926,
+            "maximum": 63.597298956414974,
+            "mean": 62.41926431463216,
+            "standard_deviation": 1.3470316374940294,
+            "n": 3,
+            "unit": "%"
+          },
+          "preemptions": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "mean": 0.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "preemptions/s"
+          },
+          "server_prompt_rate": {
+            "median": 5150.075640552845,
+            "minimum": 5055.943206597716,
+            "maximum": 5207.486920360982,
+            "mean": 5137.835255837181,
+            "standard_deviation": 76.50976773446168,
+            "n": 3,
+            "unit": "input tokens/s"
+          },
+          "server_decode_rate": {
+            "median": 20.000293749719784,
+            "minimum": 19.63473089940861,
+            "maximum": 20.223250176159155,
+            "mean": 19.95275827509585,
+            "standard_deviation": 0.2971253115901411,
+            "n": 3,
+            "unit": "output tokens/s"
+          },
+          "container_cpu": null,
+          "container_memory": null,
+          "container_tx": null,
+          "disk_write": null,
+          "process_rss": null,
+          "process_pss": null,
+          "process_private": null,
+          "process_shared": null,
+          "process_swap": null,
+          "haproxy_frontend_ingress": null,
+          "haproxy_frontend_egress": null,
+          "haproxy_backend_ingress": null,
+          "haproxy_backend_egress": null,
+          "haproxy_frontend_ingress_total": null,
+          "haproxy_frontend_egress_total": null,
+          "haproxy_backend_ingress_total": null,
+          "haproxy_backend_egress_total": null,
+          "haproxy_ingress_per_request": null,
+          "haproxy_egress_per_request": null,
+          "haproxy_queue": null,
+          "haproxy_retries": null,
+          "haproxy_errors": null,
+          "haproxy_backend_imbalance": null,
+          "pcie_rx": null,
+          "pcie_tx": null,
+          "pcie_replay_delta": null,
+          "e2e_p50": {
+            "median": 5453.407695,
+            "minimum": 5257.4414275,
+            "maximum": 5484.106361,
+            "mean": 5398.3184945,
+            "standard_deviation": 122.96488534714604,
+            "n": 3,
+            "unit": "ms"
+          },
+          "e2e_p95": {
+            "median": 6463.001777199999,
+            "minimum": 6243.097632,
+            "maximum": 6707.883253,
+            "mean": 6471.327554066666,
+            "standard_deviation": 232.50463929223875,
+            "n": 3,
+            "unit": "ms"
+          }
+        },
+        {
+          "concurrency": 24,
+          "throughput": {
+            "median": 6229.009588747718,
+            "minimum": 6217.859887234215,
+            "maximum": 6233.570689152994,
+            "mean": 6226.813388378309,
+            "standard_deviation": 8.082375658166429,
+            "n": 3,
+            "unit": "input tokens/s"
+          },
+          "per_user_throughput": {
+            "median": 492.3991637565019,
+            "minimum": 485.9587440765478,
+            "maximum": 493.2492274010299,
+            "mean": 490.5357117446932,
+            "standard_deviation": 3.9864930485795598,
+            "n": 3,
+            "unit": "input tokens/s/user"
+          },
+          "ttft_p50": {
+            "median": 4086.469736,
+            "minimum": 4082.579026,
+            "maximum": 4093.4018674999998,
+            "mean": 4087.4835431666665,
+            "standard_deviation": 5.482182800848415,
+            "n": 3,
+            "unit": "ms"
+          },
+          "ttft_p95": {
+            "median": 5976.569184999999,
+            "minimum": 5959.4288675,
+            "maximum": 5981.287139999999,
+            "mean": 5972.4283975,
+            "standard_deviation": 11.502417572457388,
+            "n": 3,
+            "unit": "ms"
+          },
+          "itl_average": {
+            "median": 481.8358577069219,
+            "minimum": 473.7810230044643,
+            "maximum": 482.4618528667653,
+            "mean": 479.3595778593838,
+            "standard_deviation": 4.841298708719228,
+            "n": 3,
+            "unit": "ms"
+          },
+          "itl_p95": {
+            "median": 526.0031875,
+            "minimum": 525.1452687142857,
+            "maximum": 526.87657,
+            "mean": 526.0083420714286,
+            "standard_deviation": 0.8656621527385425,
+            "n": 3,
+            "unit": "ms"
+          },
+          "gpu_board_power": {
+            "median": 2105.774245283019,
+            "minimum": 2063.424,
+            "maximum": 2114.7539423076923,
+            "mean": 2094.6507291969037,
+            "standard_deviation": 27.41332161406756,
+            "n": 3,
+            "unit": "W"
+          },
+          "joules_per_token": {
+            "median": 0.3380495766265394,
+            "minimum": 0.3318449548213437,
+            "maximum": 0.33924259407632074,
+            "mean": 0.33637904184140127,
+            "standard_deviation": 0.003971684968368174,
+            "n": 3,
+            "unit": "J/input token"
+          },
+          "host_cpu_busy": {
+            "median": 6.5586593980839325,
+            "minimum": 6.455770731413951,
+            "maximum": 6.5872437729100195,
+            "mean": 6.533891300802634,
+            "standard_deviation": 0.06914755340761253,
+            "n": 3,
+            "unit": "%"
+          },
+          "cpu_user": {
+            "median": 5.218021640878968,
+            "minimum": 5.12600818052696,
+            "maximum": 5.249670489968649,
+            "mean": 5.197900103791525,
+            "standard_deviation": 0.06423977650322249,
+            "n": 3,
+            "unit": "%"
+          },
+          "cpu_system": {
+            "median": 1.3364980632605499,
+            "minimum": 1.3284261061122302,
+            "maximum": 1.3394729202283797,
+            "mean": 1.3347990298670531,
+            "standard_deviation": 0.005716035460295219,
+            "n": 3,
+            "unit": "%"
+          },
+          "cpu_iowait": {
+            "median": 0.0011648369765849848,
+            "minimum": 0.0010752196808210377,
+            "maximum": 0.001336444774760795,
+            "mean": 0.0011921671440556058,
+            "standard_deviation": 0.000132739749006987,
+            "n": 3,
+            "unit": "%"
+          },
+          "host_load1": {
+            "median": 8.372159090909092,
+            "minimum": 7.863018867924528,
+            "maximum": 8.435568181818182,
+            "mean": 8.223582046883934,
+            "standard_deviation": 0.31386228304538866,
+            "n": 3,
+            "unit": "load"
+          },
+          "host_ram_used": {
+            "median": 74.00282099030233,
+            "minimum": 73.98301521214569,
+            "maximum": 74.0061318559467,
+            "mean": 73.99732268613157,
+            "standard_deviation": 0.012500732647383868,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "host_ram_available": {
+            "median": 681.0340022824028,
+            "minimum": 681.0306914167584,
+            "maximum": 681.0538080605594,
+            "mean": 681.0395005865735,
+            "standard_deviation": 0.012500732647383868,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "swap_used": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "mean": 0.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "gpu_utilization": {
+            "median": 71.09905660377359,
+            "minimum": 69.39,
+            "maximum": 71.6670673076923,
+            "mean": 70.71870797048864,
+            "standard_deviation": 1.1852247436969805,
+            "n": 3,
+            "unit": "%"
+          },
+          "gpu_memory_copy": {
+            "median": 23.54127358490566,
+            "minimum": 22.94,
+            "maximum": 23.778846153846153,
+            "mean": 23.42003991291727,
+            "standard_deviation": 0.43236433695838244,
+            "n": 3,
+            "unit": "%"
+          },
+          "gpu_temperature": {
+            "median": 44.38942307692308,
+            "minimum": 43.715801886792455,
+            "maximum": 44.628,
+            "mean": 44.24440832123852,
+            "standard_deviation": 0.473073259611598,
+            "n": 3,
+            "unit": "\u00b0C"
+          },
+          "gpu_sm_clock": {
+            "median": 2384.5507075471696,
+            "minimum": 2383.511,
+            "maximum": 2385.201923076923,
+            "mean": 2384.421210208031,
+            "standard_deviation": 0.8528671547495685,
+            "n": 3,
+            "unit": "MHz"
+          },
+          "gpu_memory_clock": {
+            "median": 12481.0,
+            "minimum": 12481.0,
+            "maximum": 12481.0,
+            "mean": 12481.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "MHz"
+          },
+          "gpu_vram_used": {
+            "median": 734.0390625,
+            "minimum": 734.0390625,
+            "maximum": 734.0390625,
+            "mean": 734.0390625,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "running_requests": {
+            "median": 14.752475247524753,
+            "minimum": 14.61,
+            "maximum": 14.766169154228855,
+            "mean": 14.709548133917869,
+            "standard_deviation": 0.08648268031867865,
+            "n": 3,
+            "unit": "requests"
+          },
+          "waiting_requests": {
+            "median": 1.3217821782178218,
+            "minimum": 1.318407960199005,
+            "maximum": 1.565,
+            "mean": 1.4017300461389421,
+            "standard_deviation": 0.1414059924902532,
+            "n": 3,
+            "unit": "requests"
+          },
+          "kv_cache_usage": {
+            "median": 5.426688174435419,
+            "minimum": 5.3668539325842675,
+            "maximum": 5.429761305830398,
+            "mean": 5.407767804283362,
+            "standard_deviation": 0.03546575400580344,
+            "n": 3,
+            "unit": "%"
+          },
+          "mamba_usage": null,
+          "speculative_acceptance": {
+            "median": 62.21461187214612,
+            "minimum": 61.93771626297578,
+            "maximum": 63.60964138741917,
+            "mean": 62.58732317418036,
+            "standard_deviation": 0.8961131019208999,
+            "n": 3,
+            "unit": "%"
+          },
+          "preemptions": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "mean": 0.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "preemptions/s"
+          },
+          "server_prompt_rate": {
+            "median": 5320.072959428647,
+            "minimum": 5307.589321216244,
+            "maximum": 5322.219480119529,
+            "mean": 5316.62725358814,
+            "standard_deviation": 7.9003198630386855,
+            "n": 3,
+            "unit": "input tokens/s"
+          },
+          "server_decode_rate": {
+            "median": 20.660477512344258,
+            "minimum": 20.61199736394658,
+            "maximum": 20.668813515027296,
+            "mean": 20.647096130439376,
+            "standard_deviation": 0.030680853837041788,
+            "n": 3,
+            "unit": "output tokens/s"
+          },
+          "container_cpu": null,
+          "container_memory": null,
+          "container_tx": null,
+          "disk_write": null,
+          "process_rss": null,
+          "process_pss": null,
+          "process_private": null,
+          "process_shared": null,
+          "process_swap": null,
+          "haproxy_frontend_ingress": null,
+          "haproxy_frontend_egress": null,
+          "haproxy_backend_ingress": null,
+          "haproxy_backend_egress": null,
+          "haproxy_frontend_ingress_total": null,
+          "haproxy_frontend_egress_total": null,
+          "haproxy_backend_ingress_total": null,
+          "haproxy_backend_egress_total": null,
+          "haproxy_ingress_per_request": null,
+          "haproxy_egress_per_request": null,
+          "haproxy_queue": null,
+          "haproxy_retries": null,
+          "haproxy_errors": null,
+          "haproxy_backend_imbalance": null,
+          "pcie_rx": null,
+          "pcie_tx": null,
+          "pcie_replay_delta": null,
+          "e2e_p50": {
+            "median": 7541.336401,
+            "minimum": 7535.219405999999,
+            "maximum": 7562.502648,
+            "mean": 7546.352818333333,
+            "standard_deviation": 14.316674043026602,
+            "n": 3,
+            "unit": "ms"
+          },
+          "e2e_p95": {
+            "median": 9686.935015399995,
+            "minimum": 9660.343746,
+            "maximum": 9701.743209799983,
+            "mean": 9683.007323733325,
+            "standard_deviation": 20.97734425762289,
+            "n": 3,
+            "unit": "ms"
+          }
+        },
+        {
+          "concurrency": 32,
+          "throughput": {
+            "median": 6253.293398506918,
+            "minimum": 6250.0534863366875,
+            "maximum": 6260.035098815701,
+            "mean": 6254.460661219769,
+            "standard_deviation": 5.092153139970065,
+            "n": 3,
+            "unit": "input tokens/s"
+          },
+          "per_user_throughput": {
+            "median": 329.90668586784085,
+            "minimum": 329.73619280527606,
+            "maximum": 330.8157585334056,
+            "mean": 330.15287906884083,
+            "standard_deviation": 0.5803652810962424,
+            "n": 3,
+            "unit": "input tokens/s/user"
+          },
+          "ttft_p50": {
+            "median": 6674.397763,
+            "minimum": 6670.666663,
+            "maximum": 6677.176735499999,
+            "mean": 6674.080387166666,
+            "standard_deviation": 3.266620050373152,
+            "n": 3,
+            "unit": "ms"
+          },
+          "ttft_p95": {
+            "median": 8545.354958,
+            "minimum": 8540.6417995,
+            "maximum": 8581.0297295,
+            "mean": 8555.675495666666,
+            "standard_deviation": 22.08350845581499,
+            "n": 3,
+            "unit": "ms"
+          },
+          "itl_average": {
+            "median": 501.22356082248933,
+            "minimum": 501.14072024675323,
+            "maximum": 501.22468963564216,
+            "mean": 501.19632356829493,
+            "standard_deviation": 0.0481571965508152,
+            "n": 3,
+            "unit": "ms"
+          },
+          "itl_p95": {
+            "median": 527.2057314285714,
+            "minimum": 525.7590837857142,
+            "maximum": 527.5125451428571,
+            "mean": 526.8257867857143,
+            "standard_deviation": 0.9364428073701315,
+            "n": 3,
+            "unit": "ms"
+          },
+          "gpu_board_power": {
+            "median": 2123.425046728972,
+            "minimum": 2099.8934126984127,
+            "maximum": 2143.1012149532708,
+            "mean": 2122.139891460218,
+            "standard_deviation": 21.632550981618717,
+            "n": 3,
+            "unit": "W"
+          },
+          "joules_per_token": {
+            "median": 0.3397353264830447,
+            "minimum": 0.33579585127419065,
+            "maximum": 0.34233648549146206,
+            "mean": 0.3392892210828991,
+            "standard_deviation": 0.0032930580790603574,
+            "n": 3,
+            "unit": "J/input token"
+          },
+          "host_cpu_busy": {
+            "median": 6.5777223469318935,
+            "minimum": 6.483561258967355,
+            "maximum": 6.65841040009319,
+            "mean": 6.573231335330813,
+            "standard_deviation": 0.08751104174337823,
+            "n": 3,
+            "unit": "%"
+          },
+          "cpu_user": {
+            "median": 5.210450855387677,
+            "minimum": 5.109902960606155,
+            "maximum": 5.284915643318774,
+            "mean": 5.201756486437535,
+            "standard_deviation": 0.08782968641722397,
+            "n": 3,
+            "unit": "%"
+          },
+          "cpu_system": {
+            "median": 1.3724079802655675,
+            "minimum": 1.3660453176359717,
+            "maximum": 1.3725313310427156,
+            "mean": 1.370328209648085,
+            "standard_deviation": 0.003709606022763524,
+            "n": 3,
+            "unit": "%"
+          },
+          "cpu_iowait": {
+            "median": 0.0012261739082454065,
+            "minimum": 0.0009634257316999472,
+            "maximum": 0.0012503180956331538,
+            "mean": 0.001146639245192836,
+            "standard_deviation": 0.00015912614207276037,
+            "n": 3,
+            "unit": "%"
+          },
+          "host_load1": {
+            "median": 8.408831775700934,
+            "minimum": 8.223,
+            "maximum": 8.523222222222223,
+            "mean": 8.385017999307719,
+            "standard_deviation": 0.15152117884504437,
+            "n": 3,
+            "unit": "load"
+          },
+          "host_ram_used": {
+            "median": 74.4664229075114,
+            "minimum": 74.44750295621213,
+            "maximum": 74.4678386264377,
+            "mean": 74.46058816338707,
+            "standard_deviation": 0.011354208476506101,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "host_ram_available": {
+            "median": 680.5704003651937,
+            "minimum": 680.5689846462674,
+            "maximum": 680.589320316493,
+            "mean": 680.576235109318,
+            "standard_deviation": 0.011354208476506101,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "swap_used": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "mean": 0.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "gpu_utilization": {
+            "median": 72.02920560747664,
+            "minimum": 70.58829365079364,
+            "maximum": 73.14953271028037,
+            "mean": 71.92234398951689,
+            "standard_deviation": 1.2839590857986254,
+            "n": 3,
+            "unit": "%"
+          },
+          "gpu_memory_copy": {
+            "median": 23.927570093457945,
+            "minimum": 23.40972222222222,
+            "maximum": 24.376168224299064,
+            "mean": 23.90448684665974,
+            "standard_deviation": 0.4836363261218478,
+            "n": 3,
+            "unit": "%"
+          },
+          "gpu_temperature": {
+            "median": 45.09696261682243,
+            "minimum": 44.13434579439252,
+            "maximum": 45.61309523809524,
+            "mean": 44.94813454977007,
+            "standard_deviation": 0.7505246994401197,
+            "n": 3,
+            "unit": "\u00b0C"
+          },
+          "gpu_sm_clock": {
+            "median": 2385.325934579439,
+            "minimum": 2384.8234126984125,
+            "maximum": 2386.302570093458,
+            "mean": 2385.4839724571034,
+            "standard_deviation": 0.7521360434868009,
+            "n": 3,
+            "unit": "MHz"
+          },
+          "gpu_memory_clock": {
+            "median": 12481.0,
+            "minimum": 12481.0,
+            "maximum": 12481.0,
+            "mean": 12481.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "MHz"
+          },
+          "gpu_vram_used": {
+            "median": 734.0390625,
+            "minimum": 734.0390625,
+            "maximum": 734.0390625,
+            "mean": 734.0390625,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "running_requests": {
+            "median": 15.454545454545455,
+            "minimum": 15.44390243902439,
+            "maximum": 15.458536585365854,
+            "mean": 15.452328159645234,
+            "standard_deviation": 0.007564843507420461,
+            "n": 3,
+            "unit": "requests"
+          },
+          "waiting_requests": {
+            "median": 7.819512195121951,
+            "minimum": 7.809756097560975,
+            "maximum": 7.837320574162679,
+            "mean": 7.822196288948535,
+            "standard_deviation": 0.013976886718218031,
+            "n": 3,
+            "unit": "requests"
+          },
+          "kv_cache_usage": {
+            "median": 5.58037818580433,
+            "minimum": 5.573678834471265,
+            "maximum": 5.585420663195396,
+            "mean": 5.57982589449033,
+            "standard_deviation": 0.005890365414670884,
+            "n": 3,
+            "unit": "%"
+          },
+          "mamba_usage": null,
+          "speculative_acceptance": {
+            "median": 62.85714285714286,
+            "minimum": 61.223344556677894,
+            "maximum": 62.926292629262925,
+            "mean": 62.335593347694555,
+            "standard_deviation": 0.9638560331214359,
+            "n": 3,
+            "unit": "%"
+          },
+          "preemptions": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "mean": 0.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "preemptions/s"
+          },
+          "server_prompt_rate": {
+            "median": 5359.035540088683,
+            "minimum": 5348.078835739716,
+            "maximum": 5375.672850702024,
+            "mean": 5360.929075510141,
+            "standard_deviation": 13.894118278223432,
+            "n": 3,
+            "unit": "input tokens/s"
+          },
+          "server_decode_rate": {
+            "median": 20.81178850519877,
+            "minimum": 20.76923819704744,
+            "maximum": 20.876399420202038,
+            "mean": 20.819142040816082,
+            "standard_deviation": 0.05395774088630585,
+            "n": 3,
+            "unit": "output tokens/s"
+          },
+          "container_cpu": null,
+          "container_memory": null,
+          "container_tx": null,
+          "disk_write": null,
+          "process_rss": null,
+          "process_pss": null,
+          "process_private": null,
+          "process_shared": null,
+          "process_swap": null,
+          "haproxy_frontend_ingress": null,
+          "haproxy_frontend_egress": null,
+          "haproxy_backend_ingress": null,
+          "haproxy_backend_egress": null,
+          "haproxy_frontend_ingress_total": null,
+          "haproxy_frontend_egress_total": null,
+          "haproxy_backend_ingress_total": null,
+          "haproxy_backend_egress_total": null,
+          "haproxy_ingress_per_request": null,
+          "haproxy_egress_per_request": null,
+          "haproxy_queue": null,
+          "haproxy_retries": null,
+          "haproxy_errors": null,
+          "haproxy_backend_imbalance": null,
+          "pcie_rx": null,
+          "pcie_tx": null,
+          "pcie_replay_delta": null,
+          "e2e_p50": {
+            "median": 10336.959636,
+            "minimum": 10332.1155815,
+            "maximum": 10344.717625,
+            "mean": 10337.9309475,
+            "standard_deviation": 6.356922181094551,
+            "n": 3,
+            "unit": "ms"
+          },
+          "e2e_p95": {
+            "median": 12207.0174195,
+            "minimum": 12201.008737,
+            "maximum": 12916.214806599999,
+            "mean": 12441.413654366666,
+            "standard_deviation": 411.20083497960184,
+            "n": 3,
+            "unit": "ms"
+          }
+        },
+        {
+          "concurrency": 48,
+          "throughput": {
+            "median": 6259.769780393925,
+            "minimum": 6256.615333954586,
+            "maximum": 6262.659975839686,
+            "mean": 6259.6816967294,
+            "standard_deviation": 3.0232834681423433,
+            "n": 3,
+            "unit": "input tokens/s"
+          },
+          "per_user_throughput": {
+            "median": 212.42717936157905,
+            "minimum": 212.08112059300876,
+            "maximum": 213.0657612088264,
+            "mean": 212.5246870544714,
+            "standard_deviation": 0.49950985797011016,
+            "n": 3,
+            "unit": "input tokens/s/user"
+          },
+          "ttft_p50": {
+            "median": 11832.138503,
+            "minimum": 11829.715032,
+            "maximum": 11837.708268,
+            "mean": 11833.187267666668,
+            "standard_deviation": 4.098522408437144,
+            "n": 3,
+            "unit": "ms"
+          },
+          "ttft_p95": {
+            "median": 13716.05646,
+            "minimum": 13710.8235575,
+            "maximum": 13728.6267495,
+            "mean": 13718.502255666666,
+            "standard_deviation": 9.150128342243306,
+            "n": 3,
+            "unit": "ms"
+          },
+          "itl_average": {
+            "median": 499.1687340137614,
+            "minimum": 489.1228266341789,
+            "maximum": 505.75884498798393,
+            "mean": 498.01680187864145,
+            "standard_deviation": 8.377618241479848,
+            "n": 3,
+            "unit": "ms"
+          },
+          "itl_p95": {
+            "median": 706.1279692,
+            "minimum": 526.045044,
+            "maximum": 708.0940438928571,
+            "mean": 646.755685697619,
+            "standard_deviation": 104.54310415667169,
+            "n": 3,
+            "unit": "ms"
+          },
+          "gpu_board_power": {
+            "median": 2153.8134513274335,
+            "minimum": 2147.84013986014,
+            "maximum": 2154.8666964285717,
+            "mean": 2152.173429205382,
+            "standard_deviation": 3.7895090345527884,
+            "n": 3,
+            "unit": "W"
+          },
+          "joules_per_token": {
+            "median": 0.344062632000423,
+            "minimum": 0.3429504214842691,
+            "maximum": 0.344405021571199,
+            "mean": 0.34380602501863033,
+            "standard_deviation": 0.0007604937281481572,
+            "n": 3,
+            "unit": "J/input token"
+          },
+          "host_cpu_busy": {
+            "median": 6.623925421226585,
+            "minimum": 6.610530384567965,
+            "maximum": 6.638129662283546,
+            "mean": 6.624195156026032,
+            "standard_deviation": 0.013801615856557302,
+            "n": 3,
+            "unit": "%"
+          },
+          "cpu_user": {
+            "median": 5.257090154484667,
+            "minimum": 5.2332699106640055,
+            "maximum": 5.265715908949535,
+            "mean": 5.252025324699402,
+            "standard_deviation": 0.016805507333949362,
+            "n": 3,
+            "unit": "%"
+          },
+          "cpu_system": {
+            "median": 1.376194173333822,
+            "minimum": 1.356882487839065,
+            "maximum": 1.379878343117528,
+            "mean": 1.3709850014301386,
+            "standard_deviation": 0.012351272968346205,
+            "n": 3,
+            "unit": "%"
+          },
+          "cpu_iowait": {
+            "median": 0.0011611646813515294,
+            "minimum": 0.001066300570137586,
+            "maximum": 0.0013270244379844157,
+            "mean": 0.0011848298964911772,
+            "standard_deviation": 0.00013196312220448985,
+            "n": 3,
+            "unit": "%"
+          },
+          "host_load1": {
+            "median": 8.003315789473685,
+            "minimum": 7.835894736842105,
+            "maximum": 8.066949152542373,
+            "mean": 7.968719892952721,
+            "standard_deviation": 0.11934903768240003,
+            "n": 3,
+            "unit": "load"
+          },
+          "host_ram_used": {
+            "median": 74.5556024651778,
+            "minimum": 74.46860369989429,
+            "maximum": 74.6018738796837,
+            "mean": 74.54202668158526,
+            "standard_deviation": 0.06766433056189006,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "host_ram_available": {
+            "median": 680.4812208075273,
+            "minimum": 680.4349493930214,
+            "maximum": 680.5682195728108,
+            "mean": 680.4947965911198,
+            "standard_deviation": 0.06766433056189006,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "swap_used": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "mean": 0.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "gpu_utilization": {
+            "median": 73.18080357142857,
+            "minimum": 73.13723776223776,
+            "maximum": 73.42035398230088,
+            "mean": 73.24613177198907,
+            "standard_deviation": 0.15244516672253722,
+            "n": 3,
+            "unit": "%"
+          },
+          "gpu_memory_copy": {
+            "median": 24.354895104895103,
+            "minimum": 24.327008928571427,
+            "maximum": 24.446902654867255,
+            "mean": 24.37626889611126,
+            "standard_deviation": 0.06273958570542759,
+            "n": 3,
+            "unit": "%"
+          },
+          "gpu_temperature": {
+            "median": 45.40559440559441,
+            "minimum": 45.176991150442475,
+            "maximum": 46.33482142857143,
+            "mean": 45.6391356615361,
+            "standard_deviation": 0.6132282420992713,
+            "n": 3,
+            "unit": "\u00b0C"
+          },
+          "gpu_sm_clock": {
+            "median": 2386.8019911504425,
+            "minimum": 2386.5655594405594,
+            "maximum": 2387.1640625,
+            "mean": 2386.843871030334,
+            "standard_deviation": 0.3014414060721324,
+            "n": 3,
+            "unit": "MHz"
+          },
+          "gpu_memory_clock": {
+            "median": 12481.0,
+            "minimum": 12481.0,
+            "maximum": 12481.0,
+            "mean": 12481.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "MHz"
+          },
+          "gpu_vram_used": {
+            "median": 734.0390625,
+            "minimum": 734.0390625,
+            "maximum": 734.0390625,
+            "mean": 734.0390625,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "running_requests": {
+            "median": 15.426666666666666,
+            "minimum": 15.212669683257918,
+            "maximum": 15.565610859728507,
+            "mean": 15.401649069884364,
+            "standard_deviation": 0.17779560912374137,
+            "n": 3,
+            "unit": "requests"
+          },
+          "waiting_requests": {
+            "median": 21.764444444444443,
+            "minimum": 21.687782805429865,
+            "maximum": 21.86425339366516,
+            "mean": 21.772160214513153,
+            "standard_deviation": 0.08848794809940254,
+            "n": 3,
+            "unit": "requests"
+          },
+          "kv_cache_usage": {
+            "median": 5.5684394506866415,
+            "minimum": 5.488077685698306,
+            "maximum": 5.617316589557171,
+            "mean": 5.557944575314039,
+            "standard_deviation": 0.0652555007219704,
+            "n": 3,
+            "unit": "%"
+          },
+          "mamba_usage": null,
+          "speculative_acceptance": {
+            "median": 63.174114021571654,
+            "minimum": 62.59029927760578,
+            "maximum": 63.57827476038339,
+            "mean": 63.11422935318694,
+            "standard_deviation": 0.49670264623119503,
+            "n": 3,
+            "unit": "%"
+          },
+          "preemptions": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "mean": 0.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "preemptions/s"
+          },
+          "server_prompt_rate": {
+            "median": 5421.420704577454,
+            "minimum": 5411.707626305097,
+            "maximum": 5434.869238427836,
+            "mean": 5422.665856436795,
+            "standard_deviation": 11.630901572778782,
+            "n": 3,
+            "unit": "input tokens/s"
+          },
+          "server_decode_rate": {
+            "median": 21.054060988650303,
+            "minimum": 21.016340296330473,
+            "maximum": 21.106288304574118,
+            "mean": 21.058896529851634,
+            "standard_deviation": 0.0451685497971989,
+            "n": 3,
+            "unit": "output tokens/s"
+          },
+          "container_cpu": null,
+          "container_memory": null,
+          "container_tx": null,
+          "disk_write": null,
+          "process_rss": null,
+          "process_pss": null,
+          "process_private": null,
+          "process_shared": null,
+          "process_swap": null,
+          "haproxy_frontend_ingress": null,
+          "haproxy_frontend_egress": null,
+          "haproxy_backend_ingress": null,
+          "haproxy_backend_egress": null,
+          "haproxy_frontend_ingress_total": null,
+          "haproxy_frontend_egress_total": null,
+          "haproxy_backend_ingress_total": null,
+          "haproxy_backend_egress_total": null,
+          "haproxy_ingress_per_request": null,
+          "haproxy_egress_per_request": null,
+          "haproxy_queue": null,
+          "haproxy_retries": null,
+          "haproxy_errors": null,
+          "haproxy_backend_imbalance": null,
+          "pcie_rx": null,
+          "pcie_tx": null,
+          "pcie_replay_delta": null,
+          "e2e_p50": {
+            "median": 15500.148777999999,
+            "minimum": 15490.335641,
+            "maximum": 15506.738253,
+            "mean": 15499.074223999998,
+            "standard_deviation": 8.253933597371685,
+            "n": 3,
+            "unit": "ms"
+          },
+          "e2e_p95": {
+            "median": 17395.489473999998,
+            "minimum": 17375.9927033,
+            "maximum": 18082.11879755,
+            "mean": 17617.866991616665,
+            "standard_deviation": 402.1720222755479,
+            "n": 3,
+            "unit": "ms"
+          }
+        },
+        {
+          "concurrency": 64,
+          "throughput": {
+            "median": 6260.402521927886,
+            "minimum": 6260.046825518089,
+            "maximum": 6261.132335166055,
+            "mean": 6260.527227537343,
+            "standard_deviation": 0.5533953521033598,
+            "n": 3,
+            "unit": "input tokens/s"
+          },
+          "per_user_throughput": {
+            "median": 168.08170451606293,
+            "minimum": 167.84146857853017,
+            "maximum": 168.53875447447945,
+            "mean": 168.1539758563575,
+            "standard_deviation": 0.3542164100425457,
+            "n": 3,
+            "unit": "input tokens/s/user"
+          },
+          "ttft_p50": {
+            "median": 17006.782682,
+            "minimum": 17004.4265715,
+            "maximum": 17011.9347285,
+            "mean": 17007.71466066667,
+            "standard_deviation": 3.839862440310034,
+            "n": 3,
+            "unit": "ms"
+          },
+          "ttft_p95": {
+            "median": 18881.2649475,
+            "minimum": 18879.353496,
+            "maximum": 18903.455425,
+            "mean": 18888.02462283333,
+            "standard_deviation": 13.397598790056438,
+            "n": 3,
+            "unit": "ms"
+          },
+          "itl_average": {
+            "median": 502.78803519254654,
+            "minimum": 498.8983821397515,
+            "maximum": 505.0905036575171,
+            "mean": 502.2589736632717,
+            "standard_deviation": 3.1297798323544903,
+            "n": 3,
+            "unit": "ms"
+          },
+          "itl_p95": {
+            "median": 526.0912374999999,
+            "minimum": 525.6162854285715,
+            "maximum": 527.3005105714286,
+            "mean": 526.3360111666667,
+            "standard_deviation": 0.868383091658374,
+            "n": 3,
+            "unit": "ms"
+          },
+          "gpu_board_power": {
+            "median": 2199.407583333333,
+            "minimum": 2161.9,
+            "maximum": 2206.855641025641,
+            "mean": 2189.387741452991,
+            "standard_deviation": 24.094612229435448,
+            "n": 3,
+            "unit": "W"
+          },
+          "joules_per_token": {
+            "median": 0.3513314292834403,
+            "minimum": 0.3452801054100802,
+            "maximum": 0.3525016566650153,
+            "mean": 0.34970439711951196,
+            "standard_deviation": 0.003875967734483456,
+            "n": 3,
+            "unit": "J/input token"
+          },
+          "host_cpu_busy": {
+            "median": 6.730514513730946,
+            "minimum": 6.616297967627258,
+            "maximum": 6.74851408900589,
+            "mean": 6.698442190121365,
+            "standard_deviation": 0.07170600493954873,
+            "n": 3,
+            "unit": "%"
+          },
+          "cpu_user": {
+            "median": 5.347993040855144,
+            "minimum": 5.2206711873822815,
+            "maximum": 5.362724577218445,
+            "mean": 5.310462935151957,
+            "standard_deviation": 0.0781100058670817,
+            "n": 3,
+            "unit": "%"
+          },
+          "cpu_system": {
+            "median": 1.3845961687323436,
+            "minimum": 1.3813282038676236,
+            "maximum": 1.3944084774382504,
+            "mean": 1.386777616679406,
+            "standard_deviation": 0.006807527122965876,
+            "n": 3,
+            "unit": "%"
+          },
+          "cpu_iowait": {
+            "median": 0.0011933430551014223,
+            "minimum": 0.0011932690081786657,
+            "maximum": 0.0012183028067260062,
+            "mean": 0.0012016382900020314,
+            "standard_deviation": 1.4431942314512606e-05,
+            "n": 3,
+            "unit": "%"
+          },
+          "host_load1": {
+            "median": 7.94968992248062,
+            "minimum": 7.8683838383838385,
+            "maximum": 8.11111111111111,
+            "mean": 7.97639495732519,
+            "standard_deviation": 0.12354756734125588,
+            "n": 3,
+            "unit": "load"
+          },
+          "host_ram_used": {
+            "median": 74.53199625496916,
+            "minimum": 74.5047962304318,
+            "maximum": 74.55174698940539,
+            "mean": 74.52951315826878,
+            "standard_deviation": 0.02357366685449471,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "host_ram_available": {
+            "median": 680.5048270177359,
+            "minimum": 680.4850762832997,
+            "maximum": 680.5320270422733,
+            "mean": 680.5073101144363,
+            "standard_deviation": 0.02357366685449471,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "swap_used": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "mean": 0.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "gpu_utilization": {
+            "median": 75.203125,
+            "minimum": 74.17320261437908,
+            "maximum": 75.99679487179488,
+            "mean": 75.12437416205798,
+            "standard_deviation": 0.9143431802032197,
+            "n": 3,
+            "unit": "%"
+          },
+          "gpu_memory_copy": {
+            "median": 25.017708333333335,
+            "minimum": 24.62091503267974,
+            "maximum": 25.370726495726494,
+            "mean": 25.003116620579856,
+            "standard_deviation": 0.375118642685069,
+            "n": 3,
+            "unit": "%"
+          },
+          "gpu_temperature": {
+            "median": 46.44444444444444,
+            "minimum": 45.298202614379086,
+            "maximum": 47.103125,
+            "mean": 46.281924019607835,
+            "standard_deviation": 0.9133706098269603,
+            "n": 3,
+            "unit": "\u00b0C"
+          },
+          "gpu_sm_clock": {
+            "median": 2389.09375,
+            "minimum": 2386.9616013071895,
+            "maximum": 2389.1228632478633,
+            "mean": 2388.3927381850176,
+            "standard_deviation": 1.23948637249866,
+            "n": 3,
+            "unit": "MHz"
+          },
+          "gpu_memory_clock": {
+            "median": 12481.0,
+            "minimum": 12481.0,
+            "maximum": 12481.0,
+            "mean": 12481.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "MHz"
+          },
+          "gpu_vram_used": {
+            "median": 734.0390625,
+            "minimum": 734.0390625,
+            "maximum": 734.0390625,
+            "mean": 734.0390625,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "GiB"
+          },
+          "running_requests": {
+            "median": 15.565400843881857,
+            "minimum": 15.459915611814345,
+            "maximum": 15.580508474576272,
+            "mean": 15.535274976757492,
+            "standard_deviation": 0.06569882449310181,
+            "n": 3,
+            "unit": "requests"
+          },
+          "waiting_requests": {
+            "median": 34.721518987341774,
+            "minimum": 34.69915254237288,
+            "maximum": 34.78481012658228,
+            "mean": 34.73516055209898,
+            "standard_deviation": 0.044428309104852855,
+            "n": 3,
+            "unit": "requests"
+          },
+          "kv_cache_usage": {
+            "median": 5.607974209453373,
+            "minimum": 5.572180344190016,
+            "maximum": 5.615311369262997,
+            "mean": 5.598488640968796,
+            "standard_deviation": 0.023077117195790187,
+            "n": 3,
+            "unit": "%"
+          },
+          "mamba_usage": null,
+          "speculative_acceptance": {
+            "median": 63.00097751710654,
+            "minimum": 62.18041485769416,
+            "maximum": 63.570391872278655,
+            "mean": 62.91726141569311,
+            "standard_deviation": 0.698759840356616,
+            "n": 3,
+            "unit": "%"
+          },
+          "preemptions": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "mean": 0.0,
+            "standard_deviation": 0.0,
+            "n": 3,
+            "unit": "preemptions/s"
+          },
+          "server_prompt_rate": {
+            "median": 5471.309141437692,
+            "minimum": 5469.737471929554,
+            "maximum": 5474.214838951648,
+            "mean": 5471.753817439631,
+            "standard_deviation": 2.271564752028615,
+            "n": 3,
+            "unit": "input tokens/s"
+          },
+          "server_decode_rate": {
+            "median": 21.247802491020163,
+            "minimum": 21.241698920114775,
+            "maximum": 21.259086753210283,
+            "mean": 21.249529388115075,
+            "standard_deviation": 0.008821610687489125,
+            "n": 3,
+            "unit": "output tokens/s"
+          },
+          "container_cpu": null,
+          "container_memory": null,
+          "container_tx": null,
+          "disk_write": null,
+          "process_rss": null,
+          "process_pss": null,
+          "process_private": null,
+          "process_shared": null,
+          "process_swap": null,
+          "haproxy_frontend_ingress": null,
+          "haproxy_frontend_egress": null,
+          "haproxy_backend_ingress": null,
+          "haproxy_backend_egress": null,
+          "haproxy_frontend_ingress_total": null,
+          "haproxy_frontend_egress_total": null,
+          "haproxy_backend_ingress_total": null,
+          "haproxy_backend_egress_total": null,
+          "haproxy_ingress_per_request": null,
+          "haproxy_egress_per_request": null,
+          "haproxy_queue": null,
+          "haproxy_retries": null,
+          "haproxy_errors": null,
+          "haproxy_backend_imbalance": null,
+          "pcie_rx": null,
+          "pcie_tx": null,
+          "pcie_replay_delta": null,
+          "e2e_p50": {
+            "median": 20669.182549999998,
+            "minimum": 20668.6833065,
+            "maximum": 20675.5492385,
+            "mean": 20671.138365,
+            "standard_deviation": 3.8280758603808094,
+            "n": 3,
+            "unit": "ms"
+          },
+          "e2e_p95": {
+            "median": 22569.867018999998,
+            "minimum": 22304.463366199987,
+            "maximum": 23252.5112752,
+            "mean": 22708.947220133326,
+            "standard_deviation": 489.08709469816245,
+            "n": 3,
+            "unit": "ms"
+          }
+        }
+      ]
+    }
+  },
+  "host_fabric": null,
+  "metric_availability": {
+    "kv_cache_usage": "available",
+    "container_memory": "unavailable",
+    "host_ram_available": "available",
+    "process_swap": "unavailable",
+    "cpu_user": "available",
+    "process_pss": "unavailable",
+    "process_shared": "unavailable",
+    "haproxy_backend_egress": "unavailable",
+    "pcie_rx": "unavailable",
+    "throughput": "available",
+    "itl_average": "available",
+    "haproxy_ingress_per_request": "unavailable",
+    "running_requests": "available",
+    "ttft_p95": "available",
+    "haproxy_queue": "unavailable",
+    "container_tx": "unavailable",
+    "process_rss": "unavailable",
+    "gpu_vram_used": "available",
+    "haproxy_backend_egress_total": "unavailable",
+    "haproxy_frontend_egress": "unavailable",
+    "host_ram_used": "available",
+    "haproxy_retries": "unavailable",
+    "gpu_temperature": "available",
+    "cpu_system": "available",
+    "ttft_p50": "available",
+    "haproxy_frontend_ingress": "unavailable",
+    "gpu_memory_copy": "available",
+    "haproxy_frontend_ingress_total": "unavailable",
+    "disk_write": "unavailable",
+    "pcie_tx": "unavailable",
+    "joules_per_token": "available",
+    "gpu_sm_clock": "available",
+    "swap_used": "available",
+    "haproxy_backend_ingress": "unavailable",
+    "haproxy_frontend_egress_total": "unavailable",
+    "haproxy_egress_per_request": "unavailable",
+    "container_cpu": "unavailable",
+    "process_private": "unavailable",
+    "haproxy_errors": "unavailable",
+    "server_prompt_rate": "available",
+    "speculative_acceptance": "available",
+    "server_decode_rate": "available",
+    "e2e_p50": "available",
+    "haproxy_backend_imbalance": "unavailable",
+    "haproxy_backend_ingress_total": "unavailable",
+    "per_user_throughput": "available",
+    "pcie_replay_delta": "unavailable",
+    "host_cpu_busy": "available",
+    "e2e_p95": "available",
+    "gpu_board_power": "available",
+    "host_load1": "available",
+    "gpu_memory_clock": "available",
+    "gpu_utilization": "available",
+    "itl_p95": "available",
+    "waiting_requests": "available",
+    "preemptions": "available",
+    "mamba_usage": "unavailable",
+    "cpu_iowait": "available"
+  },
+  "exclusions": []
+}

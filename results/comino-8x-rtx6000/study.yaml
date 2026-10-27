@@ -1,0 +1,21 @@
+schema_version: 1
+study_id: comino-8x-rtx6000
+status: active
+host_ids:
+  - comino-8xrtx6000
+objective: >-
+  Characterize useful LLM serving capacity of the eight-GPU RTX PRO 6000 Comino
+  workstation and measure host-platform effects with the GPU pair held constant:
+  the same hybrid MoE Qwen3.8 Flash Next checkpoint, qualified per-replica TP2
+  decode profile, and measured methodology as the xe7740 and s2 studies, so the
+  three hosts differ only in platform (8-GPU Comino bare metal vs 8-GPU server
+  vs 2-GPU node). Campaign shape target is 4x TP2 replicas.
+methodology:
+  procedure: ../../PIPELINE.md
+  prerequisites: ../../harness/2-preflight-conformance/RULES.md
+  metrics: ../../harness/2-preflight-conformance/RULES.md
+  artifact_layout: ../../harness/5-formal-campaign/RULES.md
+  concurrency_design: ../../harness/2-preflight-conformance/RULES.md
+external_results_root:
+  environment_variable: LLM_BENCH_RESULTS_ROOT
+  observed_value: box-side ~/bench/llm-bench directories, mirrored into the study evidence cache

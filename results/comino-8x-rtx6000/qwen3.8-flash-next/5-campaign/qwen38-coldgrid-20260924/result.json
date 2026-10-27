@@ -1,0 +1,247 @@
+{
+  "runs": 48,
+  "expected": 48,
+  "gate_failures": 0,
+  "detail": [
+    {
+      "run": "decode/c001/r1",
+      "cache_rd": 0,
+      "pass": true
+    },
+    {
+      "run": "decode/c001/r2",
+      "cache_rd": 0,
+      "pass": true
+    },
+    {
+      "run": "decode/c001/r3",
+      "cache_rd": 0,
+      "pass": true
+    },
+    {
+      "run": "decode/c032/r1",
+      "cache_rd": 0,
+      "pass": true
+    },
+    {
+      "run": "decode/c032/r2",
+      "cache_rd": 0,
+      "pass": true
+    },
+    {
+      "run": "decode/c032/r3",
+      "cache_rd": 0,
+      "pass": true
+    },
+    {
+      "run": "decode/c064/r1",
+      "cache_rd": 0,
+      "pass": true
+    },
+    {
+      "run": "decode/c064/r2",
+      "cache_rd": 0,
+      "pass": true
+    },
+    {
+      "run": "decode/c064/r3",
+      "cache_rd": 0,
+      "pass": true
+    },
+    {
+      "run": "decode/c096/r1",
+      "cache_rd": 0,
+      "pass": true
+    },
+    {
+      "run": "decode/c096/r2",
+      "cache_rd": 0,
+      "pass": true
+    },
+    {
+      "run": "decode/c096/r3",
+      "cache_rd": 0,
+      "pass": true
+    },
+    {
+      "run": "decode/c128/r1",
+      "cache_rd": 0,
+      "pass": true
+    },
+    {
+      "run": "decode/c128/r2",
+      "cache_rd": 0,
+      "pass": true
+    },
+    {
+      "run": "decode/c128/r3",
+      "cache_rd": 0,
+      "pass": true
+    },
+    {
+      "run": "decode/c160/r1",
+      "cache_rd": 0,
+      "pass": true
+    },
+    {
+      "run": "decode/c160/r2",
+      "cache_rd": 0,
+      "pass": true
+    },
+    {
+      "run": "decode/c160/r3",
+      "cache_rd": 0,
+      "pass": true
+    },
+    {
+      "run": "decode/c192/r1",
+      "cache_rd": 0,
+      "pass": true
+    },
+    {
+      "run": "decode/c192/r2",
+      "cache_rd": 0,
+      "pass": true
+    },
+    {
+      "run": "decode/c192/r3",
+      "cache_rd": 0,
+      "pass": true
+    },
+    {
+      "run": "decode/c224/r1",
+      "cache_rd": 0,
+      "pass": true
+    },
+    {
+      "run": "decode/c224/r2",
+      "cache_rd": 0,
+      "pass": true
+    },
+    {
+      "run": "decode/c224/r3",
+      "cache_rd": 0,
+      "pass": true
+    },
+    {
+      "run": "prefill/c001/r1",
+      "cache_rd": 0,
+      "pass": true
+    },
+    {
+      "run": "prefill/c001/r2",
+      "cache_rd": 0,
+      "pass": true
+    },
+    {
+      "run": "prefill/c001/r3",
+      "cache_rd": 0,
+      "pass": true
+    },
+    {
+      "run": "prefill/c032/r1",
+      "cache_rd": 0,
+      "pass": true
+    },
+    {
+      "run": "prefill/c032/r2",
+      "cache_rd": 0,
+      "pass": true
+    },
+    {
+      "run": "prefill/c032/r3",
+      "cache_rd": 0,
+      "pass": true
+    },
+    {
+      "run": "prefill/c064/r1",
+      "cache_rd": 0,
+      "pass": true
+    },
+    {
+      "run": "prefill/c064/r2",
+      "cache_rd": 0,
+      "pass": true
+    },
+    {
+      "run": "prefill/c064/r3",
+      "cache_rd": 0,
+      "pass": true
+    },
+    {
+      "run": "prefill/c096/r1",
+      "cache_rd": 0,
+      "pass": true
+    },
+    {
+      "run": "prefill/c096/r2",
+      "cache_rd": 0,
+      "pass": true
+    },
+    {
+      "run": "prefill/c096/r3",
+      "cache_rd": 0,
+      "pass": true
+    },
+    {
+      "run": "prefill/c128/r1",
+      "cache_rd": 0,
+      "pass": true
+    },
+    {
+      "run": "prefill/c128/r2",
+      "cache_rd": 0,
+      "pass": true
+    },
+    {
+      "run": "prefill/c128/r3",
+      "cache_rd": 0,
+      "pass": true
+    },
+    {
+      "run": "prefill/c160/r1",
+      "cache_rd": 0,
+      "pass": true
+    },
+    {
+      "run": "prefill/c160/r2",
+      "cache_rd": 0,
+      "pass": true
+    },
+    {
+      "run": "prefill/c160/r3",
+      "cache_rd": 0,
+      "pass": true
+    },
+    {
+      "run": "prefill/c192/r1",
+      "cache_rd": 0,
+      "pass": true
+    },
+    {
+      "run": "prefill/c192/r2",
+      "cache_rd": 0,
+      "pass": true
+    },
+    {
+      "run": "prefill/c192/r3",
+      "cache_rd": 0,
+      "pass": true
+    },
+    {
+      "run": "prefill/c224/r1",
+      "cache_rd": 0,
+      "pass": true
+    },
+    {
+      "run": "prefill/c224/r2",
+      "cache_rd": 0,
+      "pass": true
+    },
+    {
+      "run": "prefill/c224/r3",
+      "cache_rd": 0,
+      "pass": true
+    }
+  ]
+}

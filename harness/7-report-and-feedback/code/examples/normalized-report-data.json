@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "source_campaign": "/results/host/model/revision/deployment/campaign",
+  "generated_at": "2026-08-30T00:00:00Z",
+  "source_counts": {
+    "runs": 12,
+    "requests": 1200,
+    "errors": 0,
+    "excluded_runs": 0
+  },
+  "selection": {
+    "policy": "maximum-median-useful-tps",
+    "decode_source_id": "internal-source-a",
+    "prefill_source_id": "internal-source-b"
+  },
+  "idle_baseline": {
+    "aggregate_gpu_board_power_w": 700,
+    "source": "loaded-model pre/post baseline"
+  },
+  "metric_availability": {
+    "gpu_temperature": "available",
+    "pcie": "unavailable"
+  },
+  "series": {
+    "decode": {
+      "source_id": "internal-source-a",
+      "points": [
+        {
+          "concurrency": 1,
+          "throughput": {"median": 120, "minimum": 118, "maximum": 122, "mean": 120, "standard_deviation": 2, "n": 3, "unit": "output tokens/s"},
+          "ttft_p50": {"median": 200, "minimum": 190, "maximum": 210, "n": 3, "unit": "ms"},
+          "ttft_p95": {"median": 250, "minimum": 240, "maximum": 265, "n": 3, "unit": "ms"},
+          "itl_average": {"median": 8, "minimum": 7.8, "maximum": 8.2, "n": 3, "unit": "ms"},
+          "itl_p95": {"median": 9, "minimum": 8.8, "maximum": 9.3, "n": 3, "unit": "ms"},
+          "gpu_temperature": {"median": 42, "minimum": 41, "maximum": 43, "n": 3, "unit": "°C"}
+        },
+        {
+          "concurrency": 8,
+          "throughput": {"median": 700, "minimum": 690, "maximum": 710, "n": 3, "unit": "output tokens/s"},
+          "ttft_p50": {"median": 220, "minimum": 210, "maximum": 230, "n": 3, "unit": "ms"},
+          "ttft_p95": {"median": 300, "minimum": 290, "maximum": 310, "n": 3, "unit": "ms"},
+          "itl_average": {"median": 10, "minimum": 9.8, "maximum": 10.2, "n": 3, "unit": "ms"},
+          "itl_p95": {"median": 12, "minimum": 11.8, "maximum": 12.3, "n": 3, "unit": "ms"},
+          "gpu_temperature": {"median": 45, "minimum": 44, "maximum": 46, "n": 3, "unit": "°C"}
+        }
+      ]
+    },
+    "prefill": {
+      "source_id": "internal-source-b",
+      "points": [
+        {
+          "concurrency": 1,
+          "throughput": {"median": 5000, "minimum": 4900, "maximum": 5100, "n": 3, "unit": "input tokens/s"},
+          "ttft_p50": {"median": 300, "minimum": 290, "maximum": 310, "n": 3, "unit": "ms"},
+          "ttft_p95": {"median": 350, "minimum": 340, "maximum": 365, "n": 3, "unit": "ms"},
+          "itl_average": {"median": 8, "minimum": 7.8, "maximum": 8.2, "n": 3, "unit": "ms"},
+          "itl_p95": {"median": 9, "minimum": 8.8, "maximum": 9.3, "n": 3, "unit": "ms"},
+          "gpu_temperature": {"median": 43, "minimum": 42, "maximum": 44, "n": 3, "unit": "°C"}
+        },
+        {
+          "concurrency": 8,
+          "throughput": {"median": 12000, "minimum": 11800, "maximum": 12200, "n": 3, "unit": "input tokens/s"},
+          "ttft_p50": {"median": 400, "minimum": 390, "maximum": 410, "n": 3, "unit": "ms"},
+          "ttft_p95": {"median": 500, "minimum": 480, "maximum": 520, "n": 3, "unit": "ms"},
+          "itl_average": {"median": 9, "minimum": 8.8, "maximum": 9.2, "n": 3, "unit": "ms"},
+          "itl_p95": {"median": 11, "minimum": 10.8, "maximum": 11.3, "n": 3, "unit": "ms"},
+          "gpu_temperature": {"median": 47, "minimum": 46, "maximum": 48, "n": 3, "unit": "°C"}
+        }
+      ]
+    }
+  },
+  "exclusions": []
+}

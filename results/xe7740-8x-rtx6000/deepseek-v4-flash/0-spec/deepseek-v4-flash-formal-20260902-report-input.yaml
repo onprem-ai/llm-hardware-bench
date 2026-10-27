@@ -1,0 +1,162 @@
+schema_version: 1
+campaign:
+  id: 20260902-full-deepseek-v4-flash-formal
+  purpose: full-capacity-after-profile-specific-raster
+  repetitions: 3
+  order_seed: 20260902
+  settle_seconds: 20
+  telemetry_delay_seconds: 60
+model:
+  repository: deepseek-ai/DeepSeek-V4-Flash-0731
+  revision: local-unverified
+  served_name: deepseek-v4-flash-0731
+  slug: deepseek-v4-flash-0731
+  quantization: FP8 E4M3 weights with UE8M0 scales
+deployment:
+  id: r4-tp2-dspark5-seq32-b8192-graph192-ctx32768
+  endpoint: http://127.0.0.1:8084
+  health_endpoint: http://127.0.0.1:8084/health
+  topology: HAProxy leastconn frontend to four independent TP2 replicas
+  image: voipmonitor/vllm@sha256:48518e91cf87dd0c0483c76ff86e81dfc0f46de7e364b46f7a82c481ce08188f
+  max_model_len: 32768
+  max_num_seqs: 32
+  max_num_batched_tokens: 8192
+  gpu_memory_utilization: 0.975
+  kv_cache_dtype: fp8
+  kv_offloading_size_gib_per_replica: 48.5
+  speculative_tokens: 5
+  max_cudagraph_capture_size: 192
+  load_balancer:
+    type: haproxy
+    frontend_endpoint: http://127.0.0.1:8084
+    metrics_endpoint: http://127.0.0.1:8405/metrics
+    backend_count: 4
+    policy: leastconn
+    required_in_request_path: true
+benchmark:
+  command: &aiperf_command
+    - /home/demouser/benchmarks/aiperf/.venv/bin/aiperf
+    - profile
+    - --model
+    - '{served_name}'
+    - --tokenizer
+    - /home/demouser/models/deepseek-ai--DeepSeek-V4-Flash-0731--model
+    - --endpoint-type
+    - chat
+    - --endpoint
+    - /v1/chat/completions
+    - --streaming
+    - --url
+    - '{endpoint}'
+    - --concurrency
+    - '{concurrency}'
+    - --synthetic-input-tokens-mean
+    - '{input_tokens_mean}'
+    - --synthetic-input-tokens-stddev
+    - '{input_tokens_stddev}'
+    - --output-tokens-mean
+    - '{output_tokens_mean}'
+    - --output-tokens-stddev
+    - '{output_tokens_stddev}'
+    - --benchmark-duration
+    - '{benchmark_duration}'
+    - --benchmark-grace-period
+    - inf
+    - --random-seed
+    - '{random_seed}'
+    - --use-server-token-count
+    - --extra-inputs
+    - '{"temperature":0,"ignore_eos":true}'
+    - --request-timeout-seconds
+    - '1800'
+    - --export-level
+    - raw
+    - --export-http-trace
+    - --output-artifact-dir
+    - '{artifact_dir}'
+  warmup_command:
+    - /home/demouser/benchmarks/aiperf/.venv/bin/aiperf
+    - profile
+    - --model
+    - '{served_name}'
+    - --tokenizer
+    - /home/demouser/models/deepseek-ai--DeepSeek-V4-Flash-0731--model
+    - --endpoint-type
+    - chat
+    - --endpoint
+    - /v1/chat/completions
+    - --streaming
+    - --url
+    - '{endpoint}'
+    - --concurrency
+    - '{concurrency}'
+    - --synthetic-input-tokens-mean
+    - '{input_tokens_mean}'
+    - --synthetic-input-tokens-stddev
+    - '{input_tokens_stddev}'
+    - --output-tokens-mean
+    - '{output_tokens_mean}'
+    - --output-tokens-stddev
+    - '{output_tokens_stddev}'
+    - --request-count
+    - '{warmup_requests}'
+    - --random-seed
+    - '{random_seed}'
+    - --use-server-token-count
+    - --extra-inputs
+    - '{"temperature":0,"ignore_eos":true}'
+    - --request-timeout-seconds
+    - '1800'
+    - --export-level
+    - raw
+    - --export-http-trace
+    - --output-artifact-dir
+    - '{artifact_dir}'
+  result_file: profile_export_aiperf.json
+  environment: {}
+telemetry:
+  victoriametrics_url: http://127.0.0.1:8428
+  query_file: harness/2-preflight-conformance/code/configs/fabric-promql.txt
+  step: 1s
+  collectors:
+    - name: gpu
+      command: [harness/2-preflight-conformance/code/gpu/sample-nvidia-smi.sh, '{telemetry_dir}/gpu.csv', '{collector_interval}']
+    - name: host
+      command: [harness/2-preflight-conformance/code/host/sample-host.sh, '{telemetry_dir}/host.csv', '{collector_interval}']
+    - name: process-memory
+      command: [harness/2-preflight-conformance/code/host/sample-process-memory.py, '{telemetry_dir}/process-memory.csv', '{collector_interval}', --match, '(^|[/ ])(?:vllm)(?:[ /.:]|$)|VLLM::']
+    - name: haproxy
+      command: [harness/2-preflight-conformance/code/haproxy/sample-prometheus.sh, '{telemetry_dir}/haproxy.promjsonl', '{collector_interval}', 'http://127.0.0.1:8405/metrics']
+    - name: model-backends
+      command: [harness/2-preflight-conformance/code/server/sample-prometheus-fanout.py, '{telemetry_dir}/backends.promjsonl', '{collector_interval}', 'http://127.0.0.1:8080/metrics', 'http://127.0.0.1:8081/metrics', 'http://127.0.0.1:8082/metrics', 'http://127.0.0.1:8083/metrics']
+profiles:
+  - name: decode
+    concurrency: [1, 8, 32, 64, 96, 128, 192, 256]
+    input_tokens_mean: 8
+    input_tokens_stddev: 0
+    output_tokens_mean: 768
+    output_tokens_stddev: 0
+    benchmark_duration: 120
+    warmup_requests_multiplier: 2
+    warmup_requests_cap: 64
+    extra_args: []
+  - name: prefill
+    concurrency: [1, 8, 32, 64, 96, 128, 192, 256]
+    input_tokens_mean: 2048
+    input_tokens_stddev: 0
+    output_tokens_mean: 8
+    output_tokens_stddev: 0
+    benchmark_duration: 120
+    warmup_requests_multiplier: 2
+    warmup_requests_cap: 64
+    extra_args: []
+  - name: balanced
+    concurrency: [1, 8, 32, 64, 96, 128, 192, 256]
+    input_tokens_mean: 1024
+    input_tokens_stddev: 256
+    output_tokens_mean: 1024
+    output_tokens_stddev: 128
+    benchmark_duration: 120
+    warmup_requests_multiplier: 2
+    warmup_requests_cap: 64
+    extra_args: []

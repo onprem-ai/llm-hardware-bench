@@ -1,0 +1,49 @@
+{
+  "artifacts": {
+    "measured_dir": "../../../../../../../_local-evidence/xe7740-04/glm5.3/5-campaign/formal-20260907/runs/prefill/c032/r1",
+    "result": "../../../../../../../_local-evidence/xe7740-04/glm5.3/5-campaign/formal-20260907/runs/prefill/c032/r1/profile_export_aiperf.json",
+    "telemetry_dir": "telemetry"
+  },
+  "campaign_id": "20260907-glm53-radixark-formal",
+  "command": null,
+  "command_source": "reconstructed from the preflighted command template and the parameters recorded in the harness manifest; the harness did not capture argv per run",
+  "concurrency": 32,
+  "end_time": "2026-09-07T05:53:01Z",
+  "error": null,
+  "events": [
+    {
+      "event": "warmup",
+      "requests": 64,
+      "same_concurrency": true
+    },
+    {
+      "event": "measured",
+      "realized_s": 60.998063872,
+      "window_s": 60
+    },
+    {
+      "container_id": "4c2b747602638798c75772fb618f5896d1318c710dab794f6e41051c87630ea0",
+      "event": "container",
+      "launch": "launch-2"
+    }
+  ],
+  "measurements": {
+    "cache_read_pct": 62.86915350684244,
+    "container_launch": "launch-2",
+    "container_mem_peak_bytes": 63235956736,
+    "declared_window_s": 60,
+    "gpu_samples_in_window": 15,
+    "realized_window_s": 60.998063872,
+    "throughput_unit": "tokens/sec",
+    "token_source_server_asserted": true,
+    "window_precision": "start derived from completion timestamp; +-20 s"
+  },
+  "profile": "prefill",
+  "random_seed": 703201,
+  "repetition": 1,
+  "return_code": 0,
+  "run_id": "prefill-c32-r1",
+  "schema_version": 1,
+  "start_time": "2026-09-07T05:51:25Z",
+  "status": "complete"
+}

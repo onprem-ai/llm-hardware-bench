@@ -1,0 +1,18 @@
+schema_version: 1
+campaign_id: qwen38-2xtp4-optimized-20260829
+study_id: xe7740
+status: complete
+host: xe7740-04
+model: unsloth/Qwen3.8-27B-NVFP4
+revision: 16b6615af3548b88e2d8e382457bc705b00479cf
+external_path: /home/demouser/benchmarks/results/xe7740-8x-rtx6000/qwen38-27b-nvfp4/campaign-2xtp4-optimized-20260829
+canonical_layout: false
+completion_marker: CAMPAIGN_COMPLETE
+expected_base_runs: 72
+notes:
+  - The model study directory was renamed from qwen38-flash to qwen38-27b-nvfp4 after completion; raw artifacts retain embedded historical paths and a relocation receipt records the move.
+  - The measured checkpoint was unsloth/Qwen3.8-27B-NVFP4, not a Qwen3.8 Flash checkpoint.
+  - This campaign must not be presented as results for Qwen3.8 Flash.
+  - The 27B checkpoint payload was deleted on 2026-08-29 after campaign completion to prevent accidental reuse; the deletion receipt remains beside the legacy campaign records.
+  - All 72 authoritative run manifests are complete and have empty error summaries.
+  - The original top-level manifest incorrectly retained status running and a stale planned grid.

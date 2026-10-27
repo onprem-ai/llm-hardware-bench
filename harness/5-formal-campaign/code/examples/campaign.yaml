@@ -1,0 +1,154 @@
+schema_version: 1
+campaign:
+  id: example-capacity-01
+  purpose: capacity
+  repetitions: 3
+  order_seed: 20260829
+  settle_seconds: 20
+  telemetry_delay_seconds: 60
+model:
+  repository: organization/model-name
+  revision: 0123456789abcdef0123456789abcdef01234567
+  served_name: example-model
+  slug: example-model
+  quantization: null
+deployment:
+  id: r1-tp1-cfg-example
+  # Mandatory HAProxy frontend; never point AIPerf directly at a model backend.
+  endpoint: http://127.0.0.1:8000
+  health_endpoint: http://127.0.0.1:8000/health
+  topology: HAProxy frontend to one independent TP1 backend
+  load_balancer:
+    type: haproxy
+    frontend_endpoint: http://127.0.0.1:8000
+    metrics_endpoint: http://127.0.0.1:8404/metrics
+    backend_count: 1
+    policy: leastconn
+    required_in_request_path: true
+benchmark:
+  # Placeholders are expanded by harness/5-formal-campaign/code/run_campaign.py. Arguments are
+  # executed directly, never through a shell.
+  command:
+    - aiperf
+    - profile
+    - --model
+    - "{served_name}"
+    - --url
+    - "{endpoint}"
+    - --endpoint-type
+    - chat
+    - --streaming
+    - --concurrency
+    - "{concurrency}"
+    - --synthetic-input-tokens-mean
+    - "{input_tokens_mean}"
+    - --synthetic-input-tokens-stddev
+    - "{input_tokens_stddev}"
+    - --output-tokens-mean
+    - "{output_tokens_mean}"
+    - --output-tokens-stddev
+    - "{output_tokens_stddev}"
+    - --benchmark-duration
+    - "{benchmark_duration}"
+    - --benchmark-grace-period
+    - inf
+    - --random-seed
+    - "{random_seed}"
+    - --artifact-dir
+    - "{artifact_dir}"
+  warmup_command:
+    - aiperf
+    - profile
+    - --model
+    - "{served_name}"
+    - --url
+    - "{endpoint}"
+    - --endpoint-type
+    - chat
+    - --streaming
+    - --concurrency
+    - "{concurrency}"
+    - --synthetic-input-tokens-mean
+    - "{input_tokens_mean}"
+    - --synthetic-input-tokens-stddev
+    - "{input_tokens_stddev}"
+    - --output-tokens-mean
+    - "{output_tokens_mean}"
+    - --output-tokens-stddev
+    - "{output_tokens_stddev}"
+    - --request-count
+    - "{warmup_requests}"
+    - --random-seed
+    - "{random_seed}"
+    - --artifact-dir
+    - "{artifact_dir}"
+  result_file: profile_export_aiperf.json
+  environment: {}
+telemetry:
+  victoriametrics_url: http://127.0.0.1:8428
+  query_file: harness/2-preflight-conformance/code/configs/fabric-promql.txt
+  step: 1s
+  collectors:
+    - name: gpu
+      command:
+        - harness/2-preflight-conformance/code/gpu/sample-nvidia-smi.sh
+        - "{telemetry_dir}/gpu.csv"
+        - "{collector_interval}"
+    - name: host
+      command:
+        - harness/2-preflight-conformance/code/host/sample-host.sh
+        - "{telemetry_dir}/host.csv"
+        - "{collector_interval}"
+    - name: process-memory
+      command:
+        - harness/2-preflight-conformance/code/host/sample-process-memory.py
+        - "{telemetry_dir}/process-memory.csv"
+        - "{collector_interval}"
+        - --match
+        - "(^|[/ ])(?:vllm|sglang)(?:[ /.:]|$)|VLLM::|SGLang"
+    - name: haproxy
+      command:
+        - harness/2-preflight-conformance/code/haproxy/sample-prometheus.sh
+        - "{telemetry_dir}/haproxy.promjsonl"
+        - "{collector_interval}"
+        - http://127.0.0.1:8404/metrics
+    - name: model-backends
+      command:
+        - harness/2-preflight-conformance/code/server/sample-prometheus-fanout.py
+        - "{telemetry_dir}/backends.promjsonl"
+        - "{collector_interval}"
+        # List every backend metrics endpoint in the deployment.
+        - http://127.0.0.1:8101/metrics
+    # The report adapter aggregates SGLang running/queued requests, KV/Mamba
+    # utilization, speculation, and token counters across all listed endpoints.
+profiles:
+  - name: decode
+    concurrency: [1, 8, 32, 64, 128, 256, 384, 512]
+    input_tokens_mean: 8
+    input_tokens_stddev: 0
+    output_tokens_mean: 768
+    output_tokens_stddev: 0
+    benchmark_duration: 120
+    warmup_requests_multiplier: 2
+    warmup_requests_cap: 64
+    extra_args: []
+  - name: prefill
+    concurrency: [1, 8, 32, 64, 128, 256, 384, 512]
+    input_tokens_mean: 2048
+    input_tokens_stddev: 0
+    output_tokens_mean: 8
+    output_tokens_stddev: 0
+    benchmark_duration: 120
+    warmup_requests_multiplier: 2
+    warmup_requests_cap: 64
+    extra_args: []
+  - name: balanced
+    concurrency: [1, 8, 32, 64, 128, 256, 384, 512]
+    input_tokens_mean: 1024
+    input_tokens_stddev: 256
+    output_tokens_mean: 512
+    output_tokens_stddev: 128
+    benchmark_duration: 120
+    warmup_requests_multiplier: 2
+    warmup_requests_cap: 64
+    extra_args: []

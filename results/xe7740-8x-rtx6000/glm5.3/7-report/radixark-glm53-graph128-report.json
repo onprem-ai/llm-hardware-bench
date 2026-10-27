@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "report": {
+    "id": "glm53-radixark-graph128-capacity-20260830",
+    "title": "Full GLM-5.3 NVFP4 - Corrected Hardware Capacity",
+    "output_filename": "glm53-radixark-graph128-capacity-report.html",
+    "comparable": true,
+    "campaign_date": "2026-08-30",
+    "subtitle": "Graph-128 corrected TP8/MTP3 capacity across C1-C64 with three repetitions per operating point"
+  },
+  "source": {
+    "campaign_id": "20260830-full-glm53-radixark-graph128-formal",
+    "campaign_path": "/home/demouser/llm-benchmark-results/xe7740-04/glm-5.3-nvfp4/363e8f086905/r1-tp8-dcp1-mtp3-seq32-b8192-graph128-r18/20260830-full-glm53-radixark-graph128-formal",
+    "normalized_data": "normalized-report-data.json"
+  },
+  "model": {
+    "display_name": "GLM-5.3 NVFP4 (full model)",
+    "repository": "RadixArk/GLM-5.3-NVFP4",
+    "revision": "363e8f086905afd83db356a620f9aa401c23800a",
+    "served_name": "glm-5.3-nvfp4-radixark",
+    "quantization": "ModelOpt NVFP4 W4A4 routed experts in layers 3-77; BF16 MTP layer 78"
+  },
+  "hardware": {
+    "host": "xe7740-04",
+    "gpu_count": 8,
+    "gpu_model": "NVIDIA RTX PRO 6000 Blackwell Server Edition 96 GB",
+    "logical_cpu_count": 344
+  },
+  "deployment": {
+    "topology_display": "one TP8 replica across eight GPUs; corrected CUDA graph capture through 128 tokens",
+    "replicas": 1,
+    "tensor_parallel_per_replica": 8,
+    "max_model_len": 262144,
+    "max_num_seqs_per_replica": 32,
+    "active_sequence_ceiling": 32,
+    "max_num_batched_tokens_per_replica": 8192,
+    "kv_cache_dtype": "fp8",
+    "speculative_decoding": "MTP-3",
+    "cpu_numa_affinity": "not explicitly pinned for this TP8 deployment",
+    "max_cudagraph_capture_size": 128
+  },
+  "axis": {
+    "measured_concurrency": [
+      1,
+      8,
+      16,
+      24,
+      32,
+      48,
+      64
+    ],
+    "maximum": 64,
+    "major_ticks": [
+      1,
+      8,
+      16,
+      24,
+      32,
+      48,
+      64
+    ]
+  },
+  "metrics": {
+    "energy_method": "integrated_gpu_board_power",
+    "loaded_idle_baseline": false,
+    "temperature": true,
+    "load_balancer": false,
+    "pcie": true
+  },
+  "provenance_notes": [
+    "This corrected capacity report uses graph-128 measurements only.",
+    "Three repetitions are included at every Decode and Prefill operating point; bands show the observed minimum-to-maximum range.",
+    "Fourteen prior graph-128 qualification measurements are imported by manifest reference as repetition one; repetitions two and three were executed in the formal campaign.",
+    "Graph 128 fixed the graph-64 MTP decode collapse at C32; the corrected deployment reached about 644 output tokens/s at C32 in qualification.",
+    "Graph-128 KV capacity was 568576 tokens, approximately 2.7 percent below graph 64.",
+    "GPU energy is estimated from sampled aggregate GPU board power and excludes non-GPU system power.",
+    "PCIe RX/TX metrics are aggregate GPU endpoint rates, not direct internal PCIe-switch port counters."
+  ],
+  "fabric_qualification_path": "/home/demouser/llm-benchmark-results/xe7740-04/fabric/host-baseline/20260829T153500Z-fabric"
+}

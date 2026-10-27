@@ -1,0 +1,89 @@
+schema_version: 1
+publication_id: glm5.3-flash
+study_id: xe7740
+host: xe7740-04
+
+model:
+  repository: LibertAIDAI/GLM-5.3-Flash-NVFP4
+  revision: aa28e1f54130
+  quantization: NVFP4 routed experts with higher-precision excluded modules
+  host_path: /home/demouser/models/LibertAIDAI--GLM-5.3-Flash-NVFP4--model
+  container_mount: /model  # read-only
+
+container:
+  image: local/vllm-glm53-flash:sm120-v8
+  registry_image: false
+  # A locally built SM120 vLLM image. The RadixArk registry tags on the host
+  # (radixark/vllm-glm53-flash:sm121-*) target SM121 and were built for the DGX
+  # Spark cluster, not this server. Do not substitute them.
+  # Buildable from a public base. The recipe is vendored here so this
+  # repository alone is enough to rebuild the measured runtime.
+  build_recipe: image/Dockerfile
+  build_base: vllm/vllm-openai:glm53-flash-x86_64-cu130  # public
+  build_command: docker build -t local/vllm-glm53-flash:sm120-v8 image/
+  build_inputs_on_host: /home/demouser/benchmarks/glm53/vllm-sm120-build/
+  build_notes: >-
+    Flattened from a seven-stage chain. The ordered layers must not be merged or
+    reordered: steps 3 and 4 exist only to repair dependency downgrades that
+    step 2 causes. Every patch asserts its exact source line before replacing
+    it, so a base-image change fails the build rather than silently producing an
+    unpatched runtime.
+
+topology:
+  replicas: 2
+  tensor_parallel_per_replica: 4
+  gpu_sets: [[0, 1, 2, 3], [4, 5, 6, 7]]  # via CUDA_VISIBLE_DEVICES
+  ports: [8080, 8081]
+  replica_names: [glm53-a, glm53-b]
+  load_balancer:
+    balance: leastconn
+    config: haproxy.cfg
+
+# Both measured series came from this single configuration; the publication's
+# selection names them "decode" and "prefill" but they share one deployment.
+profiles:
+  decode:
+    launch: launch-replicas.sh
+    note: same server configuration as prefill
+  prefill:
+    launch: launch-replicas.sh
+    note: same server configuration as decode
+
+server_flags:
+  tensor_parallel_size: 4
+  max_model_len: 1048576
+  max_num_seqs: 94
+  max_num_batched_tokens: 8192
+  block_size: 2304
+  gpu_memory_utilization: 0.95
+  kv_cache_dtype: fp8_e4m3
+  moe_backend: marlin
+  speculative_config: '{"method":"mtp","num_speculative_tokens":4}'
+  tool_call_parser: glm47
+  reasoning_parser: glm45
+  enable_auto_tool_choice: true
+
+container_flags:
+  network: host
+  ipc: host
+  shm_size: 32g
+  gpus: all  # replicas separated by CUDA_VISIBLE_DEVICES rather than --gpus device=
+  env:
+    VLLM_ENGINE_READY_TIMEOUT_S: 3600
+    HF_HUB_OFFLINE: 1
+    TRANSFORMERS_OFFLINE: 1
+    FLASHINFER_DISABLE_VERSION_CHECK: 1
+    PYTORCH_CUDA_ALLOC_CONF: expandable_segments:True
+
+provenance:
+  recovered_at: 2026-09-02
+  recovered_from:
+    - local-artifacts/xe7740-04/glm53/two-replica/launch-two-replicas.sh  # copied verbatim
+    - local-artifacts/xe7740-04/glm53/two-replica/haproxy.cfg
+    - local-artifacts/xe7740-04/glm53/two-replica/TWO_REPLICA_TP4.md
+  campaign_root: /home/demouser/benchmarks/glm53/protocol-campaign-20260829
+  per_run_launch_command: absent
+  caution: >-
+    Sibling scripts under benchmarks/glm53/GLM-5.3-Flash-NVFP4-262K-2x-DGX-Spark/
+    describe a four-node DGX Spark deployment over InfiniBand.
+    They are not this measurement and must not be used to reproduce it.

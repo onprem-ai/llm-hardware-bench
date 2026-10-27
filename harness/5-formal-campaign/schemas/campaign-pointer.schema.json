@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/llm-inference-hardware-bench/campaign-pointer.schema.json",
+  "title": "External benchmark campaign pointer",
+  "type": "object",
+  "required": ["schema_version", "campaign_id", "study_id", "status", "host", "external_path", "canonical_layout"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "campaign_id": {"type": "string", "minLength": 1},
+    "study_id": {"type": "string", "minLength": 1},
+    "status": {"enum": ["planned", "active", "interrupted", "complete", "archived"]},
+    "host": {"type": "string", "minLength": 1},
+    "model": {"type": ["string", "null"]},
+    "revision": {"type": ["string", "null"]},
+    "external_path": {"type": "string", "minLength": 1},
+    "canonical_layout": {"type": "boolean"},
+    "completion_marker": {"type": ["string", "null"]},
+    "expected_base_runs": {"type": ["integer", "null"], "minimum": 0},
+    "notes": {"type": "array", "items": {"type": "string"}}
+  }
+}

@@ -1,0 +1,310 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/llm-inference-hardware-bench/campaign-spec.schema.json",
+  "title": "Executable benchmark campaign specification",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "campaign",
+    "model",
+    "deployment",
+    "benchmark",
+    "profiles"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "campaign": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "purpose",
+        "repetitions",
+        "order_seed"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9._-]*$"
+        },
+        "purpose": {
+          "type": "string"
+        },
+        "repetitions": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "order_seed": {
+          "type": "integer"
+        },
+        "settle_seconds": {
+          "type": "number",
+          "minimum": 0
+        },
+        "telemetry_delay_seconds": {
+          "type": "number",
+          "minimum": 0
+        },
+        "imported_runs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "profile",
+              "concurrency",
+              "repetition",
+              "manifest"
+            ],
+            "properties": {
+              "profile": {
+                "type": "string"
+              },
+              "concurrency": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "repetition": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "manifest": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "model": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "repository",
+        "revision",
+        "served_name",
+        "slug"
+      ],
+      "properties": {
+        "repository": {
+          "type": "string"
+        },
+        "revision": {
+          "type": "string",
+          "minLength": 12
+        },
+        "served_name": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9._-]*$"
+        },
+        "quantization": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "deployment": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "id",
+        "endpoint",
+        "topology"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9._-]*$"
+        },
+        "endpoint": {
+          "type": "string",
+          "format": "uri"
+        },
+        "health_endpoint": {
+          "type": "string",
+          "format": "uri"
+        },
+        "topology": {
+          "type": "string"
+        },
+        "load_balancer": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "type",
+            "frontend_endpoint",
+            "metrics_endpoint",
+            "backend_count",
+            "required_in_request_path"
+          ],
+          "properties": {
+            "type": {
+              "type": "string",
+              "minLength": 1
+            },
+            "frontend_endpoint": {
+              "type": "string",
+              "format": "uri"
+            },
+            "metrics_endpoint": {
+              "type": "string",
+              "format": "uri"
+            },
+            "backend_count": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "policy": {
+              "type": "string"
+            },
+            "required_in_request_path": {
+              "const": true
+            }
+          }
+        }
+      }
+    },
+    "benchmark": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "command",
+        "warmup_command",
+        "result_file"
+      ],
+      "properties": {
+        "command": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "warmup_command": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "result_file": {
+          "type": "string"
+        },
+        "environment": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "telemetry": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "victoriametrics_url": {
+          "type": "string"
+        },
+        "query_file": {
+          "type": "string"
+        },
+        "step": {
+          "type": "string"
+        },
+        "collectors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "name",
+              "command"
+            ],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "command": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "profiles": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "concurrency",
+          "input_tokens_mean",
+          "output_tokens_mean"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9._-]*$"
+          },
+          "concurrency": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "input_tokens_mean": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "input_tokens_stddev": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "output_tokens_mean": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "output_tokens_stddev": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "benchmark_duration": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "warmup_requests_multiplier": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "warmup_requests_cap": {
+            "type": "integer",
+            "minimum": 4
+          },
+          "extra_args": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

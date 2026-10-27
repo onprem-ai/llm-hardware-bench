@@ -1,0 +1,44 @@
+{
+ "schema_version": 1,
+ "site": {
+  "title": "Frontier LLMs on Bare Metal",
+  "description": "Independent hardware-focused LLM inference capacity measurements across GPU servers and production-scale AI models, including Prefill, Decode, latency, power, efficiency, scheduler, PCIe, NCCL, and NUMA data.",
+  "canonical_url": null,
+  "language": "en",
+  "publisher": null
+ },
+ "devices": [
+  {
+   "label": "xe7740",
+   "model": "Dell PowerEdge XE7740",
+   "manufacturer": "Dell Technologies",
+   "summary": "Dell PowerEdge XE7740 GPU server benchmark results across frontier large language models.",
+   "image": "assets/dell-poweredge-xe7740.png",
+   "specs": [
+    {
+     "label": "Accelerators",
+     "value": "8\u00d7 NVIDIA RTX PRO 6000 Blackwell"
+    },
+    {
+     "label": "Aggregate VRAM",
+     "value": "768 GB"
+    },
+    {
+     "label": "CPUs",
+     "value": "2\u00d7 Intel Xeon 6787P (172 cores)"
+    },
+    {
+     "label": "System RAM",
+     "value": "3 TB DDR5-6400"
+    }
+   ],
+   "benchmarks": [
+    "glm5.3/cold-20260909/publication.json",
+    "glm5.3-flash/publication.json",
+    "qwen3.8-flash-next/publication.json",
+    "deepseek-v4-flash/publication.json"
+   ],
+   "order": 2
+  }
+ ]
+}

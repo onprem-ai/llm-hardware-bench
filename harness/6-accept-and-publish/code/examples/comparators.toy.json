@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "note": "Clearly-toy example registry. The instrument's self-test resolves these entries; it must never hold a real host's numbers. Per-host baselines live beside their study at results/<host>/comparators.json and are discovered from there.",
+  "comparators": [
+    {
+      "id": "toy-model.decode.published-headline",
+      "artifact": "harness/6-accept-and-publish/code/examples/toy-publication.json",
+      "field": "headlines.decode.value",
+      "concurrency": 8,
+      "unit": "output tokens/s"
+    },
+    {
+      "id": "toy-model.decode.toyhost-c4",
+      "artifact": "harness/6-accept-and-publish/code/examples/toy-publication.json",
+      "field": "normalized_data.series.decode.points.1.throughput.median",
+      "concurrency": 4,
+      "unit": "output tokens/s"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+# Illustrative single-replica deployment. Copy into a study and replace every
+# placeholder with qualified, digest-pinned values before use.
+services:
+  inference:
+    image: ${INFERENCE_IMAGE:?set immutable INFERENCE_IMAGE digest}
+    container_name: ${INFERENCE_CONTAINER:-llm-bench-inference}
+    restart: "no"
+    runtime: nvidia
+    ipc: host
+    environment:
+      NVIDIA_VISIBLE_DEVICES: ${GPU_IDS:-all}
+      NVIDIA_DRIVER_CAPABILITIES: compute,utility
+    ports:
+      - "127.0.0.1:${INFERENCE_PORT:-8000}:8000"
+    volumes:
+      - ${MODEL_PATH:?set absolute MODEL_PATH}:/model:ro
+    command:
+      - --model
+      - /model
+      - --served-model-name
+      - ${SERVED_MODEL_NAME:?set SERVED_MODEL_NAME}
+      - --tensor-parallel-size
+      - ${TENSOR_PARALLEL_SIZE:-1}
+      - --max-model-len
+      - ${MAX_MODEL_LEN:?set MAX_MODEL_LEN}
+      - --max-num-seqs
+      - ${MAX_NUM_SEQS:?set MAX_NUM_SEQS}
+      - --max-num-batched-tokens
+      - ${MAX_BATCHED_TOKENS:?set MAX_BATCHED_TOKENS}
+      - --gpu-memory-utilization
+      - ${GPU_MEMORY_UTILIZATION:-0.90}
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://127.0.0.1:8000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 120
+      start_period: 60s

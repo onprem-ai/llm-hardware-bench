@@ -1,0 +1,28 @@
+# Qualification-only sidecar. Do not launch while another embedded DCGM hostengine
+# or an inference campaign is active without first reviewing resource ownership.
+services:
+  dcgm-exporter-fabric-qualification:
+    image: ${DCGM_EXPORTER_IMAGE:?set DCGM_EXPORTER_IMAGE to an immutable digest}
+    container_name: llm-bench-dcgm-qualification
+    restart: "no"
+    runtime: nvidia
+    cap_add:
+      - SYS_ADMIN
+    environment:
+      NVIDIA_VISIBLE_DEVICES: all
+      NVIDIA_DRIVER_CAPABILITIES: utility
+    ports:
+      - "127.0.0.1:${DCGM_EXPORTER_PORT:-19400}:9400"
+    volumes:
+      - ../../harness/2-preflight-conformance/code/configs/dcgm-custom.csv:/etc/dcgm-exporter/llm-bench-custom.csv:ro
+    command:
+      - --collectors
+      - /etc/dcgm-exporter/llm-bench-custom.csv
+      - --address
+      - :9400
+      - --collect-interval
+      - ${DCGM_EXPORTER_INTERVAL_MS:-1000}
+      - --devices
+      - g
+      - --log-format
+      - json

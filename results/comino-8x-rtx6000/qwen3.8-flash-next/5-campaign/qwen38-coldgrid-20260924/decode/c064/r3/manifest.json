@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "campaign_id": "qwen38-coldgrid-20260924",
+  "run_id": "decode-c64-r3",
+  "profile": "decode",
+  "concurrency": 64,
+  "repetition": 3,
+  "random_seed": 664003,
+  "status": "complete",
+  "return_code": 0,
+  "start_time": "2026-09-25T05:53:41Z",
+  "end_time": "2026-09-25T05:55:03Z",
+  "command": "~/bench/llm-bench/aiperf-venv/bin/aiperf profile --model qwen38-flash-next-nvfp4 --url http://127.0.0.1:8000 --tokenizer ~/bench/models/RadixArk--Qwen3.8-Flash-Next-NVFP4--model --endpoint-type chat --endpoint /v1/chat/completions --streaming --isl 8 --isl-stddev 0 --osl 512 --osl-stddev 0 --concurrency 64 --benchmark-duration 60 --benchmark-grace-period inf --use-server-token-count --random-seed 664003 --extra-inputs '{\"temperature\": 0, \"ignore_eos\": true}' --request-timeout-seconds 1800 --output-artifact-dir ~/bench/llm-bench/campaigns/qwen38-coldgrid-20260924/decode/c064/r3 --num-dataset-entries 4000 --dataset-sampling-strategy sequential --server-metrics",
+  "command_source": "campaign commands.log (verbatim aiperf invocation)",
+  "error": null,
+  "events": [
+    {
+      "event": "warmup",
+      "requests": 64,
+      "same_concurrency": true,
+      "source": "warmup seed 953601/953602 disjoint from measured per-(C,rep) pools"
+    },
+    {
+      "event": "measured",
+      "window_s": 60,
+      "realized_s": 64.694947584
+    }
+  ],
+  "measurements": {
+    "cache_read_pct": 0.0,
+    "cache_read_source": "aiperf usage_prompt_cache_read_tokens client-side zero-check; radix disabled by launch flags (prefill profile)",
+    "container_launches": 2,
+    "gpu_samples_in_window": 340,
+    "realized_window_s": 64.694947584,
+    "token_source_server_asserted": true
+  },
+  "artifacts": {
+    "result": "profile_export_aiperf.json"
+  }
+}

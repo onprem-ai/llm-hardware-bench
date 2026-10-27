@@ -1,0 +1,95 @@
+{
+ "schema_version": 1,
+ "report": {
+  "id": "glm53-cold-capacity-20260909",
+  "title": "GLM-5.3 - Prefill and Decode Capacity",
+  "output_filename": "xe7740--glm5.3--cold-capacity-report.html",
+  "comparable": true,
+  "campaign_date": "2026-09-09",
+  "subtitle": "RadixArk GLM-5.3 on one eight-GPU TP8 replica, global concurrency 1 to 192"
+ },
+ "source": {
+  "campaign_id": "20260909-glm53-cold",
+  "campaign_path": "results/xe7740-8x-rtx6000/glm5.3/5-campaign/20260909-glm53-cold",
+  "normalized_data": "normalized-report-data.json"
+ },
+ "model": {
+  "display_name": "GLM-5.3",
+  "repository": "RadixArk/GLM-5.3-NVFP4",
+  "revision": "363e8f086905afd83db356a620f9aa401c23800a",
+  "served_name": "glm-5.3-nvfp4-radixark",
+  "quantization": "ModelOpt NVFP4 W4A4 routed experts in layers 3-77; BF16 MTP layer 78"
+ },
+ "hardware": {
+  "host": "xe7740-04",
+  "gpu_count": 8,
+  "gpu_model": "NVIDIA RTX PRO 6000 Blackwell Server Edition 96 GB",
+  "logical_cpu_count": 344
+ },
+ "deployment": {
+  "topology_display": "one TP8 replica across eight GPUs, no load balancer",
+  "replicas": 1,
+  "tensor_parallel_per_replica": 8,
+  "max_model_len": 262144,
+  "max_num_seqs_per_replica": 128,
+  "active_sequence_ceiling": 128,
+  "cudagraph_capture_size": 512,
+  "max_num_batched_tokens_per_replica": 8192,
+  "kv_cache_dtype": "fp8",
+  "speculative_decoding": "MTP-3",
+  "cpu_numa_affinity": "not explicitly pinned for this TP8 deployment",
+  "host_ram_limit_gib": 96
+ },
+ "axis": {
+  "measured_concurrency": [
+   1,
+   8,
+   32,
+   64,
+   96,
+   128,
+   160,
+   192
+  ],
+  "maximum": 192,
+  "major_ticks": [
+   1,
+   8,
+   32,
+   64,
+   96,
+   128,
+   160,
+   192
+  ]
+ },
+ "metrics": {
+  "energy_method": "integrated_gpu_board_power",
+  "loaded_idle_baseline": false,
+  "temperature": false,
+  "load_balancer": false,
+  "pcie": false
+ },
+ "fabric_qualification_path": null,
+ "provenance_notes": [
+  "Frozen before measurement: results/xe7740-8x-rtx6000/glm5.3/5-campaign/formal-20260907-freeze-contract.md. Preflight 13/13 (harness/2-preflight-conformance/code/preflight.py). 84 measured runs across 3 profiles and 8 grid points, 0 errors, 0 excluded runs.",
+  "TWO CONTAINER LAUNCHES, not one: launch-1 measured Decode only (01:01-03:08 UTC), launch-2 measured Prefill and Balanced (05:39-09:07). The controller died mid-campaign from a harness defect and the resumed driver re-entered launch(); see results/xe7740-8x-rtx6000/glm5.3/5-campaign/formal-20260907-harness-defects-and-outage.md. Cross-profile comparisons inside this report are therefore cross-launch and are labelled rather than smoothed over.",
+  "Declared window is NOT the measured window. --benchmark-duration 60 with --benchmark-grace-period inf realizes 68 s at C1 and 142 s at C192 for Decode (+14% to +136%), because in-flight 768-token requests drain after the window closes. Every point records both values; high-concurrency throughput is averaged over a long drain phase, which depresses it.",
+  "Window classes are not interchangeable: measured back-to-back at C128 in one launch, the 90 s class reads 6.1% below the 60 s class (1147.76 vs 1221.82 output tok/s), while the same class measured 8 hours apart differed by only 0.7%. The previously assumed 3.1% cross-window tolerance is withdrawn.",
+  "Each operating point uses repeated measurements, warm-up, settling, streaming output, and server-side token accounting; every run passed a measurement-validity gate before acceptance.",
+  "Between-repetition spread exceeds the R-06-2 rerun trigger at 6 of 24 points (worst: Prefill C32 at 40.7%, where the repetition cache-hit fractions also differ). Those points are accepted-with-notes, the spread travels with the figure, and no rerun was performed because the contract was frozen.",
+  "Telemetry actually collected: (a) AIPerf's own export - client-observed throughput, latency percentiles, token counts and prompt-cache read fraction; (b) server_metrics_export.json beside every result, carrying vLLM's /metrics scrape (KV cache occupancy, queue depth, running requests, preemption counters, speculative-decoding draft/accepted token counts); (c) a 5 s campaign-level host sampler of GPU utilisation, GPU board power and host MemAvailable, sliced to each measured window, boundaries approximate to +-20 s because the harness recorded completion timestamps rather than start timestamps. Telemetry never sampled is reported as unavailable, never as zero: per-GPU temperature, SM/memory clock, DCGM throttle-reason and energy counters, per-GPU VRAM used, PCIe endpoint counters, host CPU jiffies and load, container CPU and network. CORRECTION recorded the same day: an earlier draft of this note asserted that KV occupancy, preemption counts and load-generator CPU were never scraped. They were - in server_metrics_export.json, which sits next to each result and which the acceptance generator had not been reading. The defect was in the checker's field of view, not in the campaign.",
+  "Server-measured queue depth corroborates the throughput curve rather than repeating it: at Prefill C192 the engine averaged 96.8 waiting requests while the client offered 192, and at Decode C160-C192 TTFT rises to 16.8-27.5 s while throughput falls, so the decline past the peak is saturation, not measurement drift. At the Decode peak (C128) waiting requests averaged 0.0 with 99.1 running and KV occupancy peaking at 17.1%; occupancy never exceeded 40.9% in any run, and preemptions were 0 across all 84 runs. MTP-3 draft acceptance measured 54.8% at the Decode peak.",
+  "Energy is integrated GPU board power from that 5 s sampler and excludes non-GPU system power; it is not a DCGM cumulative counter delta. No proxy counters exist for this campaign: the contract ran one replica with no load balancer, so no frontend/backend byte or request deltas may be quoted (R-06-1 proxy boundary, recorded as an approved deviation).",
+  "Host RAM: container high-water 59.03 GiB of the 96.00 GiB cgroup limit (61%), oom_kill 0, host MemAvailable never below 2,901 GiB, measured continuously for 9 h via cgroup memory.peak. The floor belongs to the serving parameters, not the model: the seq64/graph256 deployment measured 50.33 GiB under the same limit.",
+  "Model identity: same artifact directory as the 2026-08-31 publication, verified at preflight as 177 files / 464,874,357,965 bytes (432.95 GiB). The revision string is the recorded Hub commit from the download record; identity for this campaign rests on that payload inventory match, not on a fresh upstream receipt.",
+  "Report filename is scoped to this campaign's directory rather than renamed, so the 2026-08-31 report stays published and unchanged (R-06-8: accepted artifacts are superseded, never edited). The prior headline remains the registered comparator for this report's Decode delta.",
+  "The host lost its network path for ~3 h during the campaign (no reboot: uptime predates the campaign). Nothing detected it automatically; 55 runs completed through the blackout and the campaign finished. Recorded with its unresolved cause in the harness-defects record.",
+  "Repetition structure: 3 repetitions at every grid point, 5 at the two peak-candidate points (C96 and C128) per profile, 84 measured runs in total. Every published figure carries its window class and repetition count as required by R-07-5; the published prefill headline is a floor at the grid ceiling and not a peak (see the R-06-1 Peaks check in acceptance.json).",
+  "Conclusions (R-07-7). Best single-user generation rate: 78.73 output tokens/s at C1 with TTFT 624 ms. Peak aggregate generation: 1230.02 output tokens/s at global concurrency 128 (5 repetitions, spread 0.9%), 153.75 tokens/s/GPU, 1.51 J/output token integrated board power. Highest concurrency that keeps TTFT under 5 s: C128. Saturation evidence: past C128, throughput falls 6.6% at C160 and 10.9% at C192 while TTFT p50 rises 4.25 s -> 16.8 s -> 27.5 s; the queue is the mechanism, and at Prefill C192 the engine averaged 96.8 waiting requests against 192 offered.",
+  "Dominant observed bottleneck at the Decode peak is not memory capacity: KV occupancy peaked at 17.1% at C128 and at 40.9% anywhere in the campaign, preemptions were 0 in all 84 runs, host RAM used 59.03 GiB of a 96.00 GiB cgroup limit, and the load generator consumed at most 0.19 CPU cores. The constraint at high concurrency is scheduling and queueing latency, with speculative-decoding acceptance (54.8% measured at the peak, MTP-3) the other principal lever.",
+  "Replication versus model parallelism, for this model on this host: the reported curve is a single TP8 replica. Four TP2 replicas behind HAProxy is the topology already measured for DeepSeek-V4-Flash on the same host, and GLM-5.3's 432.95 GiB checkpoint makes any smaller replica count a weight-replication cost rather than a free knob; a TP2/TP4 GLM-5.3 comparison has NOT been measured here and must not be inferred from this report.",
+  "Limitations preventing a fully apples-to-apples comparison: the Decode headline is compared against a prior publication measured on a different deployment (seq32/graph128, grid not reaching C96), so the +32.6% figure is cross-deployment; the comparator's realized measurement window could not be verified locally because its raw artifact is not in the evidence cache and the host holding it lost network mid-review; per-GPU temperature, clocks, DCGM energy and PCIe counters were not sampled, so energy is integrated board power and thermal throttling cannot be excluded.",
+  "Falsified or withdrawn hypotheses from this line of work, reported per R-07-9: expert execution width is not a lever at the operating point (A16 1225.71, A8 1222, native W4A4 1225 at C128 - within 0.3%); MTP-4 and MTP-5 lose to MTP-3 (741.42 and 738.19 versus 927.37 class rates); a cross-window tolerance of 3.1% is wrong and was measured at -6.1%; and the '1111 output tokens/s at C48' comparator used by three earlier experiments never existed in any artifact and every figure derived from it is retracted."
+ ]
+}

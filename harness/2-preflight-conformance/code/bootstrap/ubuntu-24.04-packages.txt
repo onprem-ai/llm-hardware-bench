@@ -1,0 +1,30 @@
+# Install explicitly with apt after review; comments/blank lines are not package names.
+build-essential
+ca-certificates
+cmake
+curl
+ethtool
+git
+hwloc
+iproute2
+jq
+linux-tools-common
+linux-tools-generic
+lsof
+numactl
+openssh-client
+pciutils
+python3
+python3-pip
+python3-venv
+rsync
+sysstat
+tmux
+zstd
+# Optional fabric/deep diagnostics, subject to platform availability:
+# chrony
+# openmpi-bin
+# libopenmpi-dev
+# linux-tools-$(uname -r)
+# intel-pcm
+# bpftrace

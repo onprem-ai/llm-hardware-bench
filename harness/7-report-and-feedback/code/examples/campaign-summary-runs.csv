@@ -1,0 +1,5 @@
+source_id,concurrency,repetition,run_id,requests,errors
+decode-source,1,1,decode-c1-r1,100,0
+decode-source,8,1,decode-c8-r1,100,0
+prefill-source,1,1,prefill-c1-r1,100,0
+prefill-source,8,1,prefill-c8-r1,100,0

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/llm-inference-hardware-bench/metric-availability.schema.json",
+  "title": "Metric availability report",
+  "type": "object",
+  "required": ["schema_version", "generated_at", "load_executed", "inputs", "summary", "metrics"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "endpoint": {"type": ["string", "null"]},
+    "load_executed": {"type": "boolean"},
+    "inputs": {"type": "object"},
+    "summary": {"type": "object"},
+    "metrics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "prometheus_type", "availability", "validation", "before_series", "after_series"],
+        "properties": {
+          "name": {"type": "string", "pattern": "^[A-Za-z_:][A-Za-z0-9_:]*$"},
+          "prometheus_type": {"enum": ["gauge", "counter", "histogram", "summary", "untyped"]},
+          "exported_type": {"type": ["string", "null"]},
+          "availability": {"enum": ["emitted", "not_emitted", "intermittent"]},
+          "validation": {"enum": ["changed_under_load", "static_under_load", "not_tested_under_load", "inconclusive", "unavailable"]},
+          "before_series": {"type": "integer", "minimum": 0},
+          "after_series": {"type": "integer", "minimum": 0},
+          "mentioned_in_discovery_output": {"type": ["boolean", "null"]}
+        }
+      }
+    }
+  }
+}

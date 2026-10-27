@@ -1,0 +1,62 @@
+schema_version: 1
+host_id: comino-8x
+observed_at: 2026-09-25
+status: reference-tested
+policy: pin exact versions and OCI digests per campaign; do not use mutable tags
+inventory_evidence: assets/hardware-inventory-20260925/  # rule-10 clean by construction: hardware identity only
+host_reference:
+  os: Ubuntu 24.04.5 LTS
+  kernel: 6.8.0-139-generic
+  architecture: x86_64
+  nvidia_driver: 595.91.07
+  docker: 29.8.1
+  platform:
+    baseboard: ASRockRack TURIND8X-2T/500W
+    bios: American Megatrends International 5.35 (release 2026-02-13)
+    secure_boot: disabled
+    iommu: disabled (no /sys/class/iommu entries)
+    cpu_governor: schedutil
+  hardware:
+    observed_at: 2026-09-25
+    source: lscpu; /proc/meminfo; dmidecode -t 17; nvidia-smi; lspci; lsblk
+    cpu:
+      model: AMD EPYC 9575F 64-Core Processor
+      sockets: 1
+      cores_per_socket: 64
+      threads_per_core: 2
+      logical_cpus: 128
+      numa_nodes: 1
+      frequency_min_max_mhz: 1500 / 5008
+      l3_cache: 256 MiB (8 instances)
+    memory:
+      total: 768 GB
+      modules: 8 x 96 GB
+      type: DDR5
+      speed: 5600 MT/s
+      note: 8 of 12 memory channels populated
+    storage:
+      root_nvme:
+        controller: Phison E16 (PCIe Gen4)
+        capacity: 931.5 GB
+        note: single NVMe, PCIe Gen4; GPU slots are Gen5 - weight streaming bound by this drive
+    gpus:
+      count: 8
+      model: NVIDIA RTX PRO 6000 Blackwell Server Edition
+      vbios: 98.02.AF.00.01
+      compute_cap: 12.0
+      pcie: Gen5 x16 max, 600 W limit, 2430 MHz max SM clock
+      topology: all pairs NODE via PCIe root complex on the single socket; no NVLink
+      anomaly: GPU3 negotiated x8 at inventory time (x16 capable) - worth rechecking before cross-host deltas involving replica B
+benchmark:
+  python: 3.12.3
+  aiperf: 0.13.0.dev20260918
+telemetry:
+  gpu_sampler: harness/2-preflight-conformance/code/gpu/sample-nvidia-smi.sh (1 s cadence)
+  host_sampler: harness/2-preflight-conformance/code/host/sample-host.sh (1 s cadence)
+  docker_stats: 5 s cadence, per-replica container memory/CPU
+fabric:
+  glm53_runtime_image: voipmonitor/vllm@sha256:414ec7d0d28358cfd8af0697f330f5c8acbb80e4dc4e5ba69c9fd5b5855ea804
+  glm53_canaries: local/radixark-glm53-r18-graph128:canary; local/radixark-glm53-r18-seq64-graph256:canary
+  qwen38_runtime_image: lmsysorg/sglang@sha256:12d3392bdc8be8d35e9a95f191df6aef99c5114bdbefd41bfdc7e760e6d25ec1
+  qwen38_patched_image: local/qwen38-flash-next-sm120:comino-patched  # single documented edit: QSA decode guard SM100 -> SM100-or-SM120 (qwen_sparse_attn_backend.py)
+  cuda_in_containers: "13.0"

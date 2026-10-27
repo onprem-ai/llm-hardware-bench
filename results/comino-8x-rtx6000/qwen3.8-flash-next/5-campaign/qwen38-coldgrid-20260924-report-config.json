@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "report": {
+    "id": "qwen38-coldgrid-capacity-20260924",
+    "title": "Qwen3.8 Flash Next - Prefill and Decode Capacity",
+    "output_filename": "comino-8x--qwen3.8-flash-next--cold-capacity-report.html",
+    "comparable": true,
+    "campaign_date": "2026-09-24",
+    "subtitle": "RadixArk Qwen3.8-Flash-Next on four TP2 SGLang replicas behind haproxy leastconn, global concurrency 1 to 224, uncached prefill"
+  },
+  "source": {
+    "campaign_id": "qwen38-coldgrid-20260924",
+    "campaign_path": "results/comino-8x-rtx6000/qwen3.8-flash-next/5-campaign/qwen38-coldgrid-20260924",
+    "normalized_data": "normalized-report-data.json"
+  },
+  "model": {
+    "display_name": "Qwen3.8 Flash Next",
+    "repository": "RadixArk/Qwen3.8-Flash-Next-NVFP4",
+    "revision": "7b719225242aacd3dbd3f9407468c2ee9a9d2594",
+    "served_name": "qwen38-flash-next-nvfp4",
+    "quantization": "ModelOpt NVFP4 (modelopt_fp4), flashinfer_cutlass FP4 GEMM, BF16 KV"
+  },
+  "hardware": {
+    "host": "comino-8x",
+    "gpu_count": 8,
+    "gpu_model": "NVIDIA RTX PRO 6000 Blackwell Server Edition 96 GB",
+    "logical_cpu_count": 128
+  },
+  "deployment": {
+    "topology_display": "4 TP2 SGLang replicas on GPU pairs (0,1)(2,3)(4,5)(6,7) behind haproxy leastconn; profile-specific deployments",
+    "replicas": 4,
+    "tensor_parallel_per_replica": 2,
+    "max_model_len": 262144,
+    "max_num_seqs_per_replica": 48,
+    "active_sequence_ceiling": 192,
+    "cudagraph_capture_size": 48,
+    "max_num_batched_tokens_per_replica": 32768,
+    "kv_cache_dtype": "bf16",
+    "speculative_decoding": "NEXTN 3 steps / topk 1 / 4 draft tokens (decode profile only)",
+    "cpu_numa_affinity": "single NUMA node (EPYC 9575F); not pinned",
+    "host_ram_limit_gib": null
+  },
+  "axis": {
+    "measured_concurrency": [1, 32, 64, 96, 128, 160, 192, 224],
+    "maximum": 224,
+    "major_ticks": [1, 32, 64, 96, 128, 160, 192, 224]
+  },
+  "metrics": {
+    "energy_method": "integrated_gpu_board_power",
+    "loaded_idle_baseline": true,
+    "temperature": true,
+    "load_balancer": true,
+    "pcie": false
+  },
+  "fabric_qualification_path": null,
+  "provenance_notes": [
+    "Frozen before measurement: Dell xe7740 deployment parameters verbatim by user decision (param raster skipped); corrected-cold aiperf invocation; xe7740 published 8-point axis [1,32,64,96,128,160,192,224].",
+    "Deployment-level profile splice (two fleet launches): decode-optimized (max_running_requests 48, max_prefill_tokens 32768, chunked_prefill 4096, mamba cache 240, cuda graph 48, NEXTN 3/1/4, radix on) and prefill-optimized-uncached (24/65536/16384, mamba 120, graph 24, no speculative, --disable-radix-cache).",
+    "Engine image: lmsysorg/sglang base pinned by OCI digest with the SM120 guard re-derived by inspection (qwen_sparse_attn_backend.py: TRT-LLM QSA decode path, SM100-only -> SM100-or-SM120; the single documented edit in local/qwen38-flash-next-sm120:comino-patched, matching the xe7740 operator-patch description).",
+    "Prefill verified uncached on every rep: --disable-radix-cache by launch flag plus client-side usage_prompt_cache_read_tokens == 0 (aiperf export); decode runs radix-on by design (ISL 8).",
+    "Correctness gate 7/7 through the measured path after each fleet boot; B0 unloaded idle and B1-pre/post loaded-idle baselines captured.",
+    "48 measured runs, 0 aiperf errors, 0 gate violations, 0 excluded runs."
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "report": {
+    "id": "example-model-capacity",
+    "title": "Example Model — Prefill and Decode Capacity",
+    "output_filename": "example-model-capacity-report.html",
+    "comparable": true
+  },
+  "source": {
+    "campaign_id": "example-campaign",
+    "campaign_path": "/results/host/model/revision/deployment/campaign",
+    "normalized_data": "normalized-report-data.json"
+  },
+  "model": {
+    "display_name": "Example Model",
+    "repository": "organization/model",
+    "revision": "0123456789abcdef",
+    "served_name": "example-model",
+    "quantization": "NVFP4"
+  },
+  "hardware": {
+    "host": "benchmark-host",
+    "gpu_count": 8,
+    "gpu_model": "NVIDIA GPU",
+    "logical_cpu_count": 344
+  },
+  "deployment": {
+    "topology_display": "2 independent TP4 replicas behind HAProxy leastconn",
+    "replicas": 2,
+    "tensor_parallel_per_replica": 4,
+    "max_model_len": 262144,
+    "max_num_seqs_per_replica": 256,
+    "active_sequence_ceiling": 512,
+    "max_num_batched_tokens_per_replica": 32768,
+    "kv_cache_dtype": "fp8",
+    "speculative_decoding": "MTP-3",
+    "cpu_numa_affinity": "explicit per-NUMA pinning"
+  },
+  "axis": {
+    "measured_concurrency": [1, 8],
+    "maximum": 192,
+    "major_ticks": [1, 8, 32, 64, 96, 128, 160, 192]
+  },
+  "metrics": {
+    "energy_method": "integrated_gpu_board_power",
+    "loaded_idle_baseline": true,
+    "temperature": true,
+    "load_balancer": true,
+    "pcie": false
+  },
+  "provenance_notes": [
+    "Raw campaign artifacts remain authoritative.",
+    "GPU energy excludes non-GPU system power."
+  ]
+}

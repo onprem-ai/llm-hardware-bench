@@ -1,0 +1,20 @@
+*.log
+*.pid
+__pycache__/
+.venv/
+.DS_Store
+node_modules/
+# Generated site output, and the per-host evidence caches (manifest: results/<host>/EVIDENCE.md).
+website/
+results/**/_local-evidence/
+
+# The report renderer ships a copy of the chapter-7 rule document inside each bundle so a
+# bundle is readable offline. Committing it would duplicate a kind:rule file outside its
+# owning chapter (R-PIPE-1); the authority stays harness/7-report-and-feedback/REPORT_SPEC.md.
+results/**/REPORT_SPEC.md
+
+# downloader caches at repo root: payload, not record
+/_local-evidence/
+
+# corpus payloads are reproducible from the ID lists + PROVENANCE, not stored
+harness/3-deployment-raster/data/*.gz

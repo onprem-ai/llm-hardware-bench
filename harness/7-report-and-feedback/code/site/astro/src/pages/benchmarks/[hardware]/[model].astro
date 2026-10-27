@@ -1,0 +1,32 @@
+---
+import ReportPage from '../../../layouts/ReportPage.astro';
+import Report from '../../../components/report/Report.astro';
+import entries from '../../../generated/benchmarks.json';
+
+export function getStaticPaths() {
+  return entries.map((entry) => ({
+    params: { hardware: entry.hardwareLabel, model: entry.publication.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const benchmarks = entries
+  .filter((x) => x.hardwareLabel === entry.hardwareLabel)
+  .map((x) => x.publication);
+
+// Source files published alongside the page so any rendered number can be
+// traced back. prepare.mjs copies whatever it finds; missing files are simply
+// not offered rather than linked as 404s.
+const receipts = (entry.receipts ?? []) as { label: string; href: string; note?: string }[];
+---
+
+<ReportPage
+  benchmark={entry.publication}
+  benchmarks={benchmarks}
+  hardwareLabel={entry.hardwareLabel}
+  device={entry.device}
+  receipts={receipts}
+>
+  <Report publication={entry.publication} receipts={receipts} />
+</ReportPage>

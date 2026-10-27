@@ -1,0 +1,76 @@
+schema_version: 1
+host_id: xe7740-04
+observed_at: 2026-08-29
+status: reference-tested
+policy: pin exact versions and OCI digests per campaign; do not use mutable tags
+host_reference:
+  os: Ubuntu 24.04.4 LTS
+  kernel: 6.8.0-138-generic
+  architecture: x86_64
+  nvidia_driver: 580.173.02
+  docker: 29.7.2
+  hardware:
+    observed_at: 2026-09-02
+    source: lscpu; /proc/meminfo; dmidecode -t memory
+    cpu:
+      model: Intel(R) Xeon(R) 6787P
+      sockets: 2
+      cores_per_socket: 86
+      threads_per_core: 2
+      logical_cpus: 344
+      numa_nodes: 2
+    memory:
+      total: 3 TB
+      modules: 32 x 96 GB
+      type: DDR5
+      speed: 6400 MT/s
+benchmark:
+  python: 3.12.3
+  aiperf: 0.12.0
+telemetry:
+  dcgm_exporter:
+    container_name: obs-dcgm-exporter
+    image: nvcr.io/nvidia/k8s/dcgm-exporter:4.8.3
+    observed_digest: nvcr.io/nvidia/k8s/dcgm-exporter@sha256:613ab03c11d442fd960ff515f547e9921537454a712d08160bc8f677f89f1c35
+    reported_exporter_dcgm_version: 4.6.0-4.8.3
+    matching_utility_image: nvcr.io/nvidia/cloud-native/dcgm@sha256:e30317a5f1e1e1c236784776d0c25ce7e48d93e18ed2a8224bb5d805aa98acb8
+    supported_profiling_fields_per_gpu: 93
+    requirements:
+      - all GPUs
+      - CAP_SYS_ADMIN
+      - custom collector mounted read-only
+  victoriametrics:
+    image: victoriametrics/victoria-metrics:v1.150.0
+  grafana:
+    image: grafana/grafana:13.2.0
+  node_exporter:
+    image: quay.io/prometheus/node-exporter:v1.12.0
+  cadvisor:
+    image: ghcr.io/google/cadvisor:v0.60.5
+fabric:
+  runtime_image: vllm/vllm-openai@sha256:0a51ea5b4ae2dc5d81890e5173f54203d2a3ae0cfffe51b8fd2afd4391bfd967
+  cuda: "13.0"
+  nccl: "2.29.7"
+  nccl_tests:
+    repository: NVIDIA/nccl-tests
+    revision: b4d5beebca8a76cf01335f724d154b9b9d394d96
+    required_binaries:
+      - all_reduce_perf
+      - all_gather_perf
+      - reduce_scatter_perf
+  cuda_samples:
+    repository: NVIDIA/cuda-samples
+    revision: 3f1c50965017932fc81e6d94a3fc9e04c105b312
+    required_binaries:
+      - p2pBandwidthLatencyTest
+  intel_pcm:
+    image: ghcr.io/intel/pcm@sha256:bd4ab6f864deb8f6cfdc3c4a5fad4bff98ca86c72f2763e8701d95bdc4139e02
+    status: unavailable_due_to_pmu_ownership_and_access
+  imc_perf:
+    status: available
+optional:
+  - intel-pcm
+  - linux-perf
+  - nsight-systems
+  - nsight-compute
+  - bpftrace

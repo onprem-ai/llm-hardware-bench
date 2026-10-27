@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "report": {
+    "id": "glm53-flash-nvfp4-capacity-20260829",
+    "title": "GLM-5.3 Flash NVFP4 — Prefill and Decode Capacity",
+    "output_filename": "glm53-flash-nvfp4-comparable-capacity-report.html",
+    "comparable": true,
+    "campaign_date": "2026-08-29",
+    "subtitle": "Two independently scheduled TP4 replicas across eight RTX PRO 6000 Blackwell GPUs, measured through HAProxy with three repetitions per operating point."
+  },
+  "source": {
+    "campaign_id": "glm53-flash-protocol-20260829",
+    "campaign_path": "/home/demouser/benchmarks/glm53/protocol-campaign-20260829",
+    "normalized_data": "normalized-report-data.json"
+  },
+  "model": {
+    "display_name": "GLM-5.3 Flash NVFP4",
+    "repository": "LibertAIDAI/GLM-5.3-Flash-NVFP4",
+    "revision": "aa28e1f54130286c95fee10d0705c74ce8743734",
+    "served_name": "glm-5.3-flash-nvfp4",
+    "quantization": "NVFP4 routed experts with higher-precision excluded modules"
+  },
+  "hardware": {
+    "host": "xe7740-04",
+    "gpu_count": 8,
+    "gpu_model": "NVIDIA RTX PRO 6000 Blackwell 96 GB",
+    "logical_cpu_count": 344
+  },
+  "deployment": {
+    "topology_display": "2 independent TP4 replicas behind HAProxy leastconn",
+    "replicas": 2,
+    "tensor_parallel_per_replica": 4,
+    "max_model_len": 1048576,
+    "max_num_seqs_per_replica": 94,
+    "active_sequence_ceiling": 188,
+    "max_num_batched_tokens_per_replica": 8192,
+    "kv_cache_dtype": "fp8_e4m3",
+    "speculative_decoding": "MTP-4",
+    "cpu_numa_affinity": "not pinned",
+    "block_size": 2304,
+    "moe_backend": "marlin",
+    "aggregate_gpu_kv_tokens": 9589502
+  },
+  "axis": {
+    "measured_concurrency": [1, 8, 32, 64, 96, 160, 192, 256],
+    "maximum": 256,
+    "major_ticks": [1, 8, 32, 64, 96, 160, 192, 256]
+  },
+  "metrics": {
+    "energy_method": "integrated_gpu_board_power",
+    "loaded_idle_baseline": true,
+    "temperature": true,
+    "load_balancer": true,
+    "pcie": true
+  },
+  "fabric_qualification_path": "/home/demouser/llm-benchmark-results/xe7740-04/fabric/host-baseline/20260829T153500Z-fabric",
+  "provenance_notes": [
+    "All 72 legacy run manifests are complete: Decode, Prefill, and Balanced across eight global-concurrency points with three repetitions each.",
+    "The comparable report independently selects Decode and Prefill; Balanced evidence remains in the authoritative raw campaign and legacy summary.",
+    "The request path was AIPerf through HAProxy leastconn to two independent TP4 vLLM replicas.",
+    "The legacy campaign did not preserve per-run HAProxy Prometheus snapshots, so HAProxy directional application-traffic panels remain unavailable rather than zero.",
+    "The legacy campaign predates process smaps_rollup collection, so process PSS/RSS attribution is unavailable.",
+    "CPU/NUMA affinity was not pinned; prior topology prose claiming pinning was inaccurate.",
+    "Raw campaign artifacts remain authoritative; no checksums are generated for this modern report bundle."
+  ]
+}

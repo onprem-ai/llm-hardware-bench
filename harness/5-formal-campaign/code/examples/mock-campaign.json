@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "campaign": {"id": "mock-capacity", "purpose": "integration-test", "repetitions": 2, "order_seed": 42, "settle_seconds": 0, "telemetry_delay_seconds": 0},
+  "model": {"repository": "example/mock", "revision": "0123456789abcdef0123456789abcdef01234567", "served_name": "mock", "slug": "mock", "quantization": null},
+  "deployment": {"id": "mock-r1-tp1", "endpoint": "http://127.0.0.1:9", "topology": "mock"},
+  "benchmark": {
+    "command": ["python3", "harness/5-formal-campaign/tests/mock_benchmark.py", "--artifact-dir", "{artifact_dir}", "--concurrency", "{concurrency}", "--random-seed", "{random_seed}", "--profile", "{profile}", "--benchmark-duration", "{benchmark_duration}"],
+    "warmup_command": ["python3", "harness/5-formal-campaign/tests/mock_benchmark.py", "--artifact-dir", "{artifact_dir}", "--concurrency", "{concurrency}", "--random-seed", "{random_seed}", "--profile", "{profile}", "--request-count", "{warmup_requests}"],
+    "result_file": "profile_export_aiperf.json",
+    "environment": {}
+  },
+  "profiles": [
+    {"name": "decode", "concurrency": [1, 2], "input_tokens_mean": 8, "input_tokens_stddev": 0, "output_tokens_mean": 32, "output_tokens_stddev": 0, "benchmark_duration": 1, "warmup_requests_multiplier": 2, "extra_args": []}
+  ]
+}

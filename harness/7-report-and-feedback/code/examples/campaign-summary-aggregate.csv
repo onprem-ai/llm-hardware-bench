@@ -1,0 +1,5 @@
+kind,source_id,concurrency,throughput_median,throughput_minimum,throughput_maximum,n
+decode,internal-source-a,1,120,118,122,3
+decode,internal-source-a,8,700,690,710,3
+prefill,internal-source-b,1,5000,4900,5100,3
+prefill,internal-source-b,8,12000,11800,12200,3

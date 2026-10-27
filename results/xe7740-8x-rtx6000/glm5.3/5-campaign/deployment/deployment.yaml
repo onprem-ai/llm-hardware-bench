@@ -1,0 +1,156 @@
+schema_version: 1
+publication_id: glm5.3
+study_id: xe7740
+host: xe7740-04
+
+model:
+  repository: RadixArk/GLM-5.3-NVFP4
+  revision: 363e8f086905
+  quantization: ModelOpt NVFP4 W4A4 routed experts in layers 3-77; BF16 MTP layer 78
+  host_path: /home/demouser/models/RadixArk--GLM-5.3-NVFP4--model
+  container_mount: /model  # read-only
+
+container:
+  # The image carries an entrypoint that expands environment variables into the
+  # vLLM invocation. The two published variants were produced with
+  # `docker commit --change ENV ...` from a common parent, which is why the
+  # parameters look baked in. They are not: the entrypoint interface is
+  # environment-driven, so any candidate profile can be launched by overriding
+  # -e MAX_NUM_SEQS / GRAPH / MTP / MAX_BATCHED_TOKENS and similar. See
+  # journal/2026-09-06-glm53-host-ram-floor-and-parameter-raster.md.
+  env_profile_interface: [MODEL_FAMILY, TP, DCP, MTP, MAX_NUM_SEQS, GRAPH,
+    MAX_BATCHED_TOKENS, MAX_MODEL_LEN, GPU_MEMORY_UTILIZATION, MOE_MODE,
+    MOE_BACKEND, KV_CACHE_DTYPE, QUANTIZATION, LOAD_FORMAT, ASYNC_SCHEDULING]
+  expert_mode_flags:
+    # vllm/model_executor/layers/fused_moe/b12x_moe.py selects the expert
+    # execution width from these flags; the live deployment forces A16.
+    current: "B12X_MOE_FORCE_A16=1 -> quant_mode=w4a16"
+    a8_experimental: "B12X_MOE_FORCE_A8=1 -> quant_mode=w4a8_nvfp4"
+    native_w4a4: "both flags unset -> quant_mode=nvfp4"
+  host_ram_measured_gib: 96  # cold start, graph capture and C48 load qualified
+  host_ram_note: >-
+    The 433 GiB checkpoint is streamed to VRAM by the InstantTensor loader and
+    is not retained in host RAM. Under a 96 GiB cgroup limit with swap disabled
+    the container peaked at 50.33 GiB charged and 52.52 GiB aggregate PSS with
+    zero OOM events. 64 GiB is plausible but untested.
+  images:
+    seq32_graph128: local/radixark-glm53-r18-graph128:canary
+    seq64_graph256: local/radixark-glm53-r18-seq64-graph256:canary
+  parent_container: radixark-glm53-graph128
+  entrypoint: /usr/local/bin/serve-infernal-invocation.sh
+  entrypoint_chain:
+    - /usr/local/bin/serve-infernal-invocation.sh
+    - /usr/local/bin/serve-gilded-gnosis.sh
+    - /usr/local/bin/serve-glm52-v19.sh
+    - /usr/local/bin/serve-glm52-v16.sh
+  vllm_version: 0.26.1rc0+infernal.invocation.cu133.r18.vllmf0fa1ce.b12x75787c7
+  # The commit changed only environment and entrypoint. The vLLM build, the b12x
+  # backend, the instanttensor loader and the entrypoint chain all come from a
+  # published base, so this is reproducible after all.
+  base_image: voipmonitor/vllm@sha256:414ec7d0d28358cfd8af0697f330f5c8acbb80e4dc4e5ba69c9fd5b5855ea804
+  base_image_source: journal/2026-08-29-radixark-qualification.md
+  registry_image: false  # the committed canaries were never pushed
+  build_recipe: image/Dockerfile
+  build_command: docker build --build-arg MAX_NUM_SEQS=64 --build-arg GRAPH=256 -t local/radixark-glm53-r18-seq64-graph256:canary image/
+  build_notes: >-
+    A rebuild is configuration-equivalent but not bit-identical: docker commit
+    and docker build produce different layer metadata, so the recorded local
+    digests will not reappear.
+
+topology:
+  replicas: 1
+  tensor_parallel: 8
+  decode_context_parallel: 1
+  gpus: [0, 1, 2, 3, 4, 5, 6, 7]
+  port: 8080
+  load_balancer: none  # single replica; measured traffic still routed per study rule 8
+
+# This publication's decode series is spliced across two deployments: the
+# narrower one up to C24, the wider one above it. Prefill uses the narrow one
+# throughout. Names match normalized_data.selection.
+profiles:
+  spliced-qualified-decode-seq32-to-seq64:
+    spliced: true
+    segments:
+      - concurrency: C1 to C24
+        image: local/radixark-glm53-r18-graph128:canary
+        max_num_seqs: 32
+        max_cudagraph_capture_size: 128
+      - concurrency: above C24
+        image: local/radixark-glm53-r18-seq64-graph256:canary
+        max_num_seqs: 64
+        max_cudagraph_capture_size: 256
+  seq32-graph128-prefill-formal:
+    image: local/radixark-glm53-r18-graph128:canary
+    max_num_seqs: 32
+    max_cudagraph_capture_size: 128
+
+# Set on the image; the entrypoint turns these into vLLM arguments.
+environment:
+  MODEL: /model
+  SERVED_MODEL_NAME: glm-5.3-nvfp4-radixark
+  TP: 8
+  DCP: 1
+  MTP: 3
+  MAX_MODEL_LEN: 262144
+  MAX_BATCHED_TOKENS: 8192
+  QUANTIZATION: modelopt_fp4
+  KV_CACHE_DTYPE: fp8
+  LOAD_FORMAT: instanttensor
+  GPU_MEMORY_UTILIZATION: 0.95
+  MOE_BACKEND: b12x
+  MOE_MODE: a16
+  ONLINE_QUANT: mxfp8
+  INSTANTTENSOR_BACKEND: BUFFERED
+  F8_DMA: ring
+  PORT: 8080
+  GPUS: 0,1,2,3,4,5,6,7
+  # MAX_NUM_SEQS and GRAPH vary per profile; see profiles above.
+
+# vLLM's own report of its effective configuration, captured from the canary
+# startup log. This is authoritative: it is what the engine actually ran, not
+# what the environment requested.
+effective_vllm_args:
+  tensor_parallel_size: 8
+  max_model_len: 262144
+  quantization: modelopt_fp4
+  kv_cache_dtype: fp8
+  load_format: instanttensor
+  attention_backend: B12X_MLA_SPARSE
+  moe_backend: b12x
+  gpu_memory_utilization: 0.95
+  max_num_batched_tokens: 8192
+  enable_prefix_caching: true
+  enable_chunked_prefill: true
+  async_scheduling: true
+  enable_flashinfer_autotune: true
+  speculative_config: {method: mtp, num_speculative_tokens: 3}
+  reasoning_parser: glm45
+  tool_call_parser: glm47
+  hf_overrides:
+    use_index_cache: true
+    index_topk_pattern: FFFSSSFSSSFSSSFSSSFSSSFSSSFSSSFSSSFSSSFSSSFSSSFSSSFSSSFSSSFSSSFSSSFSSSFSSSFSSS
+
+verification:
+  # The campaign asserted the effective values before measuring, rather than
+  # trusting the requested ones.
+  required_checks:
+    - startup log reports max_num_seqs equal to the profile value
+    - startup log reports max_cudagraph_capture_size equal to the profile value
+    - startup log reports num_spec_tokens=3
+
+provenance:
+  recovered_at: 2026-09-02
+  recovered_from:
+    - .../20260830-full-glm53-radixark-seq64-graph256-canary/launch-and-run.sh
+    - .../20260830-full-glm53-radixark-seq64-graph256-canary/runtime-evidence.txt  # effective args
+    - docker inspect of both canary images on xe7740-04
+  campaign_root: /home/demouser/llm-benchmark-results/xe7740-04/glm-5.3-nvfp4/363e8f086905/r1-tp8-dcp1-mtp3-seq64-b8192-graph256-r18-direct-exception/20260831-full-glm53-radixark-seq64-graph256-formal-direct
+  per_run_launch_command: absent
+  caution: >-
+    No launch script describes this deployment as flags; the configuration is
+    environment expanded by a four-level entrypoint chain. It is nonetheless
+    reproducible from the published base image, see image/Dockerfile. An earlier
+    revision of this file said the deployment would be lost if the local images
+    were pruned. That was wrong: the base image was recorded in the 2026-08-29
+    qualification journal, which had not been consulted.

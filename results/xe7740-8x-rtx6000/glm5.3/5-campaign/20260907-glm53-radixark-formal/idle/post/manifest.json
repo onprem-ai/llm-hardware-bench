@@ -1,0 +1,10 @@
+{
+  "gpu_power_avg_w": 29.9,
+  "gpu_power_max_w": 30.485,
+  "gpu_power_min_w": 29.61,
+  "kind": "loaded-idle-after-campaign",
+  "sampler": "nvidia-smi power.draw, 25 s interval, host-side",
+  "samples": 12,
+  "schema_version": 1,
+  "source": "formal-20260907/B1-post-idle.csv"
+}

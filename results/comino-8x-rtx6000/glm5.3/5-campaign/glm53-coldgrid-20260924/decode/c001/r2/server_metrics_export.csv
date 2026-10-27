@@ -1,0 +1,128 @@
+# AIPerf Server Metrics Export (CSV)
+# aiperf_version: 0.13.0.dev20260918
+# schema_version: 1.0
+# benchmark_id: 9bf4f5f464ef
+# Note: Same benchmark_id and version appear in JSON and Parquet exports
+#
+Endpoint,Type,Metric,Unit,avg,min,max,std,p1,p5,p10,p25,p50,p75,p90,p95,p99,engine,model_name,reason,sleep_state,Description
+127.0.0.1:8084,gauge,process_max_fds,,65535.0000,65535.0000,65535.0000,0.0000,65535.0000,65535.0000,65535.0000,65535.0000,65535.0000,65535.0000,65535.0000,65535.0000,65535.0000,,,,,Maximum number of open file descriptors.
+127.0.0.1:8084,gauge,process_open_fds,,101.0248,101.0000,104.0000,0.2531,101.0000,101.0000,101.0000,101.0000,101.0000,101.0000,101.0000,101.0000,101.0000,,,,,Number of open file descriptors.
+127.0.0.1:8084,gauge,process_resident_memory_bytes,bytes,1865064448.0000,1865064448.0000,1865064448.0000,0.0000,1865064448.0000,1865064448.0000,1865064448.0000,1865064448.0000,1865064448.0000,1865064448.0000,1865064448.0000,1865064448.0000,1865064448.0000,,,,,Resident memory size in bytes.
+127.0.0.1:8084,gauge,process_start_time_seconds,seconds,1790269379.7100,1790269379.7100,1790269379.7100,0.0000,1790269379.7100,1790269379.7100,1790269379.7100,1790269379.7100,1790269379.7100,1790269379.7100,1790269379.7100,1790269379.7100,1790269379.7100,,,,,Start time of the process since unix epoch in seconds.
+127.0.0.1:8084,gauge,process_virtual_memory_bytes,bytes,61354143744.0000,61354143744.0000,61354143744.0000,0.0000,61354143744.0000,61354143744.0000,61354143744.0000,61354143744.0000,61354143744.0000,61354143744.0000,61354143744.0000,61354143744.0000,61354143744.0000,,,,,Virtual memory size in bytes.
+127.0.0.1:8084,gauge,vllm:kv_cache_usage_perc,ratio,0.0007,0.0000,0.0015,0.0004,0.0000,0.0000,0.0001,0.0003,0.0007,0.0010,0.0012,0.0013,0.0015,0,glm-5.3-nvfp4-radixark,,,KV-cache usage. 1 means 100 percent usage.
+127.0.0.1:8084,gauge,vllm:num_requests_running,requests,0.9356,0.0000,1.0000,0.2460,0.0000,0.0000,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,0,glm-5.3-nvfp4-radixark,,,Number of requests in model execution batches.
+127.0.0.1:8084,gauge,vllm:num_requests_waiting,requests,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0,glm-5.3-nvfp4-radixark,,,Number of requests waiting to be processed.
+127.0.0.1:8084,gauge,vllm:engine_sleep_state,,1.0000,1.0000,1.0000,0.0000,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,0,glm-5.3-nvfp4-radixark,,awake,Engine sleep state; awake = 0 means engine is sleeping; awake = 1 means engine is awake; weights_offloaded = 1 means sleep level 1; discard_all = 1 means sleep level 2.
+127.0.0.1:8084,gauge,vllm:engine_sleep_state,,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0,glm-5.3-nvfp4-radixark,,discard_all,Engine sleep state; awake = 0 means engine is sleeping; awake = 1 means engine is awake; weights_offloaded = 1 means sleep level 1; discard_all = 1 means sleep level 2.
+127.0.0.1:8084,gauge,vllm:engine_sleep_state,,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0,glm-5.3-nvfp4-radixark,,weights_offloaded,Engine sleep state; awake = 0 means engine is sleeping; awake = 1 means engine is awake; weights_offloaded = 1 means sleep level 1; discard_all = 1 means sleep level 2.
+127.0.0.1:8084,gauge,vllm:num_requests_waiting_by_reason,requests,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0,glm-5.3-nvfp4-radixark,capacity,,"Number of waiting requests by reason. Reason labels: 'capacity' = waiting for scheduling capacity; 'deferred' = deferred by transient constraints (LoRA budget, KV transfer, blocked status). Sum of all reasons equals vllm:num_requests_waiting."
+127.0.0.1:8084,gauge,vllm:num_requests_waiting_by_reason,requests,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0,glm-5.3-nvfp4-radixark,deferred,,"Number of waiting requests by reason. Reason labels: 'capacity' = waiting for scheduling capacity; 'deferred' = deferred by transient constraints (LoRA budget, KV transfer, blocked status). Sum of all reasons equals vllm:num_requests_waiting."
+
+Endpoint,Type,Metric,Unit,total,rate,rate_avg,rate_min,rate_max,rate_std,engine,finished_reason,mode,model_name,outcome,position,request_type,source,generation,handler,method,status,Description
+127.0.0.1:8084,counter,process_cpu_seconds,seconds,1.0400,0.0152,,,,,,,,,,,,,,,,,Total user and system CPU time spent in seconds.
+127.0.0.1:8084,counter,http_requests,requests,9.0000,0.1313,,,,,,,,,,,,,,/v1/chat/completions,POST,2xx,"Total number of requests by method, status and handler."
+127.0.0.1:8084,counter,python_gc_collections,,7.0000,0.1021,,,,,,,,,,,,,0,,,,Number of times this generation was collected
+127.0.0.1:8084,counter,python_gc_collections,,0.0000,0.0000,,,,,,,,,,,,,1,,,,Number of times this generation was collected
+127.0.0.1:8084,counter,python_gc_collections,,0.0000,0.0000,,,,,,,,,,,,,2,,,,Number of times this generation was collected
+127.0.0.1:8084,counter,python_gc_objects_collected,,429.0000,6.2594,,,,,,,,,,,,,0,,,,Objects collected during gc
+127.0.0.1:8084,counter,python_gc_objects_collected,,0.0000,0.0000,,,,,,,,,,,,,1,,,,Objects collected during gc
+127.0.0.1:8084,counter,python_gc_objects_collected,,0.0000,0.0000,,,,,,,,,,,,,2,,,,Objects collected during gc
+127.0.0.1:8084,counter,python_gc_objects_uncollectable,,0.0000,0.0000,,,,,,,,,,,,,0,,,,Uncollectable objects found during GC
+127.0.0.1:8084,counter,python_gc_objects_uncollectable,,0.0000,0.0000,,,,,,,,,,,,,1,,,,Uncollectable objects found during GC
+127.0.0.1:8084,counter,python_gc_objects_uncollectable,,0.0000,0.0000,,,,,,,,,,,,,2,,,,Uncollectable objects found during GC
+127.0.0.1:8084,counter,vllm:tool_call_parser_invocations,,0.0000,0.0000,,,,,,,non_streaming,glm-5.3-nvfp4-radixark,no_tool_call,,chat_completions,,,,,,Total number of ToolParser invocations. Non-streaming increments once per choice; streaming increments once per delta.
+127.0.0.1:8084,counter,vllm:tool_call_parser_invocations,,0.0000,0.0000,,,,,,,non_streaming,glm-5.3-nvfp4-radixark,no_tool_call,,other,,,,,,Total number of ToolParser invocations. Non-streaming increments once per choice; streaming increments once per delta.
+127.0.0.1:8084,counter,vllm:tool_call_parser_invocations,,0.0000,0.0000,,,,,,,non_streaming,glm-5.3-nvfp4-radixark,no_tool_call,,responses,,,,,,Total number of ToolParser invocations. Non-streaming increments once per choice; streaming increments once per delta.
+127.0.0.1:8084,counter,vllm:tool_call_parser_invocations,,0.0000,0.0000,,,,,,,non_streaming,glm-5.3-nvfp4-radixark,tool_call,,chat_completions,,,,,,Total number of ToolParser invocations. Non-streaming increments once per choice; streaming increments once per delta.
+127.0.0.1:8084,counter,vllm:tool_call_parser_invocations,,0.0000,0.0000,,,,,,,non_streaming,glm-5.3-nvfp4-radixark,tool_call,,other,,,,,,Total number of ToolParser invocations. Non-streaming increments once per choice; streaming increments once per delta.
+127.0.0.1:8084,counter,vllm:tool_call_parser_invocations,,0.0000,0.0000,,,,,,,non_streaming,glm-5.3-nvfp4-radixark,tool_call,,responses,,,,,,Total number of ToolParser invocations. Non-streaming increments once per choice; streaming increments once per delta.
+127.0.0.1:8084,counter,vllm:tool_call_parser_invocations,,1189.0000,17.3483,,,,,,,streaming,glm-5.3-nvfp4-radixark,no_tool_call,,chat_completions,,,,,,Total number of ToolParser invocations. Non-streaming increments once per choice; streaming increments once per delta.
+127.0.0.1:8084,counter,vllm:tool_call_parser_invocations,,0.0000,0.0000,,,,,,,streaming,glm-5.3-nvfp4-radixark,no_tool_call,,other,,,,,,Total number of ToolParser invocations. Non-streaming increments once per choice; streaming increments once per delta.
+127.0.0.1:8084,counter,vllm:tool_call_parser_invocations,,0.0000,0.0000,,,,,,,streaming,glm-5.3-nvfp4-radixark,no_tool_call,,responses,,,,,,Total number of ToolParser invocations. Non-streaming increments once per choice; streaming increments once per delta.
+127.0.0.1:8084,counter,vllm:tool_call_parser_invocations,,0.0000,0.0000,,,,,,,streaming,glm-5.3-nvfp4-radixark,tool_call,,chat_completions,,,,,,Total number of ToolParser invocations. Non-streaming increments once per choice; streaming increments once per delta.
+127.0.0.1:8084,counter,vllm:tool_call_parser_invocations,,0.0000,0.0000,,,,,,,streaming,glm-5.3-nvfp4-radixark,tool_call,,other,,,,,,Total number of ToolParser invocations. Non-streaming increments once per choice; streaming increments once per delta.
+127.0.0.1:8084,counter,vllm:tool_call_parser_invocations,,0.0000,0.0000,,,,,,,streaming,glm-5.3-nvfp4-radixark,tool_call,,responses,,,,,,Total number of ToolParser invocations. Non-streaming increments once per choice; streaming increments once per delta.
+127.0.0.1:8084,counter,vllm:estimated_flops_per_gpu,,0.0000,0.0000,,,,,0,,,glm-5.3-nvfp4-radixark,,,,,,,,,Estimated number of floating point operations per GPU (for Model Flops Utilization calculations).
+127.0.0.1:8084,counter,vllm:estimated_read_bytes_per_gpu,,0.0000,0.0000,,,,,0,,,glm-5.3-nvfp4-radixark,,,,,,,,,Estimated number of bytes read from memory per GPU (for Model Flops Utilization calculations).
+127.0.0.1:8084,counter,vllm:estimated_write_bytes_per_gpu,,0.0000,0.0000,,,,,0,,,glm-5.3-nvfp4-radixark,,,,,,,,,Estimated number of bytes written to memory per GPU (for Model Flops Utilization calculations).
+127.0.0.1:8084,counter,vllm:external_prefix_cache_hits,,0.0000,0.0000,,,,,0,,,glm-5.3-nvfp4-radixark,,,,,,,,,"External prefix cache hits from KV connector cross-instance cache sharing, in terms of number of cached tokens."
+127.0.0.1:8084,counter,vllm:external_prefix_cache_queries,,0.0000,0.0000,,,,,0,,,glm-5.3-nvfp4-radixark,,,,,,,,,"External prefix cache queries from KV connector cross-instance cache sharing, in terms of number of queried tokens."
+127.0.0.1:8084,counter,vllm:generation_tokens,tokens,6912.0000,100.8506,,,,,0,,,glm-5.3-nvfp4-radixark,,,,,,,,,Number of generation tokens processed.
+127.0.0.1:8084,counter,vllm:mm_cache_hits,,0.0000,0.0000,,,,,0,,,glm-5.3-nvfp4-radixark,,,,,,,,,"Multi-modal cache hits, in terms of number of cached items."
+127.0.0.1:8084,counter,vllm:mm_cache_queries,,0.0000,0.0000,,,,,0,,,glm-5.3-nvfp4-radixark,,,,,,,,,"Multi-modal cache queries, in terms of number of queried items."
+127.0.0.1:8084,counter,vllm:num_preemptions,,0.0000,0.0000,,,,,0,,,glm-5.3-nvfp4-radixark,,,,,,,,,Cumulative number of preemption from the engine.
+127.0.0.1:8084,counter,vllm:prefix_cache_hits,,0.0000,0.0000,,,,,0,,,glm-5.3-nvfp4-radixark,,,,,,,,,"Prefix cache hits, in terms of number of cached tokens."
+127.0.0.1:8084,counter,vllm:prefix_cache_queries,,180.0000,2.6263,,,,,0,,,glm-5.3-nvfp4-radixark,,,,,,,,,"Prefix cache queries, in terms of number of queried tokens."
+127.0.0.1:8084,counter,vllm:prompt_tokens,tokens,180.0000,2.6263,,,,,0,,,glm-5.3-nvfp4-radixark,,,,,,,,,Number of prefill tokens processed.
+127.0.0.1:8084,counter,vllm:prompt_tokens_cached,,0.0000,0.0000,,,,,0,,,glm-5.3-nvfp4-radixark,,,,,,,,,Number of cached prompt tokens (local + external).
+127.0.0.1:8084,counter,vllm:spec_decode_num_accepted_tokens,tokens,4405.0000,64.2718,,,,,0,,,glm-5.3-nvfp4-radixark,,,,,,,,,Number of accepted tokens.
+127.0.0.1:8084,counter,vllm:spec_decode_num_draft_tokens,tokens,7539.0000,109.9989,,,,,0,,,glm-5.3-nvfp4-radixark,,,,,,,,,Number of draft tokens.
+127.0.0.1:8084,counter,vllm:spec_decode_num_drafts,,2513.0000,36.6663,,,,,0,,,glm-5.3-nvfp4-radixark,,,,,,,,,Number of spec decoding drafts.
+127.0.0.1:8084,counter,vllm:prompt_tokens_by_source,,0.0000,0.0000,,,,,0,,,glm-5.3-nvfp4-radixark,,,,external_kv_transfer,,,,,Number of prompt tokens by source.
+127.0.0.1:8084,counter,vllm:prompt_tokens_by_source,,0.0000,0.0000,,,,,0,,,glm-5.3-nvfp4-radixark,,,,local_cache_hit,,,,,Number of prompt tokens by source.
+127.0.0.1:8084,counter,vllm:prompt_tokens_by_source,,180.0000,2.6263,,,,,0,,,glm-5.3-nvfp4-radixark,,,,local_compute,,,,,Number of prompt tokens by source.
+127.0.0.1:8084,counter,vllm:spec_decode_num_accepted_tokens_per_pos,,2015.0000,29.4002,,,,,0,,,glm-5.3-nvfp4-radixark,,0,,,,,,,Accepted tokens per draft position.
+127.0.0.1:8084,counter,vllm:spec_decode_num_accepted_tokens_per_pos,,1419.0000,20.7041,,,,,0,,,glm-5.3-nvfp4-radixark,,1,,,,,,,Accepted tokens per draft position.
+127.0.0.1:8084,counter,vllm:spec_decode_num_accepted_tokens_per_pos,,971.0000,14.1675,,,,,0,,,glm-5.3-nvfp4-radixark,,2,,,,,,,Accepted tokens per draft position.
+127.0.0.1:8084,counter,vllm:request_success,requests,0.0000,0.0000,,,,,0,abort,,glm-5.3-nvfp4-radixark,,,,,,,,,Count of successfully processed requests.
+127.0.0.1:8084,counter,vllm:request_success,requests,0.0000,0.0000,,,,,0,error,,glm-5.3-nvfp4-radixark,,,,,,,,,Count of successfully processed requests.
+127.0.0.1:8084,counter,vllm:request_success,requests,9.0000,0.1313,,,,,0,length,,glm-5.3-nvfp4-radixark,,,,,,,,,Count of successfully processed requests.
+127.0.0.1:8084,counter,vllm:request_success,requests,0.0000,0.0000,,,,,0,repetition,,glm-5.3-nvfp4-radixark,,,,,,,,,Count of successfully processed requests.
+127.0.0.1:8084,counter,vllm:request_success,requests,0.0000,0.0000,,,,,0,stop,,glm-5.3-nvfp4-radixark,,,,,,,,,Count of successfully processed requests.
+
+Endpoint,Type,Metric,Unit,count,count_rate,sum,sum_rate,avg,p1_estimate,p5_estimate,p10_estimate,p25_estimate,p50_estimate,p75_estimate,p90_estimate,p95_estimate,p99_estimate,engine,model_name,handler,method,Description,buckets
+127.0.0.1:8084,histogram,http_request_duration_highr_seconds,seconds,9,0.1313,64.2820,0.9379,7.1424,6.2279,6.3035,6.3979,6.6813,7.0923,7.4420,7.7664,8.2296,8.6002,,,,,Latency with many buckets but no API specific labels. Made for more accurate percentile calculations.,0.01=0;0.025=0;0.05=0;0.075=0;0.1=0;0.25=0;0.5=0;0.75=0;1.0=0;1.5=0;2.0=0;2.5=0;3.0=0;3.5=0;4.0=0;4.5=0;5.0=0;7.5=7;10.0=9;30.0=9;60.0=9;+Inf=9
+127.0.0.1:8084,histogram,http_request_duration_seconds,seconds,9,0.1313,64.2820,0.9379,7.1424,1.1228,1.6142,2.2285,4.0712,7.1424,10.2137,12.0564,12.6706,13.1620,,,/v1/chat/completions,POST,Latency with only few buckets by handler. Made to be only used if aggregation by handler is important.,0.1=0;0.5=0;1.0=0;+Inf=9
+127.0.0.1:8084,histogram,vllm:e2e_request_latency_seconds,seconds,9,0.1313,64.2719,0.9378,7.1413,5.6678,5.7881,5.9385,6.3895,7.1413,7.8931,8.3442,8.4945,8.6148,0,glm-5.3-nvfp4-radixark,,,Histogram of e2e request latency in seconds.,0.3=0;0.5=0;0.8=0;1.0=0;1.5=0;2.0=0;2.5=0;5.0=0;10.0=9;15.0=9;20.0=9;30.0=9;40.0=9;50.0=9;60.0=9;120.0=9;240.0=9;480.0=9;960.0=9;1920.0=9;7680.0=9;+Inf=9
+127.0.0.1:8084,histogram,vllm:inter_token_latency_seconds,seconds,2513,36.6663,61.4605,0.8967,0.0245,0.0239,0.0239,0.0239,0.0240,0.0241,0.0243,0.0244,0.0244,0.0392,0,glm-5.3-nvfp4-radixark,,,Histogram of inter-token latency in seconds.,0.01=0;0.025=2451;0.05=2513;0.075=2513;0.1=2513;0.15=2513;0.2=2513;0.3=2513;0.4=2513;0.5=2513;0.75=2513;1.0=2513;2.5=2513;5.0=2513;7.5=2513;10.0=2513;20.0=2513;40.0=2513;80.0=2513;+Inf=2513
+127.0.0.1:8084,histogram,vllm:iteration_tokens_total,tokens,2522,36.7976,7092.0000,103.4769,2.8121,0.0671,0.2684,0.5200,2.2060,2.9916,3.7772,4.2485,4.4057,4.5314,0,glm-5.3-nvfp4-radixark,,,Histogram of number of tokens per engine_step.,1.0=501;8.0=2513;16.0=2513;32.0=2522;64.0=2522;128.0=2522;256.0=2522;512.0=2522;1024.0=2522;2048.0=2522;4096.0=2522;8192.0=2522;16384.0=2522;+Inf=2522
+127.0.0.1:8084,histogram,vllm:request_decode_time_seconds,seconds,9,0.1313,61.4605,0.8967,6.8289,5.3547,5.4751,5.6255,6.0768,6.8289,7.5811,8.0324,8.1828,8.3032,0,glm-5.3-nvfp4-radixark,,,Histogram of time spent in DECODE phase for request.,0.3=0;0.5=0;0.8=0;1.0=0;1.5=0;2.0=0;2.5=0;5.0=0;10.0=9;15.0=9;20.0=9;30.0=9;40.0=9;50.0=9;60.0=9;120.0=9;240.0=9;480.0=9;960.0=9;1920.0=9;7680.0=9;+Inf=9
+127.0.0.1:8084,histogram,vllm:request_generation_tokens,tokens,9,0.1313,6912.0000,100.8506,768.0000,550.2222,568.0000,590.2222,656.8889,768.0000,879.1111,945.7778,968.0000,985.7778,0,glm-5.3-nvfp4-radixark,,,Number of generation tokens processed.,1.0=0;2.0=0;5.0=0;10.0=0;20.0=0;50.0=0;100.0=0;200.0=0;500.0=0;1000.0=9;2000.0=9;5000.0=9;10000.0=9;20000.0=9;50000.0=9;100000.0=9;200000.0=9;+Inf=9
+127.0.0.1:8084,histogram,vllm:request_inference_time_seconds,seconds,9,0.1313,64.1583,0.9361,7.1287,5.6524,5.7729,5.9236,6.3755,7.1287,7.8819,8.3338,8.4845,8.6050,0,glm-5.3-nvfp4-radixark,,,Histogram of time spent in RUNNING phase for request.,0.3=0;0.5=0;0.8=0;1.0=0;1.5=0;2.0=0;2.5=0;5.0=0;10.0=9;15.0=9;20.0=9;30.0=9;40.0=9;50.0=9;60.0=9;120.0=9;240.0=9;480.0=9;960.0=9;1920.0=9;7680.0=9;+Inf=9
+127.0.0.1:8084,histogram,vllm:request_max_num_generation_tokens,tokens,9,0.1313,6912.0000,100.8506,768.0000,550.2222,568.0000,590.2222,656.8889,768.0000,879.1111,945.7778,968.0000,985.7778,0,glm-5.3-nvfp4-radixark,,,Histogram of maximum number of requested generation tokens.,1.0=0;2.0=0;5.0=0;10.0=0;20.0=0;50.0=0;100.0=0;200.0=0;500.0=0;1000.0=9;2000.0=9;5000.0=9;10000.0=9;20000.0=9;50000.0=9;100000.0=9;200000.0=9;+Inf=9
+127.0.0.1:8084,histogram,vllm:request_params_max_tokens,tokens,9,0.1313,6912.0000,100.8506,768.0000,550.2222,568.0000,590.2222,656.8889,768.0000,879.1111,945.7778,968.0000,985.7778,0,glm-5.3-nvfp4-radixark,,,Histogram of the max_tokens request parameter.,1.0=0;2.0=0;5.0=0;10.0=0;20.0=0;50.0=0;100.0=0;200.0=0;500.0=0;1000.0=9;2000.0=9;5000.0=9;10000.0=9;20000.0=9;50000.0=9;100000.0=9;200000.0=9;+Inf=9
+127.0.0.1:8084,histogram,vllm:request_params_n,,9,0.1313,9.0000,0.1313,1.0000,0.4644,0.5000,0.5444,0.6778,0.9000,1.0000,1.0000,1.0000,1.0000,0,glm-5.3-nvfp4-radixark,,,Histogram of the n request parameter.,1.0=9;2.0=9;5.0=9;10.0=9;20.0=9;+Inf=9
+127.0.0.1:8084,histogram,vllm:request_prefill_kv_computed_tokens,tokens,9,0.1313,180.0000,2.6263,20.0000,14.6444,15.0000,15.4444,16.7778,19.0000,20.0000,20.0000,20.0000,20.0000,0,glm-5.3-nvfp4-radixark,,,Histogram of new KV tokens computed during prefill (excluding cached tokens).,1.0=0;2.0=0;5.0=0;10.0=0;20.0=9;50.0=9;100.0=9;200.0=9;500.0=9;1000.0=9;2000.0=9;5000.0=9;10000.0=9;20000.0=9;50000.0=9;100000.0=9;200000.0=9;+Inf=9
+127.0.0.1:8084,histogram,vllm:request_prefill_time_seconds,seconds,9,0.1313,2.6977,0.0394,0.2997,0.2967,0.2969,0.2973,0.2983,0.2993,0.3019,0.3019,0.3019,0.3019,0,glm-5.3-nvfp4-radixark,,,Histogram of time spent in PREFILL phase for request.,0.3=6;0.5=9;0.8=9;1.0=9;1.5=9;2.0=9;2.5=9;5.0=9;10.0=9;15.0=9;20.0=9;30.0=9;40.0=9;50.0=9;60.0=9;120.0=9;240.0=9;480.0=9;960.0=9;1920.0=9;7680.0=9;+Inf=9
+127.0.0.1:8084,histogram,vllm:request_prompt_tokens,tokens,9,0.1313,180.0000,2.6263,20.0000,14.6444,15.0000,15.4444,16.7778,19.0000,20.0000,20.0000,20.0000,20.0000,0,glm-5.3-nvfp4-radixark,,,Number of prefill tokens processed.,1.0=0;2.0=0;5.0=0;10.0=0;20.0=9;50.0=9;100.0=9;200.0=9;500.0=9;1000.0=9;2000.0=9;5000.0=9;10000.0=9;20000.0=9;50000.0=9;100000.0=9;200000.0=9;+Inf=9
+127.0.0.1:8084,histogram,vllm:request_queue_time_seconds,seconds,9,0.1313,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0,glm-5.3-nvfp4-radixark,,,Histogram of time spent in WAITING phase for request.,0.3=9;0.5=9;0.8=9;1.0=9;1.5=9;2.0=9;2.5=9;5.0=9;10.0=9;15.0=9;20.0=9;30.0=9;40.0=9;50.0=9;60.0=9;120.0=9;240.0=9;480.0=9;960.0=9;1920.0=9;7680.0=9;+Inf=9
+127.0.0.1:8084,histogram,vllm:request_time_per_output_token_seconds,seconds,9,0.1313,0.0801,0.0012,0.0089,0.0074,0.0075,0.0077,0.0082,0.0090,0.0096,0.0100,0.0102,0.0103,0,glm-5.3-nvfp4-radixark,,,Histogram of time_per_output_token_seconds per request.,0.01=8;0.025=9;0.05=9;0.075=9;0.1=9;0.15=9;0.2=9;0.3=9;0.4=9;0.5=9;0.75=9;1.0=9;2.5=9;5.0=9;7.5=9;10.0=9;20.0=9;40.0=9;80.0=9;+Inf=9
+127.0.0.1:8084,histogram,vllm:time_to_first_token_seconds,seconds,9,0.1313,2.8133,0.0410,0.3126,0.2640,0.2651,0.2665,0.2741,0.3087,0.3434,0.3642,0.3711,0.3767,0,glm-5.3-nvfp4-radixark,,,Histogram of time to first token in seconds.,0.001=0;0.005=0;0.01=0;0.02=0;0.04=0;0.06=0;0.08=0;0.1=0;0.25=0;0.5=9;0.75=9;1.0=9;2.5=9;5.0=9;7.5=9;10.0=9;20.0=9;40.0=9;80.0=9;160.0=9;640.0=9;2560.0=9;+Inf=9
+
+Endpoint,Metric,Key,Value,Description
+127.0.0.1:8084,python_info,implementation,CPython,Python platform information
+127.0.0.1:8084,python_info,major,3,Python platform information
+127.0.0.1:8084,python_info,minor,12,Python platform information
+127.0.0.1:8084,python_info,patchlevel,3,Python platform information
+127.0.0.1:8084,python_info,version,3.12.3,Python platform information
+127.0.0.1:8084,vllm:cache_config_info,_block_size_resolved,True,Information of the LLMEngine CacheConfig
+127.0.0.1:8084,vllm:cache_config_info,block_size,64,Information of the LLMEngine CacheConfig
+127.0.0.1:8084,vllm:cache_config_info,cache_dtype,fp8,Information of the LLMEngine CacheConfig
+127.0.0.1:8084,vllm:cache_config_info,enable_prefix_caching,True,Information of the LLMEngine CacheConfig
+127.0.0.1:8084,vllm:cache_config_info,engine,0,Information of the LLMEngine CacheConfig
+127.0.0.1:8084,vllm:cache_config_info,gpu_memory_utilization,0.95,Information of the LLMEngine CacheConfig
+127.0.0.1:8084,vllm:cache_config_info,is_attention_free,False,Information of the LLMEngine CacheConfig
+127.0.0.1:8084,vllm:cache_config_info,kv_cache_dtype_skip_layers,[],Information of the LLMEngine CacheConfig
+127.0.0.1:8084,vllm:cache_config_info,kv_cache_max_concurrency,2.173095703125,Information of the LLMEngine CacheConfig
+127.0.0.1:8084,vllm:cache_config_info,kv_cache_memory_bytes,None,Information of the LLMEngine CacheConfig
+127.0.0.1:8084,vllm:cache_config_info,kv_cache_size_tokens,569664,Information of the LLMEngine CacheConfig
+127.0.0.1:8084,vllm:cache_config_info,kv_offloading_backend,native,Information of the LLMEngine CacheConfig
+127.0.0.1:8084,vllm:cache_config_info,kv_offloading_size,None,Information of the LLMEngine CacheConfig
+127.0.0.1:8084,vllm:cache_config_info,kv_sharing_fast_prefill,False,Information of the LLMEngine CacheConfig
+127.0.0.1:8084,vllm:cache_config_info,mamba_block_size,None,Information of the LLMEngine CacheConfig
+127.0.0.1:8084,vllm:cache_config_info,mamba_cache_dtype,auto,Information of the LLMEngine CacheConfig
+127.0.0.1:8084,vllm:cache_config_info,mamba_cache_mode,none,Information of the LLMEngine CacheConfig
+127.0.0.1:8084,vllm:cache_config_info,mamba_page_size_padded,None,Information of the LLMEngine CacheConfig
+127.0.0.1:8084,vllm:cache_config_info,mamba_ssm_cache_dtype,auto,Information of the LLMEngine CacheConfig
+127.0.0.1:8084,vllm:cache_config_info,num_cpu_blocks,None,Information of the LLMEngine CacheConfig
+127.0.0.1:8084,vllm:cache_config_info,num_gpu_blocks,8901,Information of the LLMEngine CacheConfig
+127.0.0.1:8084,vllm:cache_config_info,num_gpu_blocks_override,None,Information of the LLMEngine CacheConfig
+127.0.0.1:8084,vllm:cache_config_info,prefix_caching_hash_algo,sha256,Information of the LLMEngine CacheConfig
+127.0.0.1:8084,vllm:cache_config_info,prefix_match_unit,None,Information of the LLMEngine CacheConfig
+127.0.0.1:8084,vllm:cache_config_info,replayssm_buffer_len,16,Information of the LLMEngine CacheConfig
+127.0.0.1:8084,vllm:cache_config_info,skip_page_size_padded,None,Information of the LLMEngine CacheConfig
+127.0.0.1:8084,vllm:cache_config_info,sliding_window,None,Information of the LLMEngine CacheConfig
+127.0.0.1:8084,vllm:cache_config_info,use_replayssm,False,Information of the LLMEngine CacheConfig
+127.0.0.1:8084,vllm:cache_config_info,user_specified_block_size,False,Information of the LLMEngine CacheConfig
+127.0.0.1:8084,vllm:cache_config_info,user_specified_mamba_block_size,False,Information of the LLMEngine CacheConfig

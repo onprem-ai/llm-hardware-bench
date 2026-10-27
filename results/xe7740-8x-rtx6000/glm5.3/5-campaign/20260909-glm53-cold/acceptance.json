@@ -1,0 +1,1117 @@
+{
+  "cache_gate": {
+    "gate": "harness/3-deployment-raster/code/cold_gate.py",
+    "limit_served_pct": 2.0,
+    "note": "computed by acceptance from each run's own server_metrics_export.json; unknown or absent counters are never treated as cold (R-PIPE-8, R-06-12)",
+    "verdicts": {
+      "balanced-c001-r1": "cold",
+      "balanced-c001-r2": "cold",
+      "balanced-c001-r3": "cold",
+      "balanced-c008-r1": "cold",
+      "balanced-c008-r2": "cold",
+      "balanced-c008-r3": "cold",
+      "balanced-c032-r1": "cold",
+      "balanced-c032-r2": "cold",
+      "balanced-c032-r3": "cold",
+      "balanced-c064-r1": "cold",
+      "balanced-c064-r2": "cold",
+      "balanced-c064-r3": "cold",
+      "balanced-c096-r1": "cold",
+      "balanced-c096-r2": "cold",
+      "balanced-c096-r3": "cold",
+      "balanced-c128-r1": "cold",
+      "balanced-c128-r2": "cold",
+      "balanced-c128-r3": "cold",
+      "balanced-c160-r1": "cold",
+      "balanced-c160-r2": "cold",
+      "balanced-c160-r3": "cold",
+      "balanced-c192-r1": "cold",
+      "balanced-c192-r2": "cold",
+      "balanced-c192-r3": "cold",
+      "decode-c001-r1": "cold",
+      "decode-c001-r2": "cold",
+      "decode-c001-r3": "cold",
+      "decode-c008-r1": "cold",
+      "decode-c008-r2": "cold",
+      "decode-c008-r3": "cold",
+      "decode-c032-r1": "cold",
+      "decode-c032-r2": "cold",
+      "decode-c032-r3": "cold",
+      "decode-c064-r1": "cold",
+      "decode-c064-r2": "cold",
+      "decode-c064-r3": "cold",
+      "decode-c096-r1": "cold",
+      "decode-c096-r2": "cold",
+      "decode-c096-r3": "cold",
+      "decode-c128-r1": "cold",
+      "decode-c128-r2": "cold",
+      "decode-c128-r3": "cold",
+      "decode-c160-r1": "cold",
+      "decode-c160-r2": "cold",
+      "decode-c160-r3": "cold",
+      "decode-c192-r1": "cold",
+      "decode-c192-r2": "cold",
+      "decode-c192-r3": "cold",
+      "prefill-c001-r1": "cold",
+      "prefill-c001-r2": "cold",
+      "prefill-c001-r3": "cold",
+      "prefill-c008-r1": "cold",
+      "prefill-c008-r2": "cold",
+      "prefill-c008-r3": "cold",
+      "prefill-c032-r1": "cold",
+      "prefill-c032-r2": "cold",
+      "prefill-c032-r3": "cold",
+      "prefill-c064-r1": "cold",
+      "prefill-c064-r2": "cold",
+      "prefill-c064-r3": "cold",
+      "prefill-c096-r1": "cold",
+      "prefill-c096-r2": "cold",
+      "prefill-c096-r3": "cold",
+      "prefill-c128-r1": "cold",
+      "prefill-c128-r2": "cold",
+      "prefill-c128-r3": "cold",
+      "prefill-c160-r1": "cold",
+      "prefill-c160-r2": "cold",
+      "prefill-c160-r3": "cold",
+      "prefill-c192-r1": "cold",
+      "prefill-c192-r2": "cold",
+      "prefill-c192-r3": "cold"
+    }
+  },
+  "campaign_id": "20260909-glm53-cold",
+  "claim_exclusions": [],
+  "counts": {
+    "container_launches": 1,
+    "measured_runs": 72
+  },
+  "excluded_runs": 0,
+  "generated_utc": "2026-09-09T18:42:59Z",
+  "host": "xe7740-04",
+  "launch_chronology": 1,
+  "model": "RadixArk/GLM-5.3-NVFP4",
+  "peaks": {
+    "balanced": {
+      "claim_allowed": true,
+      "lower_beyond_peak": [
+        160,
+        192
+      ],
+      "peak_concurrency": 128,
+      "peak_median": 928.565257,
+      "points_beyond_peak": 2
+    },
+    "decode": {
+      "claim_allowed": true,
+      "lower_beyond_peak": [
+        160,
+        192
+      ],
+      "peak_concurrency": 128,
+      "peak_median": 1233.879412,
+      "points_beyond_peak": 2
+    },
+    "prefill": {
+      "claim_allowed": true,
+      "lower_beyond_peak": [
+        192
+      ],
+      "peak_concurrency": 160,
+      "peak_median": 6238.175223,
+      "points_beyond_peak": 1
+    }
+  },
+  "point_verdicts": [
+    {
+      "concurrency": 1,
+      "gpu_samples_in_window": 0,
+      "launches": [
+        "cold-client-20260909"
+      ],
+      "max": 73.91819,
+      "median": 72.528433,
+      "min": 72.24651,
+      "primary_field": "output_token_throughput",
+      "profile": "balanced",
+      "prompt_cache_read_pct": 0,
+      "reasons": [],
+      "repetitions": 3,
+      "seeds": [
+        601001,
+        601002,
+        601003
+      ],
+      "server_side": {
+        "kv_usage_peak_pct": 0.31,
+        "loadgen_cpu_cores": 0.06,
+        "preemptions_total": 0,
+        "spec_accept_pct": 56.26,
+        "waiting_requests_avg": 0
+      },
+      "spread_pct": 2.305,
+      "statistic": "median",
+      "verdict": "accepted",
+      "window_class": {
+        "declared_s": 60,
+        "note": "throughput is reported per realized window; comparisons across declared-window classes are prohibited",
+        "realized_excess_pct": -100.0,
+        "realized_median_s": 0
+      }
+    },
+    {
+      "concurrency": 8,
+      "gpu_samples_in_window": 0,
+      "launches": [
+        "cold-client-20260909"
+      ],
+      "max": 234.548556,
+      "median": 230.795115,
+      "min": 225.55373,
+      "primary_field": "output_token_throughput",
+      "profile": "balanced",
+      "prompt_cache_read_pct": 0,
+      "reasons": [],
+      "repetitions": 3,
+      "seeds": [
+        608001,
+        608002,
+        608003
+      ],
+      "server_side": {
+        "kv_usage_peak_pct": 2.37,
+        "loadgen_cpu_cores": 0.08,
+        "preemptions_total": 0,
+        "spec_accept_pct": 55.29,
+        "waiting_requests_avg": 0
+      },
+      "spread_pct": 3.897,
+      "statistic": "median",
+      "verdict": "accepted",
+      "window_class": {
+        "declared_s": 60,
+        "note": "throughput is reported per realized window; comparisons across declared-window classes are prohibited",
+        "realized_excess_pct": -100.0,
+        "realized_median_s": 0
+      }
+    },
+    {
+      "concurrency": 32,
+      "gpu_samples_in_window": 0,
+      "launches": [
+        "cold-client-20260909"
+      ],
+      "max": 473.905808,
+      "median": 445.638581,
+      "min": 413.027627,
+      "primary_field": "output_token_throughput",
+      "profile": "balanced",
+      "prompt_cache_read_pct": 0,
+      "reasons": [
+        "R-06-2 rerun condition: 13.7% spread between repetitions (> 10%). Not rerun: the freeze contract forbids mutating the campaign mid-flight. Report the median together with min/max and the per-repetition prompt-cache read percentage"
+      ],
+      "repetitions": 3,
+      "seeds": [
+        632001,
+        632002,
+        632003
+      ],
+      "server_side": {
+        "kv_usage_peak_pct": 9.38,
+        "loadgen_cpu_cores": 0.1,
+        "preemptions_total": 0,
+        "spec_accept_pct": 55.22,
+        "waiting_requests_avg": 0.83
+      },
+      "spread_pct": 13.661,
+      "statistic": "median",
+      "verdict": "accepted-with-notes",
+      "window_class": {
+        "declared_s": 60,
+        "note": "throughput is reported per realized window; comparisons across declared-window classes are prohibited",
+        "realized_excess_pct": -100.0,
+        "realized_median_s": 0
+      }
+    },
+    {
+      "concurrency": 64,
+      "gpu_samples_in_window": 0,
+      "launches": [
+        "cold-client-20260909"
+      ],
+      "max": 618.237979,
+      "median": 588.987254,
+      "min": 571.527335,
+      "primary_field": "output_token_throughput",
+      "profile": "balanced",
+      "prompt_cache_read_pct": 0,
+      "reasons": [],
+      "repetitions": 3,
+      "seeds": [
+        664001,
+        664002,
+        664003
+      ],
+      "server_side": {
+        "kv_usage_peak_pct": 18.71,
+        "loadgen_cpu_cores": 0.12,
+        "preemptions_total": 0,
+        "spec_accept_pct": 55.68,
+        "waiting_requests_avg": 3.77
+      },
+      "spread_pct": 7.931,
+      "statistic": "median",
+      "verdict": "accepted",
+      "window_class": {
+        "declared_s": 60,
+        "note": "throughput is reported per realized window; comparisons across declared-window classes are prohibited",
+        "realized_excess_pct": -100.0,
+        "realized_median_s": 0
+      }
+    },
+    {
+      "concurrency": 96,
+      "gpu_samples_in_window": 0,
+      "launches": [
+        "cold-client-20260909"
+      ],
+      "max": 709.651309,
+      "median": 704.219611,
+      "min": 692.029175,
+      "primary_field": "output_token_throughput",
+      "profile": "balanced",
+      "prompt_cache_read_pct": 0,
+      "reasons": [],
+      "repetitions": 3,
+      "seeds": [
+        696001,
+        696002,
+        696003
+      ],
+      "server_side": {
+        "kv_usage_peak_pct": 27.97,
+        "loadgen_cpu_cores": 0.09,
+        "preemptions_total": 0,
+        "spec_accept_pct": 55.5,
+        "waiting_requests_avg": 9.1
+      },
+      "spread_pct": 2.502,
+      "statistic": "median",
+      "verdict": "accepted",
+      "window_class": {
+        "declared_s": 60,
+        "note": "throughput is reported per realized window; comparisons across declared-window classes are prohibited",
+        "realized_excess_pct": -100.0,
+        "realized_median_s": 0
+      }
+    },
+    {
+      "concurrency": 128,
+      "gpu_samples_in_window": 0,
+      "launches": [
+        "cold-client-20260909"
+      ],
+      "max": 928.567664,
+      "median": 928.565257,
+      "min": 917.832108,
+      "primary_field": "output_token_throughput",
+      "profile": "balanced",
+      "prompt_cache_read_pct": 0,
+      "reasons": [],
+      "repetitions": 3,
+      "seeds": [
+        728001,
+        728002,
+        728003
+      ],
+      "server_side": {
+        "kv_usage_peak_pct": 37.19,
+        "loadgen_cpu_cores": 0.12,
+        "preemptions_total": 0,
+        "spec_accept_pct": 56.03,
+        "waiting_requests_avg": 17.96
+      },
+      "spread_pct": 1.156,
+      "statistic": "median",
+      "verdict": "accepted",
+      "window_class": {
+        "declared_s": 60,
+        "note": "throughput is reported per realized window; comparisons across declared-window classes are prohibited",
+        "realized_excess_pct": -100.0,
+        "realized_median_s": 0
+      }
+    },
+    {
+      "concurrency": 160,
+      "gpu_samples_in_window": 0,
+      "launches": [
+        "cold-client-20260909"
+      ],
+      "max": 829.014653,
+      "median": 792.028353,
+      "min": 779.474698,
+      "primary_field": "output_token_throughput",
+      "profile": "balanced",
+      "prompt_cache_read_pct": 0,
+      "reasons": [],
+      "repetitions": 3,
+      "seeds": [
+        760001,
+        760002,
+        760003
+      ],
+      "server_side": {
+        "kv_usage_peak_pct": 37.38,
+        "loadgen_cpu_cores": 0.12,
+        "preemptions_total": 0,
+        "spec_accept_pct": 55.24,
+        "waiting_requests_avg": 35.23
+      },
+      "spread_pct": 6.255,
+      "statistic": "median",
+      "verdict": "accepted",
+      "window_class": {
+        "declared_s": 60,
+        "note": "throughput is reported per realized window; comparisons across declared-window classes are prohibited",
+        "realized_excess_pct": -100.0,
+        "realized_median_s": 0
+      }
+    },
+    {
+      "concurrency": 192,
+      "gpu_samples_in_window": 0,
+      "launches": [
+        "cold-client-20260909"
+      ],
+      "max": 850.092265,
+      "median": 826.24496,
+      "min": 816.610763,
+      "primary_field": "output_token_throughput",
+      "profile": "balanced",
+      "prompt_cache_read_pct": 0,
+      "reasons": [],
+      "repetitions": 3,
+      "seeds": [
+        792001,
+        792002,
+        792003
+      ],
+      "server_side": {
+        "kv_usage_peak_pct": 37.25,
+        "loadgen_cpu_cores": 0.14,
+        "preemptions_total": 0,
+        "spec_accept_pct": 55.32,
+        "waiting_requests_avg": 50.68
+      },
+      "spread_pct": 4.052,
+      "statistic": "median",
+      "verdict": "accepted",
+      "window_class": {
+        "declared_s": 60,
+        "note": "throughput is reported per realized window; comparisons across declared-window classes are prohibited",
+        "realized_excess_pct": -100.0,
+        "realized_median_s": 0
+      }
+    },
+    {
+      "concurrency": 1,
+      "gpu_samples_in_window": 0,
+      "launches": [
+        "cold-client-20260909"
+      ],
+      "max": 82.311829,
+      "median": 82.158829,
+      "min": 80.25155,
+      "primary_field": "output_token_throughput",
+      "profile": "decode",
+      "prompt_cache_read_pct": 0,
+      "reasons": [],
+      "repetitions": 3,
+      "seeds": [
+        601001,
+        601002,
+        601003
+      ],
+      "server_side": {
+        "kv_usage_peak_pct": 0.16,
+        "loadgen_cpu_cores": 0.07,
+        "preemptions_total": 0,
+        "spec_accept_pct": 56.72,
+        "waiting_requests_avg": 0
+      },
+      "spread_pct": 2.508,
+      "statistic": "median",
+      "verdict": "accepted",
+      "window_class": {
+        "declared_s": 60,
+        "note": "throughput is reported per realized window; comparisons across declared-window classes are prohibited",
+        "realized_excess_pct": -100.0,
+        "realized_median_s": 0
+      }
+    },
+    {
+      "concurrency": 8,
+      "gpu_samples_in_window": 0,
+      "launches": [
+        "cold-client-20260909"
+      ],
+      "max": 366.092418,
+      "median": 351.377405,
+      "min": 342.24855,
+      "primary_field": "output_token_throughput",
+      "profile": "decode",
+      "prompt_cache_read_pct": 0,
+      "reasons": [],
+      "repetitions": 3,
+      "seeds": [
+        608001,
+        608002,
+        608003
+      ],
+      "server_side": {
+        "kv_usage_peak_pct": 1.18,
+        "loadgen_cpu_cores": 0.1,
+        "preemptions_total": 0,
+        "spec_accept_pct": 54.84,
+        "waiting_requests_avg": 0
+      },
+      "spread_pct": 6.786,
+      "statistic": "median",
+      "verdict": "accepted",
+      "window_class": {
+        "declared_s": 60,
+        "note": "throughput is reported per realized window; comparisons across declared-window classes are prohibited",
+        "realized_excess_pct": -100.0,
+        "realized_median_s": 0
+      }
+    },
+    {
+      "concurrency": 32,
+      "gpu_samples_in_window": 0,
+      "launches": [
+        "cold-client-20260909"
+      ],
+      "max": 713.929655,
+      "median": 711.451228,
+      "min": 706.842322,
+      "primary_field": "output_token_throughput",
+      "profile": "decode",
+      "prompt_cache_read_pct": 0,
+      "reasons": [],
+      "repetitions": 3,
+      "seeds": [
+        632001,
+        632002,
+        632003
+      ],
+      "server_side": {
+        "kv_usage_peak_pct": 4.44,
+        "loadgen_cpu_cores": 0.11,
+        "preemptions_total": 0,
+        "spec_accept_pct": 54.45,
+        "waiting_requests_avg": 0
+      },
+      "spread_pct": 0.996,
+      "statistic": "median",
+      "verdict": "accepted",
+      "window_class": {
+        "declared_s": 60,
+        "note": "throughput is reported per realized window; comparisons across declared-window classes are prohibited",
+        "realized_excess_pct": -100.0,
+        "realized_median_s": 0
+      }
+    },
+    {
+      "concurrency": 64,
+      "gpu_samples_in_window": 0,
+      "launches": [
+        "cold-client-20260909"
+      ],
+      "max": 992.98236,
+      "median": 984.653108,
+      "min": 982.38494,
+      "primary_field": "output_token_throughput",
+      "profile": "decode",
+      "prompt_cache_read_pct": 0,
+      "reasons": [],
+      "repetitions": 3,
+      "seeds": [
+        664001,
+        664002,
+        664003
+      ],
+      "server_side": {
+        "kv_usage_peak_pct": 8.31,
+        "loadgen_cpu_cores": 0.15,
+        "preemptions_total": 0,
+        "spec_accept_pct": 54.88,
+        "waiting_requests_avg": 0
+      },
+      "spread_pct": 1.076,
+      "statistic": "median",
+      "verdict": "accepted",
+      "window_class": {
+        "declared_s": 60,
+        "note": "throughput is reported per realized window; comparisons across declared-window classes are prohibited",
+        "realized_excess_pct": -100.0,
+        "realized_median_s": 0
+      }
+    },
+    {
+      "concurrency": 96,
+      "gpu_samples_in_window": 0,
+      "launches": [
+        "cold-client-20260909"
+      ],
+      "max": 1157.024372,
+      "median": 1141.25191,
+      "min": 1134.333616,
+      "primary_field": "output_token_throughput",
+      "profile": "decode",
+      "prompt_cache_read_pct": 0,
+      "reasons": [],
+      "repetitions": 3,
+      "seeds": [
+        696001,
+        696002,
+        696003
+      ],
+      "server_side": {
+        "kv_usage_peak_pct": 12.92,
+        "loadgen_cpu_cores": 0.16,
+        "preemptions_total": 0,
+        "spec_accept_pct": 54.54,
+        "waiting_requests_avg": 0
+      },
+      "spread_pct": 1.988,
+      "statistic": "median",
+      "verdict": "accepted",
+      "window_class": {
+        "declared_s": 60,
+        "note": "throughput is reported per realized window; comparisons across declared-window classes are prohibited",
+        "realized_excess_pct": -100.0,
+        "realized_median_s": 0
+      }
+    },
+    {
+      "concurrency": 128,
+      "gpu_samples_in_window": 0,
+      "launches": [
+        "cold-client-20260909"
+      ],
+      "max": 1243.465973,
+      "median": 1233.879412,
+      "min": 1233.423471,
+      "primary_field": "output_token_throughput",
+      "profile": "decode",
+      "prompt_cache_read_pct": 0,
+      "reasons": [],
+      "repetitions": 3,
+      "seeds": [
+        728001,
+        728002,
+        728003
+      ],
+      "server_side": {
+        "kv_usage_peak_pct": 17.45,
+        "loadgen_cpu_cores": 0.16,
+        "preemptions_total": 0,
+        "spec_accept_pct": 54.69,
+        "waiting_requests_avg": 0
+      },
+      "spread_pct": 0.814,
+      "statistic": "median",
+      "verdict": "accepted",
+      "window_class": {
+        "declared_s": 60,
+        "note": "throughput is reported per realized window; comparisons across declared-window classes are prohibited",
+        "realized_excess_pct": -100.0,
+        "realized_median_s": 0
+      }
+    },
+    {
+      "concurrency": 160,
+      "gpu_samples_in_window": 0,
+      "launches": [
+        "cold-client-20260909"
+      ],
+      "max": 1123.639625,
+      "median": 1121.347929,
+      "min": 1117.263904,
+      "primary_field": "output_token_throughput",
+      "profile": "decode",
+      "prompt_cache_read_pct": 0,
+      "reasons": [],
+      "repetitions": 3,
+      "seeds": [
+        760001,
+        760002,
+        760003
+      ],
+      "server_side": {
+        "kv_usage_peak_pct": 17.39,
+        "loadgen_cpu_cores": 0.16,
+        "preemptions_total": 0,
+        "spec_accept_pct": 54.47,
+        "waiting_requests_avg": 19.25
+      },
+      "spread_pct": 0.569,
+      "statistic": "median",
+      "verdict": "accepted",
+      "window_class": {
+        "declared_s": 60,
+        "note": "throughput is reported per realized window; comparisons across declared-window classes are prohibited",
+        "realized_excess_pct": -100.0,
+        "realized_median_s": 0
+      }
+    },
+    {
+      "concurrency": 192,
+      "gpu_samples_in_window": 0,
+      "launches": [
+        "cold-client-20260909"
+      ],
+      "max": 1116.103423,
+      "median": 1091.073805,
+      "min": 1083.265668,
+      "primary_field": "output_token_throughput",
+      "profile": "decode",
+      "prompt_cache_read_pct": 0,
+      "reasons": [],
+      "repetitions": 3,
+      "seeds": [
+        792001,
+        792002,
+        792003
+      ],
+      "server_side": {
+        "kv_usage_peak_pct": 17.07,
+        "loadgen_cpu_cores": 0.16,
+        "preemptions_total": 0,
+        "spec_accept_pct": 54.53,
+        "waiting_requests_avg": 34.12
+      },
+      "spread_pct": 3.01,
+      "statistic": "median",
+      "verdict": "accepted",
+      "window_class": {
+        "declared_s": 60,
+        "note": "throughput is reported per realized window; comparisons across declared-window classes are prohibited",
+        "realized_excess_pct": -100.0,
+        "realized_median_s": 0
+      }
+    },
+    {
+      "concurrency": 1,
+      "gpu_samples_in_window": 0,
+      "launches": [
+        "cold-client-20260909"
+      ],
+      "max": 1675.506271,
+      "median": 1670.502993,
+      "min": 1617.850522,
+      "primary_field": "input_token_throughput",
+      "profile": "prefill",
+      "prompt_cache_read_pct": 0,
+      "reasons": [],
+      "repetitions": 3,
+      "seeds": [
+        601001,
+        601002,
+        601003
+      ],
+      "server_side": {
+        "kv_usage_peak_pct": 0.4,
+        "loadgen_cpu_cores": 0.06,
+        "preemptions_total": 0,
+        "spec_accept_pct": 59.68,
+        "waiting_requests_avg": 0
+      },
+      "spread_pct": 3.451,
+      "statistic": "median",
+      "verdict": "accepted",
+      "window_class": {
+        "declared_s": 60,
+        "note": "throughput is reported per realized window; comparisons across declared-window classes are prohibited",
+        "realized_excess_pct": -100.0,
+        "realized_median_s": 0
+      }
+    },
+    {
+      "concurrency": 8,
+      "gpu_samples_in_window": 0,
+      "launches": [
+        "cold-client-20260909"
+      ],
+      "max": 3543.61769,
+      "median": 3095.988543,
+      "min": 2737.965774,
+      "primary_field": "input_token_throughput",
+      "profile": "prefill",
+      "prompt_cache_read_pct": 0,
+      "reasons": [
+        "R-06-2 rerun condition: 26.0% spread between repetitions (> 10%). Not rerun: the freeze contract forbids mutating the campaign mid-flight. Report the median together with min/max and the per-repetition prompt-cache read percentage"
+      ],
+      "repetitions": 3,
+      "seeds": [
+        608001,
+        608002,
+        608003
+      ],
+      "server_side": {
+        "kv_usage_peak_pct": 3.22,
+        "loadgen_cpu_cores": 0.07,
+        "preemptions_total": 0,
+        "spec_accept_pct": 62.44,
+        "waiting_requests_avg": 0.06
+      },
+      "spread_pct": 26.022,
+      "statistic": "median",
+      "verdict": "accepted-with-notes",
+      "window_class": {
+        "declared_s": 60,
+        "note": "throughput is reported per realized window; comparisons across declared-window classes are prohibited",
+        "realized_excess_pct": -100.0,
+        "realized_median_s": 0
+      }
+    },
+    {
+      "concurrency": 32,
+      "gpu_samples_in_window": 0,
+      "launches": [
+        "cold-client-20260909"
+      ],
+      "max": 6193.671627,
+      "median": 5721.602285,
+      "min": 5686.393238,
+      "primary_field": "input_token_throughput",
+      "profile": "prefill",
+      "prompt_cache_read_pct": 0,
+      "reasons": [],
+      "repetitions": 3,
+      "seeds": [
+        632001,
+        632002,
+        632003
+      ],
+      "server_side": {
+        "kv_usage_peak_pct": 7.55,
+        "loadgen_cpu_cores": 0.1,
+        "preemptions_total": 0,
+        "spec_accept_pct": 63.36,
+        "waiting_requests_avg": 8.08
+      },
+      "spread_pct": 8.866,
+      "statistic": "median",
+      "verdict": "accepted",
+      "window_class": {
+        "declared_s": 60,
+        "note": "throughput is reported per realized window; comparisons across declared-window classes are prohibited",
+        "realized_excess_pct": -100.0,
+        "realized_median_s": 0
+      }
+    },
+    {
+      "concurrency": 64,
+      "gpu_samples_in_window": 0,
+      "launches": [
+        "cold-client-20260909"
+      ],
+      "max": 5702.936524,
+      "median": 5694.981682,
+      "min": 5687.457897,
+      "primary_field": "input_token_throughput",
+      "profile": "prefill",
+      "prompt_cache_read_pct": 0,
+      "reasons": [],
+      "repetitions": 3,
+      "seeds": [
+        664001,
+        664002,
+        664003
+      ],
+      "server_side": {
+        "kv_usage_peak_pct": 7.43,
+        "loadgen_cpu_cores": 0.1,
+        "preemptions_total": 0,
+        "spec_accept_pct": 62.92,
+        "waiting_requests_avg": 34.49
+      },
+      "spread_pct": 0.272,
+      "statistic": "median",
+      "verdict": "accepted",
+      "window_class": {
+        "declared_s": 60,
+        "note": "throughput is reported per realized window; comparisons across declared-window classes are prohibited",
+        "realized_excess_pct": -100.0,
+        "realized_median_s": 0
+      }
+    },
+    {
+      "concurrency": 96,
+      "gpu_samples_in_window": 0,
+      "launches": [
+        "cold-client-20260909"
+      ],
+      "max": 6185.278347,
+      "median": 5908.894382,
+      "min": 5754.241927,
+      "primary_field": "input_token_throughput",
+      "profile": "prefill",
+      "prompt_cache_read_pct": 0,
+      "reasons": [],
+      "repetitions": 3,
+      "seeds": [
+        696001,
+        696002,
+        696003
+      ],
+      "server_side": {
+        "kv_usage_peak_pct": 7.53,
+        "loadgen_cpu_cores": 0.09,
+        "preemptions_total": 0,
+        "spec_accept_pct": 62.13,
+        "waiting_requests_avg": 59.32
+      },
+      "spread_pct": 7.295,
+      "statistic": "median",
+      "verdict": "accepted",
+      "window_class": {
+        "declared_s": 60,
+        "note": "throughput is reported per realized window; comparisons across declared-window classes are prohibited",
+        "realized_excess_pct": -100.0,
+        "realized_median_s": 0
+      }
+    },
+    {
+      "concurrency": 128,
+      "gpu_samples_in_window": 0,
+      "launches": [
+        "cold-client-20260909"
+      ],
+      "max": 6241.047225,
+      "median": 6199.678001,
+      "min": 6132.44764,
+      "primary_field": "input_token_throughput",
+      "profile": "prefill",
+      "prompt_cache_read_pct": 0,
+      "reasons": [],
+      "repetitions": 3,
+      "seeds": [
+        728001,
+        728002,
+        728003
+      ],
+      "server_side": {
+        "kv_usage_peak_pct": 7.55,
+        "loadgen_cpu_cores": 0.1,
+        "preemptions_total": 0,
+        "spec_accept_pct": 62.99,
+        "waiting_requests_avg": 81.85
+      },
+      "spread_pct": 1.752,
+      "statistic": "median",
+      "verdict": "accepted",
+      "window_class": {
+        "declared_s": 60,
+        "note": "throughput is reported per realized window; comparisons across declared-window classes are prohibited",
+        "realized_excess_pct": -100.0,
+        "realized_median_s": 0
+      }
+    },
+    {
+      "concurrency": 160,
+      "gpu_samples_in_window": 0,
+      "launches": [
+        "cold-client-20260909"
+      ],
+      "max": 6242.774931,
+      "median": 6238.175223,
+      "min": 6237.484954,
+      "primary_field": "input_token_throughput",
+      "profile": "prefill",
+      "prompt_cache_read_pct": 0,
+      "reasons": [],
+      "repetitions": 3,
+      "seeds": [
+        760001,
+        760002,
+        760003
+      ],
+      "server_side": {
+        "kv_usage_peak_pct": 7.16,
+        "loadgen_cpu_cores": 0.09,
+        "preemptions_total": 0,
+        "spec_accept_pct": 62.52,
+        "waiting_requests_avg": 103.98
+      },
+      "spread_pct": 0.085,
+      "statistic": "median",
+      "verdict": "accepted",
+      "window_class": {
+        "declared_s": 60,
+        "note": "throughput is reported per realized window; comparisons across declared-window classes are prohibited",
+        "realized_excess_pct": -100.0,
+        "realized_median_s": 0
+      }
+    },
+    {
+      "concurrency": 192,
+      "gpu_samples_in_window": 0,
+      "launches": [
+        "cold-client-20260909"
+      ],
+      "max": 6213.582868,
+      "median": 6169.00685,
+      "min": 5927.259794,
+      "primary_field": "input_token_throughput",
+      "profile": "prefill",
+      "prompt_cache_read_pct": 0,
+      "reasons": [],
+      "repetitions": 3,
+      "seeds": [
+        792001,
+        792002,
+        792003
+      ],
+      "server_side": {
+        "kv_usage_peak_pct": 7.48,
+        "loadgen_cpu_cores": 0.1,
+        "preemptions_total": 0,
+        "spec_accept_pct": 63.14,
+        "waiting_requests_avg": 124.02
+      },
+      "spread_pct": 4.641,
+      "statistic": "median",
+      "verdict": "accepted",
+      "window_class": {
+        "declared_s": 60,
+        "note": "throughput is reported per realized window; comparisons across declared-window classes are prohibited",
+        "realized_excess_pct": -100.0,
+        "realized_median_s": 0
+      }
+    }
+  ],
+  "points": 24,
+  "runs": 72,
+  "schema_version": 1,
+  "validity_checks": {
+    "baselines": {
+      "evidence": {
+        "B0_unloaded_before": "captured, 12 samples, 29.4 W median",
+        "B1_post_loaded_after": "captured, 12 samples, 29.8 W median",
+        "B1_pre_loaded_idle": "captured"
+      },
+      "status": "partial"
+    },
+    "cache-hit-behaviour-known": {
+      "evidence": "prompt-cache read percentage recorded per run: decode 0.0%, balanced 8.4-47.0%, prefill 3.9-88.2%. Prefill throughput is therefore mostly cache-served and is labelled as such",
+      "status": "pass"
+    },
+    "error-rate-reported": {
+      "evidence": "error_summary length recorded per run; 0 errors",
+      "status": "pass"
+    },
+    "evidence-retained": {
+      "evidence": "84/84 exports parsed, completion marker corroborated by artifact count",
+      "status": "pass"
+    },
+    "kv-capacity-and-peak": {
+      "evidence": {
+        "kv_usage_peak_pct_overall": 37.3810104954845,
+        "note": "peak occupancy is a sampled maximum of vllm:kv_cache_usage_perc, not a startup capacity claim; token capacity itself comes from the server log, which this campaign retained on the node only",
+        "preemptions_total_overall": 0,
+        "source": "server_metrics_export.json written by AIPerf beside each export"
+      },
+      "status": "pass"
+    },
+    "load-generator-not-bottlenecked": {
+      "evidence": {
+        "loadgen_cpu_cores_max": 0.17264942214205137,
+        "loadgen_rss_gib_max": 1.739837646484375,
+        "note": "load-generator CPU and RSS are measured; the machine's core count was not recorded at run time, so saturation can be bounded but not proven absent. Network saturation was not sampled at all",
+        "source": "process_cpu_seconds and process_resident_memory_bytes from the same scrape"
+      },
+      "status": "partial"
+    },
+    "model-and-revision-served": {
+      "evidence": "campaign manifest model RadixArk/GLM-5.3-NVFP4; artifact boundary enforced by the model directory mount, image digest recorded in preflight.json",
+      "status": "pass"
+    },
+    "no-throttling-documented": {
+      "evidence": "per-GPU temperature, SM/memory clock and DCGM throttle-reason counters were not sampled (the scrape is the load generator's and the server's, not the accelerators'). Board power and utilisation were sampled and show no collapse. Absent, not zero",
+      "status": "not-evaluable"
+    },
+    "no-unrelated-gpu-consumer": {
+      "evidence": "/dev/shm cleared and verified empty at preflight; only the serving container held GPU memory; B0 idle 29.4 W and B1-post 29.8 W",
+      "status": "pass"
+    },
+    "peak-supported": {
+      "evidence": {
+        "balanced": {
+          "claim_allowed": true,
+          "lower_beyond_peak": [
+            160,
+            192
+          ],
+          "peak_concurrency": 128,
+          "peak_median": 928.565257,
+          "points_beyond_peak": 2
+        },
+        "decode": {
+          "claim_allowed": true,
+          "lower_beyond_peak": [
+            160,
+            192
+          ],
+          "peak_concurrency": 128,
+          "peak_median": 1233.879412,
+          "points_beyond_peak": 2
+        },
+        "prefill": {
+          "claim_allowed": true,
+          "lower_beyond_peak": [
+            192
+          ],
+          "peak_concurrency": 160,
+          "peak_median": 6238.175223,
+          "points_beyond_peak": 1
+        }
+      },
+      "status": "see peaks"
+    },
+    "proxy-boundary": {
+      "evidence": "this campaign ran one replica with no load balancer, approved in formal-20260907-freeze-contract.md. R-06-1 normally requires the benchmark to target the proxy frontend even for one backend; there is no proxy in this contract, so no frontend/backend counter delta exists and none may be inferred",
+      "status": "deviation-approved"
+    },
+    "requested-topology-active": {
+      "evidence": "single TP8 replica, container env MAX_NUM_SEQS=128 GRAPH=512 MTP=3; 8 GPUs observed busy in the campaign sampler",
+      "status": "pass"
+    },
+    "single-launch-continuity": {
+      "evidence": "two container launches: launch-1 measured decode only, launch-2 measured prefill and balanced, because the controller died at 03:08 and the resumed driver re-entered launch(). Recorded in formal-20260907-harness-defects-and-outage.md",
+      "status": "deviation-recorded"
+    },
+    "speculative-decode-behaviour": {
+      "evidence": {
+        "accept_pct_median_decode_peak": 54.69,
+        "source": "vllm:spec_decode_num_accepted_tokens / num_draft_tokens rates"
+      },
+      "status": "pass"
+    },
+    "stability": {
+      "evidence": "median within-point spread across all 24 points: 2.76%; launch-1 reproduced its own peak point 8 h later at -0.7%",
+      "status": "pass"
+    },
+    "warmup-same-concurrency": {
+      "evidence": "run manifest warmup event with requests=2*concurrency",
+      "status": "pass"
+    },
+    "window-class-comparability": {
+      "evidence": "every point records declared and realized window; 90 s controls at C128 measured -6.1% versus 60 s at the same point in the same launch",
+      "status": "pass"
+    },
+    "workload-shape-as-profiled": {
+      "evidence": "input/output token means recorded per run manifest and asserted against the frozen spec file; stddev 0",
+      "status": "pass"
+    }
+  }
+}

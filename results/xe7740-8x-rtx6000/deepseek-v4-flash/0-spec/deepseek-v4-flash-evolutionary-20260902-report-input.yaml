@@ -1,0 +1,67 @@
+schema_version: 1
+study_id: xe7740
+qualification_id: 20260902-deepseek-v4-flash-evolutionary
+status: qualification-complete-formal-runs-complete
+model:
+  repository: deepseek-ai/DeepSeek-V4-Flash-0731
+  revision: null
+  provenance: local-checkpoint-without-upstream-download-receipt
+  config_sha256: 6c8f3d2d3b48707541b88f32f22ef3f0f8a6b57d8523281e2b8d3cdb0ae9a023
+  index_sha256: 98efab455cf08dfbbbaaba6f570e1bf10bf927d2b4c3c453a59c2f6f0e3be92b
+runtime:
+  image: voipmonitor/vllm@sha256:48518e91cf87dd0c0483c76ff86e81dfc0f46de7e364b46f7a82c481ce08188f
+  version: 0.11.2.dev280+gilded.gnosis.v20.vllm1e9c9c3.sieec30ff.fi801d57a.cu132.20260731.r16
+  topology: four-independent-tp2-replicas
+  load_balancer: haproxy-leastconn
+  gpu_pairs: [[0, 1], [2, 3], [4, 5], [6, 7]]
+constraints:
+  speculative_decoding_required: true
+  prefix_cache_enabled: false
+  kv_cache_dtype: fp8
+  kv_offload_gib_per_replica: 48.5
+baseline:
+  max_model_len: 524288
+  max_num_seqs: 16
+  max_num_batched_tokens: 4096
+  dspark_tokens: 5
+  dspark_depth_mode: fixed
+  backend: b12x-a8
+  allreduce: b12x
+  max_cudagraph_capture_size: 96
+  result_global_c256:
+    output_tps: 2536.969674714431
+    input_tps_prefill_profile: 36950.52257631681
+    errors: 0
+decode_selected:
+  max_model_len: 32768
+  max_num_seqs: 32
+  max_num_batched_tokens: 8192
+  dspark_tokens: 5
+  dspark_depth_mode: fixed
+  backend: b12x-a8
+  allreduce: b12x
+  max_cudagraph_capture_size: 192
+  single_tp2_c32_output_tps: 1099.672993930904
+  whole_machine_peak:
+    concurrency: 128
+    output_tps: 3983.4992944898354
+    ttft_p95_ms: 2651.68785605
+    itl_avg_ms: 26.51170511768833
+    errors: 0
+prefill_selected:
+  decision: retain-capability-preserving-shared-profile
+  max_model_len: 32768
+  max_num_seqs: 32
+  max_num_batched_tokens: 8192
+  max_cudagraph_capture_size: 192
+  single_tp2_input_tps: 15731.43571829496
+  rejected_peak_candidate:
+    max_model_len: 8192
+    max_num_seqs: 32
+    max_num_batched_tokens: 16384
+    max_cudagraph_capture_size: 192
+    single_tp2_input_tps: 15833.216365782444
+    reason: 0.65-percent single-run gain did not justify reducing context capability by 75 percent
+formal_grid: [1, 8, 32, 64, 96, 128, 192, 256]
+formal_campaign_id: 20260902-full-deepseek-v4-flash-formal
+external_path: /home/demouser/llm-benchmark-results/xe7740-04/deepseek-v4-flash-0731/local-unverified/r4-tp2-qualification/20260902-deepseek-v4-flash-evolutionary

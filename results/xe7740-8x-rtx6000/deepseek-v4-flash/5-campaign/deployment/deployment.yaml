@@ -1,0 +1,102 @@
+schema_version: 1
+publication_id: deepseek-v4-flash
+study_id: xe7740
+host: xe7740-04
+
+model:
+  repository: deepseek-ai/DeepSeek-V4-Flash-0731
+  revision: null
+  provenance: local checkpoint without upstream download receipt
+  host_path: /home/demouser/models/deepseek-ai--DeepSeek-V4-Flash-0731--model
+  container_mount: /home/demouser/models/deepseek-ai--DeepSeek-V4-Flash-0731--model
+  config_sha256: 6c8f3d2d3b48707541b88f32f22ef3f0f8a6b57d8523281e2b8d3cdb0ae9a023
+  index_sha256: 98efab455cf08dfbbbaaba6f570e1bf10bf927d2b4c3c453a59c2f6f0e3be92b
+  quantization: FP8 E4M3 weights with UE8M0 scales
+
+container:
+  image: voipmonitor/vllm@sha256:48518e91cf87dd0c0483c76ff86e81dfc0f46de7e364b46f7a82c481ce08188f
+  entrypoint: /usr/local/bin/serve-ds4-flash.sh
+  vllm_version: 0.11.2.dev280+gilded.gnosis.v20.vllm1e9c9c3.sieec30ff.fi801d57a.cu132.20260731.r16
+  registry_image: true
+
+topology:
+  replicas: 4
+  tensor_parallel_per_replica: 2
+  decode_context_parallel: 1
+  gpu_pairs: [[0, 1], [2, 3], [4, 5], [6, 7]]
+  ports: [8080, 8081, 8082, 8083]
+  replica_names: [ds4-a, ds4-b, ds4-c, ds4-d]
+  load_balancer:
+    image: haproxy:3.2-alpine
+    container_name: ds4-lb
+    frontend: 127.0.0.1:8084
+    metrics: 8405
+    balance: leastconn
+    config: haproxy.cfg
+
+profiles:
+  decode-selected:
+    launch: decode/launch.sh
+    workload: 8 input / 768 output tokens
+    max_model_len: 32768
+    max_num_seqs: 32
+    max_num_batched_tokens: 8192
+    max_cudagraph_capture_size: 192
+    speculative_decoding: DSpark fixed depth with 5 draft tokens
+    global_active_sequence_ceiling: 128
+    qualification_peak:
+      concurrency: 128
+      output_tps: 3983.4992944898354
+      ttft_p95_ms: 2651.68785605
+      itl_avg_ms: 26.51170511768833
+      errors: 0
+  prefill-selected:
+    launch: decode/launch.sh
+    workload: 2048 input / 8 output tokens
+    decision: capability-preserving shared formal profile
+    max_model_len: 32768
+    max_num_seqs: 32
+    max_num_batched_tokens: 8192
+    max_cudagraph_capture_size: 192
+    single_tp2_input_tps: 15731.43571829496
+    rationale: >-
+      An 8192-context seq32/batch16384/graph192 candidate measured 15833.22
+      input tokens/s, only 0.65% above this profile in one qualification run.
+      The formal campaign retained 32768 context rather than trading away 75%
+      of the context capability for a difference within likely run variance.
+  formal-shared:
+    launch: decode/launch.sh
+    profiles: [decode, prefill, balanced]
+    max_model_len: 32768
+    max_num_seqs: 32
+    max_num_batched_tokens: 8192
+    max_cudagraph_capture_size: 192
+    campaign_spec: ../../../configs/deepseek-v4-flash-formal-20260902.yaml
+
+common_flags:
+  kv_cache_dtype: fp8
+  kv_offloading_size_gib_per_replica: 48.5
+  gpu_memory_utilization: 0.975
+  block_size: 256
+  prefix_cache: disabled
+  load_format: instanttensor
+  attention_backend: B12X_MLA_SPARSE
+  moe_backend: b12x-a8
+  linear_backend: b12x
+  allreduce: b12x
+  async_scheduling: true
+  chunked_prefill: true
+
+verification:
+  required_checks:
+    - startup log reports four healthy TP2 replicas
+    - startup log reports DSpark with five speculative tokens
+    - startup log reports max_num_seqs 32 for Decode
+    - startup log reports max_cudagraph_capture_size 192 for Decode
+    - all measured requests pass through HAProxy
+
+provenance:
+  recovered_at: 2026-09-02
+  campaign_root: /home/demouser/llm-benchmark-results/xe7740-04/deepseek-v4-flash-0731/local-unverified/r4-tp2-qualification/20260902-deepseek-v4-flash-evolutionary
+  classification: qualification complete; shared formal deployment selected; formal runs complete
+  limitation: Upstream immutable model revision and download receipt were not available.

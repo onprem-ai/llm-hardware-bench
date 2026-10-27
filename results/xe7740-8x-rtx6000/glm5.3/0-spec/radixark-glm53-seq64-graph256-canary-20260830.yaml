@@ -1,0 +1,16 @@
+schema_version: 1
+campaign_id: 20260830-full-glm53-radixark-seq64-graph256-canary
+study_id: xe7740
+status: active
+host: xe7740-04
+model: RadixArk/GLM-5.3-NVFP4
+revision: 363e8f086905afd83db356a620f9aa401c23800a
+external_path: /home/demouser/llm-benchmark-results/xe7740-04/glm-5.3-nvfp4/363e8f086905/r1-tp8-dcp1-mtp3-seq64-b8192-graph256-r18/20260830-full-glm53-radixark-seq64-graph256-canary
+canonical_layout: true
+completion_marker: null
+expected_base_runs: 3
+notes:
+  - Minimal decode-only qualification at C32, C48, and C64.
+  - Changes from graph-128 deployment are max_num_seqs 32 to 64 and max_cudagraph_capture_size 128 to 256.
+  - One repetition per point; results are qualification evidence.
+  - Warm-up request count is capped at 128, equal to two times max_num_seqs.

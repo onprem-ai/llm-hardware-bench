@@ -1,0 +1,15 @@
+schema_version: 1
+study_id: toy-study
+semantics: global_offered_client_concurrency
+rules_document: ../../../harness/2-preflight-conformance/RULES.md
+note: "Clearly-toy example grid for the instrument's self-tests. Real grids are chosen per host from that host's qualification behavior and live beside their study at results/<host>/concurrency-grids.yaml."
+models:
+  toy-model-1b:
+    topology:
+      replicas: 1
+      tensor_parallel_per_replica: 1
+    total_parameters_approx: 1000000000
+    active_parameters_approx: 1000000000
+    grid: [1, 2, 4]
+    hard_max: 4
+    rationale: "Toy three-point grid: a low point, a knee, and an overload point."

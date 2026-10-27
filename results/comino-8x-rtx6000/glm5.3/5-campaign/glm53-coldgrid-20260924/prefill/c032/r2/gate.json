@@ -1,0 +1,8 @@
+{
+  "label": "~/bench/llm-bench/campaigns/glm53-coldgrid-20260924/prefill/c032/r2",
+  "hits_delta": 0,
+  "queries_delta": 416120,
+  "served_pct": 0.0,
+  "limit_pct": 1.0,
+  "pass": true
+}

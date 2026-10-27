@@ -1,0 +1,1062 @@
+{
+  "campaign_id": "20260907-glm53-radixark-formal",
+  "claim_exclusions": [
+    {
+      "excluded_claim": "peak throughput",
+      "profile": "prefill",
+      "reason": "measured peak sits at the grid ceiling C192 with no lower point beyond it; R-06-1 (Peaks) forbids the claim, so this profile may only be reported as a floor: >= 19297.777183 at C192, still rising"
+    }
+  ],
+  "counts": {
+    "container_launches": 2,
+    "grid_points": 24,
+    "profiles": 3,
+    "runs": 84
+  },
+  "excluded_runs": 0,
+  "generated_utc": "2026-09-07T10:05:37Z",
+  "host": "xe7740-04",
+  "launch_chronology": 2,
+  "model": "RadixArk/GLM-5.3-NVFP4",
+  "peaks": {
+    "balanced": {
+      "claim_allowed": true,
+      "lower_beyond_peak": [
+        160,
+        192
+      ],
+      "peak_concurrency": 128,
+      "peak_median": 918.242657,
+      "points_beyond_peak": 2
+    },
+    "decode": {
+      "claim_allowed": true,
+      "lower_beyond_peak": [
+        160,
+        192
+      ],
+      "peak_concurrency": 128,
+      "peak_median": 1230.022552,
+      "points_beyond_peak": 2
+    },
+    "prefill": {
+      "claim_allowed": false,
+      "lower_beyond_peak": [],
+      "peak_concurrency": 192,
+      "peak_median": 19297.777183,
+      "points_beyond_peak": 0
+    }
+  },
+  "point_verdicts": [
+    {
+      "concurrency": 1,
+      "gpu_samples_in_window": 120,
+      "launches": [
+        "launch-2"
+      ],
+      "max": 73.979668,
+      "median": 73.897687,
+      "min": 73.061139,
+      "primary_field": "output_token_throughput",
+      "profile": "balanced",
+      "prompt_cache_read_pct": 20.59,
+      "reasons": [],
+      "repetitions": 3,
+      "seeds": [
+        700101,
+        700102,
+        700103
+      ],
+      "server_side": {
+        "kv_usage_peak_pct": 0.31,
+        "loadgen_cpu_cores": 0.07,
+        "preemptions_total": 0,
+        "spec_accept_pct": 56.26,
+        "waiting_requests_avg": 0
+      },
+      "spread_pct": 1.243,
+      "statistic": "median",
+      "verdict": "accepted",
+      "window_class": {
+        "declared_s": 60,
+        "note": "throughput is reported per realized window; comparisons across declared-window classes are prohibited",
+        "realized_excess_pct": 3.9,
+        "realized_median_s": 62.3
+      }
+    },
+    {
+      "concurrency": 8,
+      "gpu_samples_in_window": 120,
+      "launches": [
+        "launch-2"
+      ],
+      "max": 262.879292,
+      "median": 252.020663,
+      "min": 234.777558,
+      "primary_field": "output_token_throughput",
+      "profile": "balanced",
+      "prompt_cache_read_pct": 44.93,
+      "reasons": [
+        "R-06-2 rerun condition: 11.2% spread between repetitions (> 10%). Not rerun: the freeze contract forbids mutating the campaign mid-flight. Report the median together with min/max and the per-repetition prompt-cache read percentage"
+      ],
+      "repetitions": 3,
+      "seeds": [
+        700801,
+        700802,
+        700803
+      ],
+      "server_side": {
+        "kv_usage_peak_pct": 2.37,
+        "loadgen_cpu_cores": 0.08,
+        "preemptions_total": 0,
+        "spec_accept_pct": 55.82,
+        "waiting_requests_avg": 0
+      },
+      "spread_pct": 11.151,
+      "statistic": "median",
+      "verdict": "accepted-with-notes",
+      "window_class": {
+        "declared_s": 60,
+        "note": "throughput is reported per realized window; comparisons across declared-window classes are prohibited",
+        "realized_excess_pct": 11.7,
+        "realized_median_s": 67.0
+      }
+    },
+    {
+      "concurrency": 32,
+      "gpu_samples_in_window": 128,
+      "launches": [
+        "launch-2"
+      ],
+      "max": 551.030027,
+      "median": 542.395212,
+      "min": 456.849282,
+      "primary_field": "output_token_throughput",
+      "profile": "balanced",
+      "prompt_cache_read_pct": 70.6,
+      "reasons": [
+        "R-06-2 rerun condition: 17.4% spread between repetitions (> 10%). Not rerun: the freeze contract forbids mutating the campaign mid-flight. Report the median together with min/max and the per-repetition prompt-cache read percentage"
+      ],
+      "repetitions": 3,
+      "seeds": [
+        703201,
+        703202,
+        703203
+      ],
+      "server_side": {
+        "kv_usage_peak_pct": 9.47,
+        "loadgen_cpu_cores": 0.11,
+        "preemptions_total": 0,
+        "spec_accept_pct": 55.37,
+        "waiting_requests_avg": 0
+      },
+      "spread_pct": 17.364,
+      "statistic": "median",
+      "verdict": "accepted-with-notes",
+      "window_class": {
+        "declared_s": 60,
+        "note": "throughput is reported per realized window; comparisons across declared-window classes are prohibited",
+        "realized_excess_pct": 29.0,
+        "realized_median_s": 77.4
+      }
+    },
+    {
+      "concurrency": 64,
+      "gpu_samples_in_window": 152,
+      "launches": [
+        "launch-2"
+      ],
+      "max": 727.215369,
+      "median": 685.738346,
+      "min": 603.279456,
+      "primary_field": "output_token_throughput",
+      "profile": "balanced",
+      "prompt_cache_read_pct": 26.93,
+      "reasons": [
+        "R-06-2 rerun condition: 18.1% spread between repetitions (> 10%). Not rerun: the freeze contract forbids mutating the campaign mid-flight. Report the median together with min/max and the per-repetition prompt-cache read percentage"
+      ],
+      "repetitions": 3,
+      "seeds": [
+        706401,
+        706402,
+        706403
+      ],
+      "server_side": {
+        "kv_usage_peak_pct": 18.71,
+        "loadgen_cpu_cores": 0.13,
+        "preemptions_total": 0,
+        "spec_accept_pct": 55.5,
+        "waiting_requests_avg": 2.49
+      },
+      "spread_pct": 18.073,
+      "statistic": "median",
+      "verdict": "accepted-with-notes",
+      "window_class": {
+        "declared_s": 60,
+        "note": "throughput is reported per realized window; comparisons across declared-window classes are prohibited",
+        "realized_excess_pct": 45.6,
+        "realized_median_s": 87.4
+      }
+    },
+    {
+      "concurrency": 96,
+      "gpu_samples_in_window": 136,
+      "launches": [
+        "launch-2"
+      ],
+      "max": 740.237108,
+      "median": 736.520347,
+      "min": 721.95471,
+      "primary_field": "output_token_throughput",
+      "profile": "balanced",
+      "prompt_cache_read_pct": 8.42,
+      "reasons": [],
+      "repetitions": 5,
+      "seeds": [
+        709601,
+        709602,
+        709603,
+        709604,
+        709605
+      ],
+      "server_side": {
+        "kv_usage_peak_pct": 28.02,
+        "loadgen_cpu_cores": 0.13,
+        "preemptions_total": 0,
+        "spec_accept_pct": 55.54,
+        "waiting_requests_avg": 9.27
+      },
+      "spread_pct": 2.482,
+      "statistic": "median",
+      "verdict": "accepted",
+      "window_class": {
+        "declared_s": 60,
+        "note": "throughput is reported per realized window; comparisons across declared-window classes are prohibited",
+        "realized_excess_pct": 29.1,
+        "realized_median_s": 77.5
+      }
+    },
+    {
+      "concurrency": 128,
+      "gpu_samples_in_window": 136,
+      "launches": [
+        "launch-2"
+      ],
+      "max": 925.147169,
+      "median": 918.242657,
+      "min": 914.310329,
+      "primary_field": "output_token_throughput",
+      "profile": "balanced",
+      "prompt_cache_read_pct": 23.51,
+      "reasons": [],
+      "repetitions": 5,
+      "seeds": [
+        712801,
+        712802,
+        712803,
+        712804,
+        712805
+      ],
+      "server_side": {
+        "kv_usage_peak_pct": 31.83,
+        "loadgen_cpu_cores": 0.14,
+        "preemptions_total": 0,
+        "spec_accept_pct": 55.8,
+        "waiting_requests_avg": 16.25
+      },
+      "spread_pct": 1.18,
+      "statistic": "median",
+      "verdict": "accepted",
+      "window_class": {
+        "declared_s": 60,
+        "note": "throughput is reported per realized window; comparisons across declared-window classes are prohibited",
+        "realized_excess_pct": 24.5,
+        "realized_median_s": 74.7
+      }
+    },
+    {
+      "concurrency": 160,
+      "gpu_samples_in_window": 168,
+      "launches": [
+        "launch-2"
+      ],
+      "max": 888.786033,
+      "median": 876.60725,
+      "min": 863.173751,
+      "primary_field": "output_token_throughput",
+      "profile": "balanced",
+      "prompt_cache_read_pct": 37.51,
+      "reasons": [],
+      "repetitions": 3,
+      "seeds": [
+        716001,
+        716002,
+        716003
+      ],
+      "server_side": {
+        "kv_usage_peak_pct": 31.27,
+        "loadgen_cpu_cores": 0.14,
+        "preemptions_total": 0,
+        "spec_accept_pct": 55.82,
+        "waiting_requests_avg": 33.43
+      },
+      "spread_pct": 2.922,
+      "statistic": "median",
+      "verdict": "accepted",
+      "window_class": {
+        "declared_s": 60,
+        "note": "throughput is reported per realized window; comparisons across declared-window classes are prohibited",
+        "realized_excess_pct": 62.6,
+        "realized_median_s": 97.5
+      }
+    },
+    {
+      "concurrency": 192,
+      "gpu_samples_in_window": 192,
+      "launches": [
+        "launch-2"
+      ],
+      "max": 924.151199,
+      "median": 886.698748,
+      "min": 885.385738,
+      "primary_field": "output_token_throughput",
+      "profile": "balanced",
+      "prompt_cache_read_pct": 47.02,
+      "reasons": [],
+      "repetitions": 3,
+      "seeds": [
+        719201,
+        719202,
+        719203
+      ],
+      "server_side": {
+        "kv_usage_peak_pct": 30.46,
+        "loadgen_cpu_cores": 0.14,
+        "preemptions_total": 0,
+        "spec_accept_pct": 56.22,
+        "waiting_requests_avg": 49.24
+      },
+      "spread_pct": 4.372,
+      "statistic": "median",
+      "verdict": "accepted",
+      "window_class": {
+        "declared_s": 60,
+        "note": "throughput is reported per realized window; comparisons across declared-window classes are prohibited",
+        "realized_excess_pct": 95.3,
+        "realized_median_s": 117.2
+      }
+    },
+    {
+      "concurrency": 1,
+      "gpu_samples_in_window": 128,
+      "launches": [
+        "launch-1"
+      ],
+      "max": 79.191092,
+      "median": 78.725349,
+      "min": 77.627232,
+      "primary_field": "output_token_throughput",
+      "profile": "decode",
+      "prompt_cache_read_pct": 0,
+      "reasons": [],
+      "repetitions": 3,
+      "seeds": [
+        700101,
+        700102,
+        700103
+      ],
+      "server_side": {
+        "kv_usage_peak_pct": 0.16,
+        "loadgen_cpu_cores": 0.07,
+        "preemptions_total": 0,
+        "spec_accept_pct": 53.15,
+        "waiting_requests_avg": 0
+      },
+      "spread_pct": 1.986,
+      "statistic": "median",
+      "verdict": "accepted",
+      "window_class": {
+        "declared_s": 60,
+        "note": "throughput is reported per realized window; comparisons across declared-window classes are prohibited",
+        "realized_excess_pct": 13.8,
+        "realized_median_s": 68.3
+      }
+    },
+    {
+      "concurrency": 8,
+      "gpu_samples_in_window": 128,
+      "launches": [
+        "launch-1"
+      ],
+      "max": 356.434166,
+      "median": 353.028124,
+      "min": 345.678437,
+      "primary_field": "output_token_throughput",
+      "profile": "decode",
+      "prompt_cache_read_pct": 0,
+      "reasons": [],
+      "repetitions": 3,
+      "seeds": [
+        700801,
+        700802,
+        700803
+      ],
+      "server_side": {
+        "kv_usage_peak_pct": 1.16,
+        "loadgen_cpu_cores": 0.09,
+        "preemptions_total": 0,
+        "spec_accept_pct": 54.38,
+        "waiting_requests_avg": 0
+      },
+      "spread_pct": 3.047,
+      "statistic": "median",
+      "verdict": "accepted",
+      "window_class": {
+        "declared_s": 60,
+        "note": "throughput is reported per realized window; comparisons across declared-window classes are prohibited",
+        "realized_excess_pct": 16.0,
+        "realized_median_s": 69.6
+      }
+    },
+    {
+      "concurrency": 32,
+      "gpu_samples_in_window": 144,
+      "launches": [
+        "launch-1"
+      ],
+      "max": 727.4792,
+      "median": 718.060819,
+      "min": 712.819581,
+      "primary_field": "output_token_throughput",
+      "profile": "decode",
+      "prompt_cache_read_pct": 0,
+      "reasons": [],
+      "repetitions": 3,
+      "seeds": [
+        703201,
+        703202,
+        703203
+      ],
+      "server_side": {
+        "kv_usage_peak_pct": 4.36,
+        "loadgen_cpu_cores": 0.12,
+        "preemptions_total": 0,
+        "spec_accept_pct": 55.27,
+        "waiting_requests_avg": 0
+      },
+      "spread_pct": 2.042,
+      "statistic": "median",
+      "verdict": "accepted",
+      "window_class": {
+        "declared_s": 60,
+        "note": "throughput is reported per realized window; comparisons across declared-window classes are prohibited",
+        "realized_excess_pct": 33.7,
+        "realized_median_s": 80.2
+      }
+    },
+    {
+      "concurrency": 64,
+      "gpu_samples_in_window": 176,
+      "launches": [
+        "launch-1"
+      ],
+      "max": 992.512616,
+      "median": 987.479597,
+      "min": 972.798284,
+      "primary_field": "output_token_throughput",
+      "profile": "decode",
+      "prompt_cache_read_pct": 0,
+      "reasons": [],
+      "repetitions": 3,
+      "seeds": [
+        706401,
+        706402,
+        706403
+      ],
+      "server_side": {
+        "kv_usage_peak_pct": 8.36,
+        "loadgen_cpu_cores": 0.14,
+        "preemptions_total": 0,
+        "spec_accept_pct": 54.56,
+        "waiting_requests_avg": 0
+      },
+      "spread_pct": 1.996,
+      "statistic": "median",
+      "verdict": "accepted",
+      "window_class": {
+        "declared_s": 60,
+        "note": "throughput is reported per realized window; comparisons across declared-window classes are prohibited",
+        "realized_excess_pct": 65.9,
+        "realized_median_s": 99.5
+      }
+    },
+    {
+      "concurrency": 96,
+      "gpu_samples_in_window": 176,
+      "launches": [
+        "launch-1"
+      ],
+      "max": 1167.018132,
+      "median": 1158.910949,
+      "min": 1137.335374,
+      "primary_field": "output_token_throughput",
+      "profile": "decode",
+      "prompt_cache_read_pct": 0,
+      "reasons": [],
+      "repetitions": 5,
+      "seeds": [
+        709601,
+        709602,
+        709603,
+        709604,
+        709605
+      ],
+      "server_side": {
+        "kv_usage_peak_pct": 13.0,
+        "loadgen_cpu_cores": 0.15,
+        "preemptions_total": 0,
+        "spec_accept_pct": 54.87,
+        "waiting_requests_avg": 0
+      },
+      "spread_pct": 2.561,
+      "statistic": "median",
+      "verdict": "accepted",
+      "window_class": {
+        "declared_s": 60,
+        "note": "throughput is reported per realized window; comparisons across declared-window classes are prohibited",
+        "realized_excess_pct": 63.6,
+        "realized_median_s": 98.2
+      }
+    },
+    {
+      "concurrency": 128,
+      "gpu_samples_in_window": 152,
+      "launches": [
+        "launch-1"
+      ],
+      "max": 1234.530041,
+      "median": 1230.022552,
+      "min": 1223.723911,
+      "primary_field": "output_token_throughput",
+      "profile": "decode",
+      "prompt_cache_read_pct": 0,
+      "reasons": [],
+      "repetitions": 5,
+      "seeds": [
+        712801,
+        712802,
+        712803,
+        712804,
+        712805
+      ],
+      "server_side": {
+        "kv_usage_peak_pct": 17.07,
+        "loadgen_cpu_cores": 0.16,
+        "preemptions_total": 0,
+        "spec_accept_pct": 54.77,
+        "waiting_requests_avg": 0
+      },
+      "spread_pct": 0.879,
+      "statistic": "median",
+      "verdict": "accepted",
+      "window_class": {
+        "declared_s": 60,
+        "note": "throughput is reported per realized window; comparisons across declared-window classes are prohibited",
+        "realized_excess_pct": 46.3,
+        "realized_median_s": 87.8
+      }
+    },
+    {
+      "concurrency": 160,
+      "gpu_samples_in_window": 192,
+      "launches": [
+        "launch-1"
+      ],
+      "max": 1150.404247,
+      "median": 1148.322678,
+      "min": 1139.550217,
+      "primary_field": "output_token_throughput",
+      "profile": "decode",
+      "prompt_cache_read_pct": 0,
+      "reasons": [],
+      "repetitions": 3,
+      "seeds": [
+        716001,
+        716002,
+        716003
+      ],
+      "server_side": {
+        "kv_usage_peak_pct": 16.85,
+        "loadgen_cpu_cores": 0.15,
+        "preemptions_total": 0,
+        "spec_accept_pct": 54.48,
+        "waiting_requests_avg": 19.02
+      },
+      "spread_pct": 0.945,
+      "statistic": "median",
+      "verdict": "accepted",
+      "window_class": {
+        "declared_s": 60,
+        "note": "throughput is reported per realized window; comparisons across declared-window classes are prohibited",
+        "realized_excess_pct": 93.9,
+        "realized_median_s": 116.4
+      }
+    },
+    {
+      "concurrency": 192,
+      "gpu_samples_in_window": 232,
+      "launches": [
+        "launch-1"
+      ],
+      "max": 1116.974045,
+      "median": 1096.569825,
+      "min": 1094.638027,
+      "primary_field": "output_token_throughput",
+      "profile": "decode",
+      "prompt_cache_read_pct": 0,
+      "reasons": [],
+      "repetitions": 3,
+      "seeds": [
+        719201,
+        719202,
+        719203
+      ],
+      "server_side": {
+        "kv_usage_peak_pct": 17.48,
+        "loadgen_cpu_cores": 0.14,
+        "preemptions_total": 0,
+        "spec_accept_pct": 54.41,
+        "waiting_requests_avg": 33.21
+      },
+      "spread_pct": 2.037,
+      "statistic": "median",
+      "verdict": "accepted",
+      "window_class": {
+        "declared_s": 60,
+        "note": "throughput is reported per realized window; comparisons across declared-window classes are prohibited",
+        "realized_excess_pct": 136.2,
+        "realized_median_s": 141.7
+      }
+    },
+    {
+      "concurrency": 1,
+      "gpu_samples_in_window": 120,
+      "launches": [
+        "launch-2"
+      ],
+      "max": 1688.984424,
+      "median": 1674.334416,
+      "min": 1660.841487,
+      "primary_field": "input_token_throughput",
+      "profile": "prefill",
+      "prompt_cache_read_pct": 3.85,
+      "reasons": [],
+      "repetitions": 3,
+      "seeds": [
+        700101,
+        700102,
+        700103
+      ],
+      "server_side": {
+        "kv_usage_peak_pct": 0.4,
+        "loadgen_cpu_cores": 0.06,
+        "preemptions_total": 0,
+        "spec_accept_pct": 62.47,
+        "waiting_requests_avg": 0
+      },
+      "spread_pct": 1.681,
+      "statistic": "median",
+      "verdict": "accepted",
+      "window_class": {
+        "declared_s": 60,
+        "note": "throughput is reported per realized window; comparisons across declared-window classes are prohibited",
+        "realized_excess_pct": 1.3,
+        "realized_median_s": 60.8
+      }
+    },
+    {
+      "concurrency": 8,
+      "gpu_samples_in_window": 120,
+      "launches": [
+        "launch-2"
+      ],
+      "max": 3234.597131,
+      "median": 3102.658193,
+      "min": 2961.007432,
+      "primary_field": "input_token_throughput",
+      "profile": "prefill",
+      "prompt_cache_read_pct": 15.72,
+      "reasons": [],
+      "repetitions": 3,
+      "seeds": [
+        700801,
+        700802,
+        700803
+      ],
+      "server_side": {
+        "kv_usage_peak_pct": 3.22,
+        "loadgen_cpu_cores": 0.08,
+        "preemptions_total": 0,
+        "spec_accept_pct": 63.07,
+        "waiting_requests_avg": 0.06
+      },
+      "spread_pct": 8.818,
+      "statistic": "median",
+      "verdict": "accepted",
+      "window_class": {
+        "declared_s": 60,
+        "note": "throughput is reported per realized window; comparisons across declared-window classes are prohibited",
+        "realized_excess_pct": 4.0,
+        "realized_median_s": 62.4
+      }
+    },
+    {
+      "concurrency": 32,
+      "gpu_samples_in_window": 120,
+      "launches": [
+        "launch-2"
+      ],
+      "max": 15485.117598,
+      "median": 14151.441211,
+      "min": 9725.437939,
+      "primary_field": "input_token_throughput",
+      "profile": "prefill",
+      "prompt_cache_read_pct": 88.23,
+      "reasons": [
+        "R-06-2 rerun condition: 40.7% spread between repetitions (> 10%). Not rerun: the freeze contract forbids mutating the campaign mid-flight. Report the median together with min/max and the per-repetition prompt-cache read percentage"
+      ],
+      "repetitions": 3,
+      "seeds": [
+        703201,
+        703202,
+        703203
+      ],
+      "server_side": {
+        "kv_usage_peak_pct": 12.89,
+        "loadgen_cpu_cores": 0.17,
+        "preemptions_total": 0,
+        "spec_accept_pct": 63.3,
+        "waiting_requests_avg": 2.05
+      },
+      "spread_pct": 40.7,
+      "statistic": "median",
+      "verdict": "accepted-with-notes",
+      "window_class": {
+        "declared_s": 60,
+        "note": "throughput is reported per realized window; comparisons across declared-window classes are prohibited",
+        "realized_excess_pct": 4.1,
+        "realized_median_s": 62.4
+      }
+    },
+    {
+      "concurrency": 64,
+      "gpu_samples_in_window": 120,
+      "launches": [
+        "launch-2"
+      ],
+      "max": 13456.565525,
+      "median": 12810.335423,
+      "min": 11825.895698,
+      "primary_field": "input_token_throughput",
+      "profile": "prefill",
+      "prompt_cache_read_pct": 72.17,
+      "reasons": [
+        "R-06-2 rerun condition: 12.7% spread between repetitions (> 10%). Not rerun: the freeze contract forbids mutating the campaign mid-flight. Report the median together with min/max and the per-repetition prompt-cache read percentage"
+      ],
+      "repetitions": 3,
+      "seeds": [
+        706401,
+        706402,
+        706403
+      ],
+      "server_side": {
+        "kv_usage_peak_pct": 23.76,
+        "loadgen_cpu_cores": 0.15,
+        "preemptions_total": 0,
+        "spec_accept_pct": 63.63,
+        "waiting_requests_avg": 20.97
+      },
+      "spread_pct": 12.729,
+      "statistic": "median",
+      "verdict": "accepted-with-notes",
+      "window_class": {
+        "declared_s": 60,
+        "note": "throughput is reported per realized window; comparisons across declared-window classes are prohibited",
+        "realized_excess_pct": 6.0,
+        "realized_median_s": 63.6
+      }
+    },
+    {
+      "concurrency": 96,
+      "gpu_samples_in_window": 120,
+      "launches": [
+        "launch-2"
+      ],
+      "max": 15210.491078,
+      "median": 15030.534059,
+      "min": 13928.806145,
+      "primary_field": "input_token_throughput",
+      "profile": "prefill",
+      "prompt_cache_read_pct": 75.86,
+      "reasons": [],
+      "repetitions": 5,
+      "seeds": [
+        709601,
+        709602,
+        709603,
+        709604,
+        709605
+      ],
+      "server_side": {
+        "kv_usage_peak_pct": 36.25,
+        "loadgen_cpu_cores": 0.15,
+        "preemptions_total": 0,
+        "spec_accept_pct": 62.41,
+        "waiting_requests_avg": 37.49
+      },
+      "spread_pct": 8.527,
+      "statistic": "median",
+      "verdict": "accepted",
+      "window_class": {
+        "declared_s": 60,
+        "note": "throughput is reported per realized window; comparisons across declared-window classes are prohibited",
+        "realized_excess_pct": 7.0,
+        "realized_median_s": 64.2
+      }
+    },
+    {
+      "concurrency": 128,
+      "gpu_samples_in_window": 120,
+      "launches": [
+        "launch-2"
+      ],
+      "max": 18031.538112,
+      "median": 16722.37499,
+      "min": 16152.157861,
+      "primary_field": "input_token_throughput",
+      "profile": "prefill",
+      "prompt_cache_read_pct": 77.79,
+      "reasons": [
+        "R-06-2 rerun condition: 11.2% spread between repetitions (> 10%). Not rerun: the freeze contract forbids mutating the campaign mid-flight. Report the median together with min/max and the per-repetition prompt-cache read percentage"
+      ],
+      "repetitions": 5,
+      "seeds": [
+        712801,
+        712802,
+        712803,
+        712804,
+        712805
+      ],
+      "server_side": {
+        "kv_usage_peak_pct": 40.76,
+        "loadgen_cpu_cores": 0.16,
+        "preemptions_total": 0,
+        "spec_accept_pct": 62.75,
+        "waiting_requests_avg": 51.9
+      },
+      "spread_pct": 11.239,
+      "statistic": "median",
+      "verdict": "accepted-with-notes",
+      "window_class": {
+        "declared_s": 60,
+        "note": "throughput is reported per realized window; comparisons across declared-window classes are prohibited",
+        "realized_excess_pct": 6.7,
+        "realized_median_s": 64.0
+      }
+    },
+    {
+      "concurrency": 160,
+      "gpu_samples_in_window": 120,
+      "launches": [
+        "launch-2"
+      ],
+      "max": 18834.493989,
+      "median": 18593.918746,
+      "min": 18549.902356,
+      "primary_field": "input_token_throughput",
+      "profile": "prefill",
+      "prompt_cache_read_pct": 80.04,
+      "reasons": [],
+      "repetitions": 3,
+      "seeds": [
+        716001,
+        716002,
+        716003
+      ],
+      "server_side": {
+        "kv_usage_peak_pct": 40.81,
+        "loadgen_cpu_cores": 0.17,
+        "preemptions_total": 0,
+        "spec_accept_pct": 62.87,
+        "waiting_requests_avg": 72.64
+      },
+      "spread_pct": 1.531,
+      "statistic": "median",
+      "verdict": "accepted",
+      "window_class": {
+        "declared_s": 60,
+        "note": "throughput is reported per realized window; comparisons across declared-window classes are prohibited",
+        "realized_excess_pct": 7.9,
+        "realized_median_s": 64.7
+      }
+    },
+    {
+      "concurrency": 192,
+      "gpu_samples_in_window": 128,
+      "launches": [
+        "launch-2"
+      ],
+      "max": 19429.256159,
+      "median": 19297.777183,
+      "min": 19115.883,
+      "primary_field": "input_token_throughput",
+      "profile": "prefill",
+      "prompt_cache_read_pct": 81.38,
+      "reasons": [],
+      "repetitions": 3,
+      "seeds": [
+        719201,
+        719202,
+        719203
+      ],
+      "server_side": {
+        "kv_usage_peak_pct": 40.88,
+        "loadgen_cpu_cores": 0.17,
+        "preemptions_total": 0,
+        "spec_accept_pct": 62.06,
+        "waiting_requests_avg": 96.81
+      },
+      "spread_pct": 1.624,
+      "statistic": "median",
+      "verdict": "accepted",
+      "window_class": {
+        "declared_s": 60,
+        "note": "throughput is reported per realized window; comparisons across declared-window classes are prohibited",
+        "realized_excess_pct": 15.3,
+        "realized_median_s": 69.2
+      }
+    }
+  ],
+  "points": 24,
+  "runs": 84,
+  "schema_version": 1,
+  "validity_checks": {
+    "baselines": {
+      "evidence": {
+        "B0_unloaded_before": "captured, 12 samples, 29.4 W median",
+        "B1_post_loaded_after": "captured, 12 samples, 29.8 W median",
+        "B1_pre_loaded_idle": "The campaign went from container-ready to the correctness gate to the first measured run without an unloaded-to-loaded idle interval. R-06-1 requires B1-pre or an explicit justification: B0 (unloaded, before) and B1-post (loaded, after) were captured and their GPU power medians differ by 1.4%, so no ambient drift is being inferred from a missing baseline; nothing in this campaign's claims depends on a loaded-idle subtraction."
+      },
+      "status": "partial"
+    },
+    "cache-hit-behaviour-known": {
+      "evidence": "prompt-cache read percentage recorded per run: decode 0.0%, balanced 8.4-47.0%, prefill 3.9-88.2%. Prefill throughput is therefore mostly cache-served and is labelled as such",
+      "status": "pass"
+    },
+    "error-rate-reported": {
+      "evidence": "error_summary length recorded per run; 0 errors",
+      "status": "pass"
+    },
+    "evidence-retained": {
+      "evidence": "84/84 exports parsed, completion marker corroborated by artifact count",
+      "status": "pass"
+    },
+    "kv-capacity-and-peak": {
+      "evidence": {
+        "kv_usage_peak_pct_overall": 40.883573346350985,
+        "note": "peak occupancy is a sampled maximum of vllm:kv_cache_usage_perc, not a startup capacity claim; token capacity itself comes from the server log, which this campaign retained on the node only",
+        "preemptions_total_overall": 0,
+        "source": "server_metrics_export.json written by AIPerf beside each export"
+      },
+      "status": "pass"
+    },
+    "load-generator-not-bottlenecked": {
+      "evidence": {
+        "loadgen_cpu_cores_max": 0.192416230846952,
+        "loadgen_rss_gib_max": 1.7556838989257812,
+        "note": "load-generator CPU and RSS are measured; the machine's core count was not recorded at run time, so saturation can be bounded but not proven absent. Network saturation was not sampled at all",
+        "source": "process_cpu_seconds and process_resident_memory_bytes from the same scrape"
+      },
+      "status": "partial"
+    },
+    "model-and-revision-served": {
+      "evidence": "campaign manifest model RadixArk/GLM-5.3-NVFP4; artifact boundary enforced by the model directory mount, image digest recorded in preflight.json",
+      "status": "pass"
+    },
+    "no-throttling-documented": {
+      "evidence": "per-GPU temperature, SM/memory clock and DCGM throttle-reason counters were not sampled (the scrape is the load generator's and the server's, not the accelerators'). Board power and utilisation were sampled and show no collapse. Absent, not zero",
+      "status": "not-evaluable"
+    },
+    "no-unrelated-gpu-consumer": {
+      "evidence": "/dev/shm cleared and verified empty at preflight; only the serving container held GPU memory; B0 idle 29.4 W and B1-post 29.8 W",
+      "status": "pass"
+    },
+    "peak-supported": {
+      "evidence": {
+        "balanced": {
+          "claim_allowed": true,
+          "lower_beyond_peak": [
+            160,
+            192
+          ],
+          "peak_concurrency": 128,
+          "peak_median": 918.242657,
+          "points_beyond_peak": 2
+        },
+        "decode": {
+          "claim_allowed": true,
+          "lower_beyond_peak": [
+            160,
+            192
+          ],
+          "peak_concurrency": 128,
+          "peak_median": 1230.022552,
+          "points_beyond_peak": 2
+        },
+        "prefill": {
+          "claim_allowed": false,
+          "lower_beyond_peak": [],
+          "peak_concurrency": 192,
+          "peak_median": 19297.777183,
+          "points_beyond_peak": 0
+        }
+      },
+      "status": "see peaks"
+    },
+    "proxy-boundary": {
+      "evidence": "this campaign ran one replica with no load balancer, approved in formal-20260907-freeze-contract.md. R-06-1 normally requires the benchmark to target the proxy frontend even for one backend; there is no proxy in this contract, so no frontend/backend counter delta exists and none may be inferred",
+      "status": "deviation-approved"
+    },
+    "requested-topology-active": {
+      "evidence": "single TP8 replica, container env MAX_NUM_SEQS=128 GRAPH=512 MTP=3; 8 GPUs observed busy in the campaign sampler",
+      "status": "pass"
+    },
+    "single-launch-continuity": {
+      "evidence": "two container launches: launch-1 measured decode only, launch-2 measured prefill and balanced, because the controller died at 03:08 and the resumed driver re-entered launch(). Recorded in formal-20260907-harness-defects-and-outage.md",
+      "status": "deviation-recorded"
+    },
+    "speculative-decode-behaviour": {
+      "evidence": {
+        "accept_pct_median_decode_peak": 54.77,
+        "source": "vllm:spec_decode_num_accepted_tokens / num_draft_tokens rates"
+      },
+      "status": "pass"
+    },
+    "stability": {
+      "evidence": "median within-point spread across all 24 points: 2.52%; launch-1 reproduced its own peak point 8 h later at -0.7%",
+      "status": "pass"
+    },
+    "warmup-same-concurrency": {
+      "evidence": "run manifest warmup event with requests=2*concurrency",
+      "status": "pass"
+    },
+    "window-class-comparability": {
+      "evidence": "every point records declared and realized window; 90 s controls at C128 measured -6.1% versus 60 s at the same point in the same launch",
+      "status": "pass"
+    },
+    "workload-shape-as-profiled": {
+      "evidence": "input/output token means recorded per run manifest and asserted against the frozen spec file; stddev 0",
+      "status": "pass"
+    }
+  }
+}

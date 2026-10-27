@@ -1,0 +1,326 @@
+{
+  "schema_version": 1,
+  "campaign_id": "glm53-coldgrid-20260924",
+  "campaign_path": "results/comino-8x-rtx6000/glm5.3/5-campaign/glm53-coldgrid-20260924/campaign-manifest.json",
+  "status": "runs_complete",
+  "created_at": "2026-09-24T20:52:56Z",
+  "host": "comino-8xrtx6000",
+  "model": "RadixArk/GLM-5.3-NVFP4",
+  "revision": "363e8f086905afd83db356a620f9aa401c23800a",
+  "counts": {
+    "container_launches": 2,
+    "grid_points": 14,
+    "profiles": 2,
+    "runs": 42
+  },
+  "validity_evidence": {
+    "model-and-revision-served": {
+      "status": "pass",
+      "evidence": "pin RadixArk/GLM-5.3-NVFP4 @ 363e8f086905afd83db356a620f9aa401c23800a; DOWNLOAD_COMPLETE.json structural receipt (inventory sizes, safetensors headers, index coverage); every run cli names the same tokenizer path; served-model name asserted by the correctness gate per fleet boot"
+    },
+    "requested-topology-active": {
+      "status": "pass",
+      "evidence": "realized args extracted from engine startup logs (segments/*/params.txt) match the frozen deployment; measurement path AIPerf -> haproxy -> engine on loopback; campaign telemetry records 8 per-GPU columns active during runs"
+    },
+    "no-unrelated-gpu-consumer": {
+      "status": "pass",
+      "evidence": "B0 unloaded idle baseline captured pre-deployment (preflight/b0, GPUs 0 MiB); per-GPU memory_used in campaign telemetry consistent with the engine resident throughout; correctness 7/7 after each fleet boot"
+    }
+  },
+  "runs": [
+    {
+      "manifest": "decode/c001/r1",
+      "profile": "decode",
+      "concurrency": 1,
+      "repetition": 1,
+      "status": "complete"
+    },
+    {
+      "manifest": "decode/c001/r2",
+      "profile": "decode",
+      "concurrency": 1,
+      "repetition": 2,
+      "status": "complete"
+    },
+    {
+      "manifest": "decode/c001/r3",
+      "profile": "decode",
+      "concurrency": 1,
+      "repetition": 3,
+      "status": "complete"
+    },
+    {
+      "manifest": "decode/c008/r1",
+      "profile": "decode",
+      "concurrency": 8,
+      "repetition": 1,
+      "status": "complete"
+    },
+    {
+      "manifest": "decode/c008/r2",
+      "profile": "decode",
+      "concurrency": 8,
+      "repetition": 2,
+      "status": "complete"
+    },
+    {
+      "manifest": "decode/c008/r3",
+      "profile": "decode",
+      "concurrency": 8,
+      "repetition": 3,
+      "status": "complete"
+    },
+    {
+      "manifest": "decode/c016/r1",
+      "profile": "decode",
+      "concurrency": 16,
+      "repetition": 1,
+      "status": "complete"
+    },
+    {
+      "manifest": "decode/c016/r2",
+      "profile": "decode",
+      "concurrency": 16,
+      "repetition": 2,
+      "status": "complete"
+    },
+    {
+      "manifest": "decode/c016/r3",
+      "profile": "decode",
+      "concurrency": 16,
+      "repetition": 3,
+      "status": "complete"
+    },
+    {
+      "manifest": "decode/c024/r1",
+      "profile": "decode",
+      "concurrency": 24,
+      "repetition": 1,
+      "status": "complete"
+    },
+    {
+      "manifest": "decode/c024/r2",
+      "profile": "decode",
+      "concurrency": 24,
+      "repetition": 2,
+      "status": "complete"
+    },
+    {
+      "manifest": "decode/c024/r3",
+      "profile": "decode",
+      "concurrency": 24,
+      "repetition": 3,
+      "status": "complete"
+    },
+    {
+      "manifest": "decode/c032/r1",
+      "profile": "decode",
+      "concurrency": 32,
+      "repetition": 1,
+      "status": "complete"
+    },
+    {
+      "manifest": "decode/c032/r2",
+      "profile": "decode",
+      "concurrency": 32,
+      "repetition": 2,
+      "status": "complete"
+    },
+    {
+      "manifest": "decode/c032/r3",
+      "profile": "decode",
+      "concurrency": 32,
+      "repetition": 3,
+      "status": "complete"
+    },
+    {
+      "manifest": "decode/c048/r1",
+      "profile": "decode",
+      "concurrency": 48,
+      "repetition": 1,
+      "status": "complete"
+    },
+    {
+      "manifest": "decode/c048/r2",
+      "profile": "decode",
+      "concurrency": 48,
+      "repetition": 2,
+      "status": "complete"
+    },
+    {
+      "manifest": "decode/c048/r3",
+      "profile": "decode",
+      "concurrency": 48,
+      "repetition": 3,
+      "status": "complete"
+    },
+    {
+      "manifest": "decode/c064/r1",
+      "profile": "decode",
+      "concurrency": 64,
+      "repetition": 1,
+      "status": "complete"
+    },
+    {
+      "manifest": "decode/c064/r2",
+      "profile": "decode",
+      "concurrency": 64,
+      "repetition": 2,
+      "status": "complete"
+    },
+    {
+      "manifest": "decode/c064/r3",
+      "profile": "decode",
+      "concurrency": 64,
+      "repetition": 3,
+      "status": "complete"
+    },
+    {
+      "manifest": "prefill/c001/r1",
+      "profile": "prefill",
+      "concurrency": 1,
+      "repetition": 1,
+      "status": "complete"
+    },
+    {
+      "manifest": "prefill/c001/r2",
+      "profile": "prefill",
+      "concurrency": 1,
+      "repetition": 2,
+      "status": "complete"
+    },
+    {
+      "manifest": "prefill/c001/r3",
+      "profile": "prefill",
+      "concurrency": 1,
+      "repetition": 3,
+      "status": "complete"
+    },
+    {
+      "manifest": "prefill/c008/r1",
+      "profile": "prefill",
+      "concurrency": 8,
+      "repetition": 1,
+      "status": "complete"
+    },
+    {
+      "manifest": "prefill/c008/r2",
+      "profile": "prefill",
+      "concurrency": 8,
+      "repetition": 2,
+      "status": "complete"
+    },
+    {
+      "manifest": "prefill/c008/r3",
+      "profile": "prefill",
+      "concurrency": 8,
+      "repetition": 3,
+      "status": "complete"
+    },
+    {
+      "manifest": "prefill/c016/r1",
+      "profile": "prefill",
+      "concurrency": 16,
+      "repetition": 1,
+      "status": "complete"
+    },
+    {
+      "manifest": "prefill/c016/r2",
+      "profile": "prefill",
+      "concurrency": 16,
+      "repetition": 2,
+      "status": "complete"
+    },
+    {
+      "manifest": "prefill/c016/r3",
+      "profile": "prefill",
+      "concurrency": 16,
+      "repetition": 3,
+      "status": "complete"
+    },
+    {
+      "manifest": "prefill/c024/r1",
+      "profile": "prefill",
+      "concurrency": 24,
+      "repetition": 1,
+      "status": "complete"
+    },
+    {
+      "manifest": "prefill/c024/r2",
+      "profile": "prefill",
+      "concurrency": 24,
+      "repetition": 2,
+      "status": "complete"
+    },
+    {
+      "manifest": "prefill/c024/r3",
+      "profile": "prefill",
+      "concurrency": 24,
+      "repetition": 3,
+      "status": "complete"
+    },
+    {
+      "manifest": "prefill/c032/r1",
+      "profile": "prefill",
+      "concurrency": 32,
+      "repetition": 1,
+      "status": "complete"
+    },
+    {
+      "manifest": "prefill/c032/r2",
+      "profile": "prefill",
+      "concurrency": 32,
+      "repetition": 2,
+      "status": "complete"
+    },
+    {
+      "manifest": "prefill/c032/r3",
+      "profile": "prefill",
+      "concurrency": 32,
+      "repetition": 3,
+      "status": "complete"
+    },
+    {
+      "manifest": "prefill/c048/r1",
+      "profile": "prefill",
+      "concurrency": 48,
+      "repetition": 1,
+      "status": "complete"
+    },
+    {
+      "manifest": "prefill/c048/r2",
+      "profile": "prefill",
+      "concurrency": 48,
+      "repetition": 2,
+      "status": "complete"
+    },
+    {
+      "manifest": "prefill/c048/r3",
+      "profile": "prefill",
+      "concurrency": 48,
+      "repetition": 3,
+      "status": "complete"
+    },
+    {
+      "manifest": "prefill/c064/r1",
+      "profile": "prefill",
+      "concurrency": 64,
+      "repetition": 1,
+      "status": "complete"
+    },
+    {
+      "manifest": "prefill/c064/r2",
+      "profile": "prefill",
+      "concurrency": 64,
+      "repetition": 2,
+      "status": "complete"
+    },
+    {
+      "manifest": "prefill/c064/r3",
+      "profile": "prefill",
+      "concurrency": 64,
+      "repetition": 3,
+      "status": "complete"
+    }
+  ]
+}

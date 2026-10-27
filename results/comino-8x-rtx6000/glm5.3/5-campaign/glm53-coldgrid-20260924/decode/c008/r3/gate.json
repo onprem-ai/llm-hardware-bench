@@ -1,0 +1,8 @@
+{
+  "label": "~/bench/llm-bench/campaigns/glm53-coldgrid-20260924/decode/c008/r3",
+  "hits_delta": 0,
+  "queries_delta": 640,
+  "served_pct": 0.0,
+  "limit_pct": 1.0,
+  "pass": true
+}

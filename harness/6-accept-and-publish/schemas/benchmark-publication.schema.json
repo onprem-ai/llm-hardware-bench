@@ -1,0 +1,555 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/llm-inference-hardware-bench/benchmark-publication.schema.json",
+  "title": "Published benchmark summary",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "id",
+    "title",
+    "description",
+    "hardware",
+    "model",
+    "report",
+    "deployment",
+    "evidence",
+    "axis",
+    "headlines",
+    "normalized_data"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._-]*$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string",
+      "minLength": 40
+    },
+    "keywords": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "hardware": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "model",
+        "host",
+        "gpu_count",
+        "gpu_model",
+        "aggregate_vram_gib"
+      ],
+      "properties": {
+        "model": {
+          "type": "string",
+          "minLength": 1
+        },
+        "host": {
+          "type": "string",
+          "minLength": 1
+        },
+        "gpu_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "gpu_model": {
+          "type": "string",
+          "minLength": 1
+        },
+        "aggregate_vram_gib": {
+          "type": "number",
+          "minimum": 1
+        }
+      }
+    },
+    "model": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "repository",
+        "revision",
+        "quantization"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "repository": {
+          "type": "string",
+          "minLength": 1
+        },
+        "revision": {
+          "type": "string",
+          "minLength": 7
+        },
+        "quantization": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "report": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind"
+      ],
+      "comment": "path referenced a generated standalone HTML report. The site renders reports natively, so it is optional and retained only for archived publications.",
+      "properties": {
+        "path": {
+          "type": "string",
+          "pattern": "^[^/].*\\.html$"
+        },
+        "kind": {
+          "const": "capacity-report"
+        },
+        "date": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "subtitle": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "deployment": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "summary",
+        "request_path"
+      ],
+      "comment": "field names mirror report-config.json's deployment block exactly; do not rename when projecting.",
+      "properties": {
+        "summary": {
+          "type": "string",
+          "minLength": 1
+        },
+        "request_path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "replicas": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "tensor_parallel_per_replica": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "active_sequence_ceiling": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "kv_cache_dtype": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "speculative_decoding": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "max_model_len": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "max_num_seqs_per_replica": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "max_num_batched_tokens_per_replica": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "cpu_numa_affinity": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "comment": "provenance for the published receipts; paths are relative to the publication file.",
+      "properties": {
+        "campaign_path": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "normalized_data_path": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "runs",
+        "requests",
+        "errors",
+        "repetitions"
+      ],
+      "properties": {
+        "runs": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "requests": {
+          "type": "number",
+          "minimum": 0
+        },
+        "errors": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "repetitions": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "classification": {
+          "type": "string"
+        }
+      }
+    },
+    "axis": {
+      "comment": "legacy array form is the measured concurrency points; the object form mirrors report-config.json's axis block and additionally carries the tick and maximum used to draw the concurrency axis.",
+      "oneOf": [
+        {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "measured_concurrency"
+          ],
+          "properties": {
+            "measured_concurrency": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "type": "integer",
+                "minimum": 1
+              }
+            },
+            "major_ticks": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 1
+              }
+            },
+            "maximum": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        }
+      ]
+    },
+    "headlines": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "decode",
+        "prefill"
+      ],
+      "properties": {
+        "decode": {
+          "$ref": "#/$defs/headline"
+        },
+        "prefill": {
+          "$ref": "#/$defs/headline"
+        }
+      }
+    },
+    "normalized_data": {
+      "$ref": "normalized-report-data.schema.json"
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "reproducibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "container": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "image": {
+              "type": "string"
+            },
+            "base_image": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "engine": {
+              "type": "string"
+            },
+            "build": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "caveats": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "image",
+            "engine"
+          ]
+        },
+        "model": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "repository": {
+              "type": "string"
+            },
+            "revision": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "revision_note": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "repository"
+          ]
+        },
+        "topology": {
+          "type": "string"
+        },
+        "launch": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "profile": {
+                "type": "string"
+              },
+              "script": {
+                "type": "string"
+              },
+              "command": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "profile",
+              "command"
+            ]
+          }
+        },
+        "client": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "tool": {
+              "type": "string"
+            },
+            "version": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "workloads": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "tool",
+            "workloads"
+          ]
+        },
+        "corpus": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "source": {
+              "type": "string"
+            },
+            "version": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "sha256": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "source"
+          ]
+        },
+        "source_record": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "container",
+        "model",
+        "launch",
+        "client",
+        "corpus",
+        "source_record"
+      ]
+    },
+    "procedure": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "date": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "phase": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string"
+          },
+          "outcome": {
+            "type": "string",
+            "enum": [
+              "worked",
+              "worked-with-caveats",
+              "failed",
+              "abandoned",
+              "finding"
+            ]
+          },
+          "detail": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "phase",
+          "action",
+          "outcome",
+          "detail"
+        ]
+      }
+    },
+    "procedure_source": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "headline": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "value",
+        "unit",
+        "concurrency",
+        "statistic"
+      ],
+      "properties": {
+        "value": {
+          "type": "number",
+          "minimum": 0
+        },
+        "unit": {
+          "enum": [
+            "input tokens/s",
+            "output tokens/s"
+          ]
+        },
+        "concurrency": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "statistic": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+schema_version: 1
+campaign_id: deepseek-v4-flash-4xtp2-fp8-dspark5
+study_id: xe7740
+status: complete
+host: xe7740-04
+model: deepseek-ai/DeepSeek-V4-Flash-0731
+revision: null
+external_path: /home/demouser/benchmarks/results/xe7740-8x-rtx6000/deepseek-v4-flash/campaign-4xtp2-fp8-dspark5
+canonical_layout: false
+completion_marker: null
+expected_base_runs: 108
+notes:
+  - Legacy campaign contains 108 summarized runs and zero reported request errors.
+  - Exact upstream revision was not cryptographically established by the source downloader; do not infer one.
+  - Report and reproducibility records are authoritative for this legacy campaign.

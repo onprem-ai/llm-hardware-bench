@@ -1,0 +1,45 @@
+{
+  "artifacts": {
+    "measured_dir": "../../../../../../../_local-evidence/xe7740-04/glm5.3/5-campaign/cold-decode-20260909/c064/r3",
+    "result": "../../../../../../../_local-evidence/xe7740-04/glm5.3/5-campaign/cold-decode-20260909/c064/r3/profile_export_aiperf.json",
+    "telemetry_dir": "telemetry"
+  },
+  "campaign_id": "20260909-glm53-cold",
+  "command": null,
+  "command_source": "reconstructed from the preflighted command template and the parameters recorded in the harness manifest; the harness did not capture argv per run",
+  "concurrency": 64,
+  "end_time": "2026-09-07T05:53:01Z",
+  "error": null,
+  "events": [
+    {
+      "event": "warmup",
+      "requests": 64,
+      "same_concurrency": true
+    },
+    {
+      "event": "measured",
+      "realized_s": 60.998063872,
+      "window_s": 60
+    },
+    {
+      "container_id": "4c2b747602638798c75772fb618f5896d1318c710dab794f6e41051c87630ea0",
+      "event": "container",
+      "launch": "launch-2"
+    }
+  ],
+  "measurements": {
+    "cache_read_pct": 0.0,
+    "container_launch": "cold-client-20260909",
+    "container_mem_peak_bytes": null,
+    "declared_window_s": 60,
+    "realized_window_s": null
+  },
+  "profile": "decode",
+  "random_seed": 664003,
+  "repetition": 3,
+  "return_code": 0,
+  "run_id": "decode-c064-r3",
+  "schema_version": 1,
+  "start_time": "2026-09-07T05:51:25Z",
+  "status": "complete"
+}

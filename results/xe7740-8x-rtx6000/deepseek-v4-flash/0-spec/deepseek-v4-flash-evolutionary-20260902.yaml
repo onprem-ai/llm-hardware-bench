@@ -1,0 +1,18 @@
+schema_version: 1
+campaign_id: 20260902-deepseek-v4-flash-evolutionary
+study_id: xe7740
+status: complete
+host: xe7740-04
+model: deepseek-ai/DeepSeek-V4-Flash-0731
+revision: null
+external_path: /home/demouser/llm-benchmark-results/xe7740-04/deepseek-v4-flash-0731/local-unverified/r4-tp2-qualification/20260902-deepseek-v4-flash-evolutionary
+canonical_layout: false
+completion_marker: raster/prefill-context8192-followup/COMPLETE
+expected_base_runs: null
+notes:
+  - Decode and Prefill rasters and four-replica Decode promotion are complete.
+  - The formal campaign is recorded separately as 20260902-full-deepseek-v4-flash-formal.
+  - Upstream immutable model revision was not established, so the artifact path is explicitly local-unverified.
+  - Speculative decoding is mandatory for promoted candidates.
+  - Formal global concurrency grid is 1, 8, 32, 64, 96, 128, 192, 256.
+  - C384 and C512 were measured only during qualification and are retained as overload evidence.

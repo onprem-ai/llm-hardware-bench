@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "report": {
+    "id": "deepseek-v4-flash",
+    "title": "DeepSeek V4 Flash 0731 — Prefill and Decode Capacity",
+    "output_filename": "deepseek-v4-flash-comparable-capacity-report.html",
+    "comparable": true,
+    "campaign_date": "2026-09-03",
+    "subtitle": "Four independent TP2 replicas across eight RTX PRO 6000 Blackwell GPUs, measured through HAProxy with three repetitions per operating point."
+  },
+  "source": {
+    "campaign_id": "20260902-full-deepseek-v4-flash-formal",
+    "campaign_path": "/home/demouser/llm-benchmark-results/xe7740-04/deepseek-v4-flash-0731/local-unveri/r4-tp2-dspark5-seq32-b8192-graph192-ctx32768/20260902-full-deepseek-v4-flash-formal",
+    "normalized_data": "normalized-report-data.json"
+  },
+  "model": {
+    "display_name": "DeepSeek V4 Flash 0731",
+    "repository": "deepseek-ai/DeepSeek-V4-Flash-0731",
+    "revision": "local-unverified",
+    "served_name": "deepseek-v4-flash-0731",
+    "quantization": "FP8 E4M3 weights with UE8M0 scales"
+  },
+  "hardware": {
+    "host": "xe7740-04",
+    "gpu_count": 8,
+    "gpu_model": "NVIDIA RTX PRO 6000 Blackwell 96 GB",
+    "logical_cpu_count": 344
+  },
+  "deployment": {
+    "topology_display": "4 independent TP2 replicas behind HAProxy leastconn",
+    "replicas": 4,
+    "tensor_parallel_per_replica": 2,
+    "max_model_len": 32768,
+    "max_num_seqs_per_replica": 32,
+    "active_sequence_ceiling": 128,
+    "max_num_batched_tokens_per_replica": 8192,
+    "kv_cache_dtype": "fp8",
+    "speculative_decoding": "DSpark-5, fixed depth, probabilistic draft sampling",
+    "cpu_numa_affinity": "not pinned",
+    "block_size": 256,
+    "moe_backend": "b12x-a8",
+    "allreduce_backend": "b12x",
+    "kv_offloading_size_gib_per_replica": 48.5,
+    "max_cudagraph_capture_size": 192
+  },
+  "axis": {
+    "measured_concurrency": [1, 8, 32, 64, 96, 128, 192, 256],
+    "maximum": 256,
+    "major_ticks": [1, 8, 32, 64, 96, 128, 192, 256]
+  },
+  "metrics": {
+    "energy_method": "integrated_gpu_board_power",
+    "loaded_idle_baseline": false,
+    "temperature": true,
+    "load_balancer": true,
+    "pcie": true
+  },
+  "fabric_qualification_path": null,
+  "provenance_notes": [
+    "All 72 canonical run manifests are complete: Decode, Prefill, and Balanced across eight global-concurrency points with three repetitions each and zero failed operating points.",
+    "The request path was AIPerf through HAProxy leastconn to four independent TP2 vLLM replicas.",
+    "Speculative decoding was mandatory; the formal deployment used DSpark with five draft tokens.",
+    "The local checkpoint lacks a verified immutable upstream download receipt. The revision is therefore reported as local-unverified and no upstream commit is inferred.",
+    "The formal campaign retained the 32K-context profile. An 8K Prefill-only candidate was 0.65% faster in a single qualification run, which was not sufficient to justify reducing context capability.",
+    "The campaign path contains local-unveri because the canonical runner truncates revision labels to twelve characters.",
+    "Raw campaign artifacts remain authoritative; benchmark outputs do not receive cryptographic checksums."
+  ]
+}

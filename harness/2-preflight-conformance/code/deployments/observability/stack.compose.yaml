@@ -1,0 +1,42 @@
+# Generic single-host observability stack. Pin every image by digest in .env.
+services:
+  victoriametrics:
+    image: ${VICTORIAMETRICS_IMAGE:?set immutable VICTORIAMETRICS_IMAGE}
+    container_name: ${OBS_PREFIX:-llm-bench}-victoriametrics
+    restart: unless-stopped
+    command: ["-storageDataPath=/storage", "-retentionPeriod=${VM_RETENTION:-30d}", "-promscrape.config=/etc/victoriametrics/scrape.yaml"]
+    ports: ["127.0.0.1:${VM_PORT:-8428}:8428"]
+    extra_hosts: ["host.docker.internal:host-gateway"]
+    volumes:
+      - ${VM_DATA_DIR:?set VM_DATA_DIR}:/storage
+      - ./scrape.example.yaml:/etc/victoriametrics/scrape.yaml:ro
+  node-exporter:
+    image: ${NODE_EXPORTER_IMAGE:?set immutable NODE_EXPORTER_IMAGE}
+    container_name: ${OBS_PREFIX:-llm-bench}-node-exporter
+    restart: unless-stopped
+    network_mode: host
+    pid: host
+    command: ["--path.rootfs=/host", "--web.listen-address=127.0.0.1:${NODE_EXPORTER_PORT:-9100}"]
+    volumes: ["/:/host:ro,rslave"]
+  cadvisor:
+    image: ${CADVISOR_IMAGE:?set immutable CADVISOR_IMAGE}
+    container_name: ${OBS_PREFIX:-llm-bench}-cadvisor
+    restart: unless-stopped
+    privileged: true
+    ports: ["127.0.0.1:${CADVISOR_PORT:-8088}:8080"]
+    devices: ["/dev/kmsg:/dev/kmsg"]
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /var/lib/docker:/var/lib/docker:ro
+  dcgm-exporter:
+    image: ${DCGM_EXPORTER_IMAGE:?set immutable DCGM_EXPORTER_IMAGE}
+    container_name: ${OBS_PREFIX:-llm-bench}-dcgm-exporter
+    restart: unless-stopped
+    runtime: nvidia
+    cap_add: [SYS_ADMIN]
+    environment: {NVIDIA_VISIBLE_DEVICES: all, NVIDIA_DRIVER_CAPABILITIES: utility}
+    ports: ["127.0.0.1:${DCGM_EXPORTER_PORT:-9400}:9400"]
+    volumes: ["../../harness/2-preflight-conformance/code/configs/dcgm-custom.csv:/etc/dcgm-exporter/llm-bench-custom.csv:ro"]
+    command: ["--collectors", "/etc/dcgm-exporter/llm-bench-custom.csv", "--collect-interval", "${DCGM_EXPORTER_INTERVAL_MS:-1000}", "--devices", "g"]

@@ -1,0 +1,3 @@
+renderer_path harness/7-report-and-feedback/code/render_report.py
+template_path harness/7-report-and-feedback/code/templates/comparable-report.html
+generated_utc 2026-09-07T10:33:03.495359+00:00

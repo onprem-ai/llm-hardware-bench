@@ -1,0 +1,14 @@
+schema_version: 1
+campaign_id: glm53-flash-protocol-20260829
+study_id: xe7740
+status: complete
+host: xe7740-04
+model: LibertAIDAI/GLM-5.3-Flash-NVFP4
+revision: null
+external_path: /home/demouser/benchmarks/glm53/protocol-campaign-20260829
+canonical_layout: false
+completion_marker: null
+expected_base_runs: 72
+notes:
+  - Legacy external path is retained in place.
+  - Revision and manifest hash must be populated from authoritative campaign artifacts rather than inferred.

@@ -1,0 +1,16 @@
+What is raw and what is derived in this tree
+============================================
+RAW (unmodified, referenced not copied):
+  results/xe7740-8x-rtx6000/_local-evidence/xe7740-04/glm5.3/5-campaign/formal-20260907
+      profile_export_aiperf.json per run, the campaign sampler telemetry.csv,
+      preflight.json, progress.log, run.sh (the driver itself), B0/B1-post idle CSVs.
+      runs/*/manifest.json artifacts.* resolve to those files by relative path; nothing
+      is copied into this tree, so the cache stays the single source of raw truth.
+DERIVED BY THIS SCRIPT:
+      campaign-manifest.json, per-run manifest.json, RUNS_COMPLETE, idle/*/manifest.json,
+      runs/*/telemetry/gpu.csv and host.csv, sliced from the 5 s campaign sampler.
+      gpu window boundaries are approximate (+-20 s): the harness recorded completion
+      timestamps, not start timestamps.
+NEVER SAMPLED (absent, not zero): CPU jiffies, load, DCGM energy counters, per-GPU VRAM
+      used, preemption counts, KV occupancy, HAProxy counters (no proxy in this contract).
+      Container RAM high-water for the whole campaign (cgroup memory.peak): 59.03 GiB.

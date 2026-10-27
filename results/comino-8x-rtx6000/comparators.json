@@ -1,0 +1,42 @@
+{
+ "schema_version": 1,
+ "_comment": "Authoritative comparator registry (R-PIPE-2). Values are RESOLVED FROM THE ARTIFACT at check time; this file stores addresses, never numbers, so it cannot drift from the artifact. Any stated delta must reference an id here. Ids are namespaced comino.* because validate_claims.py merges results/*/comparators.json across hosts and refuses duplicate ids.",
+ "comparators": [
+  {
+   "id": "comino.glm5.3.decode.cold-headline",
+   "artifact": "results/comino-8x-rtx6000/glm5.3/cold-20260924/publication.json",
+   "field": "headlines.decode.value",
+   "unit": "output tokens/s",
+   "concurrency": 48,
+   "statistic": "median",
+   "note": "Corrected-cold campaign glm53-coldgrid-20260924 (published 7-point axis; decode spliced seq32/graph128 C1-C24 to seq64/graph256 C32-C64; two container launches). Peak decode point."
+  },
+  {
+   "id": "comino.glm5.3.prefill.cold-headline",
+   "artifact": "results/comino-8x-rtx6000/glm5.3/cold-20260924/publication.json",
+   "field": "headlines.prefill.value",
+   "unit": "input tokens/s",
+   "concurrency": 64,
+   "statistic": "median",
+   "note": "Cold-uncached prefill: fail-closed engine-side prefix-cache gate (<=1%) passed at 0.0% served on every rep. NOT comparable to cache-served prefill series."
+  },
+  {
+   "id": "comino.qwen3.8-flash-next.decode.cold-headline",
+   "artifact": "results/comino-8x-rtx6000/qwen3.8-flash-next/cold-20260924/publication.json",
+   "field": "headlines.decode.value",
+   "unit": "output tokens/s",
+   "concurrency": 224,
+   "statistic": "median",
+   "note": "Corrected-cold campaign qwen38-coldgrid-20260924. 4x TP2 SGLang replicas, decode-optimized profile (radix on by design, ISL 8), SM120 guard patch re-derived locally."
+  },
+  {
+   "id": "comino.qwen3.8-flash-next.prefill.cold-headline",
+   "artifact": "results/comino-8x-rtx6000/qwen3.8-flash-next/cold-20260924/publication.json",
+   "field": "headlines.prefill.value",
+   "unit": "input tokens/s",
+   "concurrency": 64,
+   "statistic": "median",
+   "note": "Prefill-optimized-uncached profile (radix disabled); peak point. Client-side usage_prompt_cache_read_tokens == 0 on every rep."
+  }
+ ]
+}

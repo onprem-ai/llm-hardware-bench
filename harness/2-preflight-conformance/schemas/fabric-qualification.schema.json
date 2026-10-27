@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/llm-inference-hardware-bench/fabric-qualification.schema.json",
+  "title": "Fabric qualification manifest",
+  "type": "object",
+  "required": ["schema_version", "qualification_id", "host", "started_at", "production_services_stopped", "artifacts", "tests"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "qualification_id": {"type": "string", "minLength": 1},
+    "host": {"type": "string", "minLength": 1},
+    "started_at": {"type": "string", "format": "date-time"},
+    "ended_at": {"type": ["string", "null"], "format": "date-time"},
+    "production_services_stopped": {"type": "boolean"},
+    "dcgm": {
+      "type": "object",
+      "properties": {
+        "image": {"type": ["string", "null"]},
+        "image_digest": {"type": ["string", "null"]},
+        "exporter_version": {"type": ["string", "null"]},
+        "collector_sha256": {"type": ["string", "null"]},
+        "availability_report": {"type": ["string", "null"]}
+      }
+    },
+    "artifacts": {"type": "array", "items": {"type": "string"}},
+    "tests": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["kind", "command", "gpu_set", "status", "raw_output"],
+        "properties": {
+          "kind": {"enum": ["p2p", "all_reduce", "all_gather", "reduce_scatter", "dcgm_profile_test", "other"]},
+          "command": {"type": "array", "items": {"type": "string"}},
+          "binary_sha256": {"type": ["string", "null"]},
+          "gpu_set": {"type": "array", "items": {"type": "integer", "minimum": 0}},
+          "numa_policy": {"type": ["string", "null"]},
+          "status": {"enum": ["passed", "failed", "skipped", "inconclusive"]},
+          "raw_output": {"type": "string"}
+        }
+      }
+    },
+    "limitations": {"type": "array", "items": {"type": "string"}}
+  }
+}

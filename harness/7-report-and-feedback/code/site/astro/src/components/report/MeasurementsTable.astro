@@ -1,0 +1,67 @@
+---
+// Selected measurements, one row per operating point.
+//
+// Replaces the client-side table() that previously built these rows in the
+// browser — which is why the published pages carried almost no tabular text.
+// Both kinds are emitted; the report-level radios show one at a time.
+import { stat, f, type NormalizedData, type Kind } from '../../lib/report';
+
+interface Props {
+  data: NormalizedData;
+  kind: Kind;
+}
+
+const { data, kind } = Astro.props;
+const points = [...(data.series[kind]?.points ?? [])].sort((a, b) => a.concurrency - b.concurrency);
+const throughputLabel = kind === 'decode' ? 'Output tokens/s' : 'Input tokens/s';
+
+const cell = (point: (typeof points)[number], metric: string, digits = 0) => {
+  const s = stat(point, metric);
+  return s ? f(s.median, digits) : '—';
+};
+---
+
+<div class="tablebox">
+  <table>
+    <caption class="sr-only">
+      {kind === 'decode' ? 'Decode' : 'Prefill'} measurements by global concurrency: median values and repetition ranges
+    </caption>
+    <thead>
+      <tr>
+        <th scope="col">Concurrency</th>
+        <th scope="col">n</th>
+        <th scope="col">{throughputLabel}</th>
+        <th scope="col">Range</th>
+        <th scope="col">TTFT p50</th>
+        <th scope="col">TTFT p95</th>
+        <th scope="col">ITL p95</th>
+        <th scope="col">GPU power</th>
+        <th scope="col">GPU temp</th>
+        <th scope="col">Host CPU</th>
+      </tr>
+    </thead>
+    <tbody>
+      {points.map((point) => {
+        const throughput = stat(point, 'throughput');
+        return (
+          <tr>
+            <th scope="row">C{point.concurrency}</th>
+            <td>{throughput?.n ?? '—'}</td>
+            <td>{throughput ? f(throughput.median, 0) : '—'}</td>
+            <td>
+              {throughput && throughput.minimum !== null && throughput.maximum !== null
+                ? `${f(throughput.minimum, 0)}–${f(throughput.maximum, 0)}`
+                : '—'}
+            </td>
+            <td>{cell(point, 'ttft_p50')} ms</td>
+            <td>{cell(point, 'ttft_p95')} ms</td>
+            <td>{cell(point, 'itl_p95', 1)} ms</td>
+            <td>{cell(point, 'gpu_board_power')} W</td>
+            <td>{cell(point, 'gpu_temperature', 1)}</td>
+            <td>{cell(point, 'host_cpu_busy', 1)}%</td>
+          </tr>
+        );
+      })}
+    </tbody>
+  </table>
+</div>

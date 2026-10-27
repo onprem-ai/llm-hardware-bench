@@ -1,0 +1,16 @@
+schema_version: 1
+campaign_id: 20260830-full-glm53-radixark-graph128-missing-decode
+study_id: xe7740
+status: active
+host: xe7740-04
+model: RadixArk/GLM-5.3-NVFP4
+revision: 363e8f086905afd83db356a620f9aa401c23800a
+external_path: /home/demouser/llm-benchmark-results/xe7740-04/glm-5.3-nvfp4/363e8f086905/r1-tp8-dcp1-mtp3-seq32-b8192-graph128-r18/20260830-full-glm53-radixark-graph128-missing-decode
+canonical_layout: true
+completion_marker: null
+expected_base_runs: 4
+notes:
+  - Completes the missing C1, C8, C48, and C64 decode points for the graph-128 seven-point qualification grid.
+  - C16, C24, and C32 are preserved in the separate graph-128 boundary canary.
+  - One repetition only; this is qualification evidence, not a formal repeated campaign.
+  - Warm-up request count is capped at 64.

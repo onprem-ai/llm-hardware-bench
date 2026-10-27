@@ -1,0 +1,12 @@
+---
+// Labels driving the report-level decode/prefill radios.
+//
+// The inputs themselves live once at the report root (see Report.astro); these
+// labels only point at them, so every tab bar on the page stays in sync and no
+// script is involved. Rendered as a radiogroup for assistive technology.
+---
+
+<div class="kind-tabs" role="radiogroup" aria-label="Measurement kind">
+  <label class="kind-tab kind-tab-decode" for="kind-decode">Decode</label>
+  <label class="kind-tab kind-tab-prefill" for="kind-prefill">Prefill</label>
+</div>

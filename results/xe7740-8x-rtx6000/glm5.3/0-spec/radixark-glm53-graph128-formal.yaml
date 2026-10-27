@@ -1,0 +1,201 @@
+schema_version: 1
+campaign:
+  id: 20260830-full-glm53-radixark-graph128-formal
+  purpose: formal-capacity
+  repetitions: 3
+  order_seed: 530131
+  settle_seconds: 15
+  telemetry_delay_seconds: 60
+  imported_runs:
+  - profile: decode
+    concurrency: 1
+    repetition: 1
+    manifest: /home/demouser/llm-benchmark-results/xe7740-04/glm-5.3-nvfp4/363e8f086905/r1-tp8-dcp1-mtp3-seq32-b8192-graph128-r18/20260830-full-glm53-radixark-graph128-missing-decode/runs/decode/c0001/run-r01-20260830T132235Z-80b73272b109/manifest.json
+  - profile: decode
+    concurrency: 8
+    repetition: 1
+    manifest: /home/demouser/llm-benchmark-results/xe7740-04/glm-5.3-nvfp4/363e8f086905/r1-tp8-dcp1-mtp3-seq32-b8192-graph128-r18/20260830-full-glm53-radixark-graph128-missing-decode/runs/decode/c0008/run-r01-20260830T133533Z-b350ac8d6a18/manifest.json
+  - profile: decode
+    concurrency: 16
+    repetition: 1
+    manifest: /home/demouser/llm-benchmark-results/xe7740-04/glm-5.3-nvfp4/363e8f086905/r1-tp8-dcp1-mtp3-seq32-b8192-graph128-r18/20260830-full-glm53-radixark-graph128-canary/runs/decode/c0016/run-r01-20260830T114807Z-beb67cffba51/manifest.json
+  - profile: decode
+    concurrency: 24
+    repetition: 1
+    manifest: /home/demouser/llm-benchmark-results/xe7740-04/glm-5.3-nvfp4/363e8f086905/r1-tp8-dcp1-mtp3-seq32-b8192-graph128-r18/20260830-full-glm53-radixark-graph128-canary/runs/decode/c0024/run-r01-20260830T115149Z-adf4eceb707b/manifest.json
+  - profile: decode
+    concurrency: 32
+    repetition: 1
+    manifest: /home/demouser/llm-benchmark-results/xe7740-04/glm-5.3-nvfp4/363e8f086905/r1-tp8-dcp1-mtp3-seq32-b8192-graph128-r18/20260830-full-glm53-radixark-graph128-canary/runs/decode/c0032/run-r01-20260830T114356Z-705b7abbac1b/manifest.json
+  - profile: decode
+    concurrency: 48
+    repetition: 1
+    manifest: /home/demouser/llm-benchmark-results/xe7740-04/glm-5.3-nvfp4/363e8f086905/r1-tp8-dcp1-mtp3-seq32-b8192-graph128-r18/20260830-full-glm53-radixark-graph128-missing-decode/runs/decode/c0048/run-r01-20260830T133053Z-393929c276bf/manifest.json
+  - profile: decode
+    concurrency: 64
+    repetition: 1
+    manifest: /home/demouser/llm-benchmark-results/xe7740-04/glm-5.3-nvfp4/363e8f086905/r1-tp8-dcp1-mtp3-seq32-b8192-graph128-r18/20260830-full-glm53-radixark-graph128-missing-decode/runs/decode/c0064/run-r01-20260830T132556Z-a1fb98a4009b/manifest.json
+  - profile: prefill
+    concurrency: 1
+    repetition: 1
+    manifest: /home/demouser/llm-benchmark-results/xe7740-04/glm-5.3-nvfp4/363e8f086905/r1-tp8-dcp1-mtp3-seq32-b8192-graph128-r18/20260830-full-glm53-radixark-graph128-prefill/runs/prefill/c0001/run-r01-20260830T154312Z-6f8eb77f5d38/manifest.json
+  - profile: prefill
+    concurrency: 8
+    repetition: 1
+    manifest: /home/demouser/llm-benchmark-results/xe7740-04/glm-5.3-nvfp4/363e8f086905/r1-tp8-dcp1-mtp3-seq32-b8192-graph128-r18/20260830-full-glm53-radixark-graph128-prefill/runs/prefill/c0008/run-r01-20260830T154858Z-926ce370094c/manifest.json
+  - profile: prefill
+    concurrency: 16
+    repetition: 1
+    manifest: /home/demouser/llm-benchmark-results/xe7740-04/glm-5.3-nvfp4/363e8f086905/r1-tp8-dcp1-mtp3-seq32-b8192-graph128-r18/20260830-full-glm53-radixark-graph128-prefill/runs/prefill/c0016/run-r01-20260830T153410Z-0c52eacb4d79/manifest.json
+  - profile: prefill
+    concurrency: 24
+    repetition: 1
+    manifest: /home/demouser/llm-benchmark-results/xe7740-04/glm-5.3-nvfp4/363e8f086905/r1-tp8-dcp1-mtp3-seq32-b8192-graph128-r18/20260830-full-glm53-radixark-graph128-prefill/runs/prefill/c0024/run-r01-20260830T153705Z-4608b304a118/manifest.json
+  - profile: prefill
+    concurrency: 32
+    repetition: 1
+    manifest: /home/demouser/llm-benchmark-results/xe7740-04/glm-5.3-nvfp4/363e8f086905/r1-tp8-dcp1-mtp3-seq32-b8192-graph128-r18/20260830-full-glm53-radixark-graph128-prefill/runs/prefill/c0032/run-r01-20260830T154553Z-7c71d1da8e0f/manifest.json
+  - profile: prefill
+    concurrency: 48
+    repetition: 1
+    manifest: /home/demouser/llm-benchmark-results/xe7740-04/glm-5.3-nvfp4/363e8f086905/r1-tp8-dcp1-mtp3-seq32-b8192-graph128-r18/20260830-full-glm53-radixark-graph128-prefill/runs/prefill/c0048/run-r01-20260830T153104Z-943eddc03da7/manifest.json
+  - profile: prefill
+    concurrency: 64
+    repetition: 1
+    manifest: /home/demouser/llm-benchmark-results/xe7740-04/glm-5.3-nvfp4/363e8f086905/r1-tp8-dcp1-mtp3-seq32-b8192-graph128-r18/20260830-full-glm53-radixark-graph128-prefill/runs/prefill/c0064/run-r01-20260830T154004Z-62046e5a9b39/manifest.json
+model:
+  repository: RadixArk/GLM-5.3-NVFP4
+  revision: 363e8f086905afd83db356a620f9aa401c23800a
+  served_name: glm-5.3-nvfp4-radixark
+  slug: glm-5.3-nvfp4
+  quantization: ModelOpt NVFP4 W4A4 routed experts in layers 3-77; BF16 MTP layer
+    78
+deployment:
+  id: r1-tp8-dcp1-mtp3-seq32-b8192-graph128-r18
+  endpoint: http://127.0.0.1:8080
+  health_endpoint: http://127.0.0.1:8080/health
+  topology: one TP8 replica
+  image: voipmonitor/vllm@sha256:414ec7d0d28358cfd8af0697f330f5c8acbb80e4dc4e5ba69c9fd5b5855ea804
+  max_model_len: 262144
+  max_num_seqs: 32
+  max_num_batched_tokens: 8192
+  gpu_memory_utilization: 0.95
+  kv_cache_dtype: fp8
+  speculative_tokens: 3
+  max_cudagraph_capture_size: 128
+benchmark:
+  command:
+  - /home/demouser/benchmarks/aiperf/.venv/bin/aiperf
+  - profile
+  - --model
+  - '{served_name}'
+  - --tokenizer
+  - /home/demouser/models/RadixArk--GLM-5.3-NVFP4--model
+  - --endpoint-type
+  - chat
+  - --endpoint
+  - /v1/chat/completions
+  - --streaming
+  - --url
+  - '{endpoint}'
+  - --concurrency
+  - '{concurrency}'
+  - --synthetic-input-tokens-mean
+  - '{input_tokens_mean}'
+  - --synthetic-input-tokens-stddev
+  - '{input_tokens_stddev}'
+  - --output-tokens-mean
+  - '{output_tokens_mean}'
+  - --output-tokens-stddev
+  - '{output_tokens_stddev}'
+  - --benchmark-duration
+  - '{benchmark_duration}'
+  - --benchmark-grace-period
+  - inf
+  - --random-seed
+  - '{random_seed}'
+  - --extra-inputs
+  - '{"temperature":0,"ignore_eos":true}'
+  - --request-timeout-seconds
+  - '1800'
+  - --output-artifact-dir
+  - '{artifact_dir}'
+  warmup_command:
+  - /home/demouser/benchmarks/aiperf/.venv/bin/aiperf
+  - profile
+  - --model
+  - '{served_name}'
+  - --tokenizer
+  - /home/demouser/models/RadixArk--GLM-5.3-NVFP4--model
+  - --endpoint-type
+  - chat
+  - --endpoint
+  - /v1/chat/completions
+  - --streaming
+  - --url
+  - '{endpoint}'
+  - --concurrency
+  - '{concurrency}'
+  - --synthetic-input-tokens-mean
+  - '{input_tokens_mean}'
+  - --synthetic-input-tokens-stddev
+  - '{input_tokens_stddev}'
+  - --output-tokens-mean
+  - '{output_tokens_mean}'
+  - --output-tokens-stddev
+  - '{output_tokens_stddev}'
+  - --request-count
+  - '{warmup_requests}'
+  - --random-seed
+  - '{random_seed}'
+  - --extra-inputs
+  - '{"temperature":0,"ignore_eos":true}'
+  - --request-timeout-seconds
+  - '1800'
+  - --output-artifact-dir
+  - '{artifact_dir}'
+  result_file: profile_export_aiperf.json
+  environment: {}
+telemetry:
+  victoriametrics_url: http://127.0.0.1:8428
+  query_file: harness/2-preflight-conformance/code/configs/fabric-promql.txt
+  step: 1s
+  collectors:
+  - name: gpu
+    command:
+    - harness/2-preflight-conformance/code/gpu/sample-nvidia-smi.sh
+    - '{telemetry_dir}/gpu.csv'
+    - '{collector_interval}'
+  - name: host
+    command:
+    - harness/2-preflight-conformance/code/host/sample-host.sh
+    - '{telemetry_dir}/host.csv'
+    - '{collector_interval}'
+profiles:
+- name: decode
+  concurrency: &id001
+  - 1
+  - 8
+  - 16
+  - 24
+  - 32
+  - 48
+  - 64
+  input_tokens_mean: 8
+  input_tokens_stddev: 0
+  output_tokens_mean: 768
+  output_tokens_stddev: 0
+  benchmark_duration: 60
+  warmup_requests_multiplier: 2
+  extra_args: &id002 []
+  warmup_requests_cap: 64
+- name: prefill
+  concurrency: *id001
+  input_tokens_mean: 2048
+  input_tokens_stddev: 0
+  output_tokens_mean: 8
+  output_tokens_stddev: 0
+  benchmark_duration: 60
+  warmup_requests_multiplier: 2
+  extra_args: *id002
+  warmup_requests_cap: 64

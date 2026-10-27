@@ -1,0 +1,27 @@
+schema_version: 1
+study_id: xe7740
+status: active
+host_ids:
+  - xe7740-04
+objective: >-
+  Characterize useful LLM serving capacity, bottlenecks, and deployment guidance
+  for the eight-GPU server across representative dense and MoE model families.
+methodology:
+  procedure: ../../PIPELINE.md
+  prerequisites: ../../harness/2-preflight-conformance/RULES.md
+  metrics: ../../harness/2-preflight-conformance/RULES.md
+  artifact_layout: ../../harness/5-formal-campaign/RULES.md
+  concurrency_design: ../../harness/2-preflight-conformance/RULES.md
+configs:
+  concurrency_grids: concurrency-grids.yaml
+external_results_root:
+  environment_variable: LLM_BENCH_RESULTS_ROOT
+  observed_value: /home/demouser/llm-benchmark-results
+legacy_results:
+  policy: preserve_in_place_and_reference_with_campaign_pointer
+open_todos:
+  - todos/hold-observability-background-load-constant.md
+completed_work:
+  - journal/2026-08-29-fabric-closeout.md
+next_campaign:
+  - campaigns/full-glm53-next.yaml

@@ -1,0 +1,176 @@
+{
+  "runs": 42,
+  "expected": 42,
+  "gates_pass": 42,
+  "gate_violations": 0,
+  "detail": [
+    {
+      "run": "decode/c001/r1",
+      "gate": 0.0
+    },
+    {
+      "run": "decode/c001/r2",
+      "gate": 0.0
+    },
+    {
+      "run": "decode/c001/r3",
+      "gate": 0.0
+    },
+    {
+      "run": "decode/c008/r1",
+      "gate": 0.0
+    },
+    {
+      "run": "decode/c008/r2",
+      "gate": 0.0
+    },
+    {
+      "run": "decode/c008/r3",
+      "gate": 0.0
+    },
+    {
+      "run": "decode/c016/r1",
+      "gate": 0.0
+    },
+    {
+      "run": "decode/c016/r2",
+      "gate": 0.0
+    },
+    {
+      "run": "decode/c016/r3",
+      "gate": 0.0
+    },
+    {
+      "run": "decode/c024/r1",
+      "gate": 0.0
+    },
+    {
+      "run": "decode/c024/r2",
+      "gate": 0.0
+    },
+    {
+      "run": "decode/c024/r3",
+      "gate": 0.0
+    },
+    {
+      "run": "decode/c032/r1",
+      "gate": 0.0
+    },
+    {
+      "run": "decode/c032/r2",
+      "gate": 0.0
+    },
+    {
+      "run": "decode/c032/r3",
+      "gate": 0.0
+    },
+    {
+      "run": "decode/c048/r1",
+      "gate": 0.0
+    },
+    {
+      "run": "decode/c048/r2",
+      "gate": 0.0
+    },
+    {
+      "run": "decode/c048/r3",
+      "gate": 0.0
+    },
+    {
+      "run": "decode/c064/r1",
+      "gate": 0.0
+    },
+    {
+      "run": "decode/c064/r2",
+      "gate": 0.0
+    },
+    {
+      "run": "decode/c064/r3",
+      "gate": 0.0
+    },
+    {
+      "run": "prefill/c001/r1",
+      "gate": 0.0
+    },
+    {
+      "run": "prefill/c001/r2",
+      "gate": 0.0
+    },
+    {
+      "run": "prefill/c001/r3",
+      "gate": 0.0
+    },
+    {
+      "run": "prefill/c008/r1",
+      "gate": 0.0
+    },
+    {
+      "run": "prefill/c008/r2",
+      "gate": 0.0
+    },
+    {
+      "run": "prefill/c008/r3",
+      "gate": 0.0
+    },
+    {
+      "run": "prefill/c016/r1",
+      "gate": 0.0
+    },
+    {
+      "run": "prefill/c016/r2",
+      "gate": 0.0
+    },
+    {
+      "run": "prefill/c016/r3",
+      "gate": 0.0
+    },
+    {
+      "run": "prefill/c024/r1",
+      "gate": 0.0
+    },
+    {
+      "run": "prefill/c024/r2",
+      "gate": 0.0
+    },
+    {
+      "run": "prefill/c024/r3",
+      "gate": 0.0
+    },
+    {
+      "run": "prefill/c032/r1",
+      "gate": 0.0
+    },
+    {
+      "run": "prefill/c032/r2",
+      "gate": 0.0
+    },
+    {
+      "run": "prefill/c032/r3",
+      "gate": 0.0
+    },
+    {
+      "run": "prefill/c048/r1",
+      "gate": 0.0
+    },
+    {
+      "run": "prefill/c048/r2",
+      "gate": 0.0
+    },
+    {
+      "run": "prefill/c048/r3",
+      "gate": 0.0
+    },
+    {
+      "run": "prefill/c064/r1",
+      "gate": 0.0
+    },
+    {
+      "run": "prefill/c064/r2",
+      "gate": 0.0
+    },
+    {
+      "run": "prefill/c064/r3",
+      "gate": 0.0
+    }
+  ]
+}

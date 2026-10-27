@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "report": {
+    "id": "glm53-radixark-full-capacity-20260830",
+    "title": "Full GLM-5.3 NVFP4 - Prefill and Decode Capacity",
+    "output_filename": "glm53-radixark-full-capacity-report.html",
+    "comparable": true,
+    "campaign_date": "2026-08-30",
+    "subtitle": "RadixArk full GLM-5.3 NVFP4 on one eight-GPU TP8 replica"
+  },
+  "source": {
+    "campaign_id": "20260830-full-glm53-radixark-formal",
+    "campaign_path": "/home/demouser/llm-benchmark-results/xe7740-04/glm-5.3-nvfp4/363e8f086905/r1-tp8-dcp1-mtp3-seq32-b8192-r18/20260830-full-glm53-radixark-formal",
+    "normalized_data": "normalized-report-data.json"
+  },
+  "model": {
+    "display_name": "GLM-5.3 NVFP4 (full model)",
+    "repository": "RadixArk/GLM-5.3-NVFP4",
+    "revision": "363e8f086905afd83db356a620f9aa401c23800a",
+    "served_name": "glm-5.3-nvfp4-radixark",
+    "quantization": "ModelOpt NVFP4 W4A4 routed experts in layers 3-77; BF16 MTP layer 78"
+  },
+  "hardware": {
+    "host": "xe7740-04",
+    "gpu_count": 8,
+    "gpu_model": "NVIDIA RTX PRO 6000 Blackwell Server Edition 96 GB",
+    "logical_cpu_count": 344
+  },
+  "deployment": {
+    "topology_display": "one TP8 replica across eight GPUs",
+    "replicas": 1,
+    "tensor_parallel_per_replica": 8,
+    "max_model_len": 262144,
+    "max_num_seqs_per_replica": 32,
+    "active_sequence_ceiling": 32,
+    "max_num_batched_tokens_per_replica": 8192,
+    "kv_cache_dtype": "fp8",
+    "speculative_decoding": "MTP-3",
+    "cpu_numa_affinity": "not explicitly pinned for this TP8 deployment"
+  },
+  "axis": {
+    "measured_concurrency": [
+      1,
+      8,
+      16,
+      32,
+      64,
+      128
+    ],
+    "maximum": 192,
+    "major_ticks": [
+      1,
+      8,
+      16,
+      32,
+      64,
+      96,
+      128,
+      160,
+      192
+    ]
+  },
+  "metrics": {
+    "energy_method": "integrated_gpu_board_power",
+    "loaded_idle_baseline": true,
+    "temperature": true,
+    "load_balancer": false,
+    "pcie": true
+  },
+  "provenance_notes": [
+    "Raw campaign artifacts remain authoritative.",
+    "Ten qualification measurements were imported by immutable manifest reference as repetition one; 44 measurements were executed in the formal campaign directory.",
+    "GPU energy is estimated by integrating sampled aggregate GPU board power and excludes non-GPU system power.",
+    "PCIe RX/TX and replay data were collected per GPU through DCGM exact-window exports; these are endpoint metrics, not direct internal PCIe-switch port counters.",
+    "Firezone was enabled after all measured runs completed but before the post-idle baseline; measured benchmark windows were unaffected, while pre/post network-idle comparison must disclose this difference."
+  ]
+}

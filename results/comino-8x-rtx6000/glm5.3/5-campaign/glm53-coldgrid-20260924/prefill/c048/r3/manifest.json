@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "campaign_id": "glm53-coldgrid-20260924",
+  "run_id": "prefill-c48-r3",
+  "profile": "prefill",
+  "concurrency": 48,
+  "repetition": 3,
+  "random_seed": 648003,
+  "status": "complete",
+  "return_code": 0,
+  "start_time": "2026-09-24T19:49:12Z",
+  "end_time": "2026-09-24T19:50:47Z",
+  "command": "~/bench/llm-bench/aiperf-venv/bin/aiperf profile --model glm-5.3-nvfp4-radixark --url http://127.0.0.1:8084 --tokenizer ~/bench/models/RadixArk--GLM-5.3-NVFP4--model --endpoint-type chat --endpoint /v1/chat/completions --streaming --isl 2048 --isl-stddev 0 --osl 8 --osl-stddev 0 --concurrency 48 --benchmark-duration 60 --benchmark-grace-period inf --use-server-token-count --random-seed 648003 --extra-inputs '{\"temperature\": 0, \"ignore_eos\": true}' --request-timeout-seconds 1800 --output-artifact-dir ~/bench/llm-bench/campaigns/glm53-coldgrid-20260924/prefill/c048/r3 --num-dataset-entries 4000 --dataset-sampling-strategy sequential --server-metrics",
+  "command_source": "campaign commands.log (verbatim aiperf invocation)",
+  "error": null,
+  "events": [
+    {
+      "event": "warmup",
+      "requests": 48,
+      "same_concurrency": true,
+      "source": "warmup seed 953601/953602 disjoint from measured per-(C,rep) pools"
+    },
+    {
+      "event": "measured",
+      "window_s": 60,
+      "realized_s": 70.42233420800001
+    }
+  ],
+  "measurements": {
+    "cache_read_pct": 0.0,
+    "cache_read_source": "engine /metrics vllm prefix_cache_hits/queries deltas per rep; fail-closed gate <=1%",
+    "container_launches": 2,
+    "gpu_samples_in_window": 113,
+    "realized_window_s": 70.42233420800001,
+    "token_source_server_asserted": true
+  },
+  "artifacts": {
+    "result": "profile_export_aiperf.json"
+  }
+}

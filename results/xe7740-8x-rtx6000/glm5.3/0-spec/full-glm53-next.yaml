@@ -1,0 +1,16 @@
+schema_version: 1
+campaign_id: full-glm53-next
+study_id: xe7740
+status: planned
+host: xe7740-04
+model: RadixArk/GLM-5.3-NVFP4
+revision: 363e8f086905afd83db356a620f9aa401c23800a
+external_path: /home/demouser/llm-benchmark-results/xe7740-04/glm-5.3-nvfp4/363e8f086905
+canonical_layout: true
+completion_marker: null
+expected_base_runs: 72
+notes:
+  - Full GLM-5.3 is the remaining model family after completed GLM-5.3-Flash, Qwen3.8, and DeepSeek-V4-Flash campaigns.
+  - RadixArk is the preferred next qualification candidate because its BF16-derived calibrated main-model methodology is strongest among reviewed community artifacts.
+  - "This is a plan, not a runnable campaign: checkpoint download/integrity and pinned-runtime MTP compatibility must pass before a deployment ID and campaign path are frozen."
+  - underlabs is not selected because its published layer-78 MTP tensors failed the pinned target runtime loader with a deterministic shape mismatch.

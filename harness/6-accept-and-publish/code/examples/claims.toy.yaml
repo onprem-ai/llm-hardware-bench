@@ -1,0 +1,19 @@
+schema_version: 1
+study_id: toy-study
+headline:
+  metric: output tokens/s
+  value: 72.0
+  concurrency: 4
+  statistic: median
+  repetition_values: [72.0, 72.0, 72.0]
+claims:
+  - id: toy-model.decode.vs-toyhost-c4
+    comparator: toy-model.decode.toyhost-c4
+    subject_value: 72.0
+    stated_pct: -10.0
+    tolerance_pct: 0.5
+    direction: lower_is_worse
+    note: "toy example; the C4 point (80.0) is the same configuration as the headline"
+prohibited_claims:
+  - id: toy-model.prefill.improvement
+    reason: "toy: the prefill grid was superseded and must not be quoted"

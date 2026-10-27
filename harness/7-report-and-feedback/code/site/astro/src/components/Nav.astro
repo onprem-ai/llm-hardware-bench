@@ -1,0 +1,10 @@
+---
+import { url } from '../lib/url';
+// Site topbar. Report pages use their own hardware header (ReportPage.astro),
+// so this carries the brand only.
+---
+<header class="topbar">
+  <div class="wrap">
+    <a href={url('/benchmarks/')}><strong>onprem.ai</strong></a>
+  </div>
+</header>

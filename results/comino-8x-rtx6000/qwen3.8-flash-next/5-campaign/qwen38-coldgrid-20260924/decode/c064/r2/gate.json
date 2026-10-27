@@ -1,0 +1,6 @@
+{
+  "kind": "decode",
+  "client_cache_read_tokens": 0,
+  "pass": true,
+  "reason": "decode profile runs radix-on by design (ISL 8); cache reads recorded, not gated"
+}

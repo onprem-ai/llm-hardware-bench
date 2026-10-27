@@ -1,0 +1,103 @@
+schema_version: 1
+study_id: xe7740-8x-rtx6000
+semantics: global_offered_client_concurrency
+rules_document: ../../harness/2-preflight-conformance/RULES.md
+models:
+  glm-5.3:
+    topology:
+      replicas: 1
+      tensor_parallel_per_replica: 8
+    total_parameters_approx: 753000000000
+    active_parameters_approx: 40000000000
+    grid:
+    - 1
+    - 8
+    - 16
+    - 24
+    - 32
+    - 48
+    - 64
+    hard_max: 64
+    rationale: Seven-point grid retains low-concurrency behavior, adds C24 to locate
+      the C16-C32 transition, includes the 32-sequence admission ceiling, and retains
+      C48/C64 as overload coverage without the long C128 drain.
+    completed_20260830_grid:
+    - 1
+    - 8
+    - 16
+    - 32
+    - 64
+    - 128
+  glm-5.3-flash:
+    topology:
+      replicas: 2
+      tensor_parallel_per_replica: 4
+    total_parameters_approx: 320000000000
+    active_parameters_approx: 18000000000
+    grid:
+    - 1
+    - 8
+    - 32
+    - 64
+    - 96
+    - 160
+    - 192
+    - 256
+    hard_max: 256
+    rationale: Two replicas and lower active compute support a higher global range;
+      upper points expose the shoulder, active-sequence pressure, and queueing.
+  qwen3.8-27b-nvfp4:
+    topology:
+      replicas: 2
+      tensor_parallel_per_replica: 4
+    total_parameters_approx: 27000000000
+    active_parameters_approx: 27000000000
+    planned_grid:
+    - 1
+    - 8
+    - 32
+    - 64
+    - 128
+    - 256
+    - 384
+    - 512
+    actual_campaign_grid:
+    - 1
+    - 8
+    - 32
+    - 64
+    - 96
+    - 160
+    - 192
+    - 256
+    hard_max_planned: 512
+    hard_max_actual: 256
+    protocol_deviation: The completed 20260829 campaign executed the second grid despite
+      its stale top-level manifest retaining the planned grid. The 72 run manifests
+      are authoritative; see the campaign pointer and closeout amendment.
+    rationale: Qualification showed continued aggregate decode gains through C512,
+      so the planned grid reached 512. The completed campaign did not execute that
+      plan and must not be reported as measured through C512.
+  deepseek-v4-flash-0731:
+    topology:
+      replicas: 4
+      tensor_parallel_per_replica: 2
+    total_parameters_approx: 284000000000
+    active_parameters_approx: 13000000000
+    grid:
+    - 1
+    - 8
+    - 32
+    - 64
+    - 96
+    - 128
+    - 192
+    - 256
+    hard_max: 256
+    rationale: Qualification of the selected speculative 4xTP2 deployment found
+      peak decode throughput at C128. Throughput declined at C192 and C256 while
+      p95 TTFT rose sharply; C384 and C512 added no useful capacity. The revised
+      grid adds C96 near the knee and retains C192/C256 as overload coverage.
+    superseded_qualification_points:
+    - 384
+    - 512

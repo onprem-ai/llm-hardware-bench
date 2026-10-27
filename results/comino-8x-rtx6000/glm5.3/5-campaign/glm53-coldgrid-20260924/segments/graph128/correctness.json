@@ -1,0 +1,56 @@
+{
+  "checks": 7,
+  "passed": 7,
+  "failed": [],
+  "rows": [
+    {
+      "id": "arith",
+      "prompt": "What is 17*23? Answer with only the number.",
+      "expect": "391",
+      "output": "391",
+      "pass": true
+    },
+    {
+      "id": "arith2",
+      "prompt": "Compute 4096/8 + 12. Answer with only the number.",
+      "expect": "524",
+      "output": "524",
+      "pass": true
+    },
+    {
+      "id": "extract",
+      "prompt": "Extract the city from: 'The parcel arrived in Utrecht on Tuesday.' Answer with only the city.",
+      "expect": "Utrecht",
+      "output": "Utrecht",
+      "pass": true
+    },
+    {
+      "id": "code",
+      "prompt": "Output exactly this JSON with no prose: {\"ok\": true, \"n\": 5}",
+      "expect": "ok",
+      "output": "{\"ok\": true, \"n\": 5}",
+      "pass": true
+    },
+    {
+      "id": "spell",
+      "prompt": "Spell the word 'supercalifragilisticexpialidocious'.",
+      "expect": "letters:supercalifragilisticexpialidocious",
+      "output": "Here's the word spelled out letter by letter:\n\n**s-u-p-e-r-c-a-l-i-f-r-a-g-i-l-i-s-t-i-c-e-x-p-i-a-l-i-d-o-c-i-o-u-s**\n\nThat's 34 letters total! It's the",
+      "pass": true
+    },
+    {
+      "id": "logic",
+      "prompt": "If all Bloops are Razzies and all Razzies are Lazzies, are all Bloops definitely Lazzies? Answer yes or no.",
+      "expect": "yes",
+      "output": "**Yes.**\n\nThis is a classic syllogism (transitive reasoning):\n- All Bloops are Razzies\n- All Razzies are Lazzies\n- Therefore, all Bloops are Lazzies\n\nSince every Bloop belongs to the set of",
+      "pass": true
+    },
+    {
+      "id": "repeat",
+      "prompt": "Repeat exactly: the quick brown fox jumps over the lazy dog",
+      "expect": "quick brown fox",
+      "output": "the quick brown fox jumps over the lazy dog",
+      "pass": true
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+schema_version: 1
+campaign: glm53-raster-20260906
+model: RadixArk/GLM-5.3-NVFP4
+host: xe7740-04
+headline:
+  metric: output tokens/s
+  value: 1110.99
+  configuration: "seq96/graph384 MTP3 TP8"
+  concurrency: 88
+  window_seconds: 90
+  repetitions: 3
+  repetition_values: [1105.40, 1118.10, 1110.99]
+  errors: 0
+  provisional: true
+  provisional_reason: >-
+    Synthetic 8-token prompts with prefix caching enabled. Publishable only after
+    the recorded-prompt protocol campaign (chapter 5).
+claims:
+  - id: glm53-raster.decode.improvement-over-published
+    kind: delta
+    subject_value: 1110.99
+    comparator: glm5.3.decode.published-headline
+    direction: higher_is_better
+    stated_pct: 19.8
+    tolerance_pct: 0.5
+    note: >-
+      Comparator is C48 on seq64/graph256; subject is C88 on seq96/graph384.
+      Cross-configuration by design: this is a profile comparison, not a point
+      comparison. The same published configuration reproduces in this session at
+      926.05-933.01, so the comparator is live, not stale.
+prohibited_claims:
+  - id: glm53-raster.prefill.improvement
+    reason: >-
+      Withdrawn 2026-09-06. Published prefill series is seq32/graph128 (different
+      deployment) and the raster used prefix-cached synthetic prompts. No prefill
+      improvement may be stated in either direction from this campaign.
+  - id: glm53-raster.decode.vs-1111
+    reason: >-
+      The comparator 1111 output tok/s at C48 does not exist in any artifact. Every
+      figure derived from it was retracted; see journal 2026-09-06 section 4.3.
